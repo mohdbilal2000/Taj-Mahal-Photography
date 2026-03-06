@@ -1,0 +1,8 @@
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import StickyWhatsApp from '@/components/StickyWhatsApp';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Metadata } from 'next';
+import { ShieldCheck, Award, MapPin, Users, Camera, Clock } from 'lucide-react';
+import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
