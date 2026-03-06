@@ -74,7 +74,7 @@ export function localBusinessSchema() {
       bestRating: '5',
       worstRating: '1',
     },
-    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook],
+    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://guideindiatours.com', 'https://asisbylocals.com'],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Taj Mahal Photography Packages',
@@ -235,7 +235,7 @@ export function personSchema() {
       },
     },
     worksFor: { '@id': `${SITE.url}/#business` },
-    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook],
+    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://guideindiatours.com', 'https://asisbylocals.com'],
   };
 }
 

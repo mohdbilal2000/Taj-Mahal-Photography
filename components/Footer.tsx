@@ -171,6 +171,13 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Partner network */}
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10 text-xs text-gray-500">
+          <span>Featured On:</span>
+          <a href="https://guideindiatours.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Guide India Tours</a>
+          <a href="https://asisbylocals.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Asis By Locals</a>
+        </div>
+
         {/* Bottom bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
           <p>
