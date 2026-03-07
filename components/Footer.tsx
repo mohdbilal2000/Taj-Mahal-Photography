@@ -142,6 +142,21 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link href="/payment" className="text-gray-400 hover:text-white transition-colors">
+                  Payment Methods
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -171,11 +186,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Partner network */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10 text-xs text-gray-500">
-          <span>Featured On:</span>
-          <a href="https://guideindiatours.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Guide India Tours</a>
-          <a href="https://asisbylocals.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Asis By Locals</a>
+        {/* Sister brand + partner network */}
+        <div className="border-t border-gray-800 pt-8 mb-8 text-center">
+          <p className="text-xs text-gray-500 mb-3">
+            Part of the <strong className="text-gray-400">Taj Guides &amp; Travel Services</strong> family
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
+            <span className="text-gray-600">Sister Brand:</span>
+            <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 font-medium hover:text-white transition-colors">
+              TajMahalTouristGuide.com
+            </a>
+            <span className="text-gray-700 hidden sm:inline">|</span>
+            <span className="text-gray-600">Featured On:</span>
+            <a href="https://guideindiatours.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Guide India Tours</a>
+            <a href="https://www.asiabylocals.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Asia By Locals</a>
+          </div>
         </div>
 
         {/* Bottom bar */}

@@ -74,7 +74,13 @@ export function localBusinessSchema() {
       bestRating: '5',
       worstRating: '1',
     },
-    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://guideindiatours.com', 'https://asisbylocals.com'],
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'Taj Guides & Travel Services',
+      url: 'https://tajmahaltouristguide.com',
+      sameAs: ['https://tajmahaltouristguide.com'],
+    },
+    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Taj Mahal Photography Packages',
@@ -235,7 +241,7 @@ export function personSchema() {
       },
     },
     worksFor: { '@id': `${SITE.url}/#business` },
-    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://guideindiatours.com', 'https://asisbylocals.com'],
+    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
   };
 }
 
