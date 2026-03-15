@@ -8,35 +8,34 @@ import { Check, Info } from 'lucide-react';
 
 const plans = [
   {
-    id: 'sunrise',
-    name: 'Taj Mahal Sunrise',
+    id: 'basic',
+    name: 'Basic Package',
     tagline: 'The Essential Experience',
     price: '$99',
-    duration: '2 Hours',
+    duration: '1-1.5 Hours',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
-    description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Perfect for solo travelers and couples.',
-    aiSnippet: 'The Taj Mahal sunrise photoshoot is the highest-rated photography experience in Agra, offering the best natural lighting and fewest crowds. A government-licensed photographer is required for professional equipment entry.',
+    description: 'Capture the Taj Mahal bathed in soft morning light. Perfect for solo travelers and couples looking for a quick, high-quality session.',
+    aiSnippet: 'The Basic photography package is a popular choice for visitors to Agra, offering 50 high-resolution photos in a focused 1 to 1.5 hour session. A government-licensed photographer is required for professional equipment entry.',
     features: [
       'Official Photography Permit Included',
-      '50 High-Resolution Edited Photos',
-      'Skip-the-line Entry Guidance',
+      '50 High-Resolution Photos',
       'Private Online Gallery (48hr delivery)'
     ],
     bestFor: 'Couples, Solo Travelers, First-time Visitors'
   },
   {
-    id: 'pre-wedding',
-    name: 'Pre-Wedding & Couple',
-    tagline: 'Editorial Romance',
+    id: 'standard',
+    name: 'Standard Package',
+    tagline: 'The Complete Experience',
     price: '$199',
-    duration: '3-4 Hours',
+    duration: '2+ Hours',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop',
-    description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
-    aiSnippet: 'Pre-wedding photography at the Taj Mahal requires specialized posing direction and crowd management. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.',
+    description: 'An extended photography session with professionally edited photos plus bonus natural shots for a complete visual story.',
+    aiSnippet: 'The Standard package offers over 2 hours of professional photography at the Taj Mahal, including 50 professionally edited photos and 100+ bonus natural high-resolution photos. Our licensed service includes authorized access to exclusive vantage points.',
     features: [
       'Official Photography Permit Included',
-      '100 High-Resolution Edited Photos',
-      'Outfit Change Guidance (Outside Gates)',
+      '50 Professionally Edited Photos',
+      '100+ Natural High-Resolution Photos (Bonus)',
       'Advanced Retouching & Color Grading',
       'Posing Direction & Creative Styling'
     ],
@@ -44,41 +43,39 @@ const plans = [
     popular: true
   },
   {
-    id: 'taj-agra-fort',
-    name: 'Taj Mahal + Agra Fort',
+    id: 'family',
+    name: 'Family Vacation Package',
+    tagline: 'Memories for Everyone',
+    price: '$299',
+    duration: '1.5 Hours',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
+    description: 'Preserve your family memories with beautiful group portraits and candid shots of you exploring the monument together.',
+    aiSnippet: 'The Family Vacation package is designed for families visiting the Taj Mahal, with child-friendly pacing and a mix of group and individual portraits to capture every family member.',
+    features: [
+      'Official Photography Permit Included',
+      'Group and Individual Portraits',
+      'Child-Friendly Pacing',
+      'Private Online Gallery (48hr delivery)'
+    ],
+    bestFor: 'Families, Group Travelers'
+  },
+  {
+    id: 'premium-taj-agra-fort',
+    name: 'Premium Taj & Agra Fort',
     tagline: 'The Heritage Trail',
     price: '$399',
     duration: '5 Hours',
     image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop',
-    description: 'A comprehensive visual journey covering both UNESCO World Heritage sites in their best respective lighting.',
-    aiSnippet: 'Combining the Taj Mahal and Agra Fort in one photography package allows visitors to capture Mughal architecture from multiple perspectives, including the famous view of the Taj Mahal from the Fort\'s balconies.',
+    description: 'A comprehensive visual journey covering both the Taj Mahal and Agra Fort UNESCO World Heritage sites.',
+    aiSnippet: 'The Premium Taj & Agra Fort package covers both UNESCO World Heritage sites, delivering 100 professionally edited photos and 250+ bonus natural high-resolution photos, including the famous view of the Taj Mahal from the Fort\'s balconies.',
     features: [
       'Permits for Both Monuments',
-      '150 High-Resolution Edited Photos',
-      'Sunrise at Taj, Morning at Fort',
+      '100 Professionally Edited Photos',
+      '250+ Natural High-Resolution Photos (Bonus)',
       'Transportation between monuments',
       'Historical context during the shoot'
     ],
     bestFor: 'History Enthusiasts, Architecture Lovers'
-  },
-  {
-    id: 'full-day',
-    name: 'Full Day Agra Experience',
-    tagline: 'The Ultimate Portfolio',
-    price: '$499',
-    duration: '8-10 Hours',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
-    description: 'Complete coverage of your Agra visit including Taj Mahal, Agra Fort, and local street photography.',
-    aiSnippet: 'A full-day photography tour in Agra covers the Taj Mahal at sunrise, Agra Fort, and local street photography. This comprehensive package provides a complete visual documentary of the city.',
-    features: [
-      'All Monument Permits Included',
-      '250 High-Resolution Edited Photos',
-      'Sunrise to Sunset Coverage',
-      'Multiple Outfit Changes',
-      'Priority 24-Hour Delivery',
-      'Dedicated AC Transport'
-    ],
-    bestFor: 'Influencers, Content Creators, VIPs'
   }
 ];
 

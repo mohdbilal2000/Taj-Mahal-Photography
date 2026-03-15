@@ -19,7 +19,7 @@ export default function StickyWhatsApp() {
 
   return (
     <motion.a
-      href="https://wa.me/918393010125?text=Hi,%20I%20would%20like%20to%20inquire%20about%20a%20Taj%20Mahal%20photoshoot."
+      href="https://wa.me/919319910505?text=Hi,%20I%20would%20like%20to%20inquire%20about%20a%20Taj%20Mahal%20photoshoot."
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}

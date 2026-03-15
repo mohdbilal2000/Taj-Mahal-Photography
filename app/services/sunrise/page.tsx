@@ -7,8 +7,8 @@ import Image from 'next/image';
 import { breadcrumbSchema, serviceSchema, faqSchema, jsonLd, SITE } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Taj Mahal Sunrise Photoshoot | $99 | Best Morning Light',
-  description: 'Book a premium sunrise photoshoot at the Taj Mahal from $99. 2-hour session, 50 edited photos, skip-the-line guidance, and official permit included. The most magical light and fewest crowds.',
+  title: 'Taj Mahal Basic Photography Package | $99 | 50 High-Resolution Photos',
+  description: 'Book a Basic photography package at the Taj Mahal from $99. 1-1.5 hour session, 50 high-resolution photos, and official permit included.',
   alternates: { canonical: `${SITE.url}/services/sunrise` },
   openGraph: {
     title: 'Taj Mahal Sunrise Photoshoot | Licensed Photographer',
@@ -63,10 +63,9 @@ export default function SunriseServicePage() {
 
                 <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">What&apos;s Included</h3>
                 <ul className="space-y-2">
-                  <li><strong>2 Hour Guided Session:</strong> Plenty of time to explore all the best vantage points.</li>
-                  <li><strong>50 High-Resolution Edited Photos:</strong> Professionally color-graded and retouched.</li>
+                  <li><strong>1-1.5 Hour Session:</strong> A focused session to capture the best vantage points.</li>
+                  <li><strong>50 High-Resolution Photos:</strong> Beautiful, high-quality images of your visit.</li>
                   <li><strong>Official Photography Permit:</strong> Full authorization for professional equipment entry.</li>
-                  <li><strong>Skip-the-Line Guidance:</strong> We know exactly which gate to use and how to navigate security quickly.</li>
                   <li><strong>Posing Direction:</strong> Gentle guidance to ensure you look natural and elegant.</li>
                   <li><strong>Private Online Gallery:</strong> Delivered within 48 hours for easy downloading and sharing.</li>
                 </ul>
@@ -88,9 +87,8 @@ export default function SunriseServicePage() {
                 <div className="text-3xl font-light text-ink-900 mb-6">$99 <span className="text-sm text-gray-500">USD</span></div>
 
                 <ul className="space-y-4 mb-8 text-sm text-gray-600">
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Meeting Time: 5:30 AM (Varies by season)</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Duration: 2 Hours</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Photos: 50 Edited</li>
+                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Duration: 1-1.5 Hours</li>
+                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Photos: 50 High-Resolution</li>
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Delivery: 48 Hours</li>
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Official Permit Included</li>
                 </ul>
@@ -124,9 +122,9 @@ export default function SunriseServicePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(serviceSchema(
           'Taj Mahal Sunrise Photoshoot',
-          'Premium sunrise photography at the Taj Mahal. 2-hour session with 50 edited photos, official permit, and skip-the-line guidance.',
+          'Basic photography package at the Taj Mahal. 1-1.5 hour session with 50 high-resolution photos and official permit.',
           99,
-          '2 Hours',
+          '1-1.5 Hours',
           `${SITE.url}/services/sunrise`,
           'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
         )) }}

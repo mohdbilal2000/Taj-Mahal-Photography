@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "How much does a Taj Mahal photoshoot cost?",
-    answer: "Packages start at $99 USD for a 2-hour sunrise session with 50 edited photos. Pre-wedding and couple packages start at $199, and full-day coverage starts at $499. All packages include official permit authorization for professional equipment."
+    answer: "Packages start at $99 USD for the Basic Package (1-1.5 hours, 50 high-resolution photos). The Standard Package is $199 (2+ hours, 50 edited photos + 100+ natural photos). Family Vacation is $299, and the Premium Taj & Agra Fort Package is $399. All packages include official permit authorization."
   },
   {
     question: "How do I book your services?",

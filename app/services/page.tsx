@@ -8,7 +8,7 @@ import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Photography Services | Sunrise, Couple, Family & Pre-Wedding',
-  description: 'Premium Taj Mahal photography services: sunrise photoshoots from $99, couple & pre-wedding portraits from $199, family photography, proposal shoots, and full-day heritage tours. Government-licensed photographer.',
+  description: 'Premium Taj Mahal photography packages: Basic from $99, Standard from $199, Family Vacation $299, and Premium Taj & Agra Fort $399. Government-licensed photographer.',
   alternates: { canonical: `${SITE.url}/services` },
   openGraph: {
     title: 'Taj Mahal Photography Services | Licensed Photographer',
@@ -20,27 +20,27 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    id: 'sunrise',
-    title: 'Taj Mahal Sunrise Photoshoot',
-    description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. We capture the monument as it changes colors with the rising sun.',
-    features: ['2 Hour Session', '50 Edited High-Res Photos', 'Skip-the-line guidance', 'Best lighting conditions'],
+    id: 'basic',
+    title: 'Basic Package',
+    description: 'A focused photography session to capture the Taj Mahal. Perfect for solo travelers and couples looking for high-quality photos in a shorter session.',
+    features: ['1-1.5 Hour Session', '50 High-Resolution Photos', 'Official Photography Permit', 'Private Online Gallery (48hr delivery)'],
     price: '$99',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
-    id: 'couple',
-    title: 'Couple & Pre-Wedding Photography',
-    description: 'Celebrate your love story at the ultimate monument of love. We provide editorial-style posing guidance while capturing candid, romantic moments.',
-    features: ['3-4 Hour Session', '100 Edited High-Res Photos', 'Outfit change allowed (outside gates)', 'Posing direction'],
+    id: 'standard',
+    title: 'Standard Package',
+    description: 'An extended photography session with professionally edited photos plus bonus natural shots for a complete visual story of your visit.',
+    features: ['2+ Hour Session', '50 Professionally Edited Photos', '100+ Natural High-Resolution Photos (Bonus)', 'Posing Direction & Creative Styling'],
     price: '$199',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'family',
-    title: 'Family Vacation Photography',
+    title: 'Family Vacation Package',
     description: 'Preserve your family memories with beautiful group portraits and candid shots of you exploring the monument together.',
-    features: ['1.5 Hour Session', '40+ Edited High-Res Photos', 'Group and individual portraits', 'Child-friendly pacing'],
-    price: '$200',
+    features: ['1.5 Hour Session', 'Group and Individual Portraits', 'Child-Friendly Pacing', 'Private Online Gallery (48hr delivery)'],
+    price: '$299',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
 ];
@@ -109,15 +109,15 @@ export default function ServicesPage() {
             <div className="space-y-8">
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">What is included in a Taj Mahal photography package?</h3>
-                <p className="text-gray-600">All packages include an official photography permit, a professional photographer with full-frame camera equipment, posing guidance, and professionally edited high-resolution photos delivered within 48 hours via a private online gallery. Monument entry tickets are not included.</p>
+                <p className="text-gray-600">All packages include an official photography permit, a professional photographer with full-frame camera equipment, posing guidance, and high-resolution photos delivered within 48 hours via a private online gallery. Monument entry tickets are not included.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Which Taj Mahal photography package is most popular?</h3>
-                <p className="text-gray-600">The Sunrise Photoshoot ($99, 2 hours) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
+                <p className="text-gray-600">The Standard Package ($199, 2+ hours) is the most popular, offering 50 professionally edited photos plus 100+ bonus natural high-resolution photos. The Basic Package ($99, 1-1.5 hours) is ideal for visitors looking for a quick, high-quality session.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Can I combine multiple photography services?</h3>
-                <p className="text-gray-600">Yes. The Taj Mahal + Agra Fort Heritage Trail ($399, 5 hours) and Full Day Agra Experience ($499, 8-10 hours) combine multiple locations. Custom combinations can also be arranged upon request.</p>
+                <p className="text-gray-600">Yes. The Premium Taj & Agra Fort Package ($399) covers both the Taj Mahal and Agra Fort with 100 professionally edited photos and 250+ natural high-resolution photos. Custom combinations can also be arranged upon request.</p>
               </div>
             </div>
           </div>
