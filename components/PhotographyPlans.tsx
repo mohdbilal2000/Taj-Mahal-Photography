@@ -12,13 +12,13 @@ const plans = [
     name: 'Taj Mahal Sunrise',
     tagline: 'The Essential Experience',
     price: '$99',
-    duration: '2 Hours',
+    duration: '1.5 Hours',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
     description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Perfect for solo travelers and couples.',
     aiSnippet: 'The Taj Mahal sunrise photoshoot is the highest-rated photography experience in Agra, offering the best natural lighting and fewest crowds. A government-licensed photographer is required for professional equipment entry.',
     features: [
       'Official Photography Permit Included',
-      '50 High-Resolution Edited Photos',
+      '50 High-Resolution Photos',
       'Skip-the-line Entry Guidance',
       'Private Online Gallery (48hr delivery)'
     ],
@@ -29,15 +29,15 @@ const plans = [
     name: 'Pre-Wedding & Couple',
     tagline: 'Editorial Romance',
     price: '$199',
-    duration: '3-4 Hours',
+    duration: '2+ Hours',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop',
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
     aiSnippet: 'Pre-wedding photography at the Taj Mahal requires specialized posing direction and crowd management. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.',
     features: [
       'Official Photography Permit Included',
-      '100 High-Resolution Edited Photos',
+      '50 Professionally Edited Photos',
+      '100+ Natural High-Resolution Photos',
       'Outfit Change Guidance (Outside Gates)',
-      'Advanced Retouching & Color Grading',
       'Posing Direction & Creative Styling'
     ],
     bestFor: 'Engagements, Pre-Weddings, Anniversaries',
@@ -54,7 +54,8 @@ const plans = [
     aiSnippet: 'Combining the Taj Mahal and Agra Fort in one photography package allows visitors to capture Mughal architecture from multiple perspectives, including the famous view of the Taj Mahal from the Fort\'s balconies.',
     features: [
       'Permits for Both Monuments',
-      '150 High-Resolution Edited Photos',
+      '100 Professionally Edited Photos',
+      '250+ Natural High-Resolution Photos',
       'Sunrise at Taj, Morning at Fort',
       'Transportation between monuments',
       'Historical context during the shoot'
@@ -68,14 +69,15 @@ const plans = [
     price: '$499',
     duration: '8-10 Hours',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
-    description: 'Complete coverage of your Agra visit including Taj Mahal, Agra Fort, and local street photography.',
-    aiSnippet: 'A full-day photography tour in Agra covers the Taj Mahal at sunrise, Agra Fort, and local street photography. This comprehensive package provides a complete visual documentary of the city.',
+    description: 'Complete coverage of your Agra visit including Taj Mahal, Agra Fort, and Back Side of Taj Mahal.',
+    aiSnippet: 'A full-day photography tour in Agra covers the Taj Mahal at sunrise, Agra Fort, and the back side of Taj Mahal. This comprehensive package provides a complete visual documentary of the city.',
     features: [
       'All Monument Permits Included',
-      '250 High-Resolution Edited Photos',
-      'Sunrise to Sunset Coverage',
+      '150+ Professionally Edited Photos',
+      '350+ Natural High-Resolution Photos',
+      'Taj Mahal, Agra Fort & Back Side of Taj Mahal',
       'Multiple Outfit Changes',
-      'Priority 24-Hour Delivery',
+      '48-Hour Delivery',
       'Dedicated AC Transport'
     ],
     bestFor: 'Influencers, Content Creators, VIPs'

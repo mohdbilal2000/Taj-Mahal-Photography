@@ -23,7 +23,7 @@ const services = [
     id: 'sunrise',
     title: 'Taj Mahal Sunrise Photoshoot',
     description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. We capture the monument as it changes colors with the rising sun.',
-    features: ['2 Hour Session', '50 Edited High-Res Photos', 'Skip-the-line guidance', 'Best lighting conditions'],
+    features: ['1.5 Hour Session', '50 High-Res Photos', 'Skip-the-line guidance', 'Best lighting conditions'],
     price: '$99',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
@@ -31,7 +31,7 @@ const services = [
     id: 'couple',
     title: 'Couple & Pre-Wedding Photography',
     description: 'Celebrate your love story at the ultimate monument of love. We provide editorial-style posing guidance while capturing candid, romantic moments.',
-    features: ['3-4 Hour Session', '100 Edited High-Res Photos', 'Outfit change allowed (outside gates)', 'Posing direction'],
+    features: ['2+ Hour Session', '50 Edited Photos', '100+ Natural High-Res Photos', 'Outfit change allowed (outside gates)', 'Posing direction'],
     price: '$199',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
@@ -40,7 +40,7 @@ const services = [
     title: 'Family Vacation Photography',
     description: 'Preserve your family memories with beautiful group portraits and candid shots of you exploring the monument together.',
     features: ['1.5 Hour Session', '40+ Edited High-Res Photos', 'Group and individual portraits', 'Child-friendly pacing'],
-    price: '$200',
+    price: '$299',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
 ];
@@ -113,7 +113,7 @@ export default function ServicesPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Which Taj Mahal photography package is most popular?</h3>
-                <p className="text-gray-600">The Sunrise Photoshoot ($99, 2 hours) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
+                <p className="text-gray-600">The Sunrise Photoshoot ($99, 1.5 hours) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Can I combine multiple photography services?</h3>
