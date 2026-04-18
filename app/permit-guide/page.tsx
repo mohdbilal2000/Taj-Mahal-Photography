@@ -111,7 +111,7 @@ export default function PermitGuidePage() {
                   { step: '2', title: 'Receive Confirmation', desc: 'We confirm availability within hours and share session details, meeting point, and preparation tips.' },
                   { step: '3', title: 'Meet at the Gate', desc: 'On shoot day, meet at the designated entry gate (usually East Gate for sunrise sessions).' },
                   { step: '4', title: 'Enjoy Your Session', desc: 'We handle permits, security, and navigation while you focus on having an amazing experience.' },
-                  { step: '5', title: 'Receive Your Gallery', desc: 'Get your professionally edited, high-resolution photos within 48 hours via a private online gallery.' },
+                  { step: '5', title: 'Receive Your Gallery', desc: 'Get your high-resolution photos within 48 hours via a private online gallery.' },
                 ].map((item) => (
                   <div key={item.step} className="flex items-start gap-4 bg-marble-50 p-4 rounded border border-marble-200">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold-500 text-white flex items-center justify-center font-bold text-sm">{item.step}</div>
@@ -158,7 +158,7 @@ export default function PermitGuidePage() {
             { '@type': 'HowToStep', name: 'Receive Confirmation', text: 'We confirm availability and share session details, meeting point, and preparation tips.' },
             { '@type': 'HowToStep', name: 'Meet at the Gate', text: 'On shoot day, meet at the designated entry gate (usually East Gate for sunrise).' },
             { '@type': 'HowToStep', name: 'Enjoy Your Session', text: 'We handle permits, security, and navigation while you enjoy the experience.' },
-            { '@type': 'HowToStep', name: 'Receive Your Gallery', text: 'Get professionally edited high-resolution photos within 48 hours via a private gallery.' },
+            { '@type': 'HowToStep', name: 'Receive Your Gallery', text: 'Get high-resolution photos within 48 hours via a private gallery.' },
           ],
         }) }}
       />

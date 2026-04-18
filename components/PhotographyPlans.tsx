@@ -8,6 +8,23 @@ import { Check, Info } from 'lucide-react';
 
 const plans = [
   {
+    id: 'quick-capture',
+    name: 'Quick Capture',
+    tagline: 'The Starter Experience',
+    price: '$50',
+    duration: '30 Minutes',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
+    description: 'A quick photoshoot at the Taj Mahal with a curated digital album of 20 raw photos. Ideal for travelers who want professional shots without the wait.',
+    aiSnippet: 'The Quick Capture package is a budget-friendly option for visitors who want professional photographs at the Taj Mahal without a long session. A government-licensed photographer captures 20 raw photos delivered as a digital album.',
+    features: [
+      'Official Photography Permit Included',
+      '20 Raw Photos (Digital Album)',
+      'No Physical Prints',
+      'Instant Digital Delivery'
+    ],
+    bestFor: 'Budget Travelers, Quick Visits'
+  },
+  {
     id: 'sunrise',
     name: 'Taj Mahal Sunrise',
     tagline: 'The Essential Experience',
@@ -35,8 +52,9 @@ const plans = [
     aiSnippet: 'Pre-wedding photography at the Taj Mahal requires specialized posing direction and crowd management. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.',
     features: [
       'Official Photography Permit Included',
-      '50 Professionally Edited Photos',
       '100+ Natural High-Resolution Photos',
+      '50 Raw Physical Photographs',
+      '30 Second Cinematic Video',
       'Outfit Change Guidance (Outside Gates)',
       'Posing Direction & Creative Styling'
     ],
@@ -54,7 +72,6 @@ const plans = [
     aiSnippet: 'Combining the Taj Mahal and Agra Fort in one photography package allows visitors to capture Mughal architecture from multiple perspectives, including the famous view of the Taj Mahal from the Fort\'s balconies.',
     features: [
       'Permits for Both Monuments',
-      '100 Professionally Edited Photos',
       '250+ Natural High-Resolution Photos',
       'Sunrise at Taj, Morning at Fort',
       'Transportation between monuments',
@@ -73,7 +90,6 @@ const plans = [
     aiSnippet: 'A full-day photography tour in Agra covers the Taj Mahal at sunrise, Agra Fort, and the back side of Taj Mahal. This comprehensive package provides a complete visual documentary of the city.',
     features: [
       'All Monument Permits Included',
-      '150+ Professionally Edited Photos',
       '350+ Natural High-Resolution Photos',
       'Taj Mahal, Agra Fort & Back Side of Taj Mahal',
       'Multiple Outfit Changes',
@@ -119,7 +135,7 @@ export default function PhotographyPlans() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}

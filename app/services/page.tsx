@@ -20,6 +20,14 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    id: 'quick-capture',
+    title: 'Quick Capture',
+    description: 'A quick, professional photoshoot at the Taj Mahal. You receive a curated digital album of 20 raw photos — perfect for travelers who want quality shots without the wait.',
+    features: ['30 Minute Session', '20 Raw Photos (Digital Album)', 'No Physical Prints', 'Instant Digital Delivery'],
+    price: '$50',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
     id: 'sunrise',
     title: 'Taj Mahal Sunrise Photoshoot',
     description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. We capture the monument as it changes colors with the rising sun.',
@@ -31,7 +39,7 @@ const services = [
     id: 'couple',
     title: 'Couple & Pre-Wedding Photography',
     description: 'Celebrate your love story at the ultimate monument of love. We provide editorial-style posing guidance while capturing candid, romantic moments.',
-    features: ['2+ Hour Session', '50 Edited Photos', '100+ Natural High-Res Photos', 'Outfit change allowed (outside gates)', 'Posing direction'],
+    features: ['2+ Hour Session', '100+ Natural High-Res Photos', '50 Raw Physical Photographs', '30 Second Cinematic Video', 'Outfit change allowed (outside gates)', 'Posing direction'],
     price: '$199',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
@@ -39,7 +47,7 @@ const services = [
     id: 'family',
     title: 'Family Vacation Photography',
     description: 'Preserve your family memories with beautiful group portraits and candid shots of you exploring the monument together.',
-    features: ['1.5 Hour Session', '40+ Edited High-Res Photos', 'Group and individual portraits', 'Child-friendly pacing'],
+    features: ['1.5 Hour Session', '40+ High-Res Photos', 'Group and individual portraits', 'Child-friendly pacing'],
     price: '$299',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
@@ -109,7 +117,7 @@ export default function ServicesPage() {
             <div className="space-y-8">
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">What is included in a Taj Mahal photography package?</h3>
-                <p className="text-gray-600">All packages include an official photography permit, a professional photographer with full-frame camera equipment, posing guidance, and professionally edited high-resolution photos delivered within 48 hours via a private online gallery. Monument entry tickets are not included.</p>
+                <p className="text-gray-600">All packages include an official photography permit, a professional photographer with full-frame camera equipment, posing guidance, and high-resolution photos delivered within 48 hours via a private online gallery. Monument entry tickets are not included.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Which Taj Mahal photography package is most popular?</h3>

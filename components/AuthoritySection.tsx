@@ -27,7 +27,7 @@ const features = [
     icon: Clock,
     title: 'Fast Delivery',
     description:
-      'High-resolution, professionally edited photos delivered within 48 hours.',
+      'High-resolution photos delivered within 48 hours via a private online gallery.',
   },
 ];
 

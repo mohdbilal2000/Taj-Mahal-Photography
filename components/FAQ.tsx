@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "How much does a Taj Mahal photoshoot cost?",
-    answer: "Packages start at $99 USD for a 1.5-hour sunrise session with 50 high-resolution photos. Pre-wedding and couple packages start at $199, and full-day coverage starts at $499. All packages include official permit authorization for professional equipment."
+    answer: "Packages start at $50 USD for a quick capture session with 20 raw photos. Our sunrise package is $99 for a 1.5-hour session with 50 high-resolution photos. Pre-wedding and couple packages start at $199, and full-day coverage starts at $499. All packages include official permit authorization for professional equipment."
   },
   {
     question: "How do I book your services?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "When will we receive our photos?",
-    answer: "You will receive a link to a private online gallery with your high-resolution, professionally edited photos within 48-72 hours after the shoot."
+    answer: "You will receive a link to a private online gallery with your high-resolution photos within 48-72 hours after the shoot."
   },
   {
     question: "What should I wear for a Taj Mahal photoshoot?",

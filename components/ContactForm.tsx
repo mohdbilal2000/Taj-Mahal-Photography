@@ -32,7 +32,7 @@ export default function ContactForm() {
       `*Additional Details:* ${message || 'None'}`,
     ].join('\n');
 
-    const waUrl = `https://wa.me/919319910505?text=${encodeURIComponent(text)}`;
+    const waUrl = `https://wa.me/918393010125?text=${encodeURIComponent(text)}`;
 
     setTimeout(() => {
       setStatus('success');

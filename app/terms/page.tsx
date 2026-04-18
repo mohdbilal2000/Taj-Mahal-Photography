@@ -52,7 +52,7 @@ export default function TermsPage() {
 
             <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">5. Photo Delivery</h2>
             <ul>
-              <li>Edited, high-resolution photographs are delivered via a private online gallery within 48-72 hours of the session.</li>
+              <li>High-resolution photographs are delivered via a private online gallery within 48-72 hours of the session.</li>
               <li>The number of delivered photos depends on the package selected (as listed on the website).</li>
               <li>Gallery links remain active for 30 days. After this period, files may be removed from the server. Clients should download all images promptly.</li>
               <li>Raw (unedited) files are not provided unless explicitly agreed upon in advance.</li>

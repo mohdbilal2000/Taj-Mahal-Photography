@@ -89,7 +89,7 @@ export default function AboutPage() {
                 Every session is tailored to the visitor&apos;s needs. Whether it is a romantic sunrise shoot for a couple, a family vacation portrait, or a dramatic pre-wedding editorial, the goal is to create images that feel authentic, elegant, and worthy of the monument they are set against.
               </p>
               <p>
-                Equipment includes professional full-frame cameras, a selection of prime and zoom lenses, and portable lighting when regulations permit. All photos are professionally edited with color grading, exposure correction, and retouching before delivery within 48 hours via a private online gallery.
+                Equipment includes professional full-frame cameras, a selection of prime and zoom lenses, and portable lighting when regulations permit. All photos are professionally captured and delivered within 48 hours via a private online gallery.
               </p>
             </div>
           </div>

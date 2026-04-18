@@ -7,10 +7,10 @@ export const SITE = {
   title: 'Official Government Licensed Taj Mahal Photographer | Agra, India',
   description:
     'Book an official government-licensed Taj Mahal photographer in Agra, India. Authorized permit holder for professional photography inside the Taj Mahal. Sunrise, couple, pre-wedding, family & proposal photoshoots with 48-hour delivery.',
-  phone: '+919319910505',
-  phoneDisplay: '+91 93199 10505',
+  phone: '+918393010125',
+  phoneDisplay: '+91 83930 10125',
   email: 'booking@tajmahalphotography.com',
-  whatsapp: '919319910505',
+  whatsapp: '918393010125',
   instagram: 'https://www.instagram.com/taj.mahal.photography',
   linkedin: 'https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/',
   facebook: 'https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr',
@@ -85,10 +85,11 @@ export function localBusinessSchema() {
       '@type': 'OfferCatalog',
       name: 'Taj Mahal Photography Packages',
       itemListElement: [
+        offerSchema('Quick Capture', 50, 'Budget-friendly Taj Mahal photoshoot. 30-minute session, 20 raw photos delivered as a digital album.', `${SITE.url}/services/quick-capture`),
         offerSchema('Taj Mahal Sunrise Photoshoot', 99, 'Avoid crowds, best light. 1.5-hour session, 50 high-resolution photos, skip-the-line guidance.', `${SITE.url}/services/sunrise`),
-        offerSchema('Pre-Wedding & Couple Photography', 199, 'Editorial romance at the monument of love. 2+ hours, 50 edited photos, 100+ natural high-resolution photos.', `${SITE.url}/services/couple`),
-        offerSchema('Taj Mahal + Agra Fort Heritage Trail', 399, 'Both UNESCO sites in one day. 5 hours, 100 edited photos, 250+ natural high-resolution photos, transport included.', `${SITE.url}/services/taj-agra-fort`),
-        offerSchema('Full Day Agra Experience', 499, 'Taj Mahal, Agra Fort & back side coverage. 8-10 hours, 150+ edited photos, 350+ natural high-resolution photos, 48-hour delivery.', `${SITE.url}/services/full-day`),
+        offerSchema('Pre-Wedding & Couple Photography', 199, 'Editorial romance at the monument of love. 2+ hours, 100+ natural high-resolution photos, 50 raw physical photographs, 30-second cinematic video.', `${SITE.url}/services/couple`),
+        offerSchema('Taj Mahal + Agra Fort Heritage Trail', 399, 'Both UNESCO sites in one day. 5 hours, 250+ natural high-resolution photos, transport included.', `${SITE.url}/services/taj-agra-fort`),
+        offerSchema('Full Day Agra Experience', 499, 'Taj Mahal, Agra Fort & back side coverage. 8-10 hours, 350+ natural high-resolution photos, 48-hour delivery.', `${SITE.url}/services/full-day`),
       ],
     },
   };
