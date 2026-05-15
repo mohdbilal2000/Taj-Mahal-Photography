@@ -48,6 +48,43 @@ const servicesData: Record<string, { title: string; description: string; longDes
     duration: '1.5 Hours',
     bestFor: 'Proposals, Surprise engagements',
   },
+  'sunrise-luxury-innova': {
+    title: 'Taj Mahal Sunrise Luxury Tour (Private Innova)',
+    description: 'A same-day private sunrise tour from Delhi/NCR to Agra in a Toyota Innova — guide, photographer, tickets and golf cart all included.',
+    longDescription: 'Leave your Delhi/NCR hotel before dawn and watch the first light hit the Taj Mahal a few hours later — all from the comfort of a private Toyota Innova driven by a professional chauffeur. Our team handles every detail of the day: a Ministry of Tourism licensed guide narrates the history of Shah Jahan and Mumtaz Mahal, a licensed photographer captures your family at the iconic sunrise vantage points, and a private golf cart whisks you from the gate to the mausoleum inside the Taj Mahal complex. A security escort moves you past the queue at both the Taj Mahal and Agra Fort. Monument tickets are included, so the price you see is the price you pay. Pickup and drop are available across Delhi, Noida, Gurugram, Ghaziabad and Faridabad.',
+    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1920&auto=format&fit=crop',
+    features: [
+      'Round-trip private Toyota Innova from Delhi/NCR',
+      'Ministry of Tourism licensed guide (Government of India)',
+      'Ministry of Tourism licensed photographer (Government of India)',
+      'Private golf cart inside the Taj Mahal complex',
+      'Skip-the-line entry with security escort',
+      'Taj Mahal & Agra Fort monument tickets included',
+      'Sunrise arrival, full-day same-day return',
+    ],
+    price: 650,
+    duration: 'Same Day · 14–16 Hours',
+    bestFor: 'Couples and families (up to 6 guests)',
+  },
+  'sunrise-luxury-urbania': {
+    title: 'Taj Mahal Sunrise Luxury Urbania Tour',
+    description: 'Our flagship same-day sunrise tour from Delhi/NCR to Agra in a private Force Urbania luxury coach for larger families and groups.',
+    longDescription: 'Built for larger families and travel groups, the Sunrise Luxury Urbania tour takes up to 13 guests from Delhi/NCR to Agra and back in a single day in a private Force Urbania — a premium luxury coach with reclining seats, climate control and Wi-Fi. The structure of the day mirrors our private Innova tour: a sunrise arrival at the Taj Mahal east gate, a private golf cart inside the complex, a Ministry of Tourism licensed guide for the historical narration, a licensed photographer to document the visit, monument tickets to both the Taj Mahal and Agra Fort, and a security escort that lets everyone skip the queue. Because the coach has the capacity, families travelling together no longer need to split across multiple vehicles. Pickup and drop are available across Delhi, Noida, Gurugram, Ghaziabad and Faridabad.',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1920&auto=format&fit=crop',
+    features: [
+      'Round-trip private Force Urbania luxury coach',
+      'Capacity for up to 13 guests',
+      'Ministry of Tourism licensed guide (Government of India)',
+      'Ministry of Tourism licensed photographer (Government of India)',
+      'Private golf cart inside the Taj Mahal complex',
+      'Skip-the-line entry with security escort',
+      'Taj Mahal & Agra Fort monument tickets included',
+      'Reclining seats, A/C and Wi-Fi onboard',
+    ],
+    price: 899,
+    duration: 'Same Day · 14–16 Hours',
+    bestFor: 'Families and groups travelling together (up to 13 guests)',
+  },
 };
 
 export async function generateStaticParams() {

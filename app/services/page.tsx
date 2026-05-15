@@ -7,8 +7,8 @@ import Link from 'next/link';
 import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Photography Services | Sunrise, Couple, Family & Pre-Wedding',
-  description: 'Premium Taj Mahal photography services: sunrise photoshoots from $99, couple & pre-wedding portraits from $199, family photography, proposal shoots, and full-day heritage tours. Government-licensed photographer.',
+  title: 'Photography Services & Sunrise Luxury Tours from Delhi',
+  description: 'Premium Taj Mahal photography services from $99 plus same-day Sunrise Luxury Tours from Delhi/NCR — private Innova ($650) or Force Urbania coach ($899) with guide, photographer, monument tickets, golf cart and skip-the-line escort.',
   alternates: { canonical: `${SITE.url}/services` },
   openGraph: {
     title: 'Taj Mahal Photography Services | Licensed Photographer',
@@ -49,6 +49,22 @@ const services = [
     description: 'Preserve your family memories with beautiful group portraits and candid shots of you exploring the monument together.',
     features: ['1.5 Hour Session', '40+ High-Res Photos', 'Group and individual portraits', 'Child-friendly pacing'],
     price: '$299',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
+    id: 'sunrise-luxury-innova',
+    title: 'Taj Mahal Sunrise Luxury Tour (Innova)',
+    description: 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Covers the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort to skip the line. Ideal for couples and small families.',
+    features: ['Same Day · 14–16 Hours', 'Private Toyota Innova (Delhi/NCR ↔ Agra)', 'Govt. licensed guide & photographer', 'Taj Mahal + Agra Fort tickets included', 'Private golf cart inside Taj complex', 'Skip-the-line with security escort'],
+    price: '$650',
+    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
+    id: 'sunrise-luxury-urbania',
+    title: 'Taj Mahal Sunrise Luxury Urbania',
+    description: 'The flagship same-day sunrise tour from Delhi/NCR for larger families and groups. Travel in a private Force Urbania luxury coach with reclining seats, A/C and Wi-Fi. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj complex, and a security escort to skip the line.',
+    features: ['Same Day · 14–16 Hours', 'Private Force Urbania luxury coach', 'Up to 13 guests', 'Govt. licensed guide & photographer', 'Taj Mahal + Agra Fort tickets included', 'Private golf cart inside Taj complex', 'Skip-the-line with security escort'],
+    price: '$899',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
 ];

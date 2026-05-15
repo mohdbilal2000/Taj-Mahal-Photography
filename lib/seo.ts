@@ -90,6 +90,8 @@ export function localBusinessSchema() {
         offerSchema('Pre-Wedding & Couple Photography', 199, 'Editorial romance at the monument of love. 2+ hours, 100+ natural high-resolution photos, 50 raw physical photographs, 30-second cinematic video.', `${SITE.url}/services/couple`),
         offerSchema('Taj Mahal + Agra Fort Heritage Trail', 399, 'Both UNESCO sites in one day. 5 hours, 250+ natural high-resolution photos, transport included.', `${SITE.url}/services/taj-agra-fort`),
         offerSchema('Full Day Agra Experience', 499, 'Taj Mahal, Agra Fort & back side coverage. 8-10 hours, 350+ natural high-resolution photos, 48-hour delivery.', `${SITE.url}/services/full-day`),
+        offerSchema('Taj Mahal Sunrise Luxury Tour (Private Innova)', 650, 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Includes Ministry of Tourism licensed guide and photographer, Taj Mahal & Agra Fort tickets, private golf cart inside the complex, and skip-the-line security escort.', `${SITE.url}/services/sunrise-luxury-innova`),
+        offerSchema('Taj Mahal Sunrise Luxury Urbania Tour', 899, 'Same-day sunrise tour from Delhi/NCR to Agra in a private Force Urbania luxury coach for families and groups (up to 13 guests). Includes guide, photographer, Taj Mahal & Agra Fort tickets, golf cart, and skip-the-line security escort.', `${SITE.url}/services/sunrise-luxury-urbania`),
       ],
     },
   };

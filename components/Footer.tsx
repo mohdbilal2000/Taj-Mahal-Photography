@@ -101,6 +101,22 @@ export default function Footer() {
                   Proposal Shoot
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/services/sunrise-luxury-innova"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Sunrise Luxury Tour (Innova)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/sunrise-luxury-urbania"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Sunrise Luxury Urbania Tour
+                </Link>
+              </li>
             </ul>
           </div>
 

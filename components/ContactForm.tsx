@@ -265,6 +265,8 @@ export default function ContactForm() {
                     <option>Couple / Pre-Wedding</option>
                     <option>Family Photography</option>
                     <option>Proposal Shoot</option>
+                    <option>Sunrise Luxury Tour – Private Innova ($650)</option>
+                    <option>Sunrise Luxury Urbania Tour – Group ($899)</option>
                     <option>Other</option>
                   </select>
                 </div>

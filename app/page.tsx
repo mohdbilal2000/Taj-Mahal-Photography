@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import AuthoritySection from '@/components/AuthoritySection';
 import ServicesOverview from '@/components/ServicesOverview';
 import PhotographyPlans from '@/components/PhotographyPlans';
+import LuxuryTours from '@/components/LuxuryTours';
 import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
@@ -18,6 +19,7 @@ const homeFaqs = [
   { question: 'What is the best time for Taj Mahal photography?', answer: 'Sunrise is universally the best time for Taj Mahal photography. The soft morning light creates pink, golden, and white reflections on the marble, and the crowds are significantly smaller. Late afternoon before sunset is the second-best option for warm golden tones.' },
   { question: 'How much does a Taj Mahal photoshoot cost?', answer: 'Packages start at $50 USD for a quick capture with 20 raw photos. Our sunrise package is $99 for a 1.5-hour session with 50 high-resolution photos. Pre-wedding and couple packages start at $199 (100+ natural photos + 50 physical prints), and full-day Agra coverage starts at $499 (350+ natural photos with AC transport).' },
   { question: 'How do I book a licensed Taj Mahal photographer?', answer: 'Book via the inquiry form on this website or contact us on WhatsApp. Due to limited daily permits (maximum 2 shoots per day), we recommend booking 2-3 weeks in advance, especially during peak tourist season from October to March.' },
+  { question: 'Do you offer a same-day Taj Mahal tour from Delhi?', answer: 'Yes. Our Sunrise Luxury Tour ($650) covers Delhi/NCR to Agra and back in a private Toyota Innova for couples and families, while the Sunrise Luxury Urbania tour ($899) uses a private Force Urbania luxury coach for larger families and groups (up to 13 guests). Both are same-day tours covering the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, a private golf cart inside the complex, monument tickets, and a security escort to skip the line.' },
 ];
 
 export default function Home() {
@@ -30,6 +32,7 @@ export default function Home() {
         <AuthoritySection />
         <ServicesOverview />
         <PhotographyPlans />
+        <LuxuryTours />
         <LicenseValidation />
         <Testimonials />
         <FAQ />
