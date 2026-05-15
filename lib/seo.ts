@@ -1,5 +1,15 @@
 // ─── Site-wide SEO / AEO / GEO constants ───
 
+/** Dynamic freshness signal. Updated on every build. */
+export const LAST_UPDATED = new Date().toISOString().slice(0, 10);
+
+/** Default offer validity — 18 months out, recomputed at build/request time. */
+export const DEFAULT_PRICE_VALID_UNTIL = new Date(
+  Date.now() + 18 * 30 * 24 * 60 * 60 * 1000,
+)
+  .toISOString()
+  .slice(0, 10);
+
 export const SITE = {
   name: 'Taj Mahal Photography',
   url: 'https://tajmahalphotography.com',
@@ -25,7 +35,8 @@ export const SITE = {
   locale: 'en_US',
   currency: 'USD',
   image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
-  priceValidUntil: '2026-12-31',
+  /** @deprecated use DEFAULT_PRICE_VALID_UNTIL (dynamic). Kept for backwards compat. */
+  priceValidUntil: DEFAULT_PRICE_VALID_UNTIL,
 } as const;
 
 // ─── Entity references (Wikidata / Wikipedia) for sameAs graph ───
@@ -115,13 +126,9 @@ export function localBusinessSchema() {
       opens: '05:30',
       closes: '19:00',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '500',
-      bestRating: '5',
-      worstRating: '1',
-    },
+    // AggregateRating intentionally omitted — Google policy requires the
+    // aggregate to reflect Review nodes actually accessible on the page.
+    // Re-enable once verifiable Google/TripAdvisor reviews are wired in.
     parentOrganization: {
       '@type': 'Organization',
       name: 'Taj Guides & Travel Services',
@@ -445,13 +452,23 @@ export function luxuryTourSchema(opts: {
   };
 }
 
-/** Individual Review JSON-LD (so AI engines can extract verbatim quotes). */
+/**
+ * Individual Review JSON-LD (so AI engines can extract verbatim quotes).
+ *
+ * NOTE: Google's structured-data policy prohibits sites from publishing reviews
+ * about themselves and surfacing them as rich results. These nodes are emitted
+ * as plain customer testimonials (no `publisher`, no `aggregateRating`
+ * cross-reference) so AI extractors can still cite the verbatim quotes, but
+ * Google won't treat them as eligible for review rich results. Once external
+ * Google/TripAdvisor URLs are available, pass them in `sourceUrl`.
+ */
 export function reviewSchema(opts: {
   author: string;
   country: string;
   body: string;
   rating: number;
   datePublished: string;
+  sourceUrl?: string;
 }) {
   return {
     '@type': 'Review',
@@ -468,8 +485,7 @@ export function reviewSchema(opts: {
       bestRating: 5,
       worstRating: 1,
     },
-    itemReviewed: { '@id': `${SITE.url}/#business` },
-    publisher: { '@id': `${SITE.url}/#business` },
+    ...(opts.sourceUrl ? { url: opts.sourceUrl } : {}),
   };
 }
 

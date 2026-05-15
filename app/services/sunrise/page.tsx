@@ -4,7 +4,7 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { breadcrumbSchema, serviceSchema, faqSchema, jsonLd, SITE } from '@/lib/seo';
+import { breadcrumbSchema, serviceSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Taj Mahal Sunrise Photoshoot | $99 | Best Morning Light',
@@ -114,26 +114,37 @@ export default function SunriseServicePage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([
-          { name: 'Home', url: SITE.url },
-          { name: 'Services', url: `${SITE.url}/services` },
-          { name: 'Sunrise Photoshoot', url: `${SITE.url}/services/sunrise` },
-        ])) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(serviceSchema(
-          'Taj Mahal Sunrise Photoshoot',
-          'Premium sunrise photography at the Taj Mahal. 1.5-hour session with 50 high-resolution photos, official permit, and skip-the-line guidance.',
-          99,
-          '1.5 Hours',
-          `${SITE.url}/services/sunrise`,
-          'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
-        )) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(sunriseFaqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            graphSchema([
+              breadcrumbSchema([
+                { name: 'Home', url: SITE.url },
+                { name: 'Services', url: `${SITE.url}/services` },
+                { name: 'Sunrise Photoshoot', url: `${SITE.url}/services/sunrise` },
+              ]),
+              webPageSchema({
+                url: `${SITE.url}/services/sunrise`,
+                name: 'Taj Mahal Sunrise Photoshoot',
+                description: 'Premium sunrise photography at the Taj Mahal — 1.5 hours, 50 photos, permit and skip-the-line included.',
+                image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
+                lastReviewed: LAST_UPDATED,
+                speakableSelectors: ['.faq-answer', 'h1', 'h2'],
+              }),
+              serviceSchema(
+                'Taj Mahal Sunrise Photoshoot',
+                'Premium sunrise photography at the Taj Mahal. 1.5-hour session with 50 high-resolution photos, official permit, and skip-the-line guidance.',
+                99,
+                '1.5 Hours',
+                `${SITE.url}/services/sunrise`,
+                'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
+              ),
+              {
+                ...faqSchema(sunriseFaqs),
+                speakable: speakableSpec(['.faq-answer']),
+              },
+            ]),
+          ),
+        }}
       />
     </div>
   );

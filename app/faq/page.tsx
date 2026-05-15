@@ -3,10 +3,8 @@ import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import FAQ from '@/components/FAQ';
 import { Metadata } from 'next';
-import { breadcrumbSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE } from '@/lib/seo';
+import { breadcrumbSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 import { faqs as faqData } from '@/lib/content';
-
-const LAST_REVIEWED = '2026-05-15';
 
 export const metadata: Metadata = {
   title: 'FAQ | Taj Mahal Photography & Sunrise Luxury Tours from Delhi',
@@ -69,7 +67,7 @@ export default function FAQPage() {
                 url: `${SITE.url}/faq`,
                 name: 'FAQ — Taj Mahal Photography & Luxury Tours',
                 description: 'Comprehensive FAQ for Taj Mahal photography services and same-day Sunrise Luxury Tours from Delhi/NCR.',
-                lastReviewed: LAST_REVIEWED,
+                lastReviewed: LAST_UPDATED,
                 speakableSelectors: ['.faq-answer'],
               }),
               {

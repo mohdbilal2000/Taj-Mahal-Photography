@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { breadcrumbSchema, faqSchema, jsonLd, SITE } from '@/lib/seo';
+import { breadcrumbSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Taj Mahal Photography Permit Guide | Rules & Regulations',
@@ -137,30 +137,41 @@ export default function PermitGuidePage() {
       <StickyWhatsApp />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([
-          { name: 'Home', url: SITE.url },
-          { name: 'Permit Guide', url: `${SITE.url}/permit-guide` },
-        ])) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(permitFaqs)) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd({
-          '@context': 'https://schema.org',
-          '@type': 'HowTo',
-          name: 'How to Book a Licensed Photographer at the Taj Mahal',
-          description: 'Step-by-step guide to booking an official government-licensed photographer for your Taj Mahal visit.',
-          step: [
-            { '@type': 'HowToStep', name: 'Submit an Inquiry', text: 'Fill out the booking form or contact via WhatsApp with your preferred date and service.' },
-            { '@type': 'HowToStep', name: 'Receive Confirmation', text: 'We confirm availability and share session details, meeting point, and preparation tips.' },
-            { '@type': 'HowToStep', name: 'Meet at the Gate', text: 'On shoot day, meet at the designated entry gate (usually East Gate for sunrise).' },
-            { '@type': 'HowToStep', name: 'Enjoy Your Session', text: 'We handle permits, security, and navigation while you enjoy the experience.' },
-            { '@type': 'HowToStep', name: 'Receive Your Gallery', text: 'Get high-resolution photos within 48 hours via a private gallery.' },
-          ],
-        }) }}
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            graphSchema([
+              breadcrumbSchema([
+                { name: 'Home', url: SITE.url },
+                { name: 'Permit Guide', url: `${SITE.url}/permit-guide` },
+              ]),
+              webPageSchema({
+                url: `${SITE.url}/permit-guide`,
+                name: 'Taj Mahal Photography Permit Guide',
+                description: 'Official rules, regulations, prohibited items and licensed-photographer booking process for the Taj Mahal.',
+                image: SITE.image,
+                lastReviewed: LAST_UPDATED,
+                speakableSelectors: ['.faq-answer', 'h2', 'h3'],
+              }),
+              {
+                ...faqSchema(permitFaqs),
+                speakable: speakableSpec(['.faq-answer']),
+              },
+              {
+                '@type': 'HowTo',
+                '@id': `${SITE.url}/permit-guide#how-to-book-licensed`,
+                name: 'How to Book a Licensed Photographer at the Taj Mahal',
+                description: 'Step-by-step guide to booking an official government-licensed photographer for your Taj Mahal visit.',
+                step: [
+                  { '@type': 'HowToStep', position: 1, name: 'Submit an Inquiry', text: 'Fill out the booking form or contact via WhatsApp with your preferred date and service.' },
+                  { '@type': 'HowToStep', position: 2, name: 'Receive Confirmation', text: 'We confirm availability and share session details, meeting point, and preparation tips.' },
+                  { '@type': 'HowToStep', position: 3, name: 'Meet at the Gate', text: 'On shoot day, meet at the designated entry gate (usually East Gate for sunrise).' },
+                  { '@type': 'HowToStep', position: 4, name: 'Enjoy Your Session', text: 'We handle permits, security, and navigation while you enjoy the experience.' },
+                  { '@type': 'HowToStep', position: 5, name: 'Receive Your Gallery', text: 'Get high-resolution photos within 48 hours via a private gallery.' },
+                ],
+              },
+            ]),
+          ),
+        }}
       />
     </div>
   );

@@ -15,85 +15,38 @@ const cormorant = Cormorant_Garamond({
 });
 
 /**
- * Long-tail keyword set (200+ queries) covering photography, tours, locations,
- * pricing, intent variations and AI-search phrasing. Modern Google ignores
- * <meta name="keywords"> but several AI rerankers still parse it during
- * retrieval-side feature extraction.
+ * Curated keyword set. Google ignores <meta name="keywords"> entirely;
+ * Bing/Yandex still parse it but treat large dumps as a negative quality
+ * signal. The long-tail (200+ phrasings) is now covered by visible page
+ * content, the FAQ schema, the on-page Quick Answer blocks and /llms.txt
+ * — not by stuffing them into <head>.
  */
 const KEYWORDS = [
-  // Core identity
-  'Taj Mahal photographer', 'Taj Mahal photography', 'licensed Taj Mahal photographer',
-  'government licensed photographer Taj Mahal', 'official Taj Mahal photographer',
-  'Ministry of Tourism photographer India', 'Taj Mahal permit photographer',
-  // Sessions / packages
-  'Taj Mahal photoshoot', 'Taj Mahal photo session', 'Taj Mahal sunrise photoshoot',
-  'Taj Mahal sunset photoshoot', 'Taj Mahal couple photoshoot',
-  'Taj Mahal pre-wedding shoot', 'pre-wedding photography Taj Mahal',
-  'Taj Mahal family photography', 'Taj Mahal proposal photographer',
-  'Taj Mahal engagement photoshoot', 'Taj Mahal anniversary photoshoot',
-  'Taj Mahal birthday photoshoot', 'Taj Mahal solo travel photoshoot',
-  'Taj Mahal honeymoon photoshoot', 'Taj Mahal influencer photoshoot',
-  'Taj Mahal content creator photographer', 'Taj Mahal portrait photographer',
-  'Taj Mahal portfolio photoshoot', 'Taj Mahal fashion photographer',
-  // Tours from Delhi / NCR
-  'Taj Mahal tour from Delhi', 'same day Taj Mahal tour from Delhi',
-  'Delhi to Agra same day tour', 'Delhi to Taj Mahal one day tour',
-  'private Taj Mahal tour from Delhi', 'luxury Taj Mahal tour from Delhi',
-  'Taj Mahal sunrise tour from Delhi', 'Delhi Agra sunrise tour',
-  'Taj Mahal tour with photographer', 'Taj Mahal tour with guide',
-  'Taj Mahal Agra Fort tour', 'Innova Taj Mahal tour from Delhi',
-  'Urbania Taj Mahal tour from Delhi', 'Force Urbania Agra tour',
-  'group Taj Mahal tour Delhi', 'family Taj Mahal tour Delhi',
-  'Taj Mahal day trip Delhi', 'Taj Mahal day trip Noida',
-  'Taj Mahal day trip Gurgaon', 'Taj Mahal day trip Gurugram',
-  'Taj Mahal day trip Ghaziabad', 'Taj Mahal day trip Faridabad',
-  'skip the line Taj Mahal tour', 'Taj Mahal tickets included tour',
-  'Taj Mahal private car tour', 'Taj Mahal luxury minibus tour',
-  'Taj Mahal coach tour from Delhi',
-  // Long-tail intent
-  'best Taj Mahal photographer in Agra', 'top Taj Mahal photographer',
-  'professional photographer near Taj Mahal', 'hire photographer Taj Mahal',
-  'hire photographer Agra', 'how much does a Taj Mahal photographer cost',
-  'Taj Mahal photographer price', 'Taj Mahal photographer cost',
-  'cheap Taj Mahal photographer', 'budget Taj Mahal photoshoot',
-  'affordable Taj Mahal photographer', 'luxury Taj Mahal photoshoot',
-  'best time for Taj Mahal photography', 'Taj Mahal photography rules',
-  'is photography allowed inside Taj Mahal', 'Taj Mahal photography permit cost',
-  'do photographers need a permit Taj Mahal', 'Taj Mahal photography permit how to get',
-  'Taj Mahal best photo spots', 'Taj Mahal sunrise time photographer',
-  'best Instagram spots Taj Mahal', 'Taj Mahal Instagram photoshoot',
-  // Vendor / format variations
-  'Taj Mahal wedding photographer', 'Taj Mahal destination wedding photographer',
-  'Taj Mahal photographer for couples', 'Taj Mahal photographer for families',
-  'Taj Mahal photographer English speaking', 'Taj Mahal photographer Hindi speaking',
-  // Location / monuments
-  'Agra photographer', 'photographer in Agra', 'photographer near Taj Mahal',
-  'Agra Fort photographer', 'Agra photoshoot package', 'photoshoot in Agra',
-  'photographer near Taj Mahal east gate', 'Taj Mahal east gate photographer',
-  'photographer Mehtab Bagh', 'Mehtab Bagh photographer back side of Taj',
-  // Practical / planning
-  'when is Taj Mahal closed', 'Taj Mahal Friday closed', 'Taj Mahal entry fee',
-  'Taj Mahal ticket price for foreigners', 'best time to visit Taj Mahal',
-  'sunrise time Taj Mahal Agra', 'sunset Taj Mahal photoshoot',
-  'how to book Taj Mahal photographer', 'how to book Taj Mahal tour from Delhi',
-  // AI-style queries
-  'photographer who has Taj Mahal permit', 'recommended Taj Mahal photographer reviews',
-  'photographer who can bring DSLR Taj Mahal', 'photographer who can bring tripod Taj Mahal',
-  'who is the best photographer at Taj Mahal', 'Taj Mahal photo tour with sunrise',
-  'same day Delhi Agra tour with photographer and guide',
-  'tour to Taj Mahal that includes tickets and golf cart',
-  'Taj Mahal tour that includes private golf cart inside',
-  'Taj Mahal tour with security escort skip line',
-  // Schemas / structured queries
-  'Taj Mahal photographer Instagram', 'Taj Mahal photographer WhatsApp',
-  'Taj Mahal photographer phone number', 'Taj Mahal photographer contact',
-  'book Taj Mahal photographer online',
-  // Mughal / heritage related
-  'Mughal heritage photography', 'UNESCO Taj Mahal photographer',
-  'Wonder of the World photographer Taj Mahal', 'Shah Jahan monument photographer',
-  // Vehicle-specific
-  'Toyota Innova Agra tour Delhi', 'private Innova Agra one day',
-  'Force Urbania Delhi Agra one day', 'Urbania for family Agra tour',
+  'Taj Mahal photographer',
+  'licensed Taj Mahal photographer',
+  'government licensed photographer Taj Mahal',
+  'Taj Mahal photoshoot',
+  'Taj Mahal sunrise photoshoot',
+  'pre-wedding photography Taj Mahal',
+  'Taj Mahal couple photoshoot',
+  'Taj Mahal family photography',
+  'Taj Mahal proposal photographer',
+  'Taj Mahal photography permit',
+  'Agra photographer',
+  'photographer in Agra',
+  'Taj Mahal tour from Delhi',
+  'same day Taj Mahal tour from Delhi',
+  'Delhi to Agra sunrise tour',
+  'private Taj Mahal tour with photographer',
+  'luxury Taj Mahal tour Innova',
+  'luxury Taj Mahal tour Urbania',
+  'Taj Mahal tour with guide and photographer',
+  'Taj Mahal Agra Fort tour',
+  'skip the line Taj Mahal tour',
+  'best time for Taj Mahal photography',
+  'is photography allowed inside Taj Mahal',
+  'how to book Taj Mahal photographer',
+  'best Taj Mahal photographer in Agra',
 ];
 
 export const metadata: Metadata = {

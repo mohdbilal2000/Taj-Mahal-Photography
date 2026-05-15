@@ -118,8 +118,6 @@ export default function LuxuryTours() {
                     ? 'border-2 border-gold-500 ring-2 ring-gold-500/20 shadow-xl'
                     : 'border border-marble-200 shadow-md'
                 }`}
-                itemScope
-                itemType="https://schema.org/TouristTrip"
               >
                 {tour.popular && (
                   <div className="absolute top-0 left-0 right-0 bg-gold-500 text-ink-900 text-xs font-bold uppercase tracking-wider text-center py-1.5 z-10">
@@ -141,7 +139,7 @@ export default function LuxuryTours() {
                       <Icon className="w-4 h-4" />
                       <span>{tour.tagline}</span>
                     </div>
-                    <h3 className="font-serif text-2xl md:text-3xl font-semibold" itemProp="name">
+                    <h3 className="font-serif text-2xl md:text-3xl font-semibold">
                       {tour.name}
                     </h3>
                   </div>
@@ -149,15 +147,14 @@ export default function LuxuryTours() {
 
                 <div className="p-6 md:p-8 flex-grow flex flex-col">
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-4xl font-light" itemProp="price">
+                    <span className="text-4xl font-light">
                       {tour.price}
                     </span>
                     <span className="text-sm text-gray-500 mb-1.5">/ tour · all inclusive</span>
-                    <meta itemProp="priceCurrency" content="USD" />
                   </div>
                   <p className="text-xs text-gray-500 mb-5">{tour.duration}</p>
 
-                  <p className="text-gray-600 text-sm mb-6" itemProp="description">
+                  <p className="text-gray-600 text-sm mb-6">
                     {tour.description}
                   </p>
 

@@ -5,9 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ShieldCheck, Award, MapPin, Users, Camera, Clock } from 'lucide-react';
-import { breadcrumbSchema, personSchema, webPageSchema, speakableSpec, graphSchema, jsonLd, SITE } from '@/lib/seo';
-
-const LAST_REVIEWED = '2026-05-15';
+import { breadcrumbSchema, personSchema, webPageSchema, speakableSpec, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'About Our Licensed Photographer | Government Authorized Agra',
@@ -146,7 +144,7 @@ export default function AboutPage() {
                 name: 'About the Photographer | Taj Mahal Photography',
                 description: 'About the official government-licensed Taj Mahal photographer in Agra, India.',
                 image: SITE.image,
-                lastReviewed: LAST_REVIEWED,
+                lastReviewed: LAST_UPDATED,
                 speakableSelectors: ['h2', 'h3', '.prose p'],
               }),
               {

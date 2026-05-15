@@ -108,6 +108,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${SITE.url}/payment`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: `${SITE.url}/services/quick-capture`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${SITE.url}/privacy`,
       lastModified: now,
       changeFrequency: 'yearly',

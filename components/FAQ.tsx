@@ -24,7 +24,7 @@ export default function FAQ() {
           <p className="text-gray-600">Everything you need to know about photography at the Taj Mahal.</p>
         </motion.div>
 
-        <div itemScope itemType="https://schema.org/FAQPage">
+        <div>
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -35,16 +35,13 @@ export default function FAQ() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
               >
                 <button
                   className="w-full px-6 py-5 flex justify-between items-center focus:outline-none"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
                 >
-                  <span className="font-medium text-ink-900 text-left pr-8" itemProp="name">{faq.question}</span>
+                  <span className="font-medium text-ink-900 text-left pr-8">{faq.question}</span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -61,26 +58,16 @@ export default function FAQ() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
-                      itemScope
-                      itemProp="acceptedAnswer"
-                      itemType="https://schema.org/Answer"
                     >
                       <div className="px-6 pb-5 text-gray-600">
-                        <p itemProp="text" className="faq-answer">{faq.answer}</p>
+                        <p className="faq-answer">{faq.answer}</p>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
 
                 {!isOpen && (
-                  <span
-                    className="sr-only faq-answer"
-                    itemScope
-                    itemProp="acceptedAnswer"
-                    itemType="https://schema.org/Answer"
-                  >
-                    <span itemProp="text">{faq.answer}</span>
-                  </span>
+                  <span className="sr-only faq-answer">{faq.answer}</span>
                 )}
               </motion.div>
             );

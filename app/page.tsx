@@ -28,9 +28,8 @@ import {
   graphSchema,
   jsonLd,
   SITE,
+  LAST_UPDATED,
 } from '@/lib/seo';
-
-const LAST_REVIEWED = '2026-05-15';
 
 const innovaTour = luxuryTourSchema({
   slug: 'sunrise-luxury-innova',
@@ -71,12 +70,16 @@ const howToBook = howToSchema({
 });
 
 const homeWebPage = webPageSchema({
-  url: SITE.url + '/',
+  url: SITE.url,
   name: SITE.title,
   description: SITE.description,
   image: SITE.image,
-  lastReviewed: LAST_REVIEWED,
-  speakableSelectors: ['.faq-answer', '.tldr', '.quick-answer', 'h1', 'h2'],
+  lastReviewed: LAST_UPDATED,
+  // `.tldr` intentionally NOT in this selector list — it lives in an sr-only
+  // block (legitimate a11y), but pointing `speakable` at hidden content
+  // invites scrutiny under Google's hidden-text policy. Only mark visible
+  // answer passages as speakable.
+  speakableSelectors: ['.faq-answer', '.quick-answer', 'h1', 'h2'],
 });
 
 export default function Home() {

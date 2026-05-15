@@ -4,7 +4,7 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { breadcrumbSchema, articleSchema, jsonLd, SITE } from '@/lib/seo';
+import { breadcrumbSchema, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Taj Mahal Photography Blog | Tips, Guides & Travel Advice',
@@ -151,25 +151,44 @@ export default function BlogPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([
-          { name: 'Home', url: SITE.url },
-          { name: 'Blog', url: `${SITE.url}/blog` },
-        ])) }}
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            graphSchema([
+              breadcrumbSchema([
+                { name: 'Home', url: SITE.url },
+                { name: 'Blog', url: `${SITE.url}/blog` },
+              ]),
+              webPageSchema({
+                url: `${SITE.url}/blog`,
+                name: 'Taj Mahal Photography Blog',
+                description: 'Expert photography guides from a government-licensed Taj Mahal photographer.',
+                image: SITE.image,
+                lastReviewed: LAST_UPDATED,
+              }),
+              {
+                '@type': 'Blog',
+                '@id': `${SITE.url}/blog#blog`,
+                name: 'Taj Mahal Photography Blog',
+                description: 'Insider tips, outfit guides, and expert advice from a licensed Taj Mahal photographer.',
+                url: `${SITE.url}/blog`,
+                publisher: { '@id': `${SITE.url}/#business` },
+                // Article posts are referenced as BlogPosting summaries only.
+                // No mainEntityOfPage URL is emitted — individual post pages
+                // do not exist yet, so we avoid Article schema with 404 URLs.
+                blogPost: blogPosts.map((post) => ({
+                  '@type': 'BlogPosting',
+                  headline: post.title,
+                  description: post.excerpt,
+                  datePublished: post.date,
+                  image: post.image,
+                  author: { '@id': `${SITE.url}/#photographer` },
+                  publisher: { '@id': `${SITE.url}/#business` },
+                })),
+              },
+            ]),
+          ),
+        }}
       />
-      {/* Article schemas for each blog post */}
-      {blogPosts.map((post) => (
-        <script
-          key={post.slug}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema(
-            post.title,
-            post.excerpt,
-            `${SITE.url}/blog/${post.slug}`,
-            post.date,
-            post.image,
-          )) }}
-        />
-      ))}
     </div>
   );
 }

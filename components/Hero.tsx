@@ -24,7 +24,7 @@ export default function Hero() {
       <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
         <Image
           src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop"
-          alt="Taj Mahal at Sunrise"
+          alt="The white marble Taj Mahal mausoleum reflected in the central pool at sunrise, photographed by a government-licensed photographer in Agra, India"
           fill
           className="object-cover object-center"
           priority

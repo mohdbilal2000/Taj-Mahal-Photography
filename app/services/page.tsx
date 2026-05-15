@@ -4,7 +4,7 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
+import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Photography Services & Sunrise Luxury Tours from Delhi',
@@ -153,31 +153,41 @@ export default function ServicesPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([
-          { name: 'Home', url: SITE.url },
-          { name: 'Services', url: `${SITE.url}/services` },
-        ])) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd({
-          '@context': 'https://schema.org',
-          '@type': 'ItemList',
-          name: 'Taj Mahal Photography Services',
-          description: 'Professional photography services at the Taj Mahal by a government-licensed photographer.',
-          itemListElement: services.map((s, i) => ({
-            '@type': 'ListItem',
-            position: i + 1,
-            item: {
-              '@type': 'Service',
-              name: s.title,
-              description: s.description,
-              url: `${SITE.url}/services/${s.id}`,
-              provider: { '@id': `${SITE.url}/#business` },
-              offers: { '@type': 'Offer', price: s.price.replace('$', ''), priceCurrency: 'USD' },
-            },
-          })),
-        }) }}
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            graphSchema([
+              breadcrumbSchema([
+                { name: 'Home', url: SITE.url },
+                { name: 'Services', url: `${SITE.url}/services` },
+              ]),
+              webPageSchema({
+                url: `${SITE.url}/services`,
+                name: 'Photography Services & Sunrise Luxury Tours from Delhi',
+                description: 'All Taj Mahal photography packages and same-day Sunrise Luxury Tours from Delhi/NCR.',
+                image: SITE.image,
+                lastReviewed: LAST_UPDATED,
+              }),
+              {
+                '@type': 'ItemList',
+                '@id': `${SITE.url}/services#list`,
+                name: 'Taj Mahal Photography Services',
+                description: 'Professional photography services at the Taj Mahal by a government-licensed photographer.',
+                itemListElement: services.map((s, i) => ({
+                  '@type': 'ListItem',
+                  position: i + 1,
+                  item: {
+                    '@type': 'Service',
+                    name: s.title,
+                    description: s.description,
+                    url: `${SITE.url}/services/${s.id}`,
+                    provider: { '@id': `${SITE.url}/#business` },
+                    offers: offerSchema(s.title, Number(s.price.replace('$', '')), s.description, `${SITE.url}/services/${s.id}`),
+                  },
+                })),
+              },
+            ]),
+          ),
+        }}
       />
     </div>
   );

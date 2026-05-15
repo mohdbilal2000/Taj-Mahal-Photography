@@ -16,9 +16,8 @@ import {
   graphSchema,
   jsonLd,
   SITE,
+  LAST_UPDATED,
 } from '@/lib/seo';
-
-const LAST_REVIEWED = '2026-05-15';
 
 type ServiceData = {
   title: string;
@@ -37,6 +36,24 @@ type ServiceData = {
 };
 
 const servicesData: Record<string, ServiceData> = {
+  'quick-capture': {
+    title: 'Quick Capture | 30-Minute Taj Mahal Photoshoot',
+    description: 'A 30-minute Taj Mahal photoshoot with 20 raw photos delivered as a digital album — ideal for budget travellers.',
+    quickAnswer:
+      'A 30-minute Taj Mahal photoshoot by a government-licensed photographer. $50 USD, includes 20 raw photos delivered as a digital album. No physical prints. Ideal for budget travellers and short visits who still want professional shots without the long session.',
+    longDescription:
+      'Quick Capture is the most affordable way to get professional Taj Mahal photographs. In 30 focused minutes the licensed photographer takes you to the iconic vantage points — the reflecting pool, the elevated platform, and a couple of garden angles — and captures 20 raw, high-resolution images. The album is delivered digitally. Best for solo travellers and couples who are short on time but still want photographs that smartphones cannot match.',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop',
+    features: ['30 Minute Session', '20 Raw Photos (Digital Album)', 'Official Photography Permit', 'No Physical Prints', 'Instant Digital Delivery'],
+    price: 50,
+    duration: '30 Minutes',
+    bestFor: 'Budget travellers, quick visits, short layovers',
+    faqs: [
+      { question: 'How long is the Quick Capture session?', answer: 'The session is 30 minutes inside the Taj Mahal complex with a government-licensed photographer.' },
+      { question: 'How many photos do I receive?', answer: '20 raw, high-resolution photos delivered digitally. No printed photos.' },
+      { question: 'Is the photography permit included?', answer: 'Yes. The official Ministry of Tourism photography permit is included in the $50 price. Monument entry tickets are separate.' },
+    ],
+  },
   couple: {
     title: 'Couple & Pre-Wedding Photography',
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
@@ -87,6 +104,42 @@ const servicesData: Record<string, ServiceData> = {
     faqs: [
       { question: 'Is the Taj Mahal good for family photos with young children?', answer: 'Yes. The gardens are wide and stroller-friendly, and a sunrise visit avoids the busiest crowds. Our family sessions are paced for children with short breaks built in.' },
       { question: 'How many photos do we get?', answer: '40+ high-resolution photos delivered within 48 hours via a private online gallery.' },
+    ],
+  },
+  'taj-agra-fort': {
+    title: 'Taj Mahal + Agra Fort Heritage Trail Photography',
+    description: 'A 5-hour photography trail covering both UNESCO World Heritage sites — Taj Mahal at sunrise and Agra Fort in morning light.',
+    quickAnswer:
+      'A 5-hour Heritage Trail photography session covering the Taj Mahal at sunrise and Agra Fort in morning light. $399 USD, includes 250+ high-resolution photos, photography permits for both monuments, transport between them, historical context during the shoot, and 48-hour gallery delivery. Monument entry tickets not included.',
+    longDescription:
+      'The Heritage Trail combines the two most iconic Mughal monuments in Agra into one visual story. We start at the Taj Mahal east gate for sunrise, capturing the changing colours on the marble for about two hours, then move to Agra Fort while the morning light is still soft. The licensed photographer is authorised at both monuments and knows the angles that frame the Taj Mahal from the fort balconies — the same view from which Shah Jahan reportedly gazed at the mausoleum during his imprisonment. 250+ high-resolution photos delivered within 48 hours.',
+    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1920&auto=format&fit=crop',
+    features: ['5 Hour Session', '250+ High-Resolution Photos', 'Permits for Taj Mahal AND Agra Fort', 'Sunrise at Taj, Morning at Fort', 'Transport between monuments', 'Historical context during the shoot', '48-Hour Gallery Delivery'],
+    price: 399,
+    duration: '5 Hours',
+    bestFor: 'History enthusiasts, architecture lovers, couples wanting more than just the Taj',
+    faqs: [
+      { question: 'Are tickets to both monuments included?', answer: 'Monument entry tickets are not included in the Heritage Trail package; only the photography permits for both Taj Mahal and Agra Fort are included. Tickets can be purchased on the day, or upgrade to a Sunrise Luxury Tour from Delhi which bundles tickets.' },
+      { question: 'How long is the gap between Taj Mahal and Agra Fort?', answer: 'Roughly 15 minutes by car. We aim to finish the Taj Mahal session by 8:30 AM and begin Agra Fort by 9:00 AM so the light is still soft.' },
+      { question: 'Can we add Mehtab Bagh (back side of the Taj)?', answer: 'Mehtab Bagh is included in the Full Day Agra Experience ($499). For the Heritage Trail, focus is on the two UNESCO sites.' },
+    ],
+  },
+  'full-day': {
+    title: 'Full Day Agra Photography Experience',
+    description: 'Complete photographic coverage of Agra — Taj Mahal, Agra Fort, and Mehtab Bagh (back side of Taj) — in a single 8–10 hour day.',
+    quickAnswer:
+      'A full-day Agra photography experience covering the Taj Mahal at sunrise, Agra Fort in the morning, and Mehtab Bagh (back side of the Taj Mahal) at sunset. $499 USD for 8–10 hours, 350+ high-resolution photos, monument permits, multiple outfit changes, dedicated A/C transport, and 48-hour gallery delivery.',
+    longDescription:
+      'The Full Day Agra Experience is our most comprehensive photography package for visitors based in Agra. Beginning at the Taj Mahal east gate for sunrise, the day moves through Agra Fort in the morning, an optional lunch break, and ends at Mehtab Bagh across the Yamuna river for the famous back-side sunset shot. The licensed photographer brings professional equipment to all three monuments. Multiple outfit changes are accommodated between locations, dedicated A/C transport handles the logistics, and 350+ high-resolution photos are delivered within 48 hours.',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1920&auto=format&fit=crop',
+    features: ['8–10 Hour Session', '350+ High-Resolution Photos', 'All Monument Photography Permits', 'Taj Mahal + Agra Fort + Mehtab Bagh', 'Multiple Outfit Changes', 'Dedicated A/C Transport', '48-Hour Gallery Delivery'],
+    price: 499,
+    duration: '8–10 Hours',
+    bestFor: 'Influencers, content creators, VIPs, full-portfolio visits',
+    faqs: [
+      { question: 'What is Mehtab Bagh and why is it included?', answer: 'Mehtab Bagh is the garden complex directly opposite the Taj Mahal across the Yamuna river, originally part of the same Mughal landscape design. It is the best sunset vantage point for the Taj Mahal and provides the famous "back side" view.' },
+      { question: 'Can we add a pre-wedding component to the full day?', answer: 'Yes. The Pre-Wedding & Couple package ($199) can be combined with the Full Day Experience for a customised quote. Contact us on WhatsApp to discuss.' },
+      { question: 'Is transport included between locations?', answer: 'Yes. Dedicated A/C transport with a driver is included for the day, covering the three monuments and any lunch/refreshment stops.' },
     ],
   },
   proposal: {
@@ -243,7 +296,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       name: service.title,
       description: service.description,
       image: service.image,
-      lastReviewed: LAST_REVIEWED,
+      lastReviewed: LAST_UPDATED,
       speakableSelectors: ['.quick-answer', '.faq-answer', 'h1', 'h2'],
     }),
     tripOrService,
@@ -344,7 +397,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </div>
               )}
 
-              <p className="mt-12 text-xs text-gray-400">Last updated: {LAST_REVIEWED}</p>
+              <p className="mt-12 text-xs text-gray-400">Last updated: {LAST_UPDATED}</p>
             </div>
 
             <div>

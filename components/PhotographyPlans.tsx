@@ -152,8 +152,6 @@ export default function PhotographyPlans() {
                   ? 'border-2 border-gold-500 ring-2 ring-gold-500/20 relative shadow-lg'
                   : 'border border-marble-200 shadow-sm'
               }`}
-              itemScope
-              itemType="https://schema.org/Offer"
             >
               {plan.popular && (
                 <div className="absolute top-0 left-0 right-0 bg-gold-500 text-white text-xs font-bold uppercase tracking-wider text-center py-1.5 z-10">
@@ -171,7 +169,7 @@ export default function PhotographyPlans() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/20 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <h3 className="font-serif text-2xl font-semibold" itemProp="name">
+                  <h3 className="font-serif text-2xl font-semibold">
                     {plan.name}
                   </h3>
                   <p className="text-gold-400 text-sm font-medium">{plan.tagline}</p>
@@ -181,13 +179,12 @@ export default function PhotographyPlans() {
               <div className="p-6 flex-grow flex flex-col">
                 <div className="mb-6">
                   <div className="flex items-end gap-2 mb-2">
-                    <span className="text-3xl font-light text-ink-900" itemProp="price">
+                    <span className="text-3xl font-light text-ink-900">
                       {plan.price}
                     </span>
                     <span className="text-sm text-gray-500 mb-1">/ {plan.duration}</span>
-                    <meta itemProp="priceCurrency" content="USD" />
                   </div>
-                  <p className="text-gray-600 text-sm" itemProp="description">
+                  <p className="text-gray-600 text-sm">
                     {plan.description}
                   </p>
                 </div>
