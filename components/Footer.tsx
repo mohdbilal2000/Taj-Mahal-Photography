@@ -28,7 +28,7 @@ export default function Footer() {
               <a
                 href="https://www.instagram.com/taj.mahal.photography"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                 aria-label="Follow on Instagram"
               >
@@ -37,7 +37,7 @@ export default function Footer() {
               <a
                 href="https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                 aria-label="Connect on LinkedIn"
               >
@@ -46,7 +46,7 @@ export default function Footer() {
               <a
                 href="https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                 aria-label="Follow on Facebook"
               >

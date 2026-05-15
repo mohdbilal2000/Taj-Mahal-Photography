@@ -3,31 +3,21 @@ import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import FAQ from '@/components/FAQ';
 import { Metadata } from 'next';
-import { breadcrumbSchema, faqSchema, jsonLd, SITE } from '@/lib/seo';
+import { breadcrumbSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE } from '@/lib/seo';
+import { faqs as faqData } from '@/lib/content';
+
+const LAST_REVIEWED = '2026-05-15';
 
 export const metadata: Metadata = {
-  title: 'FAQ | Taj Mahal Photography Questions Answered',
-  description: 'Frequently asked questions about Taj Mahal photography: permits, best times, pricing, booking process, dress code, and delivery timelines. Answers from a government-licensed photographer.',
+  title: 'FAQ | Taj Mahal Photography & Sunrise Luxury Tours from Delhi',
+  description: 'Frequently asked questions about Taj Mahal photography permits, prices, sunrise timing, and same-day Sunrise Luxury Tours from Delhi/NCR. Answers from a government-licensed photographer.',
   alternates: { canonical: `${SITE.url}/faq` },
   openGraph: {
     title: 'FAQ | Taj Mahal Photography Questions Answered',
-    description: 'Get answers to the most common questions about Taj Mahal photography from a licensed professional.',
+    description: 'Get answers to the most common questions about Taj Mahal photography and luxury tours from Delhi.',
     url: `${SITE.url}/faq`,
   },
 };
-
-const faqData = [
-  { question: 'Do photographers need a permit inside the Taj Mahal?', answer: 'Yes, professional photography inside the Taj Mahal requires a specific government permit issued by the Ministry of Tourism. Unlicensed photographers are not allowed to bring professional equipment (like tripods or multiple lenses) and are often stopped by security. As a licensed photographer, I have the authorized access needed.' },
-  { question: 'Is photography allowed inside the Taj Mahal?', answer: 'Photography is allowed in the gardens and exterior areas of the Taj Mahal. However, photography is strictly prohibited inside the main mausoleum (where the tombs are located). I will guide you to all the best legal spots for stunning photos.' },
-  { question: 'What is the best time for Taj Mahal photography?', answer: 'Sunrise is universally considered the best time. The lighting is soft and magical, the marble reflects beautiful pink and golden hues, and the crowds are significantly smaller. Late afternoon before sunset is the second best option.' },
-  { question: 'How do I book your services?', answer: 'You can book by filling out the inquiry form on this website or contacting me directly via WhatsApp. Due to limited daily permits, I recommend booking at least 2-3 weeks in advance, especially during peak tourist season (October to March).' },
-  { question: 'When will we receive our photos?', answer: 'You will receive a link to a private online gallery with your high-resolution photos within 48-72 hours after the shoot.' },
-  { question: 'How much does a Taj Mahal photoshoot cost?', answer: 'Packages start at $50 USD for a quick capture session with 20 raw photos. Our sunrise package is $99 for a 1.5-hour session with 50 high-resolution photos. Pre-wedding and couple packages start at $199, and full-day coverage starts at $499. All packages include official permit authorization for professional equipment.' },
-  { question: 'What should I wear for a Taj Mahal photoshoot?', answer: 'Bold, saturated colors like red, emerald green, royal blue, and gold photograph beautifully against the white marble. Avoid white clothing as it blends with the monument. Flowy fabrics add movement and drama to portraits.' },
-  { question: 'Is the Taj Mahal open on Fridays?', answer: 'No. The Taj Mahal is closed to visitors every Friday for prayers at the mosque within the complex. Plan your visit for any other day of the week.' },
-  { question: 'Can I bring my own camera along?', answer: 'Yes, tourists can bring personal cameras and smartphones. However, professional equipment like tripods, monopods, extra lenses, and large camera bags require a licensed photographer with a government permit.' },
-  { question: 'Do you provide transportation?', answer: 'Transportation is included in the Full Day Agra Experience package ($499). For other packages, hotel pickup can be arranged at an additional cost. We can recommend reliable transport options for your Agra visit.' },
-];
 
 export default function FAQPage() {
   return (
@@ -68,14 +58,27 @@ export default function FAQPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([
-          { name: 'Home', url: SITE.url },
-          { name: 'FAQ', url: `${SITE.url}/faq` },
-        ])) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(faqData)) }}
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            graphSchema([
+              breadcrumbSchema([
+                { name: 'Home', url: SITE.url },
+                { name: 'FAQ', url: `${SITE.url}/faq` },
+              ]),
+              webPageSchema({
+                url: `${SITE.url}/faq`,
+                name: 'FAQ — Taj Mahal Photography & Luxury Tours',
+                description: 'Comprehensive FAQ for Taj Mahal photography services and same-day Sunrise Luxury Tours from Delhi/NCR.',
+                lastReviewed: LAST_REVIEWED,
+                speakableSelectors: ['.faq-answer'],
+              }),
+              {
+                ...faqSchema(faqData),
+                speakable: speakableSpec(['.faq-answer']),
+              },
+            ]),
+          ),
+        }}
       />
     </div>
   );

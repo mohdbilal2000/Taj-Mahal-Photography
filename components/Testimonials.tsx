@@ -3,27 +3,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Star, Quote } from 'lucide-react';
-
-const testimonials = [
-  {
-    name: "Sarah & James",
-    country: "United Kingdom",
-    text: "Booking a licensed photographer was the best decision we made. He knew exactly where to go to avoid the crowds and the photos are breathtaking. Security checked his badge at the gate and we walked right in with all the gear.",
-    rating: 5
-  },
-  {
-    name: "Elena Rossi",
-    country: "Italy",
-    text: "Absolutely professional and highly skilled. The sunrise shoot was magical. He guided us on poses and made us feel so comfortable. The final edited pictures were delivered the next day!",
-    rating: 5
-  },
-  {
-    name: "Michael Chen",
-    country: "United States",
-    text: "I was worried about the strict photography rules I read about online. Having an official permit holder meant zero stress. He's a true artist and captured our proposal perfectly.",
-    rating: 5
-  }
-];
+import { testimonials } from '@/lib/content';
 
 export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);

@@ -8,27 +8,124 @@ import LuxuryTours from '@/components/LuxuryTours';
 import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
+import { faqs as siteFaqs, testimonials } from '@/lib/content';
 import ContactForm from '@/components/ContactForm';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import BackToTop from '@/components/BackToTop';
-import { localBusinessSchema, websiteSchema, breadcrumbSchema, faqSchema, jsonLd, SITE } from '@/lib/seo';
+import {
+  localBusinessSchema,
+  websiteSchema,
+  breadcrumbSchema,
+  faqSchema,
+  personSchema,
+  reviewSchema,
+  tajMahalAttractionSchema,
+  agraFortAttractionSchema,
+  luxuryTourSchema,
+  speakableSpec,
+  howToSchema,
+  webPageSchema,
+  graphSchema,
+  jsonLd,
+  SITE,
+} from '@/lib/seo';
 
-const homeFaqs = [
-  { question: 'Do photographers need a permit inside the Taj Mahal?', answer: 'Yes, professional photography inside the Taj Mahal requires a specific government permit issued by the Ministry of Tourism. Unlicensed photographers are not allowed to bring professional equipment and are routinely stopped by security. A government-licensed photographer holds legal authorization for professional shoots.' },
-  { question: 'Is photography allowed inside the Taj Mahal?', answer: 'Photography is allowed in the gardens, near the reflecting pool, and around the exterior of the monument. Photography is strictly prohibited inside the main mausoleum where the cenotaphs of Shah Jahan and Mumtaz Mahal are located. A licensed photographer guides you to the best legal vantage points.' },
-  { question: 'What is the best time for Taj Mahal photography?', answer: 'Sunrise is universally the best time for Taj Mahal photography. The soft morning light creates pink, golden, and white reflections on the marble, and the crowds are significantly smaller. Late afternoon before sunset is the second-best option for warm golden tones.' },
-  { question: 'How much does a Taj Mahal photoshoot cost?', answer: 'Packages start at $50 USD for a quick capture with 20 raw photos. Our sunrise package is $99 for a 1.5-hour session with 50 high-resolution photos. Pre-wedding and couple packages start at $199 (100+ natural photos + 50 physical prints), and full-day Agra coverage starts at $499 (350+ natural photos with AC transport).' },
-  { question: 'How do I book a licensed Taj Mahal photographer?', answer: 'Book via the inquiry form on this website or contact us on WhatsApp. Due to limited daily permits (maximum 2 shoots per day), we recommend booking 2-3 weeks in advance, especially during peak tourist season from October to March.' },
-  { question: 'Do you offer a same-day Taj Mahal tour from Delhi?', answer: 'Yes. Our Sunrise Luxury Tour ($650) covers Delhi/NCR to Agra and back in a private Toyota Innova for couples and families, while the Sunrise Luxury Urbania tour ($899) uses a private Force Urbania luxury coach for larger families and groups (up to 13 guests). Both are same-day tours covering the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, a private golf cart inside the complex, monument tickets, and a security escort to skip the line.' },
-];
+const LAST_REVIEWED = '2026-05-15';
+
+const innovaTour = luxuryTourSchema({
+  slug: 'sunrise-luxury-innova',
+  name: 'Taj Mahal Sunrise Luxury Tour (Private Innova)',
+  description:
+    'Same-day private sunrise tour from Delhi/NCR to Agra in a Toyota Innova. Covers the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort to skip the line.',
+  price: 650,
+  image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1200&auto=format&fit=crop',
+  vehicle: 'innova',
+  audience: 'Couples and families up to 6 guests',
+});
+
+const urbaniaTour = luxuryTourSchema({
+  slug: 'sunrise-luxury-urbania',
+  name: 'Taj Mahal Sunrise Luxury Urbania Tour',
+  description:
+    'Same-day private sunrise tour from Delhi/NCR to Agra in a Force Urbania luxury coach for larger families and groups of up to 13 guests. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj complex, and a security escort to skip the line.',
+  price: 899,
+  image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1200&auto=format&fit=crop',
+  vehicle: 'urbania',
+  audience: 'Families and groups up to 13 guests',
+});
+
+const howToBook = howToSchema({
+  name: 'How to book a Taj Mahal photoshoot or sunrise luxury tour',
+  description:
+    'Step-by-step instructions for booking a government-licensed Taj Mahal photoshoot in Agra or a same-day Sunrise Luxury Tour from Delhi/NCR.',
+  totalTime: 'PT10M',
+  estimatedCost: { value: 50, currency: 'USD' },
+  steps: [
+    { name: 'Choose your package or tour', text: 'Pick from sunrise photoshoot, couple/pre-wedding, family, heritage trail, full day Agra, or a same-day Sunrise Luxury Tour from Delhi (Innova $650 or Urbania $899).', url: `${SITE.url}/services` },
+    { name: 'Submit the inquiry form', text: 'Send your name, nationality, WhatsApp number, preferred date and service through the booking form.', url: `${SITE.url}/book` },
+    { name: 'Confirm on WhatsApp', text: 'You receive a WhatsApp reply within 10 minutes during business hours confirming availability and answering any questions.' },
+    { name: 'Pay a deposit', text: 'A small deposit secures your slot. Remaining balance is paid in cash, UPI or bank transfer on the day of the shoot.' },
+    { name: 'Show up at the meeting point', text: 'Photography clients meet at the Taj Mahal east gate 30 minutes before sunrise. Sunrise Luxury Tour clients are picked up from their Delhi/NCR hotel around 2:30 AM.' },
+    { name: 'Receive your photos', text: 'A private online gallery with 50+ high-resolution photos is delivered within 48 to 72 hours after the session.' },
+  ],
+});
+
+const homeWebPage = webPageSchema({
+  url: SITE.url + '/',
+  name: SITE.title,
+  description: SITE.description,
+  image: SITE.image,
+  lastReviewed: LAST_REVIEWED,
+  speakableSelectors: ['.faq-answer', '.tldr', '.quick-answer', 'h1', 'h2'],
+});
 
 export default function Home() {
+  const graph = graphSchema([
+    personSchema(),
+    localBusinessSchema(),
+    websiteSchema(),
+    homeWebPage,
+    tajMahalAttractionSchema(),
+    agraFortAttractionSchema(),
+    innovaTour,
+    urbaniaTour,
+    breadcrumbSchema([{ name: 'Home', url: SITE.url }]),
+    {
+      ...faqSchema(siteFaqs),
+      speakable: speakableSpec(['.faq-answer']),
+    },
+    howToBook,
+    ...testimonials.map((t) =>
+      reviewSchema({
+        author: t.name,
+        country: t.country,
+        body: t.text,
+        rating: t.rating,
+        datePublished: t.datePublished,
+      }),
+    ),
+  ]);
+
   return (
     <div className="min-h-screen flex flex-col pt-20">
       <Header />
 
       <main className="flex-grow">
         <Hero />
+
+        {/* Accessible site facts block — read by screen readers and AI extractors.
+            Kept off-screen with sr-only (legitimate accessibility pattern, not cloaking). */}
+        <p className="sr-only tldr">
+          Taj Mahal Photography is an official government-licensed photographer in Agra, India,
+          authorized by the Ministry of Tourism for professional photoshoots inside the Taj Mahal.
+          Photography packages start at $50. Same-day Sunrise Luxury Tours from Delhi to Agra are
+          available in a private Toyota Innova ($650, up to 6 guests) or a Force Urbania luxury
+          coach ($899, up to 13 guests) — both include a licensed guide and photographer, Taj
+          Mahal and Agra Fort tickets, a private golf cart inside the complex, and a security
+          escort to skip the line. Maximum 2 photography permits per day. WhatsApp +91 83930 10125
+          for 10-minute response.
+        </p>
+
         <AuthoritySection />
         <ServicesOverview />
         <PhotographyPlans />
@@ -43,28 +140,7 @@ export default function Home() {
       <StickyWhatsApp />
       <BackToTop />
 
-      {/* JSON-LD: LocalBusiness + PhotographyBusiness (GEO/SEO) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(localBusinessSchema()) }}
-      />
-      {/* JSON-LD: WebSite with SearchAction */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(websiteSchema()) }}
-      />
-      {/* JSON-LD: BreadcrumbList */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([
-          { name: 'Home', url: SITE.url },
-        ])) }}
-      />
-      {/* JSON-LD: FAQPage — feeds AI answer engines (AEO) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema(homeFaqs)) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(graph) }} />
     </div>
   );
 }

@@ -5,7 +5,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ShieldCheck, Award, MapPin, Users, Camera, Clock } from 'lucide-react';
-import { breadcrumbSchema, personSchema, jsonLd, SITE } from '@/lib/seo';
+import { breadcrumbSchema, personSchema, webPageSchema, speakableSpec, graphSchema, jsonLd, SITE } from '@/lib/seo';
+
+const LAST_REVIEWED = '2026-05-15';
 
 export const metadata: Metadata = {
   title: 'About Our Licensed Photographer | Government Authorized Agra',
@@ -132,14 +134,34 @@ export default function AboutPage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbSchema([
-          { name: 'Home', url: SITE.url },
-          { name: 'About', url: `${SITE.url}/about` },
-        ])) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(personSchema()) }}
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            graphSchema([
+              breadcrumbSchema([
+                { name: 'Home', url: SITE.url },
+                { name: 'About', url: `${SITE.url}/about` },
+              ]),
+              webPageSchema({
+                url: `${SITE.url}/about`,
+                name: 'About the Photographer | Taj Mahal Photography',
+                description: 'About the official government-licensed Taj Mahal photographer in Agra, India.',
+                image: SITE.image,
+                lastReviewed: LAST_REVIEWED,
+                speakableSelectors: ['h2', 'h3', '.prose p'],
+              }),
+              {
+                ...personSchema(),
+                mainEntityOfPage: { '@id': `${SITE.url}/about#webpage` },
+              },
+              {
+                '@type': 'ProfilePage',
+                '@id': `${SITE.url}/about#profile`,
+                mainEntity: { '@id': `${SITE.url}/#photographer` },
+                speakable: speakableSpec(['h2', 'h3']),
+              },
+            ]),
+          ),
+        }}
       />
     </div>
   );

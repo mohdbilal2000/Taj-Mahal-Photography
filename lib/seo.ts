@@ -25,6 +25,39 @@ export const SITE = {
   locale: 'en_US',
   currency: 'USD',
   image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
+  priceValidUntil: '2026-12-31',
+} as const;
+
+// ─── Entity references (Wikidata / Wikipedia) for sameAs graph ───
+// Wikidata Q-IDs give AI rerankers a verifiable entity edge.
+export const ENTITIES = {
+  tajMahal: {
+    name: 'Taj Mahal',
+    wikidata: 'https://www.wikidata.org/wiki/Q9141',
+    wikipedia: 'https://en.wikipedia.org/wiki/Taj_Mahal',
+    geo: { lat: 27.1751, lng: 78.0421 },
+  },
+  agraFort: {
+    name: 'Agra Fort',
+    wikidata: 'https://www.wikidata.org/wiki/Q43473',
+    wikipedia: 'https://en.wikipedia.org/wiki/Agra_Fort',
+    geo: { lat: 27.1795, lng: 78.0211 },
+  },
+  agra: {
+    name: 'Agra',
+    wikidata: 'https://www.wikidata.org/wiki/Q42941',
+    wikipedia: 'https://en.wikipedia.org/wiki/Agra',
+  },
+  delhi: {
+    name: 'Delhi',
+    wikidata: 'https://www.wikidata.org/wiki/Q1353',
+    wikipedia: 'https://en.wikipedia.org/wiki/Delhi',
+  },
+  ministryOfTourism: {
+    name: 'Ministry of Tourism, Government of India',
+    wikidata: 'https://www.wikidata.org/wiki/Q6868810',
+    url: 'https://tourism.gov.in/',
+  },
 } as const;
 
 // ─── Reusable JSON-LD generators ───
@@ -35,14 +68,18 @@ export function localBusinessSchema() {
     '@type': ['LocalBusiness', 'ProfessionalService', 'PhotographyBusiness'],
     '@id': `${SITE.url}/#business`,
     name: SITE.name,
+    alternateName: ['Taj Mahal Photographer', 'Official Taj Mahal Photographer Agra'],
     image: SITE.image,
+    logo: SITE.image,
     description: SITE.description,
+    slogan: 'Official Government Licensed Taj Mahal Photographer',
     url: SITE.url,
     telephone: SITE.phone,
     email: SITE.email,
     priceRange: '$$$',
     currenciesAccepted: 'USD, INR',
     paymentAccepted: 'Cash, UPI, Bank Transfer',
+    knowsLanguage: ['en', 'hi', 'ur'],
     address: {
       '@type': 'PostalAddress',
       streetAddress: SITE.address.street,
@@ -56,11 +93,22 @@ export function localBusinessSchema() {
       latitude: SITE.geo.lat,
       longitude: SITE.geo.lng,
     },
-    areaServed: {
-      '@type': 'City',
-      name: 'Agra',
-      sameAs: 'https://en.wikipedia.org/wiki/Agra',
-    },
+    areaServed: [
+      {
+        '@type': 'City',
+        name: ENTITIES.agra.name,
+        sameAs: [ENTITIES.agra.wikipedia, ENTITIES.agra.wikidata],
+      },
+      {
+        '@type': 'City',
+        name: ENTITIES.delhi.name,
+        sameAs: [ENTITIES.delhi.wikipedia, ENTITIES.delhi.wikidata],
+      },
+    ],
+    knowsAbout: [
+      { '@type': 'TouristAttraction', name: ENTITIES.tajMahal.name, sameAs: [ENTITIES.tajMahal.wikipedia, ENTITIES.tajMahal.wikidata] },
+      { '@type': 'TouristAttraction', name: ENTITIES.agraFort.name, sameAs: [ENTITIES.agraFort.wikipedia, ENTITIES.agraFort.wikidata] },
+    ],
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Saturday', 'Sunday'],
@@ -83,7 +131,7 @@ export function localBusinessSchema() {
     sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Taj Mahal Photography Packages',
+      name: 'Taj Mahal Photography & Tour Packages',
       itemListElement: [
         offerSchema('Quick Capture', 50, 'Budget-friendly Taj Mahal photoshoot. 30-minute session, 20 raw photos delivered as a digital album.', `${SITE.url}/services/quick-capture`),
         offerSchema('Taj Mahal Sunrise Photoshoot', 99, 'Avoid crowds, best light. 1.5-hour session, 50 high-resolution photos, skip-the-line guidance.', `${SITE.url}/services/sunrise`),
@@ -106,6 +154,7 @@ export function offerSchema(name: string, price: number, description: string, ur
     description,
     url,
     availability: 'https://schema.org/LimitedAvailability',
+    priceValidUntil: SITE.priceValidUntil,
     seller: { '@id': `${SITE.url}/#business` },
   };
 }
@@ -216,8 +265,11 @@ export function personSchema() {
     jobTitle: 'Government-Licensed Taj Mahal Photographer',
     description: 'Official Ministry of Tourism certified photographer specializing in Taj Mahal photoshoots, pre-wedding photography, and heritage monument photography in Agra, India.',
     url: SITE.url,
+    image: SITE.image,
     telephone: SITE.phone,
     email: SITE.email,
+    knowsLanguage: ['en', 'hi', 'ur'],
+    nationality: { '@type': 'Country', name: 'India' },
     address: {
       '@type': 'PostalAddress',
       streetAddress: SITE.address.street,
@@ -226,6 +278,11 @@ export function personSchema() {
       postalCode: SITE.address.zip,
       addressCountry: SITE.address.country,
     },
+    workLocation: {
+      '@type': 'Place',
+      name: ENTITIES.tajMahal.name,
+      sameAs: [ENTITIES.tajMahal.wikipedia, ENTITIES.tajMahal.wikidata],
+    },
     knowsAbout: [
       'Taj Mahal Photography',
       'Mughal Architecture',
@@ -233,6 +290,10 @@ export function personSchema() {
       'Pre-Wedding Photography',
       'Sunrise Photography',
       'Government Photography Permits India',
+      'Agra Fort Photography',
+      'Couple Portrait Photography',
+      'Destination Wedding Photography',
+      'Travel Photography India',
     ],
     hasCredential: {
       '@type': 'EducationalOccupationalCredential',
@@ -240,11 +301,260 @@ export function personSchema() {
       name: 'Ministry of Tourism Photography License',
       recognizedBy: {
         '@type': 'GovernmentOrganization',
-        name: 'Ministry of Tourism, Government of India',
+        name: ENTITIES.ministryOfTourism.name,
+        sameAs: [ENTITIES.ministryOfTourism.url, ENTITIES.ministryOfTourism.wikidata],
       },
     },
     worksFor: { '@id': `${SITE.url}/#business` },
     sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
+  };
+}
+
+// ─── Schemas for AI answer engines (Perplexity, ChatGPT, Claude, AI Overviews) ───
+
+/** TouristAttraction node for the Taj Mahal — explicit graph edge to the entity. */
+export function tajMahalAttractionSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    '@id': `${SITE.url}/#taj-mahal`,
+    name: ENTITIES.tajMahal.name,
+    alternateName: ['Crown of the Palace', 'Tāj Mahal'],
+    description:
+      'A 17th-century white-marble mausoleum on the south bank of the Yamuna in Agra, India, commissioned by Mughal emperor Shah Jahan in memory of his wife Mumtaz Mahal. UNESCO World Heritage Site and one of the New Seven Wonders of the World.',
+    image: SITE.image,
+    sameAs: [ENTITIES.tajMahal.wikipedia, ENTITIES.tajMahal.wikidata],
+    geo: { '@type': 'GeoCoordinates', latitude: ENTITIES.tajMahal.geo.lat, longitude: ENTITIES.tajMahal.geo.lng },
+    isAccessibleForFree: false,
+    publicAccess: true,
+    tourBookingPage: `${SITE.url}/book`,
+  };
+}
+
+/** TouristAttraction node for Agra Fort. */
+export function agraFortAttractionSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    '@id': `${SITE.url}/#agra-fort`,
+    name: ENTITIES.agraFort.name,
+    description:
+      'A 16th-century red sandstone Mughal fort and UNESCO World Heritage Site in Agra, India. Built by Emperor Akbar between 1565 and 1573; the principal residence of the Mughal emperors until 1638.',
+    sameAs: [ENTITIES.agraFort.wikipedia, ENTITIES.agraFort.wikidata],
+    geo: { '@type': 'GeoCoordinates', latitude: ENTITIES.agraFort.geo.lat, longitude: ENTITIES.agraFort.geo.lng },
+    isAccessibleForFree: false,
+    publicAccess: true,
+  };
+}
+
+/** Vehicle schema used inside TouristTrip for the Delhi luxury tours. */
+export function vehicleSchema(model: 'innova' | 'urbania') {
+  if (model === 'innova') {
+    return {
+      '@type': 'Vehicle',
+      name: 'Toyota Innova',
+      brand: { '@type': 'Brand', name: 'Toyota' },
+      vehicleModelDate: '2024',
+      vehicleConfiguration: 'Private chauffeur-driven SUV',
+      bodyType: 'SUV',
+      seatingCapacity: 6,
+      fuelType: 'Diesel',
+      vehicleInteriorColor: 'Beige',
+    };
+  }
+  return {
+    '@type': 'Vehicle',
+    name: 'Force Urbania',
+    brand: { '@type': 'Brand', name: 'Force Motors' },
+    vehicleModelDate: '2024',
+    vehicleConfiguration: 'Private chauffeur-driven luxury minibus',
+    bodyType: 'Minibus',
+    seatingCapacity: 13,
+    fuelType: 'Diesel',
+    vehicleInteriorFeatures: 'Reclining seats, A/C, Wi-Fi',
+  };
+}
+
+/** Full TouristTrip schema for the two Delhi-to-Agra luxury tours. */
+export function luxuryTourSchema(opts: {
+  slug: 'sunrise-luxury-innova' | 'sunrise-luxury-urbania';
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  vehicle: 'innova' | 'urbania';
+  audience: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'TouristTrip',
+    '@id': `${SITE.url}/services/${opts.slug}#tour`,
+    name: opts.name,
+    description: opts.description,
+    image: opts.image,
+    url: `${SITE.url}/services/${opts.slug}`,
+    touristType: ['International Visitor', 'Family Travel', 'Couple Travel'],
+    audience: { '@type': 'Audience', audienceType: opts.audience },
+    provider: { '@id': `${SITE.url}/#business` },
+    offers: {
+      '@type': 'Offer',
+      price: opts.price,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/LimitedAvailability',
+      priceValidUntil: SITE.priceValidUntil,
+      url: `${SITE.url}/services/${opts.slug}`,
+      seller: { '@id': `${SITE.url}/#business` },
+      validFrom: '2026-01-01',
+      eligibleRegion: [
+        { '@type': 'Country', name: 'United States' },
+        { '@type': 'Country', name: 'United Kingdom' },
+        { '@type': 'Country', name: 'Australia' },
+        { '@type': 'Country', name: 'Canada' },
+        { '@type': 'Country', name: 'Germany' },
+        { '@type': 'Country', name: 'France' },
+        { '@type': 'Country', name: 'India' },
+      ],
+    },
+    vehicle: vehicleSchema(opts.vehicle),
+    departureLocation: {
+      '@type': 'Place',
+      name: 'Delhi / NCR (hotel pickup)',
+      address: { '@type': 'PostalAddress', addressLocality: 'Delhi', addressCountry: 'IN' },
+      sameAs: [ENTITIES.delhi.wikipedia, ENTITIES.delhi.wikidata],
+    },
+    arrivalLocation: {
+      '@type': 'Place',
+      name: 'Delhi / NCR (hotel drop)',
+      address: { '@type': 'PostalAddress', addressLocality: 'Delhi', addressCountry: 'IN' },
+    },
+    itinerary: {
+      '@type': 'ItemList',
+      numberOfItems: 5,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, item: { '@type': 'Place', name: 'Hotel pickup in Delhi/NCR (02:30 AM)' } },
+        { '@type': 'ListItem', position: 2, item: { '@type': 'TouristAttraction', '@id': `${SITE.url}/#taj-mahal`, name: ENTITIES.tajMahal.name, sameAs: [ENTITIES.tajMahal.wikipedia, ENTITIES.tajMahal.wikidata] } },
+        { '@type': 'ListItem', position: 3, item: { '@type': 'FoodEstablishment', name: 'Breakfast at heritage hotel in Agra' } },
+        { '@type': 'ListItem', position: 4, item: { '@type': 'TouristAttraction', '@id': `${SITE.url}/#agra-fort`, name: ENTITIES.agraFort.name, sameAs: [ENTITIES.agraFort.wikipedia, ENTITIES.agraFort.wikidata] } },
+        { '@type': 'ListItem', position: 5, item: { '@type': 'Place', name: 'Return drop in Delhi/NCR (~7-8 PM)' } },
+      ],
+    },
+    subjectOf: [
+      { '@id': `${SITE.url}/#taj-mahal` },
+      { '@id': `${SITE.url}/#agra-fort` },
+    ],
+  };
+}
+
+/** Individual Review JSON-LD (so AI engines can extract verbatim quotes). */
+export function reviewSchema(opts: {
+  author: string;
+  country: string;
+  body: string;
+  rating: number;
+  datePublished: string;
+}) {
+  return {
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: opts.author,
+      nationality: { '@type': 'Country', name: opts.country },
+    },
+    datePublished: opts.datePublished,
+    reviewBody: opts.body,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: opts.rating,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    itemReviewed: { '@id': `${SITE.url}/#business` },
+    publisher: { '@id': `${SITE.url}/#business` },
+  };
+}
+
+/** Speakable schema — marks extractable answer passages for voice/AI. */
+export function speakableSpec(cssSelectors: string[]) {
+  return {
+    '@type': 'SpeakableSpecification',
+    cssSelector: cssSelectors,
+  };
+}
+
+/** HowTo schema for "How to book" / "How to plan" pages. */
+export function howToSchema(opts: {
+  name: string;
+  description: string;
+  totalTime?: string;
+  estimatedCost?: { value: number; currency?: string };
+  steps: { name: string; text: string; url?: string }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: opts.name,
+    description: opts.description,
+    ...(opts.totalTime ? { totalTime: opts.totalTime } : {}),
+    ...(opts.estimatedCost
+      ? {
+          estimatedCost: {
+            '@type': 'MonetaryAmount',
+            currency: opts.estimatedCost.currency ?? 'USD',
+            value: opts.estimatedCost.value,
+          },
+        }
+      : {}),
+    step: opts.steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+      ...(s.url ? { url: s.url } : {}),
+    })),
+  };
+}
+
+/** WebPage schema with `lastReviewed` — freshness signal AI engines reward. */
+export function webPageSchema(opts: {
+  url: string;
+  name: string;
+  description: string;
+  image?: string;
+  lastReviewed?: string;
+  speakableSelectors?: string[];
+  isPartOf?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${opts.url}#webpage`,
+    url: opts.url,
+    name: opts.name,
+    description: opts.description,
+    inLanguage: 'en-US',
+    isPartOf: { '@id': opts.isPartOf ?? `${SITE.url}/#website` },
+    about: { '@id': `${SITE.url}/#business` },
+    primaryImageOfPage: opts.image
+      ? { '@type': 'ImageObject', url: opts.image }
+      : undefined,
+    lastReviewed: opts.lastReviewed,
+    reviewedBy: { '@id': `${SITE.url}/#photographer` },
+    publisher: { '@id': `${SITE.url}/#business` },
+    speakable: opts.speakableSelectors
+      ? speakableSpec(opts.speakableSelectors)
+      : undefined,
+  };
+}
+
+/** Wrap multiple schema objects into a single @graph — preferred by AI parsers. */
+export function graphSchema(nodes: Record<string, unknown>[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': nodes.map((n) => {
+      const copy = { ...n };
+      delete (copy as Record<string, unknown>)['@context'];
+      return copy;
+    }),
   };
 }
 
