@@ -103,6 +103,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/services/guided-photo-tour-small"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Guide + Photo · Small Group ($50)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/guided-photo-tour-large"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Guide + Photo · Large Group ($80)
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/services/sunrise-luxury-innova"
                   className="text-gray-400 hover:text-white transition-colors"
                 >

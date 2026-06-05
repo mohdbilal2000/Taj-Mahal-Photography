@@ -27,6 +27,11 @@ const BODY = `# ${SITE.name}
 - [Taj Mahal + Agra Fort Heritage Trail — $399](${SITE.url}/services/taj-agra-fort): 5 hours, both UNESCO sites, 250+ photos.
 - [Full Day Agra Experience — $499](${SITE.url}/services/full-day): 8–10 hours, Taj Mahal + Agra Fort + Back Side of Taj, 350+ photos.
 
+## Guide + Photographer Combo (Taj Mahal + Agra Fort)
+
+- [Guided Tour + Photo · Small Group (1–5 Guests) — $50](${SITE.url}/services/guided-photo-tour-small): Licensed local guide plus a professional photographer at the Taj Mahal and Agra Fort for up to 5 guests. 20 natural digital photos plus 20 premium printed copies. Monument tickets not included.
+- [Guided Tour + Photo · Large Group (6–12 Guests) — $80](${SITE.url}/services/guided-photo-tour-large): Same combo for larger groups of 6 to 12 guests. Group portraits plus individual portraits. 20 digital photos plus 20 printed copies. Monument tickets not included.
+
 ## Same-Day Sunrise Luxury Tours from Delhi/NCR
 
 - [Sunrise Luxury Tour (Private Innova) — $650](${SITE.url}/services/sunrise-luxury-innova): Same-day Delhi/NCR ↔ Agra in a private Toyota Innova (up to 6 guests). Covers Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort that skips the entry line. Ideal for couples and small families.

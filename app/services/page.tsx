@@ -52,6 +52,22 @@ const services = [
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
+    id: 'guided-photo-tour-small',
+    title: 'Guided Tour + Photo · Small Group (1–5 Guests)',
+    description: 'A licensed local guide plus a professional photographer at the Taj Mahal and Agra Fort. 20 natural high-resolution digital photos and 20 premium printed copies. Single fixed price for up to 5 guests. Monument tickets not included.',
+    features: ['Licensed local guide for Taj Mahal & Agra Fort', 'Professional photographer alongside', '20 natural digital photos', '20 premium printed photo copies', 'Best photo locations & pose assistance', 'Up to 5 guests'],
+    price: '$50',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
+    id: 'guided-photo-tour-large',
+    title: 'Guided Tour + Photo · Large Group (6–12 Guests)',
+    description: 'The same guide + photographer combo covering the Taj Mahal and Agra Fort, scaled up for groups of 6 to 12 guests. Group portraits and individual portraits, 20 digital photos and 20 printed copies. Monument tickets not included.',
+    features: ['Licensed local guide for Taj Mahal & Agra Fort', 'Professional photographer alongside', '20 natural digital photos', '20 premium printed photo copies', 'Group portraits + individual portraits', 'Best photo locations & pose assistance', 'Up to 12 guests'],
+    price: '$80',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
     id: 'sunrise-luxury-innova',
     title: 'Taj Mahal Sunrise Luxury Tour (Innova)',
     description: 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Covers the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort to skip the line. Ideal for couples and small families.',

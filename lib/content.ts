@@ -84,6 +84,11 @@ export const faqs: Faq[] = [
     answer:
       'Yes. Our Pre-Wedding and Couple package ($199) is a 2+ hour editorial-style session that includes 100+ high-resolution natural photos, 50 printed photographs, a 30-second cinematic video, and posing direction. It is one of our most popular packages alongside the sunrise session.',
   },
+  {
+    question: 'Do you have a budget package that combines a guide and a photographer?',
+    answer:
+      'Yes. Our Guided Tour + Photo combo covers both the Taj Mahal and Agra Fort with a licensed local guide and a professional photographer at a single fixed price. The small-group package is $50 USD for up to 5 guests (couples or small families), and the large-group package is $80 USD for groups of 6 to 12 guests. Both include 20 natural high-resolution digital photos plus 20 premium printed photo copies. Monument entry tickets are not included.',
+  },
 ];
 
 export type Testimonial = {

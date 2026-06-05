@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import AuthoritySection from '@/components/AuthoritySection';
 import ServicesOverview from '@/components/ServicesOverview';
 import PhotographyPlans from '@/components/PhotographyPlans';
+import GuidedPhotoTours from '@/components/GuidedPhotoTours';
 import LuxuryTours from '@/components/LuxuryTours';
 import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
@@ -132,6 +133,7 @@ export default function Home() {
         <AuthoritySection />
         <ServicesOverview />
         <PhotographyPlans />
+        <GuidedPhotoTours />
         <LuxuryTours />
         <LicenseValidation />
         <Testimonials />
