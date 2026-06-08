@@ -6,3 +6,7 @@ coverage/
 .env*
 !.env.example
 *.tsbuildinfo
+
+# Customer-specific booking quotes — contain personal info, never commit
+docs/*-Booking-Quote.pdf
+docs/*-Quote.pdf
