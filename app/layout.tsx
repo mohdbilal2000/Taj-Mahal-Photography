@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Cormorant_Garamond } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { SITE } from '@/lib/seo';
 import './globals.css';
 
@@ -152,6 +153,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="font-sans bg-[#FAFAFA] text-[#1A1A1A] antialiased" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );
