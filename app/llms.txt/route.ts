@@ -1,6 +1,11 @@
 import { SITE } from '@/lib/seo';
+import { blogPosts } from '@/lib/blog';
 
 export const dynamic = 'force-static';
+
+const BLOG_INDEX = blogPosts
+  .map((p) => `- [${p.title}](${SITE.url}/blog/${p.slug}): ${p.excerpt}`)
+  .join('\n');
 
 const BODY = `# ${SITE.name}
 
@@ -46,6 +51,10 @@ const BODY = `# ${SITE.name}
 - [About](${SITE.url}/about): About the photographer and government license.
 - [Blog](${SITE.url}/blog): Articles about Taj Mahal photography, timing, weather and planning.
 - [Book](${SITE.url}/book): Booking inquiry form (WhatsApp follow-up within 10 minutes).
+
+## Guides & Articles
+
+${BLOG_INDEX}
 
 ## Quick Facts
 

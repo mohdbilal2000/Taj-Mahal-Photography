@@ -3,7 +3,7 @@
 **Domain:** tajmahalphotography.com
 **Last reviewed:** 2026-05-15
 **Branch / latest commit:** `main` — see `git log -1`
-**Pages indexed:** 29 static routes
+**Pages indexed:** 35 static routes (incl. 6 blog articles)
 **Audience:** SEO team + agency partners
 
 ---
@@ -61,7 +61,8 @@ Entity types injected across the site:
 | HowTo × 2 — "How to book" + "How to book licensed photographer" | Home + `/permit-guide` |
 | BreadcrumbList | Every page |
 | Review × 3 — customer testimonials | Home |
-| Blog + BlogPosting × 6 | `/blog` |
+| Blog + BlogPosting × 6 (with live `/blog/[slug]` article pages) | `/blog`, `/blog/{slug}` |
+| Article (BlogPosting) per post — full body, Quick Answer, FAQ, speakable | `/blog/{slug}` |
 | SpeakableSpecification | Home, FAQ, per-slug — targets `.faq-answer`, `.quick-answer` |
 | ProfilePage | About |
 | OfferCatalog with 9 offers + dynamic priceValidUntil | LocalBusiness |
@@ -259,7 +260,7 @@ The dev team can ship any of these on request:
 | Priority | Item | Why it matters | Effort |
 |---|---|---|---|
 | HIGH | `/about/photographer` page with license certificate + visible license number | +1 to E-E-A-T; AI engines verify credentials via on-page artifacts | 1 day |
-| HIGH | `/blog/[slug]` template + write the 6 placeholder posts as full content | Unlocks Article rich results; +1 to AEO surface; long-tail organic acquisition | 2 to 3 days |
+| ~~HIGH~~ DONE | ~~`/blog/[slug]` template + write the 6 placeholder posts as full content~~ Shipped Jun 2026: all 6 posts have full bodies, Quick Answer, FAQ, Article schema with live URLs, related-post links and sitemap entries (`lib/blog.ts`) | Unlocks Article rich results; +1 to AEO surface; long-tail organic acquisition | ✅ |
 | MED | Per-pickup-city landing pages (sunrise tour from Noida / Gurugram / Ghaziabad / Faridabad) | +0.5 to GEO; captures 6+ long-tail city queries | 1 day |
 | MED | `/services/compare` side-by-side comparison page | AI engines preferentially extract comparison tables for "X vs Y" queries | 0.5 day |
 | LOW | Schema for monument opening hours, Friday closures, ticket prices | Direct answers to common queries; AI engines extract structured facts | 0.5 day |
@@ -274,6 +275,8 @@ The dev team can ship any of these on request:
 |---|---|
 | All schema generators (LocalBusiness, Person, TouristTrip, Review, FAQ, Speakable, HowTo, WebPage, graph wrapper, Wikidata constants) | `lib/seo.ts` |
 | Shared FAQ + testimonial data | `lib/content.ts` |
+| Blog post content (bodies, Quick Answer, per-post FAQ) | `lib/blog.ts` |
+| Blog article page template (Article schema, FAQ, related posts) | `app/blog/[slug]/page.tsx` |
 | Robots / AI bot allowlist | `app/robots.ts` |
 | `/llms.txt` route | `app/llms.txt/route.ts` |
 | Sitemap | `app/sitemap.ts` |
