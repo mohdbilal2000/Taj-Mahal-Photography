@@ -23,13 +23,13 @@ const stats = [
   { label: 'Years of Experience', value: '10+' },
   { label: 'International Clients Served', value: '5,000+' },
   { label: 'Countries Represented', value: '80+' },
-  { label: 'Five-Star Reviews', value: '500+' },
+  { label: 'Photos Delivered In', value: '48 hrs' },
 ];
 
 const timeline = [
   { year: 'Certification', title: 'Government License Obtained', description: 'Passed the rigorous Ministry of Tourism examinations covering monument history, architecture, cultural heritage, and photography regulations.' },
   { year: 'Specialization', title: 'Taj Mahal Photography Focus', description: 'Dedicated practice to master every angle, lighting condition, and seasonal variation at the Taj Mahal and surrounding Mughal monuments.' },
-  { year: 'Recognition', title: 'Trusted by Global Visitors', description: 'Built a reputation serving visitors from over 80 countries, with consistent five-star reviews praising professionalism and artistic vision.' },
+  { year: 'Recognition', title: 'Trusted by Global Visitors', description: 'Built a reputation serving visitors from over 80 countries who consistently praise the professionalism and artistic vision.' },
   { year: 'Today', title: 'Premium Photography Service', description: 'Operating as one of the most sought-after licensed photographers in Agra, offering curated packages from sunrise shoots to full-day heritage tours.' },
 ];
 

@@ -13,7 +13,6 @@ const BODY = `# ${SITE.name}
 - Address: ${SITE.address.street}, ${SITE.address.city}, ${SITE.address.state} ${SITE.address.zip}, India
 - Phone / WhatsApp: ${SITE.phoneDisplay}
 - Email: ${SITE.email}
-- Rating: 4.9 / 5 (500+ reviews)
 - Languages: English, Hindi, Urdu
 - Licensed by: Ministry of Tourism, Government of India
 
