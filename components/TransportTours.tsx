@@ -106,8 +106,8 @@ export default function TransportTours() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 sm:py-32 bg-night" id="transport-tours">
-      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12" ref={sectionRef}>
+    <section className="relative py-24 sm:py-32 bg-night aurora" id="transport-tours">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12" ref={sectionRef}>
         <div className="max-w-2xl mb-16">
           <motion.span
             initial={{ opacity: 0, y: 16 }}
@@ -125,7 +125,7 @@ export default function TransportTours() {
             className="display-tight text-ivory text-4xl md:text-5xl lg:text-6xl font-medium"
           >
             Private cars &{' '}
-            <span className="italic font-light text-accent">custom Delhi tours</span>
+            <span className="italic font-light holo-text">custom Delhi tours</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -149,15 +149,14 @@ export default function TransportTours() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.1 * index, ease: EASE }}
-                className={`group flex flex-col relative transition-colors duration-300 ${
-                  o.popular
-                    ? 'border border-accent bg-surface'
-                    : 'border border-line bg-coal hover:border-line-strong'
+                style={o.popular ? { borderColor: 'var(--color-accent)' } : undefined}
+                className={`group flex flex-col relative transition-all duration-300 ${
+                  o.popular ? 'glass-strong' : 'glass hover:-translate-y-1'
                 }`}
               >
                 {/* Icon / pattern band — distinct from the photo-led package grids */}
-                <div className="relative h-32 w-full overflow-hidden bg-mughal-pattern border-b border-line flex items-center justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-t from-coal via-transparent to-transparent" />
+                <div className="relative h-32 w-full overflow-hidden bg-mughal-pattern border-b border-line/60 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-t from-night/40 via-transparent to-transparent" />
                   <Icon
                     className="relative w-10 h-10 text-accent transition-transform duration-500 group-hover:scale-110"
                     strokeWidth={1.25}
@@ -194,7 +193,7 @@ export default function TransportTours() {
                       return (
                         <div
                           key={m.label}
-                          className="flex items-center gap-2.5 bg-night border border-line px-3 py-2"
+                          className="flex items-center gap-2.5 bg-night/40 border border-line/60 px-3 py-2"
                         >
                           <MIcon className="w-4 h-4 text-accent flex-shrink-0" />
                           <span className="font-mono text-[9px] text-faint uppercase tracking-[0.16em]">

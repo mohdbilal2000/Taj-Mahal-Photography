@@ -21,6 +21,15 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    id: 'express-capture',
+    title: 'Express Capture',
+    description: 'The most affordable way to photograph the Taj Mahal. A 15-minute single-spot capture at the most iconic vantage point, with 10 edited high-resolution digital photos delivered instantly.',
+    features: ['15 Minute Session', '10 Edited High-Res Photos', 'Single Iconic Vantage Point', 'Official Photography Permit', 'Instant Digital Delivery'],
+    price: '$20',
+    image: img(IMG.tajRiverside, 1000),
+    alt: IMG.tajRiverside.alt,
+  },
+  {
     id: 'quick-capture',
     title: 'Quick Capture',
     description: 'A quick, professional photoshoot at the Taj Mahal. You receive a curated digital album of 20 raw photos — perfect for travelers who want quality shots without the wait.',

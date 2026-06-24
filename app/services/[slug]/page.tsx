@@ -36,6 +36,24 @@ type ServiceData = {
 };
 
 const servicesData: Record<string, ServiceData> = {
+  'express-capture': {
+    title: 'Express Capture | $20 Taj Mahal Photoshoot',
+    description: 'The $20 entry-level Taj Mahal photoshoot — a 15-minute single-spot capture with 10 edited high-resolution digital photos.',
+    quickAnswer:
+      'The Express Capture is the most affordable Taj Mahal photoshoot at $20 USD. A government-licensed photographer takes 15 minutes at the Taj Mahal’s most iconic vantage point and delivers 10 edited high-resolution digital photos. Official photography permit included; monument entry tickets are separate.',
+    longDescription:
+      'Express Capture is the lowest-commitment way to walk away from the Taj Mahal with photographs that smartphones cannot match. In a focused 15 minutes a government-licensed photographer positions you at the single most iconic vantage point — the reflecting pool with the marble mausoleum behind you — and captures a tight set of frames. You receive 10 professionally edited, high-resolution digital images. It is the perfect entry-level option for backpackers, short layovers and first-time visitors, and you can always add more edited photos for $20 each.',
+    image: 'https://images.unsplash.com/photo-1590136132691-8b19a18b4ef3?q=80&w=1920&auto=format&fit=crop',
+    features: ['15 Minute Session', '10 Edited High-Resolution Photos', 'Single Iconic Vantage Point', 'Official Photography Permit', 'Instant Digital Delivery'],
+    price: 20,
+    duration: '15 Minutes',
+    bestFor: 'Backpackers, short layovers, first-time visitors',
+    faqs: [
+      { question: 'How much is the cheapest Taj Mahal photoshoot?', answer: 'The Express Capture is our cheapest option at $20 USD — a 15-minute single-location shoot with a government-licensed photographer and 10 edited high-resolution digital photos.' },
+      { question: 'How many photos do I get with Express Capture?', answer: 'You receive 10 professionally edited, high-resolution digital photos. You can add more edited photos for $20 each.' },
+      { question: 'Is the photography permit included in the $20 price?', answer: 'Yes. The official Ministry of Tourism photography permit is included. Monument entry tickets are purchased separately.' },
+    ],
+  },
   'quick-capture': {
     title: 'Quick Capture | 30-Minute Taj Mahal Photoshoot',
     description: 'A 30-minute Taj Mahal photoshoot with 20 raw photos delivered as a digital album — ideal for budget travellers.',

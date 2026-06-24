@@ -158,6 +158,86 @@ body {
   background: linear-gradient(90deg, var(--color-accent), transparent);
 }
 
+/* ============================================================
+   SECTION MATERIALS — each homepage section gets its own
+   "personality" while sharing the dark base palette:
+   glassmorphism, iridescent/aurora, holographic text.
+   ============================================================ */
+
+/* ───── Glassmorphism (frosted glass cards/panels) ───── */
+.glass {
+  background: rgba(244, 239, 230, 0.04);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(244, 239, 230, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(244, 239, 230, 0.10),
+    0 24px 60px -30px rgba(0, 0, 0, 0.8);
+}
+.glass-strong {
+  background: rgba(244, 239, 230, 0.07);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  border: 1px solid rgba(244, 239, 230, 0.16);
+}
+
+/* ───── Aurora field — slow iridescent gradient backdrop ───── */
+.aurora {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.aurora::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: -1;
+  background:
+    radial-gradient(40% 50% at 20% 30%, rgba(200, 162, 74, 0.20), transparent 70%),
+    radial-gradient(45% 55% at 80% 25%, rgba(122, 162, 247, 0.16), transparent 70%),
+    radial-gradient(50% 60% at 65% 80%, rgba(193, 124, 247, 0.14), transparent 70%),
+    radial-gradient(40% 50% at 25% 85%, rgba(110, 231, 183, 0.12), transparent 70%);
+  filter: blur(20px);
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+@keyframes aurora-drift {
+  0%   { transform: translate3d(-3%, -2%, 0) rotate(0deg)  scale(1.05); }
+  50%  { transform: translate3d(3%, 2%, 0)  rotate(8deg)  scale(1.15); }
+  100% { transform: translate3d(-2%, 3%, 0) rotate(-6deg) scale(1.08); }
+}
+
+/* ───── Holographic text — iridescent shifting gradient ───── */
+.holo-text {
+  background: linear-gradient(
+    100deg,
+    var(--color-accent-bright) 0%,
+    #c17cf7 22%,
+    #7aa2f7 44%,
+    #6ee7b7 62%,
+    var(--color-accent-bright) 86%,
+    #c17cf7 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: holo-shift 8s linear infinite;
+}
+@keyframes holo-shift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Thin iridescent hairline (for dividers / borders on holo sections) */
+.holo-rule {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, #c17cf7, #7aa2f7, #6ee7b7, var(--color-accent-bright), transparent);
+  background-size: 200% 100%;
+  animation: holo-shift 8s linear infinite;
+}
+
 /* ───── Keyboard focus visibility (a11y) ───── */
 :focus-visible {
   outline: 2px solid var(--color-accent);

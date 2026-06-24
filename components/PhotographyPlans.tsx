@@ -9,6 +9,26 @@ import { IMG, img } from '@/lib/images';
 
 const plans = [
   {
+    id: 'express-capture',
+    name: 'Express Capture',
+    tagline: 'The $20 Entry Shoot',
+    price: '$20',
+    duration: '15 Minutes',
+    image: img(IMG.tajRiverside, 800),
+    alt: IMG.tajRiverside.alt,
+    description:
+      'A fast, single-spot capture at the Taj Mahal’s most iconic vantage point. The easiest, lowest-commitment way to walk away with a few beautiful, professionally edited frames.',
+    aiSnippet:
+      'The Express Capture is the most affordable Taj Mahal photography option at $20 USD — a 15-minute single-location shoot with a government-licensed photographer delivering 10 edited high-resolution digital photos.',
+    features: [
+      'Official Photography Permit Included',
+      '10 Edited High-Resolution Photos',
+      'Single Iconic Vantage Point',
+      'Instant Digital Delivery',
+    ],
+    bestFor: 'Backpackers, Quick Stops, First-timers',
+  },
+  {
     id: 'quick-capture',
     name: 'Quick Capture',
     tagline: 'The Starter Experience',
@@ -146,7 +166,7 @@ export default function PhotographyPlans() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}

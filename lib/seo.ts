@@ -140,6 +140,7 @@ export function localBusinessSchema() {
       '@type': 'OfferCatalog',
       name: 'Taj Mahal Photography & Tour Packages',
       itemListElement: [
+        offerSchema('Express Capture', 20, 'The most affordable Taj Mahal photoshoot. 15-minute single-spot capture, 10 edited high-resolution digital photos, official permit included.', `${SITE.url}/services/express-capture`),
         offerSchema('Quick Capture', 50, 'Budget-friendly Taj Mahal photoshoot. 30-minute session, 20 raw photos delivered as a digital album.', `${SITE.url}/services/quick-capture`),
         offerSchema('Taj Mahal Sunrise Photoshoot', 99, 'Avoid crowds, best light. 1.5-hour session, 50 high-resolution photos, skip-the-line guidance.', `${SITE.url}/services/sunrise`),
         offerSchema('Pre-Wedding & Couple Photography', 199, 'Editorial romance at the monument of love. 2+ hours, 100+ natural high-resolution photos, 50 raw physical photographs, 30-second cinematic video.', `${SITE.url}/services/couple`),

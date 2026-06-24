@@ -22,7 +22,7 @@ export const faqs: Faq[] = [
   {
     question: 'How much does a Taj Mahal photoshoot cost?',
     answer:
-      'Packages start at $50 USD for a 30-minute Quick Capture (20 raw photos). The Sunrise Photoshoot is $99 for a 1.5-hour session with 50 high-resolution photos. Pre-Wedding and Couple sessions are $199. Family is $299. Heritage Trail (Taj + Agra Fort) is $399. Full Day Agra is $499. Same-day Sunrise Luxury Tours from Delhi are $650 (private Innova) and $899 (Force Urbania luxury coach). All photography packages include the official permit; the luxury tours additionally include monument tickets and a private golf cart.',
+      'Packages start at $20 USD for a 15-minute Express Capture (10 edited photos), or $50 for a 30-minute Quick Capture (20 raw photos). The Sunrise Photoshoot is $99 for a 1.5-hour session with 50 high-resolution photos. Pre-Wedding and Couple sessions are $199. Family is $299. Heritage Trail (Taj + Agra Fort) is $399. Full Day Agra is $499. Same-day Sunrise Luxury Tours from Delhi are $650 (private Innova) and $899 (Force Urbania luxury coach). All photography packages include the official permit; the luxury tours additionally include monument tickets and a private golf cart.',
   },
   {
     question: 'How do I book a Taj Mahal photographer?',
@@ -77,7 +77,7 @@ export const faqs: Faq[] = [
   {
     question: 'Are monument entry tickets included in the photography packages?',
     answer:
-      'Monument entry tickets are not included in the standalone photography packages ($50 to $499). They ARE included in both Sunrise Luxury Tours from Delhi ($650 and $899). Foreign-national tickets to the Taj Mahal currently cost ₹1,300 plus ₹200 for the main mausoleum.',
+      'Monument entry tickets are not included in the standalone photography packages ($20 to $499). They ARE included in both Sunrise Luxury Tours from Delhi ($650 and $899). Foreign-national tickets to the Taj Mahal currently cost ₹1,300 plus ₹200 for the main mausoleum.',
   },
   {
     question: 'Do you offer pre-wedding photography at the Taj Mahal?',

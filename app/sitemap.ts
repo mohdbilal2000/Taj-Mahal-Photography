@@ -15,7 +15,8 @@ type Entry = {
 
 const ROUTES: Entry[] = [
   { path: '', lastModified: '2026-06-24', changeFrequency: 'weekly', priority: 1.0 },
-  { path: '/services', lastModified: '2026-06-05', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/services', lastModified: '2026-06-24', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/services/express-capture', lastModified: '2026-06-24', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/services/sunrise', lastModified: '2026-05-15', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/services/couple', lastModified: '2026-06-05', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/services/pre-wedding', lastModified: '2026-06-05', changeFrequency: 'monthly', priority: 0.8 },
