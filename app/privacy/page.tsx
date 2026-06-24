@@ -20,20 +20,20 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="theme-dark grain min-h-screen flex flex-col pt-20">
       <Header />
-      <main className="flex-grow bg-white">
+      <main id="main-content" className="flex-grow bg-night">
 
         {/* Hero Banner */}
-        <div className="bg-ink-900 text-white py-16">
+        <div className="bg-night bg-mughal-pattern border-b border-line py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-amber-400 text-sm font-medium tracking-widest uppercase mb-3">
+            <p className="kicker mb-3">
               Politique de Confidentialité
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold">
+            <h1 className="display-tight font-display text-4xl md:text-5xl font-semibold text-ivory">
               Privacy Policy
             </h1>
-            <p className="mt-4 text-gray-300 text-lg">
+            <p className="mt-4 text-muted text-lg">
               Taj Mahal Photography — Agra, Inde
             </p>
           </div>
@@ -41,13 +41,13 @@ export default function PrivacyPage() {
 
         {/* Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <article className="prose prose-lg prose-slate max-w-none">
+          <article className="prose prose-invert prose-lg max-w-none">
 
-            <p className="text-gray-500 text-sm">
+            <p className="text-faint text-sm">
               Dernière mise à jour : 1er janvier 2025 &nbsp;|&nbsp; Last updated: January 1, 2025
             </p>
 
-            <p className="mt-6 text-gray-700 leading-relaxed">
+            <p className="mt-6 text-muted leading-relaxed">
               Taj Mahal Photography s&apos;engage à respecter et à protéger votre vie privée.
               La présente Politique de Confidentialité décrit comment nous collectons, utilisons
               et protégeons vos informations personnelles lorsque vous utilisez notre site web
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
             </p>
 
             {/* Section 1 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               1. Informations que nous collectons
             </h2>
             <p>
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
             </ul>
 
             {/* Section 2 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               2. Utilisation de vos informations
             </h2>
             <p>
@@ -117,7 +117,7 @@ export default function PrivacyPage() {
             </ul>
 
             {/* Section 3 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               3. Droits sur les photos et propriété intellectuelle
             </h2>
             <p>Nous respectons pleinement vos droits à l&apos;image :</p>
@@ -141,7 +141,7 @@ export default function PrivacyPage() {
             </ul>
 
             {/* Section 4 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               4. Partage des données
             </h2>
             <p>
@@ -170,7 +170,7 @@ export default function PrivacyPage() {
             </p>
 
             {/* Section 5 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               5. Sécurité des données
             </h2>
             <p>
@@ -183,7 +183,7 @@ export default function PrivacyPage() {
             </p>
 
             {/* Section 6 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               6. Conservation des données
             </h2>
             <p>
@@ -200,7 +200,7 @@ export default function PrivacyPage() {
             </p>
 
             {/* Section 7 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               7. Vos droits (RGPD &amp; droits internationaux)
             </h2>
             <p>
@@ -240,7 +240,7 @@ export default function PrivacyPage() {
             </p>
 
             {/* Section 8 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               8. Cookies et technologies de suivi
             </h2>
             <p>
@@ -258,7 +258,7 @@ export default function PrivacyPage() {
             </p>
 
             {/* Section 9 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               9. Connexion via les réseaux sociaux
             </h2>
             <p>
@@ -270,7 +270,7 @@ export default function PrivacyPage() {
             </p>
 
             {/* Section 10 */}
-            <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">
+            <h2 className="font-display text-2xl text-ivory mt-10 mb-4">
               10. Contactez notre Responsable de la Protection des Données
             </h2>
             <p>
@@ -281,7 +281,7 @@ export default function PrivacyPage() {
             <ul>
               <li>
                 <strong>E-mail :</strong>{' '}
-                <a href={`mailto:${SITE.email}`} className="text-amber-600 hover:underline">
+                <a href={`mailto:${SITE.email}`} className="link-underline text-accent">
                   {SITE.email}
                 </a>
               </li>
@@ -289,7 +289,7 @@ export default function PrivacyPage() {
                 <strong>WhatsApp :</strong>{' '}
                 <a
                   href={`https://wa.me/${SITE.whatsapp}`}
-                  className="text-amber-600 hover:underline"
+                  className="link-underline text-accent"
                 >
                   {SITE.phoneDisplay}
                 </a>
@@ -302,15 +302,15 @@ export default function PrivacyPage() {
                 <strong>Site web :</strong>{' '}
                 <a
                   href={SITE.url}
-                  className="text-amber-600 hover:underline"
+                  className="link-underline text-accent"
                 >
                   {SITE.domain}
                 </a>
               </li>
             </ul>
 
-            <div className="mt-10 p-5 bg-amber-50 border border-amber-200 rounded-lg">
-              <p className="text-sm text-amber-800 mb-0">
+            <div className="mt-10 p-5 bg-surface border-l-2 border-accent">
+              <p className="text-sm text-muted mb-0">
                 <strong>Support client 24h/24, 7j/7</strong> — Vous avez des questions sur
                 votre séance ou votre réservation ? Notre équipe est disponible à tout moment
                 via WhatsApp au{' '}

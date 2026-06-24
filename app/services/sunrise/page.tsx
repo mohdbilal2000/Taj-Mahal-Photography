@@ -4,6 +4,7 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import { IMG, img } from '@/lib/images';
 import { breadcrumbSchema, serviceSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -26,25 +27,29 @@ const sunriseFaqs = [
 
 export default function SunriseServicePage() {
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="theme-dark grain min-h-screen flex flex-col pt-20">
       <Header />
 
-      <main className="flex-grow bg-white">
+      <main id="main-content" className="flex-grow bg-night">
         <div className="relative h-[60vh] min-h-[500px]">
           <Image
-            src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop"
-            alt="Taj Mahal at sunrise with golden light on white marble"
+            src={img(IMG.tajReflection, 1920)}
+            alt={IMG.tajReflection.alt}
             fill
             className="object-cover"
             priority
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-night/70" />
           <div className="absolute inset-0 flex items-center justify-center text-center px-4">
             <div className="max-w-3xl">
-              <span className="text-gold-400 font-bold tracking-widest uppercase mb-4 block">Signature Service</span>
-              <h1 className="font-serif text-5xl md:text-6xl font-semibold text-white mb-6">Taj Mahal Sunrise Photoshoot</h1>
-              <p className="text-xl text-white/90">The ultimate photography experience in the most magical morning light.</p>
+              <span className="kicker inline-flex items-center gap-3 mb-6">
+                <span className="h-px w-8 bg-accent" />
+                Signature Service
+                <span className="h-px w-8 bg-accent" />
+              </span>
+              <h1 className="display-tight font-display text-5xl md:text-6xl font-medium text-ivory mb-6">Taj Mahal Sunrise Photoshoot</h1>
+              <p className="text-xl text-muted">The ultimate photography experience in the most magical morning light.</p>
             </div>
           </div>
         </div>
@@ -52,8 +57,8 @@ export default function SunriseServicePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">
-              <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-6">Why Choose the Sunrise Session?</h2>
-              <div className="prose prose-lg prose-slate max-w-none text-gray-600">
+              <h2 className="font-display text-3xl font-medium text-ivory mb-6">Why Choose the Sunrise Session?</h2>
+              <div className="prose prose-lg prose-invert max-w-none text-muted">
                 <p>
                   The Taj Mahal at sunrise is an ethereal experience. As the first rays of sun hit the white marble, the monument transforms, reflecting soft pinks, warm golds, and brilliant whites.
                 </p>
@@ -61,7 +66,7 @@ export default function SunriseServicePage() {
                   Beyond the lighting, the sunrise session offers the most crucial advantage for photography: <strong>fewer crowds</strong>. By entering as soon as the gates open, we capture wide, sweeping shots of you with the monument without hundreds of tourists in the background.
                 </p>
 
-                <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">What&apos;s Included</h3>
+                <h3 className="font-display text-2xl text-ivory mt-10 mb-4">What&apos;s Included</h3>
                 <ul className="space-y-2">
                   <li><strong>1.5 Hour Guided Session:</strong> Plenty of time to explore all the best vantage points.</li>
                   <li><strong>50 High-Resolution Photos:</strong> Professionally captured at all the best angles.</li>
@@ -71,7 +76,7 @@ export default function SunriseServicePage() {
                   <li><strong>Private Online Gallery:</strong> Delivered within 48 hours for easy downloading and sharing.</li>
                 </ul>
 
-                <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">Sunrise Session Timeline</h3>
+                <h3 className="font-display text-2xl text-ivory mt-10 mb-4">Sunrise Session Timeline</h3>
                 <ol>
                   <li><strong>30 min before sunrise:</strong> Meet at the East Gate. Quick introductions and plan review.</li>
                   <li><strong>Gate opening:</strong> Enter together, clear security with official permit.</li>
@@ -83,22 +88,22 @@ export default function SunriseServicePage() {
             </div>
 
             <div>
-              <div className="bg-marble-50 p-8 border border-marble-200 rounded-sm sticky top-32">
-                <h3 className="font-serif text-2xl font-semibold text-ink-900 mb-2">Package Details</h3>
-                <div className="text-3xl font-light text-ink-900 mb-6">$99 <span className="text-sm text-gray-500">USD</span></div>
+              <div className="bg-surface p-8 border border-line sticky top-32">
+                <h3 className="font-display text-2xl font-medium text-ivory mb-2">Package Details</h3>
+                <div className="text-3xl font-light text-accent mb-6">$99 <span className="text-sm text-faint">USD</span></div>
 
-                <ul className="space-y-4 mb-8 text-sm text-gray-600">
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Meeting Time: 5:30 AM (Varies by season)</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Duration: 1.5 Hours</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Photos: 50 High-Resolution</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Delivery: 48 Hours</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Official Permit Included</li>
+                <ul className="space-y-4 mb-8 text-sm text-muted">
+                  <li className="flex items-center"><span className="text-accent mr-3">✓</span> Meeting Time: 5:30 AM (Varies by season)</li>
+                  <li className="flex items-center"><span className="text-accent mr-3">✓</span> Duration: 1.5 Hours</li>
+                  <li className="flex items-center"><span className="text-accent mr-3">✓</span> Photos: 50 High-Resolution</li>
+                  <li className="flex items-center"><span className="text-accent mr-3">✓</span> Delivery: 48 Hours</li>
+                  <li className="flex items-center"><span className="text-accent mr-3">✓</span> Official Permit Included</li>
                 </ul>
 
-                <a href="#book" className="block w-full text-center px-6 py-3 bg-ink-900 text-white font-medium rounded-sm hover:bg-ink-800 transition-colors">
+                <a href="#book" className="block w-full text-center bg-ivory text-night px-8 py-4 font-mono text-[11px] uppercase tracking-[0.18em] font-semibold hover:bg-accent transition-colors duration-300">
                   Check Availability
                 </a>
-                <p className="text-xs text-center text-gray-500 mt-4">
+                <p className="text-xs text-center text-faint mt-4">
                   * Monument entry tickets are not included in the photography fee.
                 </p>
               </div>

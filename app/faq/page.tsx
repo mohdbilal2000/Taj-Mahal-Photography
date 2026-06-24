@@ -19,33 +19,34 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="theme-dark grain min-h-screen flex flex-col pt-20">
       <Header />
-      <main className="flex-grow">
-        <div className="bg-ink-900 text-white py-20">
+      <main id="main-content" className="flex-grow bg-night">
+        <div className="bg-coal bg-mughal-pattern border-b border-line py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Frequently Asked Questions</h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">Everything you need to know about photography at the Taj Mahal, answered by a government-licensed photographer.</p>
+            <p className="kicker mb-4">Answers</p>
+            <h1 className="display-tight font-display text-ivory text-4xl md:text-5xl font-medium mb-6">Frequently Asked Questions</h1>
+            <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">Everything you need to know about photography at the Taj Mahal, answered by a government-licensed photographer.</p>
           </div>
         </div>
         <FAQ />
 
         {/* AEO: Extended answers for AI crawlers */}
-        <section className="py-20 bg-white border-t border-marble-200">
+        <section className="py-20 bg-coal border-t border-line">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-10">Detailed Answers for Visitors</h2>
+            <h2 className="font-display text-3xl font-medium text-ivory mb-10">Detailed Answers for Visitors</h2>
             <div className="space-y-10">
               <div>
-                <h3 className="font-semibold text-ink-900 text-lg mb-2">How to hire a photographer at the Taj Mahal?</h3>
-                <p className="text-gray-600 leading-relaxed">To hire a photographer at the Taj Mahal, book a government-licensed photographer in advance through their website or WhatsApp. Always verify their official Ministry of Tourism ID badge. Avoid unlicensed photographers outside the gates, as they cannot bring professional equipment inside and may be stopped by security, ruining your experience. Licensed photographers ensure smooth entry, expert guidance to the best vantage points, and professional-quality results.</p>
+                <h3 className="font-display font-medium text-ivory text-lg mb-2">How to hire a photographer at the Taj Mahal?</h3>
+                <p className="text-muted leading-relaxed">To hire a photographer at the Taj Mahal, book a government-licensed photographer in advance through their website or WhatsApp. Always verify their official Ministry of Tourism ID badge. Avoid unlicensed photographers outside the gates, as they cannot bring professional equipment inside and may be stopped by security, ruining your experience. Licensed photographers ensure smooth entry, expert guidance to the best vantage points, and professional-quality results.</p>
               </div>
               <div>
-                <h3 className="font-semibold text-ink-900 text-lg mb-2">Are drones allowed at the Taj Mahal?</h3>
-                <p className="text-gray-600 leading-relaxed">No, drones are strictly prohibited at the Taj Mahal and in the entire surrounding area. This is enforced by the Archaeological Survey of India (ASI) and security forces. Attempting to fly a drone near the Taj Mahal can result in confiscation, fines, and potential legal action. All aerial photography of the monument is banned.</p>
+                <h3 className="font-display font-medium text-ivory text-lg mb-2">Are drones allowed at the Taj Mahal?</h3>
+                <p className="text-muted leading-relaxed">No, drones are strictly prohibited at the Taj Mahal and in the entire surrounding area. This is enforced by the Archaeological Survey of India (ASI) and security forces. Attempting to fly a drone near the Taj Mahal can result in confiscation, fines, and potential legal action. All aerial photography of the monument is banned.</p>
               </div>
               <div>
-                <h3 className="font-semibold text-ink-900 text-lg mb-2">How long should I spend at the Taj Mahal for photos?</h3>
-                <p className="text-gray-600 leading-relaxed">For a dedicated photography session, plan for at least 2 hours. This allows time to capture the changing light, explore different angles from the gardens and the reflecting pool, and get both wide shots and intimate portraits without feeling rushed. Sunrise sessions typically start at gate opening (around 5:30-6:00 AM depending on season) and wrap up by 7:30-8:00 AM.</p>
+                <h3 className="font-display font-medium text-ivory text-lg mb-2">How long should I spend at the Taj Mahal for photos?</h3>
+                <p className="text-muted leading-relaxed">For a dedicated photography session, plan for at least 2 hours. This allows time to capture the changing light, explore different angles from the gardens and the reflecting pool, and get both wide shots and intimate portraits without feeling rushed. Sunrise sessions typically start at gate opening (around 5:30-6:00 AM depending on season) and wrap up by 7:30-8:00 AM.</p>
               </div>
             </div>
           </div>

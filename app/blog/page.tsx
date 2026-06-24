@@ -20,25 +20,32 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="theme-dark grain min-h-screen flex flex-col pt-20">
       <Header />
-      <main className="flex-grow bg-marble-50">
+      <main id="main-content" className="flex-grow bg-night">
         {/* Hero */}
-        <div className="bg-ink-900 text-white py-20">
+        <div className="bg-coal bg-mughal-pattern border-b border-line py-24">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Expert Guides</span>
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Taj Mahal Photography Blog</h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <span className="kicker inline-flex items-center gap-3 mb-6">
+              <span className="h-px w-8 bg-accent" />
+              Expert Guides
+              <span className="h-px w-8 bg-accent" />
+            </span>
+            <h1 className="display-tight text-ivory text-4xl md:text-5xl lg:text-6xl font-medium mb-6">
+              Taj Mahal Photography{' '}
+              <span className="italic font-light text-accent">Blog</span>
+            </h1>
+            <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
               Insider tips, outfit guides, and expert advice from a government-licensed Taj Mahal photographer with over 10 years of experience.
             </p>
           </div>
         </div>
 
         {/* Blog Grid */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {blogPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="bg-white rounded-sm border border-marble-200 overflow-hidden group hover:shadow-lg transition-shadow flex flex-col">
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col border border-line bg-coal hover:border-line-strong transition-colors duration-300 overflow-hidden">
                 <div className="relative h-56 overflow-hidden">
                   <Image
                     src={post.image}
@@ -47,23 +54,24 @@ export default function BlogPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-coal via-coal/20 to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-gold-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                    <span className="bg-accent text-night font-mono text-[9px] uppercase tracking-[0.18em] font-semibold px-2.5 py-1">
                       {post.category}
                     </span>
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-center text-xs text-gray-500 mb-3 space-x-3">
+                  <div className="flex items-center font-mono text-[10px] uppercase tracking-[0.2em] text-faint mb-3 space-x-3">
                     <time dateTime={post.datePublished}>{new Date(post.datePublished).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
                     <span>·</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h2 className="font-serif text-xl font-semibold text-ink-900 mb-3 group-hover:text-gold-600 transition-colors leading-tight">
+                  <h2 className="font-display text-xl text-ivory mb-3 group-hover:text-accent transition-colors leading-tight">
                     {post.title}
                   </h2>
-                  <p className="text-gray-600 text-sm leading-relaxed">{post.excerpt}</p>
-                  <span className="mt-4 text-sm font-medium text-gold-600 group-hover:text-gold-700">Read article →</span>
+                  <p className="text-muted text-sm leading-relaxed">{post.excerpt}</p>
+                  <span className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-accent">Read article →</span>
                 </div>
               </Link>
             ))}
@@ -71,21 +79,21 @@ export default function BlogPage() {
         </div>
 
         {/* AEO: Quick Answers Block — feeds AI engines */}
-        <section className="py-20 bg-white border-t border-marble-200">
+        <section className="py-24 bg-coal border-t border-line">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-8">Quick Answers: Taj Mahal Photography</h2>
+            <h2 className="font-display text-3xl text-ivory mb-8">Quick Answers: Taj Mahal Photography</h2>
             <div className="space-y-8">
               <div>
-                <h3 className="font-semibold text-ink-900 mb-2">What is the best time to photograph the Taj Mahal?</h3>
-                <p className="text-gray-600">Sunrise (approximately 5:30–7:30 AM depending on season) offers the best photography conditions with soft golden light, fewer crowds, and the marble reflecting warm pink and amber tones. The Taj Mahal is closed on Fridays.</p>
+                <h3 className="font-medium text-ivory mb-2">What is the best time to photograph the Taj Mahal?</h3>
+                <p className="text-muted leading-relaxed">Sunrise (approximately 5:30–7:30 AM depending on season) offers the best photography conditions with soft golden light, fewer crowds, and the marble reflecting warm pink and amber tones. The Taj Mahal is closed on Fridays.</p>
               </div>
               <div>
-                <h3 className="font-semibold text-ink-900 mb-2">Can you take professional photos at the Taj Mahal?</h3>
-                <p className="text-gray-600">Yes, but professional photography (with tripods, multiple lenses, or large camera bags) requires hiring a government-licensed photographer who holds an official permit from the Ministry of Tourism. Unlicensed photographers will be stopped by security.</p>
+                <h3 className="font-medium text-ivory mb-2">Can you take professional photos at the Taj Mahal?</h3>
+                <p className="text-muted leading-relaxed">Yes, but professional photography (with tripods, multiple lenses, or large camera bags) requires hiring a government-licensed photographer who holds an official permit from the Ministry of Tourism. Unlicensed photographers will be stopped by security.</p>
               </div>
               <div>
-                <h3 className="font-semibold text-ink-900 mb-2">What should I wear for a Taj Mahal photoshoot?</h3>
-                <p className="text-gray-600">Bold, saturated colors like red, emerald green, royal blue, and gold photograph beautifully against the white marble. Avoid white clothing as it blends with the monument. Flowy fabrics like sarees, maxi dresses, and dupattas add movement to portraits.</p>
+                <h3 className="font-medium text-ivory mb-2">What should I wear for a Taj Mahal photoshoot?</h3>
+                <p className="text-muted leading-relaxed">Bold, saturated colors like red, emerald green, royal blue, and gold photograph beautifully against the white marble. Avoid white clothing as it blends with the monument. Flowy fabrics like sarees, maxi dresses, and dupattas add movement to portraits.</p>
               </div>
             </div>
           </div>

@@ -76,36 +76,36 @@ const paymentMethods = [
 ];
 
 const cancellationPolicy = [
-  { period: '30+ days before session', fee: 'No cancellation fee', color: 'text-green-600' },
-  { period: '11–29 days before session', fee: '30% of total booking', color: 'text-amber-600' },
-  { period: '3–10 days before session', fee: '50% of total booking', color: 'text-orange-600' },
-  { period: 'Within 48 hours', fee: '100% — non-refundable', color: 'text-red-600' },
+  { period: '30+ days before session', fee: 'No cancellation fee', color: 'text-accent-bright' },
+  { period: '11–29 days before session', fee: '30% of total booking', color: 'text-accent' },
+  { period: '3–10 days before session', fee: '50% of total booking', color: 'text-accent' },
+  { period: 'Within 48 hours', fee: '100% — non-refundable', color: 'text-ivory' },
 ];
 
 export default function PaymentPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="theme-dark grain min-h-screen flex flex-col pt-20">
       <Header />
-      <main className="flex-grow bg-white">
+      <main id="main-content" className="flex-grow bg-night">
 
         {/* Hero */}
-        <div className="bg-ink-900 text-white py-16">
+        <div className="bg-coal bg-mughal-pattern border-b border-line py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-amber-400 text-sm font-medium tracking-widest uppercase mb-3">
+            <p className="kicker mb-4">
               Secure &amp; Verified
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold">
+            <h1 className="display-tight font-display text-ivory text-4xl md:text-5xl font-medium">
               Payment Methods
             </h1>
-            <p className="mt-4 text-gray-300 text-lg max-w-2xl mx-auto">
+            <p className="mt-5 text-muted text-lg max-w-2xl mx-auto leading-relaxed">
               All payments are processed securely under{' '}
-              <strong className="text-amber-400">Taj Guides &amp; Travel Services</strong> —
+              <strong className="text-accent">Taj Guides &amp; Travel Services</strong> —
               the registered parent company operating both{' '}
-              <a href="https://tajmahalphotography.com" className="underline hover:text-amber-400 transition-colors">
+              <a href="https://tajmahalphotography.com" className="link-underline text-ivory hover:text-accent transition-colors">
                 tajmahalphotography.com
               </a>{' '}
               and{' '}
-              <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-amber-400 transition-colors">
+              <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="link-underline text-ivory hover:text-accent transition-colors">
                 tajmahaltouristguide.com
               </a>.
             </p>
@@ -113,30 +113,30 @@ export default function PaymentPage() {
         </div>
 
         {/* Trust Bar */}
-        <div className="bg-amber-50 border-b border-amber-100 py-4">
+        <div className="bg-night border-b border-line py-4">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm text-amber-800">
-              <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-amber-600" />Government Registered Business</span>
-              <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" />HDFC Bank Verified Account</span>
-              <span className="flex items-center gap-2"><Clock className="h-4 w-4 text-amber-600" />24/7 WhatsApp Support</span>
-              <span className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-amber-600" />Receipt Issued for All Payments</span>
+            <div className="flex flex-wrap justify-center gap-x-10 gap-y-2 text-sm text-muted">
+              <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-accent" />Government Registered Business</span>
+              <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-accent" />HDFC Bank Verified Account</span>
+              <span className="flex items-center gap-2"><Clock className="h-4 w-4 text-accent" />24/7 WhatsApp Support</span>
+              <span className="flex items-center gap-2"><MessageCircle className="h-4 w-4 text-accent" />Receipt Issued for All Payments</span>
             </div>
           </div>
         </div>
 
         {/* Parent Company Notice */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 flex gap-4">
-            <Building2 className="h-6 w-6 text-slate-500 flex-shrink-0 mt-0.5" />
+          <div className="bg-surface border border-line p-6 flex gap-4">
+            <Building2 className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
             <div>
-              <h2 className="font-semibold text-slate-800 mb-1">About the Operating Company</h2>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                <strong>Taj Mahal Photography</strong> is a specialized photography service operated
-                under <strong>Taj Guides &amp; Travel Services</strong> — a government-approved tourism
-                company based in Agra since 1998, led by <strong>Shafiq Khan</strong> (Government
+              <h2 className="font-display font-medium text-ivory mb-1">About the Operating Company</h2>
+              <p className="text-muted text-sm leading-relaxed">
+                <strong className="text-ivory">Taj Mahal Photography</strong> is a specialized photography service operated
+                under <strong className="text-ivory">Taj Guides &amp; Travel Services</strong> — a government-approved tourism
+                company based in Agra since 1998, led by <strong className="text-ivory">Shafiq Khan</strong> (Government
                 Approved Tourist Guide, Ministry of Tourism &amp; Culture, Govt. of India), also
                 operating{' '}
-                <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="text-amber-600 underline hover:text-amber-700">
+                <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="link-underline text-accent hover:text-accent-bright">
                   TajMahalTouristGuide.com
                 </a>.
                 All payments go to the same registered HDFC bank account — one payment covers your
@@ -148,44 +148,44 @@ export default function PaymentPage() {
 
         {/* Payment Methods Grid */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h2 className="font-serif text-2xl md:text-3xl text-ink-900 font-semibold mb-8 text-center">
+          <h2 className="font-display text-2xl md:text-3xl text-ivory font-medium mb-8 text-center">
             Choose Your Payment Method
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {paymentMethods.map((method) => {
               const Icon = method.icon;
               return (
-                <div key={method.title} className="border border-marble-200 rounded-xl p-6 hover:shadow-md transition-shadow bg-white">
+                <div key={method.title} className="border border-line p-6 hover:border-line-strong transition-colors bg-surface">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-amber-50 rounded-lg">
-                        <Icon className="h-5 w-5 text-amber-600" />
+                      <div className="p-2.5 border border-line bg-night">
+                        <Icon className="h-5 w-5 text-accent" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-ink-900 text-base">{method.title}</h3>
-                        <p className="text-gray-500 text-xs">{method.subtitle}</p>
+                        <h3 className="font-display font-medium text-ivory text-base">{method.title}</h3>
+                        <p className="text-faint text-xs">{method.subtitle}</p>
                       </div>
                     </div>
-                    <span className={`text-white text-xs font-medium px-2.5 py-1 rounded-full ${method.badgeColor}`}>
+                    <span className="border border-line-strong text-muted text-[10px] font-mono uppercase tracking-[0.14em] px-2.5 py-1">
                       {method.badge}
                     </span>
                   </div>
                   {method.details.length > 0 && (
-                    <div className="bg-slate-50 rounded-lg p-4 mb-4 space-y-2">
+                    <div className="bg-night border border-line p-4 mb-4 space-y-2">
                       {method.details.map((d) => (
                         <div key={d.label} className="flex justify-between text-sm">
-                          <span className="text-gray-500">{d.label}</span>
-                          <span className="font-mono font-semibold text-ink-900 text-right ml-4">{d.value}</span>
+                          <span className="text-faint">{d.label}</span>
+                          <span className="font-mono font-semibold text-ivory text-right ml-4">{d.value}</span>
                         </div>
                       ))}
                     </div>
                   )}
-                  <p className="text-sm text-gray-600 leading-relaxed">{method.note}</p>
+                  <p className="text-sm text-muted leading-relaxed">{method.note}</p>
                   {method.title === 'UPI Payment' && (
                     <a
                       href={`https://wa.me/${SITE.whatsapp}?text=Hi%2C%20I%20would%20like%20the%20UPI%20QR%20code%20to%20pay%20for%20my%20photography%20booking.`}
                       target="_blank" rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-green-700 hover:text-green-800 transition-colors"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-mono uppercase tracking-[0.14em] text-[11px] text-accent hover:text-accent-bright transition-colors"
                     >
                       <MessageCircle className="h-4 w-4" />
                       Request UPI QR via WhatsApp →
@@ -195,12 +195,17 @@ export default function PaymentPage() {
               );
             })}
           </div>
+
+          {/* Add-on note */}
+          <p className="mt-6 text-sm text-faint text-center">
+            Add extra edited high-resolution photos for <strong className="text-ivory">$20 each</strong> to any package or tour.
+          </p>
         </div>
 
         {/* How It Works */}
-        <div className="bg-marble-50 py-14">
+        <div className="bg-coal border-y border-line py-14">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-2xl md:text-3xl text-ink-900 font-semibold mb-10 text-center">
+            <h2 className="font-display text-2xl md:text-3xl text-ivory font-medium mb-10 text-center">
               How the Payment Process Works
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -211,11 +216,11 @@ export default function PaymentPage() {
                 { step: '04', title: 'Session Confirmed', desc: 'You receive a booking receipt and full session details within 2 hours.' },
               ].map((item) => (
                 <div key={item.step} className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-amber-500 text-white flex items-center justify-center text-sm font-bold mx-auto mb-4">
+                  <div className="w-12 h-12 border border-accent text-accent font-mono flex items-center justify-center text-sm font-bold mx-auto mb-4">
                     {item.step}
                   </div>
-                  <h3 className="font-semibold text-ink-900 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                  <h3 className="font-display font-medium text-ivory mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -224,57 +229,57 @@ export default function PaymentPage() {
 
         {/* Cancellation Policy */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <h2 className="font-serif text-2xl md:text-3xl text-ink-900 font-semibold mb-2 text-center">
+          <h2 className="font-display text-2xl md:text-3xl text-ivory font-medium mb-2 text-center">
             Cancellation &amp; Refund Policy
           </h2>
-          <p className="text-gray-500 text-center text-sm mb-10">
+          <p className="text-faint text-center text-sm mb-10">
             Politique d&apos;annulation — Applies to all bookings under Taj Guides &amp; Travel Services
           </p>
-          <div className="overflow-hidden rounded-xl border border-marble-200">
+          <div className="overflow-hidden border border-line">
             <table className="w-full text-sm">
-              <thead className="bg-ink-900 text-white">
+              <thead className="bg-coal text-ivory">
                 <tr>
-                  <th className="text-left py-4 px-6 font-semibold">Notice Period</th>
-                  <th className="text-left py-4 px-6 font-semibold">Cancellation Fee</th>
+                  <th className="text-left py-4 px-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">Notice Period</th>
+                  <th className="text-left py-4 px-6 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">Cancellation Fee</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-marble-100">
+              <tbody className="divide-y divide-line">
                 {cancellationPolicy.map((row, i) => (
-                  <tr key={row.period} className={i % 2 === 0 ? 'bg-white' : 'bg-marble-50'}>
-                    <td className="py-4 px-6 text-gray-700">{row.period}</td>
+                  <tr key={row.period} className={i % 2 === 0 ? 'bg-surface' : 'bg-night'}>
+                    <td className="py-4 px-6 text-muted">{row.period}</td>
                     <td className={`py-4 px-6 font-semibold ${row.color}`}>{row.fee}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg flex gap-3">
-            <AlertCircle className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-amber-800">
-              <strong>Tailor-made packages</strong> may be subject to alternative cancellation terms
+          <div className="mt-6 p-4 bg-surface border border-line flex gap-3">
+            <AlertCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-muted">
+              <strong className="text-ivory">Tailor-made packages</strong> may be subject to alternative cancellation terms
               communicated at the time of booking. To cancel or reschedule, contact us via WhatsApp at{' '}
-              <a href={`https://wa.me/${SITE.whatsapp}`} className="font-semibold underline">{SITE.phoneDisplay}</a> as soon as possible.
+              <a href={`https://wa.me/${SITE.whatsapp}`} className="link-underline font-semibold text-accent hover:text-accent-bright">{SITE.phoneDisplay}</a> as soon as possible.
             </p>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="bg-ink-900 text-white py-16 text-center">
+        <div className="bg-coal bg-mughal-pattern border-t border-line py-16 text-center">
           <div className="max-w-2xl mx-auto px-4">
-            <h2 className="font-serif text-3xl font-semibold mb-4">Ready to Book Your Session?</h2>
-            <p className="text-gray-300 mb-8">
+            <h2 className="font-display text-3xl font-medium text-ivory mb-4">Ready to Book Your Session?</h2>
+            <p className="text-muted mb-8">
               Contact us on WhatsApp — we&apos;ll confirm your slot and send payment instructions within minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`https://wa.me/${SITE.whatsapp}?text=Hi%2C%20I%20would%20like%20to%20book%20a%20Taj%20Mahal%20photography%20session.`}
                 target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-green-600 hover:bg-green-700 text-white font-medium text-sm rounded-sm transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-ivory text-night font-mono text-[11px] uppercase tracking-[0.18em] font-semibold hover:bg-accent transition-colors"
               >
                 <MessageCircle className="h-4 w-4" />
                 Book via WhatsApp
               </a>
-              <Link href="/book" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-ink-900 font-medium text-sm rounded-sm hover:bg-marble-100 transition-colors">
+              <Link href="/book" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-line-strong text-ivory font-mono text-[11px] uppercase tracking-[0.18em] font-semibold hover:border-accent hover:text-accent transition-colors">
                 Book Online
               </Link>
             </div>

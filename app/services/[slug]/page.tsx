@@ -361,9 +361,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   ]);
 
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="theme-dark grain min-h-screen flex flex-col pt-20">
       <Header />
-      <main className="flex-grow bg-white">
+      <main id="main-content" className="flex-grow bg-night">
         <div className="relative h-[60vh] min-h-[500px]">
           <Image
             src={service.image}
@@ -373,29 +373,33 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             priority
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-night/70" />
           <div className="absolute inset-0 flex items-center justify-center text-center px-4">
             <div className="max-w-3xl">
-              <span className="text-gold-400 font-bold tracking-widest uppercase mb-4 block">{isLuxuryTour ? 'Same-Day Luxury Tour' : 'Premium Service'}</span>
-              <h1 className="font-serif text-5xl md:text-6xl font-semibold text-white mb-6">{service.title}</h1>
-              <p className="text-xl text-white/90">{service.description}</p>
+              <span className="kicker inline-flex items-center gap-3 mb-6">
+                <span className="h-px w-8 bg-accent" />
+                {isLuxuryTour ? 'Same-Day Luxury Tour' : 'Premium Service'}
+                <span className="h-px w-8 bg-accent" />
+              </span>
+              <h1 className="display-tight font-display text-5xl md:text-6xl font-medium text-ivory mb-6">{service.title}</h1>
+              <p className="text-xl text-muted">{service.description}</p>
             </div>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           {/* Quick Answer block — direct-answer text that AI engines preferentially extract */}
-          <div className="bg-marble-50 border-l-4 border-gold-500 p-6 mb-12 rounded-sm">
-            <p className="text-xs uppercase tracking-widest text-gold-600 font-bold mb-2">Quick Answer</p>
-            <p className="quick-answer text-ink-900 text-lg leading-relaxed">{service.quickAnswer}</p>
+          <div className="bg-surface border-l-2 border-accent p-6 mb-12">
+            <p className="kicker mb-2">Quick Answer</p>
+            <p className="quick-answer text-ivory text-lg leading-relaxed">{service.quickAnswer}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">
-              <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-6">About This {isLuxuryTour ? 'Tour' : 'Session'}</h2>
-              <div className="prose prose-lg prose-slate max-w-none text-gray-600">
+              <h2 className="font-display text-3xl font-medium text-ivory mb-6">About This {isLuxuryTour ? 'Tour' : 'Session'}</h2>
+              <div className="prose prose-lg prose-invert max-w-none text-muted">
                 <p>{service.longDescription}</p>
-                <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">What&apos;s Included</h3>
+                <h3 className="font-display text-2xl text-ivory mt-10 mb-4">What&apos;s Included</h3>
                 <ul className="space-y-2">
                   {service.features.map((feature, i) => (
                     <li key={i}><strong>{feature}</strong></li>
@@ -406,16 +410,16 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
               {service.itinerary && (
                 <div className="mt-12">
-                  <h3 className="font-serif text-2xl text-ink-900 mb-6">Same-Day Itinerary</h3>
-                  <ol className="space-y-4 border-l-2 border-gold-500 pl-6">
+                  <h3 className="font-display text-2xl text-ivory mb-6">Same-Day Itinerary</h3>
+                  <ol className="space-y-4 border-l border-line pl-6">
                     {service.itinerary.map((step, i) => (
                       <li key={i} className="relative">
-                        <span className="absolute -left-[34px] top-0 inline-flex w-6 h-6 items-center justify-center rounded-full bg-gold-500 text-ink-900 text-xs font-bold">
+                        <span className="absolute -left-[34px] top-0 inline-flex w-6 h-6 items-center justify-center bg-accent text-night text-xs font-bold">
                           {i + 1}
                         </span>
-                        <p className="text-xs uppercase tracking-widest text-gold-600 font-bold">{step.time}</p>
-                        <p className="font-serif text-lg font-semibold text-ink-900">{step.title}</p>
-                        <p className="text-gray-600 text-sm">{step.detail}</p>
+                        <p className="kicker">{step.time}</p>
+                        <p className="font-display text-lg font-medium text-ivory">{step.title}</p>
+                        <p className="text-muted text-sm">{step.detail}</p>
                       </li>
                     ))}
                   </ol>
@@ -423,14 +427,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               )}
 
               {isLuxuryTour && (
-                <div className="mt-12 bg-ink-900 text-white p-6 rounded-sm">
-                  <p className="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Compare</p>
-                  <p className="text-sm text-gray-200 mb-4">
+                <div className="mt-12 bg-coal bg-mughal-pattern text-ivory p-6 border border-line">
+                  <p className="kicker mb-2">Compare</p>
+                  <p className="text-sm text-muted mb-4">
                     Looking for a different group size? The {service.tourSlug === 'sunrise-luxury-innova' ? 'Sunrise Luxury Urbania ($899)' : 'Sunrise Luxury Tour in a private Innova ($650)'} covers the same itinerary {service.tourSlug === 'sunrise-luxury-innova' ? 'in a 13-seat Force Urbania luxury coach for larger groups' : 'in a 6-seat private Toyota Innova for couples and small families'}.
                   </p>
                   <Link
                     href={`/services/${service.tourSlug === 'sunrise-luxury-innova' ? 'sunrise-luxury-urbania' : 'sunrise-luxury-innova'}`}
-                    className="inline-block text-gold-400 underline hover:text-gold-300 text-sm"
+                    className="link-underline inline-block text-accent hover:text-accent-bright text-sm"
                   >
                     See the other tour →
                   </Link>
@@ -439,49 +443,49 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
               {service.faqs.length > 0 && (
                 <div className="mt-12">
-                  <h3 className="font-serif text-2xl text-ink-900 mb-6">Frequently Asked Questions</h3>
+                  <h3 className="font-display text-2xl text-ivory mb-6">Frequently Asked Questions</h3>
                   <div className="space-y-6">
                     {service.faqs.map((f, i) => (
                       <div key={i}>
-                        <p className="font-semibold text-ink-900 mb-1">{f.question}</p>
-                        <p className="faq-answer text-gray-600">{f.answer}</p>
+                        <p className="font-semibold text-ivory mb-1">{f.question}</p>
+                        <p className="faq-answer text-muted">{f.answer}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
 
-              <p className="mt-12 text-xs text-gray-400">Last updated: {LAST_UPDATED}</p>
+              <p className="mt-12 text-xs text-faint">Last updated: {LAST_UPDATED}</p>
             </div>
 
             <div>
-              <div className="bg-marble-50 p-8 border border-marble-200 rounded-sm sticky top-32">
-                <h3 className="font-serif text-2xl font-semibold text-ink-900 mb-2">{isLuxuryTour ? 'Tour Details' : 'Package Details'}</h3>
-                <div className="text-3xl font-light text-ink-900 mb-1">${service.price} <span className="text-sm text-gray-500">USD</span></div>
-                <p className="text-sm text-gray-500 mb-6">Duration: {service.duration}</p>
-                <ul className="space-y-3 mb-8 text-sm text-gray-600">
+              <div className="bg-surface p-8 border border-line sticky top-32">
+                <h3 className="font-display text-2xl font-medium text-ivory mb-2">{isLuxuryTour ? 'Tour Details' : 'Package Details'}</h3>
+                <div className="text-3xl font-light text-accent mb-1">${service.price} <span className="text-sm text-faint">USD</span></div>
+                <p className="text-sm text-faint mb-6">Duration: {service.duration}</p>
+                <ul className="space-y-3 mb-8 text-sm text-muted">
                   {isLuxuryTour ? (
                     <>
-                      <li className="flex items-start"><span className="text-gold-500 mr-3">✓</span> Private vehicle (Delhi/NCR ↔ Agra)</li>
-                      <li className="flex items-start"><span className="text-gold-500 mr-3">✓</span> Govt. licensed guide</li>
-                      <li className="flex items-start"><span className="text-gold-500 mr-3">✓</span> Govt. licensed photographer</li>
-                      <li className="flex items-start"><span className="text-gold-500 mr-3">✓</span> Taj Mahal + Agra Fort tickets</li>
-                      <li className="flex items-start"><span className="text-gold-500 mr-3">✓</span> Private golf cart inside complex</li>
-                      <li className="flex items-start"><span className="text-gold-500 mr-3">✓</span> Skip-the-line security escort</li>
+                      <li className="flex items-start"><span className="text-accent mr-3">✓</span> Private vehicle (Delhi/NCR ↔ Agra)</li>
+                      <li className="flex items-start"><span className="text-accent mr-3">✓</span> Govt. licensed guide</li>
+                      <li className="flex items-start"><span className="text-accent mr-3">✓</span> Govt. licensed photographer</li>
+                      <li className="flex items-start"><span className="text-accent mr-3">✓</span> Taj Mahal + Agra Fort tickets</li>
+                      <li className="flex items-start"><span className="text-accent mr-3">✓</span> Private golf cart inside complex</li>
+                      <li className="flex items-start"><span className="text-accent mr-3">✓</span> Skip-the-line security escort</li>
                     </>
                   ) : (
                     <>
-                      <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Official Photography Permit</li>
-                      <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Professional Equipment</li>
-                      <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> 48-Hour Photo Delivery</li>
+                      <li className="flex items-center"><span className="text-accent mr-3">✓</span> Official Photography Permit</li>
+                      <li className="flex items-center"><span className="text-accent mr-3">✓</span> Professional Equipment</li>
+                      <li className="flex items-center"><span className="text-accent mr-3">✓</span> 48-Hour Photo Delivery</li>
                     </>
                   )}
                 </ul>
-                <a href="/book" className="block w-full text-center px-6 py-3 bg-ink-900 text-white font-medium rounded-sm hover:bg-ink-800 transition-colors">
+                <a href="/book" className="block w-full text-center bg-ivory text-night px-8 py-4 font-mono text-[11px] uppercase tracking-[0.18em] font-semibold hover:bg-accent transition-colors duration-300">
                   Check Availability
                 </a>
                 {!isLuxuryTour && (
-                  <p className="text-xs text-center text-gray-500 mt-4">* Monument entry tickets are not included.</p>
+                  <p className="text-xs text-center text-faint mt-4">* Monument entry tickets are not included.</p>
                 )}
               </div>
             </div>

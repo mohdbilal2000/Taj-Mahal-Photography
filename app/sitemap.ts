@@ -14,7 +14,7 @@ type Entry = {
 };
 
 const ROUTES: Entry[] = [
-  { path: '', lastModified: '2026-06-05', changeFrequency: 'weekly', priority: 1.0 },
+  { path: '', lastModified: '2026-06-24', changeFrequency: 'weekly', priority: 1.0 },
   { path: '/services', lastModified: '2026-06-05', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/services/sunrise', lastModified: '2026-05-15', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/services/couple', lastModified: '2026-06-05', changeFrequency: 'monthly', priority: 0.8 },
@@ -28,16 +28,16 @@ const ROUTES: Entry[] = [
   { path: '/services/guided-photo-tour-large', lastModified: '2026-06-05', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/services/sunrise-luxury-innova', lastModified: '2026-06-05', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/services/sunrise-luxury-urbania', lastModified: '2026-06-05', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/book', lastModified: '2026-03-06', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/book', lastModified: '2026-06-24', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/portfolio', lastModified: '2026-03-06', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/permit-guide', lastModified: '2026-05-15', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/faq', lastModified: '2026-05-15', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/faq', lastModified: '2026-06-24', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/about', lastModified: '2026-06-20', changeFrequency: 'yearly', priority: 0.6 },
   { path: '/blog', lastModified: '2026-06-20', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/payment', lastModified: '2026-03-07', changeFrequency: 'yearly', priority: 0.4 },
   { path: '/privacy', lastModified: '2026-03-07', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/terms', lastModified: '2026-04-18', changeFrequency: 'yearly', priority: 0.3 },
-  { path: '/llms.txt', lastModified: '2026-06-20', changeFrequency: 'weekly', priority: 0.5 },
+  { path: '/llms.txt', lastModified: '2026-06-24', changeFrequency: 'weekly', priority: 0.5 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

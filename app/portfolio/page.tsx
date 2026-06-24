@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
+import { IMG, img } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Taj Mahal Photography Gallery',
@@ -19,41 +20,42 @@ export const metadata: Metadata = {
 };
 
 const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop', alt: 'Taj Mahal at sunrise with golden light reflecting on white marble', category: 'Sunrise' },
-  { src: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop', alt: 'Romantic couple portrait at the Taj Mahal reflecting pool', category: 'Couple' },
-  { src: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop', alt: 'Taj Mahal grand view from the main gateway entrance', category: 'Heritage' },
-  { src: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop', alt: 'Taj Mahal with visitors on the elevated platform', category: 'Family' },
-  { src: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop', alt: 'Close-up architectural detail of Taj Mahal marble inlay work', category: 'Detail' },
-  { src: 'https://images.unsplash.com/photo-1590136132691-8b19a18b4ef3?q=80&w=800&auto=format&fit=crop', alt: 'Taj Mahal reflected in the central water channel at dawn', category: 'Sunrise' },
+  { src: img(IMG.tajReflection, 800), alt: IMG.tajReflection.alt, category: 'Sunrise' },
+  { src: img(IMG.tajGoldenHour, 800), alt: IMG.tajGoldenHour.alt, category: 'Couple' },
+  { src: img(IMG.agraFort, 800), alt: IMG.agraFort.alt, category: 'Heritage' },
+  { src: img(IMG.tajGardens, 800), alt: IMG.tajGardens.alt, category: 'Family' },
+  { src: img(IMG.tajDome, 800), alt: IMG.tajDome.alt, category: 'Detail' },
+  { src: img(IMG.tajRiverside, 800), alt: IMG.tajRiverside.alt, category: 'Sunrise' },
 ];
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="theme-dark grain min-h-screen flex flex-col pt-20">
       <Header />
-      <main className="flex-grow">
-        <div className="bg-ink-900 text-white py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Our Work</span>
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Photography Portfolio</h1>
-            <p className="text-lg text-gray-300">A glimpse into the magical moments we have captured at the Taj Mahal and across Agra.</p>
+      <main id="main-content" className="flex-grow">
+        <div className="relative bg-night text-ivory py-20">
+          <div className="absolute inset-0 bg-mughal-pattern opacity-60" />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span className="kicker mb-4 block">Our Work</span>
+            <h1 className="display-tight font-display text-4xl md:text-5xl font-semibold mb-6 text-ivory">Photography Portfolio</h1>
+            <p className="text-lg text-muted">A glimpse into the magical moments we have captured at the Taj Mahal and across Agra.</p>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {galleryImages.map((img, i) => (
-              <div key={i} className="relative aspect-square overflow-hidden rounded-sm group">
+            {galleryImages.map((image, i) => (
+              <div key={i} className="relative aspect-square overflow-hidden border border-line group">
                 <Image
-                  src={img.src}
-                  alt={img.alt}
+                  src={image.src}
+                  alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500 flex items-end">
+                <div className="absolute inset-0 bg-night/0 group-hover:bg-night/40 transition-colors duration-500 flex items-end">
                   <div className="p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-gold-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">{img.category}</span>
+                    <span className="bg-accent text-night text-[10px] font-mono font-semibold uppercase tracking-[0.18em] px-3 py-1">{image.category}</span>
                   </div>
                 </div>
               </div>
@@ -61,8 +63,8 @@ export default function PortfolioPage() {
           </div>
 
           <div className="mt-16 text-center">
-            <p className="text-gray-600 mb-6">Want to see yourself in front of the Taj Mahal?</p>
-            <Link href="/book" className="inline-flex items-center px-8 py-4 bg-ink-900 text-white font-medium text-sm tracking-wide uppercase hover:bg-ink-800 transition-colors rounded-sm">
+            <p className="text-muted mb-6">Want to see yourself in front of the Taj Mahal?</p>
+            <Link href="/book" className="inline-flex items-center bg-ivory text-night px-8 py-4 font-mono text-[11px] uppercase tracking-[0.18em] font-semibold hover:bg-accent transition-colors duration-300">
               Book Your Photoshoot
             </Link>
           </div>

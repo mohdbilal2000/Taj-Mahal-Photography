@@ -58,13 +58,13 @@ function renderBlock(block: ArticleBlock, i: number) {
   switch (block.type) {
     case 'h2':
       return (
-        <h2 key={i} className="font-serif text-2xl md:text-3xl text-ink-900 mt-12 mb-4">
+        <h2 key={i} className="font-display text-2xl md:text-3xl text-ivory mt-12 mb-4">
           {block.text}
         </h2>
       );
     case 'h3':
       return (
-        <h3 key={i} className="font-serif text-xl text-ink-900 mt-8 mb-3">
+        <h3 key={i} className="font-display text-xl text-ivory mt-8 mb-3">
           {block.text}
         </h3>
       );
@@ -150,9 +150,9 @@ export default async function BlogPostPage({
   ]);
 
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="theme-dark grain min-h-screen flex flex-col pt-20">
       <Header />
-      <main className="flex-grow bg-white">
+      <main id="main-content" className="flex-grow bg-night">
         {/* Hero image */}
         <div className="relative h-[40vh] md:h-[52vh] w-full">
           <Image
@@ -163,48 +163,48 @@ export default async function BlogPostPage({
             className="object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent" />
         </div>
 
         <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-10">
-          <div className="bg-white rounded-sm border border-marble-200 p-6 md:p-10 shadow-sm">
+          <div className="bg-coal border border-line p-6 md:p-10">
             <Link
               href="/blog"
-              className="inline-flex items-center text-sm text-gray-500 hover:text-gold-600 transition-colors mb-6"
+              className="inline-flex items-center font-mono text-[11px] uppercase tracking-[0.16em] text-faint hover:text-accent transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4 mr-2" /> All articles
             </Link>
 
-            <span className="text-gold-600 text-xs font-bold uppercase tracking-widest">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
               {post.category}
             </span>
-            <h1 className="font-serif text-3xl md:text-4xl font-semibold text-ink-900 mt-3 mb-4 leading-tight">
+            <h1 className="display-tight font-display text-3xl md:text-4xl font-medium text-ivory mt-3 mb-4 leading-tight">
               {post.title}
             </h1>
-            <div className="flex items-center text-sm text-gray-500 space-x-3 mb-8">
+            <div className="flex items-center font-mono text-[10px] uppercase tracking-[0.2em] text-faint space-x-3 mb-8">
               <time dateTime={post.datePublished}>{formattedDate}</time>
               <span>·</span>
               <span>{post.readTime}</span>
             </div>
 
             {/* AEO Quick Answer — the passage AI engines preferentially extract */}
-            <div className="quick-answer bg-marble-50 border-l-4 border-gold-500 p-5 mb-10">
-              <p className="text-ink-900 font-medium leading-relaxed">{post.quickAnswer}</p>
+            <div className="quick-answer bg-surface border-l-2 border-accent p-5 mb-10">
+              <p className="text-ivory font-medium leading-relaxed">{post.quickAnswer}</p>
             </div>
 
-            <div className="prose prose-lg prose-slate max-w-none text-gray-600 space-y-6">
+            <div className="prose prose-invert prose-lg max-w-none text-muted space-y-6 prose-headings:text-ivory prose-headings:font-display prose-strong:text-ivory prose-a:text-accent prose-blockquote:border-accent prose-blockquote:text-muted prose-li:marker:text-accent">
               {post.body.map(renderBlock)}
             </div>
 
             {/* FAQ */}
             {post.faqs && post.faqs.length > 0 && (
-              <section className="mt-14 pt-10 border-t border-marble-200">
-                <h2 className="font-serif text-2xl text-ink-900 mb-6">Frequently Asked Questions</h2>
+              <section className="mt-14 pt-10 border-t border-line">
+                <h2 className="font-display text-2xl text-ivory mb-6">Frequently Asked Questions</h2>
                 <div className="space-y-6">
                   {post.faqs.map((faq) => (
                     <div key={faq.question}>
-                      <h3 className="font-semibold text-ink-900 mb-2">{faq.question}</h3>
-                      <p className="faq-answer text-gray-600">{faq.answer}</p>
+                      <h3 className="font-medium text-ivory mb-2">{faq.question}</h3>
+                      <p className="faq-answer text-muted leading-relaxed">{faq.answer}</p>
                     </div>
                   ))}
                 </div>
@@ -212,16 +212,16 @@ export default async function BlogPostPage({
             )}
 
             {/* CTA */}
-            <div className="mt-14 bg-ink-900 text-white rounded-sm p-8 text-center">
-              <h2 className="font-serif text-2xl font-semibold mb-3">
+            <div className="mt-14 bg-surface bg-mughal-pattern border border-line p-8 text-center">
+              <h2 className="font-display text-2xl text-ivory mb-3">
                 Want a licensed photographer at the Taj Mahal?
               </h2>
-              <p className="text-gray-300 mb-6">
+              <p className="text-muted mb-6">
                 Book an authorized photoshoot and skip the permit hassle entirely.
               </p>
               <Link
                 href="/book"
-                className="inline-flex items-center px-7 py-3 bg-white text-ink-900 font-medium text-sm tracking-wide uppercase hover:bg-marble-100 transition-colors rounded-sm"
+                className="inline-flex items-center px-7 py-3 border border-line-strong text-ivory font-mono text-[11px] tracking-[0.16em] uppercase hover:border-accent hover:text-accent transition-colors"
               >
                 Book Your Session
               </Link>
@@ -230,14 +230,14 @@ export default async function BlogPostPage({
         </article>
 
         {/* Related */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <h2 className="font-serif text-2xl text-ink-900 mb-8">Keep reading</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <h2 className="font-display text-2xl text-ivory mb-8">Keep reading</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {related.map((p) => (
               <Link
                 key={p.slug}
                 href={`/blog/${p.slug}`}
-                className="group bg-white rounded-sm border border-marble-200 overflow-hidden hover:shadow-lg transition-shadow"
+                className="group border border-line bg-coal hover:border-line-strong transition-colors duration-300 overflow-hidden"
               >
                 <div className="relative h-40 overflow-hidden">
                   <Image
@@ -247,9 +247,10 @@ export default async function BlogPostPage({
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-coal/80 to-transparent" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-serif text-lg font-semibold text-ink-900 group-hover:text-gold-600 transition-colors leading-tight">
+                  <h3 className="font-display text-lg text-ivory group-hover:text-accent transition-colors leading-tight">
                     {p.title}
                   </h3>
                 </div>
