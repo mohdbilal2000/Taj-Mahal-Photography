@@ -3,7 +3,16 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { useRef } from 'react';
+
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const META = [
+  { k: 'Experience', v: '10+ Years' },
+  { k: 'Clients', v: '80+ Countries' },
+  { k: 'Delivery', v: '48 Hours' },
+];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -13,15 +22,23 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-[100svh] min-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative h-[100svh] min-h-[640px] overflow-hidden bg-night"
     >
-      {/* Parallax Background Image */}
-      <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
+      {/* Parallax background, revealed with a mask wipe on load */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{ y: backgroundY }}
+        initial={{ clipPath: 'inset(12% 12% 12% 12%)', scale: 1.12 }}
+        animate={{ clipPath: 'inset(0% 0% 0% 0%)', scale: 1 }}
+        transition={{ duration: 1.4, ease: EASE }}
+      >
         <Image
           src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop"
           alt="The white marble Taj Mahal mausoleum reflected in the central pool at sunrise, photographed by a government-licensed photographer in Agra, India"
@@ -32,94 +49,114 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
+      {/* Legibility gradients + vignette (bottom-weighted, not a flat wash) */}
+      <motion.div
+        style={{ opacity: overlayOpacity }}
+        className="absolute inset-0 z-[1] bg-gradient-to-t from-night via-night/30 to-night/40"
+      />
+      <div className="absolute inset-0 z-[1] bg-[radial-gradient(120%_80%_at_50%_0%,transparent,rgba(12,11,10,0.55))]" />
 
-      {/* Animated Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          className="inline-block mb-6 px-5 py-2 border border-white/30 backdrop-blur-sm rounded-full"
-        >
-          <span className="text-white text-xs font-medium tracking-widest uppercase">
-            Government Licensed &amp; Authorized
-          </span>
-        </motion.div>
-
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
-          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white font-medium leading-tight mb-6 drop-shadow-lg"
-        >
-          Capture the Magic of the{' '}
-          <span className="italic text-gold-400">Taj Mahal</span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
-          className="text-base sm:text-lg md:text-xl text-white/90 font-light mb-10 max-w-2xl mx-auto drop-shadow-md"
-        >
-          Premium guided photography experiences by an official
-          government-licensed photographer. Authorized access for unforgettable
-          memories.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Link
-            href="/book"
-            className="w-full sm:w-auto px-8 py-4 bg-white text-ink-900 font-medium text-sm tracking-wide uppercase hover:bg-marble-100 transition-colors rounded-sm"
-          >
-            Book Your Session
-          </Link>
-          <Link
-            href="/portfolio"
-            className="w-full sm:w-auto px-8 py-4 bg-black/30 backdrop-blur-md border border-white/20 text-white font-medium text-sm tracking-wide uppercase hover:bg-black/50 transition-colors rounded-sm"
-          >
-            View Portfolio
-          </Link>
-        </motion.div>
-      </div>
-
-      {/* Scroll Indicator */}
+      {/* Side index label (editorial detail) */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        transition={{ delay: 1, duration: 0.8 }}
+        className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 z-10 flex-col items-center gap-4"
       >
-        <span className="text-white/60 text-xs tracking-widest uppercase">
-          Scroll
+        <span className="font-mono text-[10px] tracking-[0.3em] text-muted [writing-mode:vertical-rl]">
+          AGRA · UTTAR PRADESH · INDIA
         </span>
-        <motion.svg
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="text-white/60"
+        <span className="h-16 w-px bg-line-strong" />
+        <span className="font-mono text-[10px] tracking-[0.3em] text-accent">01</span>
+      </motion.div>
+
+      {/* Content — bottom-left anchored, asymmetric */}
+      <motion.div
+        style={{ y: contentY }}
+        className="relative z-10 h-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col justify-end pb-16 sm:pb-20"
+      >
+        <motion.span
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
+          className="kicker mb-6 flex items-center gap-3"
         >
-          <polyline points="6 9 12 15 18 9" />
-        </motion.svg>
+          <span className="h-px w-8 bg-accent" />
+          Government Licensed Photographer
+        </motion.span>
+
+        <h1 className="display-tight text-ivory font-medium text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7.5rem] max-w-5xl">
+          <span className="block overflow-hidden">
+            <motion.span
+              className="block"
+              initial={{ y: '110%' }}
+              animate={{ y: '0%' }}
+              transition={{ duration: 1, delay: 0.55, ease: EASE }}
+            >
+              Capture the magic
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span
+              className="block"
+              initial={{ y: '110%' }}
+              animate={{ y: '0%' }}
+              transition={{ duration: 1, delay: 0.68, ease: EASE }}
+            >
+              of the{' '}
+              <span className="italic font-light text-accent">Taj&nbsp;Mahal</span>
+            </motion.span>
+          </span>
+        </h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9, ease: EASE }}
+          className="mt-7 max-w-xl text-base sm:text-lg text-muted leading-relaxed"
+        >
+          Private, authorized photography sessions inside the world&apos;s most
+          photographed monument — by an official Ministry of Tourism licensed
+          photographer in Agra.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.05, ease: EASE }}
+          className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+        >
+          <Link
+            href="/book"
+            className="group inline-flex items-center justify-center gap-2 bg-ivory text-night px-8 py-4 font-mono text-[11px] uppercase tracking-[0.18em] font-semibold hover:bg-accent transition-colors duration-300"
+          >
+            Book your session
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+          <Link
+            href="/portfolio"
+            className="link-underline inline-flex items-center justify-center sm:justify-start gap-2 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ivory"
+          >
+            View the portfolio
+          </Link>
+        </motion.div>
+
+        {/* Credibility data-row (replaces the "Scroll" cliché) */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.3 }}
+          className="mt-12 sm:mt-16 grid grid-cols-3 max-w-md gap-px border-t border-line pt-6"
+        >
+          {META.map((m) => (
+            <div key={m.k}>
+              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-faint mb-1">
+                {m.k}
+              </p>
+              <p className="font-display text-lg sm:text-xl text-ivory">{m.v}</p>
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
     </section>
   );

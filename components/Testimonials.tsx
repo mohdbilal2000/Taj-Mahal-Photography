@@ -2,88 +2,66 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { testimonials } from '@/lib/content';
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={sectionRef} className="py-24 bg-marble-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block">
+    <section ref={sectionRef} className="py-24 sm:py-32 bg-coal">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="max-w-2xl mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, ease: EASE }}
+            className="kicker flex items-center gap-3 mb-6"
+          >
+            <span className="h-px w-8 bg-accent" />
             Client Stories
-          </span>
-          <h2 className="font-serif text-4xl font-semibold text-ink-900 mb-4">
-            Trusted by International Visitors
-          </h2>
-          <p className="text-gray-600">
-            Read what couples and families from around the world have to say about their experience.
-          </p>
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
+            className="display-tight text-ivory text-4xl md:text-5xl lg:text-6xl font-medium"
+          >
+            Trusted by visitors from{' '}
+            <span className="italic font-light text-accent">around the world</span>
+          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-line">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <motion.figure
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.15,
-                ease: 'easeOut',
-              }}
-              className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow relative overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.12, ease: EASE }}
+              className="group flex flex-col border-r border-b border-line p-8 lg:p-10 transition-colors duration-300 hover:bg-surface"
             >
-              {/* Stars row */}
-              <div className="flex text-gold-500 mb-6 gap-1">
+              <div className="flex text-accent mb-7 gap-0.5">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ scale: 0 }}
-                    animate={isInView ? { scale: 1 } : { scale: 0 }}
-                    transition={{
-                      duration: 0.3,
-                      delay: index * 0.15 + 0.3 + i * 0.05,
-                      ease: 'easeOut',
-                    }}
-                  >
-                    <Star className="h-5 w-5 fill-current" />
-                  </motion.span>
+                  <Star key={i} className="h-3.5 w-3.5 fill-current" />
                 ))}
               </div>
 
-              {/* Quote icon */}
-              <Quote className="absolute top-6 right-6 h-12 w-12 text-marble-200 pointer-events-none" />
+              <blockquote className="font-display text-xl leading-snug text-ivory/90 mb-8 flex-grow">
+                “{testimonial.text}”
+              </blockquote>
 
-              {/* Testimonial text */}
-              <p className="text-gray-700 italic mb-8 relative z-10">
-                &quot;{testimonial.text}&quot;
-              </p>
-
-              {/* Author info */}
-              <div className="mt-auto">
-                <p className="font-serif text-lg font-semibold text-ink-900">
-                  {testimonial.name}
+              <figcaption className="mt-auto pt-6 border-t border-line">
+                <p className="font-display text-lg text-ivory">{testimonial.name}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint mt-1">
+                  {testimonial.country}
                 </p>
-                <p className="text-sm text-gray-500">{testimonial.country}</p>
-              </div>
-
-              {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gold-500" />
-            </motion.div>
+              </figcaption>
+            </motion.figure>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <a
-            href="#"
-            className="inline-flex items-center justify-center px-6 py-3 border border-ink-900 text-sm font-medium rounded-sm text-ink-900 hover:bg-ink-900 hover:text-white transition-colors"
-          >
-            Read more reviews on Google
-          </a>
         </div>
       </div>
     </section>

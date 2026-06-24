@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Cormorant_Garamond } from 'next/font/google';
+import { Inter, Cormorant_Garamond, Fraunces, JetBrains_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SITE } from '@/lib/seo';
 import MotionProvider from '@/components/MotionProvider';
@@ -8,12 +8,30 @@ import './globals.css';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap',
 });
 
+// Editorial display face — high-contrast variable serif with real character.
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+// Mono voice for kickers / index numbers (the print-contents-page look).
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
+
+// Retained for pages not yet migrated to the new system (about, blog, etc.).
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-serif',
+  display: 'swap',
 });
 
 /**
@@ -126,15 +144,15 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-title': SITE.name,
     'application-name': SITE.name,
-    'theme-color': '#1A1A1A',
-    'msapplication-TileColor': '#1A1A1A',
+    'theme-color': '#0C0B0A',
+    'msapplication-TileColor': '#0C0B0A',
   },
 };
 
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#FAFAFA' },
-    { media: '(prefers-color-scheme: dark)', color: '#1A1A1A' },
+    { media: '(prefers-color-scheme: dark)', color: '#0C0B0A' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -143,7 +161,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${cormorant.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
@@ -152,7 +173,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="geo.position" content={`${SITE.geo.lat};${SITE.geo.lng}`} />
         <meta name="ICBM" content={`${SITE.geo.lat}, ${SITE.geo.lng}`} />
       </head>
-      <body className="font-sans bg-[#FAFAFA] text-[#1A1A1A] antialiased" suppressHydrationWarning>
+      <body className="font-sans bg-marble-50 text-ink-900 antialiased" suppressHydrationWarning>
         <a href="#main-content" className="skip-link">Skip to content</a>
         <MotionProvider>{children}</MotionProvider>
         <Analytics />

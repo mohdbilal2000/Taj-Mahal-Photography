@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, Users, Camera, ShieldCheck, MapPin, Printer } from 'lucide-react';
+import { Check, Users, Camera, ShieldCheck, MapPin, Printer, ArrowUpRight } from 'lucide-react';
 
 const packages = [
   {
@@ -50,155 +50,140 @@ const packages = [
   },
 ];
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export default function GuidedPhotoTours() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 bg-marble-50" id="guided-photo-tours">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section className="py-24 sm:py-32 bg-coal" id="guided-photo-tours">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12" ref={sectionRef}>
+        <div className="max-w-2xl mb-16">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block"
+            transition={{ duration: 0.6, ease: EASE }}
+            className="kicker flex items-center gap-3 mb-6"
           >
-            Guided Tour + Photography
+            <span className="h-px w-8 bg-accent" />
+            Guide + Photographer Combo
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl font-semibold text-ink-900 mb-6"
+            transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
+            className="display-tight text-ivory text-4xl md:text-5xl lg:text-6xl font-medium"
           >
-            Guide + Photographer Combo
+            A guide and a photographer,{' '}
+            <span className="italic font-light text-accent">one price</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-600 text-lg"
+            transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
+            className="mt-6 text-muted leading-relaxed"
           >
-            Pair a licensed local guide with a professional photographer for a single, simple
-            price. Both packages cover the Taj Mahal and Agra Fort, deliver 20 natural digital
-            photos plus 20 premium printed copies, and include pose assistance at every iconic
-            spot.
+            Both packages cover the Taj Mahal and Agra Fort, deliver 20 natural
+            digital photos plus 20 premium printed copies, and include pose
+            assistance at every iconic spot.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {packages.map((pkg, index) => {
             const Icon = pkg.icon;
+            const meta = [
+              { icon: MapPin, label: 'Monuments', value: 'Taj Mahal + Agra Fort' },
+              { icon: Camera, label: 'Photos', value: '20 digital + 20 printed' },
+              { icon: ShieldCheck, label: 'Guide', value: 'Licensed local guide' },
+              { icon: Printer, label: 'Prints', value: 'Premium copies on the day' },
+            ];
             return (
               <motion.div
                 key={pkg.id}
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.15 * index,
-                  ease: [0.21, 0.47, 0.32, 0.98],
-                }}
-                whileHover={{ y: -8 }}
-                className={`flex flex-col bg-white rounded-sm overflow-hidden transition-shadow duration-300 hover:shadow-2xl relative ${
+                transition={{ duration: 0.6, delay: 0.12 * index, ease: EASE }}
+                className={`group flex flex-col overflow-hidden relative transition-colors duration-300 ${
                   pkg.popular
-                    ? 'border-2 border-gold-500 ring-2 ring-gold-500/20 shadow-xl'
-                    : 'border border-marble-200 shadow-md'
+                    ? 'border border-accent bg-surface'
+                    : 'border border-line bg-night hover:border-line-strong'
                 }`}
               >
-                {pkg.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gold-500 text-ink-900 text-xs font-bold uppercase tracking-wider text-center py-1.5 z-10">
-                    Best for Groups
-                  </div>
-                )}
-
                 <div className="relative h-56 w-full overflow-hidden">
                   <Image
                     src={pkg.image}
                     alt={pkg.name}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="flex items-center gap-2 mb-1 text-gold-400 text-xs font-bold uppercase tracking-widest">
-                      <Icon className="w-4 h-4" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-night via-night/30 to-transparent" />
+                  {pkg.popular && (
+                    <span className="absolute top-3 right-3 bg-accent text-night font-mono text-[9px] uppercase tracking-[0.18em] font-semibold px-2.5 py-1">
+                      Best for Groups
+                    </span>
+                  )}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center gap-2 mb-1 text-accent font-mono text-[10px] uppercase tracking-[0.18em]">
+                      <Icon className="w-3.5 h-3.5" />
                       <span>{pkg.tagline}</span>
                     </div>
-                    <h3 className="font-serif text-2xl md:text-3xl font-semibold">
+                    <h3 className="font-display text-2xl md:text-3xl text-ivory">
                       {pkg.name}
                     </h3>
                   </div>
                 </div>
 
                 <div className="p-6 md:p-8 flex-grow flex flex-col">
-                  <div className="flex items-end gap-2 mb-1">
-                    <span className="text-4xl font-light text-ink-900">{pkg.price}</span>
-                    <span className="text-sm text-gray-500 mb-1.5">/ total · {pkg.capacity}</span>
+                  <div className="flex items-end gap-2 mb-6 pb-6 border-b border-line">
+                    <span className="font-display text-4xl text-ivory">{pkg.price}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-wide text-faint mb-1.5">
+                      / total · {pkg.capacity}
+                    </span>
                   </div>
 
-                  <p className="text-gray-600 text-sm mt-4 mb-6">{pkg.description}</p>
+                  <p className="text-muted text-sm leading-relaxed mb-6">{pkg.description}</p>
 
                   <div className="grid grid-cols-2 gap-3 mb-6 text-xs">
-                    <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
-                      <MapPin className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Monuments</p>
-                        <p className="text-gray-600">Taj Mahal + Agra Fort</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
-                      <Camera className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Photos</p>
-                        <p className="text-gray-600">20 digital + 20 printed</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
-                      <ShieldCheck className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Guide</p>
-                        <p className="text-gray-600">Licensed local guide</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
-                      <Printer className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Prints</p>
-                        <p className="text-gray-600">Premium copies on the day</p>
-                      </div>
-                    </div>
+                    {meta.map((m) => {
+                      const MIcon = m.icon;
+                      return (
+                        <div key={m.label} className="flex items-start gap-2 bg-coal border border-line p-3">
+                          <MIcon className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                          <div>
+                            <p className="font-mono text-[9px] text-faint uppercase tracking-[0.16em] mb-0.5">{m.label}</p>
+                            <p className="text-muted">{m.value}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
 
-                  <div className="mb-6 flex-grow">
-                    <h4 className="text-xs font-bold text-ink-900 uppercase tracking-wider mb-3">
-                      What&apos;s Included
-                    </h4>
-                    <ul className="space-y-2">
-                      {pkg.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start text-sm text-gray-700">
-                          <Check className="w-4 h-4 text-gold-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ul className="space-y-2.5 mb-6 flex-grow">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start text-sm text-muted">
+                        <Check className="w-4 h-4 text-accent mr-2.5 flex-shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                  <div className="mt-auto pt-6 border-t border-marble-200">
-                    <p className="text-xs text-gray-500 mb-4">
-                      <strong>Best for:</strong> {pkg.bestFor}
+                  <div className="mt-auto pt-6 border-t border-line">
+                    <p className="text-xs text-faint mb-4">
+                      <strong className="text-muted font-medium">Best for:</strong> {pkg.bestFor}
                     </p>
                     <Link
                       href={`/book?plan=${pkg.id}`}
-                      className={`block w-full text-center py-3 px-4 rounded-sm text-sm font-medium transition-colors ${
+                      className={`group/btn flex w-full items-center justify-center gap-2 py-3 px-4 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors duration-300 ${
                         pkg.popular
-                          ? 'bg-gold-500 text-ink-900 hover:bg-gold-400'
-                          : 'bg-ink-900 text-white hover:bg-ink-800'
+                          ? 'bg-accent text-night hover:bg-accent-bright font-semibold'
+                          : 'border border-line-strong text-ivory hover:border-accent hover:text-accent'
                       }`}
                     >
                       Check Availability
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                     </Link>
                   </div>
                 </div>
@@ -207,7 +192,7 @@ export default function GuidedPhotoTours() {
           })}
         </div>
 
-        <p className="text-center text-xs text-gray-500 mt-10 max-w-2xl mx-auto">
+        <p className="text-xs text-faint mt-10 max-w-2xl">
           * Taj Mahal and Agra Fort monument entry tickets are not included and must be
           purchased separately. The Taj Mahal is closed every Friday.
         </p>

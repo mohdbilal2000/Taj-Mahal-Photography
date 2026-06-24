@@ -2,7 +2,9 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
-import { Send, CheckCircle, MessageCircle, Clock } from 'lucide-react';
+import { CheckCircle, MessageCircle, Clock, ArrowUpRight } from 'lucide-react';
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -51,137 +53,101 @@ export default function ContactForm() {
     setStatus('success');
   };
 
-  const leftColumnVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
-      },
-    }),
-  };
-
-  const rightColumnVariants = {
-    hidden: { opacity: 0, x: 30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: 0.3,
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94] as const,
-      },
-    },
-  };
+  const inputClass =
+    'w-full px-4 py-3 bg-night border border-line text-ivory placeholder:text-faint focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors';
+  const labelClass =
+    'block font-mono text-[10px] uppercase tracking-[0.16em] text-muted mb-2';
 
   return (
-    <section ref={sectionRef} className="py-24 bg-ink-900 text-white" id="book">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* LEFT COLUMN - Info Side */}
-          <div>
+    <section ref={sectionRef} className="py-24 sm:py-32 bg-night" id="book">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* LEFT — Info */}
+          <div className="lg:col-span-5">
             <motion.span
-              className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-2 block"
-              variants={leftColumnVariants}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              custom={0}
+              className="kicker flex items-center gap-3 mb-6"
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, ease: EASE }}
             >
+              <span className="h-px w-8 bg-accent" />
               Secure Your Date
             </motion.span>
 
             <motion.h2
-              className="font-serif text-4xl md:text-5xl font-semibold mb-6"
-              variants={leftColumnVariants}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              custom={1}
+              className="display-tight text-ivory text-4xl md:text-5xl lg:text-6xl font-medium"
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
             >
-              Book Your Authorized Photoshoot
+              Book your authorized{' '}
+              <span className="italic font-light text-accent">photoshoot</span>
             </motion.h2>
 
             <motion.p
-              className="text-gray-300 mb-8 text-lg"
-              variants={leftColumnVariants}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              custom={2}
+              className="mt-6 text-muted leading-relaxed text-lg max-w-md"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
             >
-              Due to government regulations, I can only take a limited number of
-              clients per day. Please inquire early to secure your preferred date
-              and time.
+              Government regulations limit how many clients I can take each day.
+              Please inquire early to secure your preferred date and time.
             </motion.p>
 
             <motion.div
-              className="bg-white/5 border border-white/10 backdrop-blur-sm p-6 rounded-lg mb-8"
-              variants={leftColumnVariants}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              custom={3}
+              className="mt-10 border border-line bg-coal p-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
             >
-              <div className="flex items-center gap-3 mb-2">
-                <MessageCircle className="w-5 h-5 text-gold-400" />
-                <h3 className="font-serif text-xl font-semibold text-gold-400">
+              <div className="flex items-center gap-3 mb-3">
+                <MessageCircle className="w-4 h-4 text-accent" />
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
                   Limited Daily Permits
                 </h3>
               </div>
-              <p className="text-sm text-gray-300">
-                To maintain the quality of experience and adhere to monument
-                guidelines, I accept maximum 2 shoots per day (Sunrise and
-                Sunset).
+              <p className="text-sm text-muted leading-relaxed">
+                To maintain quality and adhere to monument guidelines, I accept a
+                maximum of 2 shoots per day (sunrise and sunset).
               </p>
             </motion.div>
 
             <motion.div
-              className="flex items-center gap-2 text-sm text-gray-400 italic"
-              variants={leftColumnVariants}
-              initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
-              custom={4}
+              className="mt-6 flex items-start gap-2 text-sm text-faint"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
             >
-              <Clock className="w-4 h-4 text-gold-400 flex-shrink-0" />
+              <Clock className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
               <p>
-                * We aim to respond to all inquiries within 10 minutes during
+                We aim to respond to every inquiry within 10 minutes during
                 business hours via WhatsApp.
               </p>
             </motion.div>
           </div>
 
-          {/* RIGHT COLUMN - Form */}
+          {/* RIGHT — Form */}
           <motion.div
-            className="bg-white text-ink-900 p-8 rounded-xl shadow-2xl"
-            variants={rightColumnVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
+            className="lg:col-span-7 border border-line bg-coal p-6 sm:p-10"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
           >
             {status === 'success' ? (
               <motion.div
                 className="h-full flex flex-col items-center justify-center text-center py-12"
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                transition={{ duration: 0.4, ease: EASE }}
               >
-                <motion.div
-                  className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 200,
-                    damping: 15,
-                    delay: 0.2,
-                  }}
-                >
-                  <CheckCircle className="w-8 h-8" />
-                </motion.div>
-                <h3 className="font-serif text-2xl font-semibold mb-2">
-                  Inquiry Received!
+                <div className="w-16 h-16 border border-accent text-accent rounded-full flex items-center justify-center mb-6">
+                  <CheckCircle className="w-7 h-7" />
+                </div>
+                <h3 className="font-display text-2xl text-ivory mb-2">
+                  Inquiry received
                 </h3>
-                <p className="text-gray-600">
-                  Thank you for reaching out. I will contact you via WhatsApp
+                <p className="text-muted max-w-sm">
+                  Thank you for reaching out. I&apos;ll contact you via WhatsApp
                   shortly to confirm availability.
                 </p>
                 {waUrl && (
@@ -189,15 +155,15 @@ export default function ContactForm() {
                     href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                    className="mt-7 inline-flex items-center gap-2 bg-accent text-night px-6 py-3 font-mono text-[11px] uppercase tracking-[0.16em] font-semibold hover:bg-accent-bright transition-colors"
                   >
-                    <MessageCircle className="w-5 h-5" />
-                    Didn&apos;t see WhatsApp open? Tap here
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp didn&apos;t open? Tap here
                   </a>
                 )}
                 <button
                   onClick={() => setStatus('idle')}
-                  className="mt-6 text-gold-600 font-medium hover:underline"
+                  className="link-underline mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-accent"
                 >
                   Send another message
                 </button>
@@ -206,10 +172,7 @@ export default function ContactForm() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
+                    <label htmlFor="name" className={labelClass}>
                       Full Name *
                     </label>
                     <input
@@ -218,14 +181,11 @@ export default function ContactForm() {
                       name="name"
                       required
                       autoComplete="name"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors"
+                      className={inputClass}
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="nationality"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
+                    <label htmlFor="nationality" className={labelClass}>
                       Nationality *
                     </label>
                     <input
@@ -234,17 +194,14 @@ export default function ContactForm() {
                       name="nationality"
                       required
                       autoComplete="country-name"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label
-                      htmlFor="whatsapp"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
+                    <label htmlFor="whatsapp" className={labelClass}>
                       WhatsApp Number *
                     </label>
                     <input
@@ -255,14 +212,11 @@ export default function ContactForm() {
                       autoComplete="tel"
                       inputMode="tel"
                       placeholder="+1 234 567 8900"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors"
+                      className={inputClass}
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="date"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
+                    <label htmlFor="date" className={labelClass}>
                       Preferred Date *
                     </label>
                     <input
@@ -271,23 +225,16 @@ export default function ContactForm() {
                       name="date"
                       required
                       min={minDate || undefined}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors"
+                      className={`${inputClass} [color-scheme:dark]`}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="service" className={labelClass}>
                     Service Interested In
                   </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors bg-white"
-                  >
+                  <select id="service" name="service" className={inputClass}>
                     <option>Quick Capture ($50)</option>
                     <option>Sunrise Photoshoot ($99)</option>
                     <option>Pre-Wedding &amp; Couple ($199)</option>
@@ -304,36 +251,32 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
+                  <label htmlFor="message" className={labelClass}>
                     Additional Details
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors resize-none"
+                    className={`${inputClass} resize-none`}
                   ></textarea>
                 </div>
 
                 <motion.button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="w-full bg-gold-500 text-ink-900 py-3 px-4 rounded-lg font-semibold hover:bg-gold-400 transition-colors disabled:opacity-70 flex justify-center items-center gap-2"
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="group w-full bg-accent text-night py-4 px-4 font-mono text-[11px] uppercase tracking-[0.18em] font-semibold hover:bg-accent-bright transition-colors disabled:opacity-70 flex justify-center items-center gap-2"
+                  whileTap={{ scale: 0.99 }}
                 >
                   {status === 'submitting' ? (
                     <>
                       <motion.span
-                        className="w-5 h-5 border-2 border-ink-900/30 border-t-ink-900 rounded-full inline-block"
+                        className="w-4 h-4 border-2 border-night/30 border-t-night rounded-full inline-block"
                         animate={{ rotate: 360 }}
                         transition={{
                           duration: 0.8,
                           repeat: Infinity,
-                          ease: "linear" as const,
+                          ease: 'linear' as const,
                         }}
                       />
                       Sending...
@@ -341,7 +284,7 @@ export default function ContactForm() {
                   ) : (
                     <>
                       Check Availability
-                      <Send className="w-4 h-4" />
+                      <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </>
                   )}
                 </motion.button>

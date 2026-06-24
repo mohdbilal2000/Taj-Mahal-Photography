@@ -1,8 +1,11 @@
 'use client';
 
-import { motion, useInView, useMotionValue, useTransform, animate } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { ShieldCheck } from 'lucide-react';
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -57,130 +60,123 @@ export default function LicenseValidation() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-24 bg-ink-900 text-white overflow-hidden relative"
-    >
-      {/* Background image with parallax */}
-      <div className="absolute inset-0 opacity-10 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1514222288957-49a4653e1073?q=80&w=1920&auto=format&fit=crop')]" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left column - text content */}
-          <div>
-            <motion.h2
-              initial={{ opacity: 0, x: -40 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="font-serif text-3xl md:text-5xl font-semibold mb-6"
+    <section ref={sectionRef} className="py-24 sm:py-32 bg-coal overflow-hidden relative">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Left — text */}
+          <div className="lg:col-span-7">
+            <motion.span
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, ease: EASE }}
+              className="kicker flex items-center gap-3 mb-6"
             >
-              The Importance of a Licensed Photographer
+              <span className="h-px w-8 bg-accent" />
+              Credentials
+            </motion.span>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
+              className="display-tight text-ivory text-4xl md:text-5xl lg:text-6xl font-medium"
+            >
+              The weight of a{' '}
+              <span className="italic font-light text-accent">licensed name</span>
             </motion.h2>
 
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-              className="w-20 h-1 bg-gold-500 mb-8"
-            />
-
-            <div className="space-y-6 text-gray-300">
+            <div className="mt-8 space-y-6 text-muted leading-relaxed max-w-xl">
               <motion.p
-                initial={{ opacity: 0, x: -40 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+                initial={{ opacity: 0, y: 16 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
               >
-                The Taj Mahal has strict regulations regarding professional photography.
-                Unlicensed photographers are routinely stopped by security, leading to
-                confiscated equipment and ruined experiences for tourists.
+                The Taj Mahal enforces strict rules on professional photography.
+                Unlicensed photographers are routinely stopped by security —
+                leading to confiscated gear and ruined experiences.
               </motion.p>
-
               <motion.p
-                initial={{ opacity: 0, x: -40 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-                transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+                initial={{ opacity: 0, y: 16 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.22, ease: EASE }}
               >
-                As an <strong>Official Government Licensed Photographer</strong>, I have
-                passed the required examinations by the Ministry of Tourism, granting me
-                legal authorization to conduct professional photoshoots within the monument
-                premises.
+                As an{' '}
+                <strong className="text-ivory font-medium">
+                  official government-licensed photographer
+                </strong>
+                , I&apos;ve passed the Ministry of Tourism examinations — granting
+                legal authorization to shoot professionally within the premises.
               </motion.p>
-
-              <ul className="space-y-4 mt-8">
-                {checkmarkItems.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -40 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-                    transition={{
-                      duration: 0.7,
-                      delay: 0.4 + index * 0.1,
-                      ease: 'easeOut',
-                    }}
-                    className="flex items-start"
-                  >
-                    <span className="text-gold-400 mr-3">&#10003;</span>
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
             </div>
 
-            {/* Animated stat counters */}
+            <ul className="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+              {checkmarkItems.map((item, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.08, ease: EASE }}
+                  className="flex items-start gap-3 text-sm text-muted"
+                >
+                  <ShieldCheck className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </motion.li>
+              ))}
+            </ul>
+
+            {/* Stat counters */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.7, delay: 0.9, ease: 'easeOut' }}
-              className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10"
+              initial={{ opacity: 0, y: 24 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
+              className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-line"
             >
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-gold-400">
+                <div key={index}>
+                  <div className="font-display text-4xl md:text-5xl text-accent">
                     <AnimatedCounter target={stat.target} suffix={stat.suffix} />
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint mt-2">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right column - image */}
+          {/* Right — image */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-            className="relative"
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.9, delay: 0.25, ease: EASE }}
+            className="lg:col-span-5 relative"
           >
-            <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white/10 shadow-2xl">
+            <div className="aspect-[4/5] relative overflow-hidden border border-line">
               <Image
                 src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop"
-                alt="Photographer in action at Taj Mahal"
+                alt="Government-licensed photographer working at the Taj Mahal"
                 fill
                 className="object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-ink-900 font-bold text-xs text-center leading-tight">
-                      GOVT
-                      <br />
-                      ID
-                    </span>
+              <div className="absolute inset-0 bg-gradient-to-t from-night/90 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="flex items-center gap-4 border border-line-strong bg-night/70 backdrop-blur-sm p-4">
+                  <div className="w-12 h-12 border border-accent text-accent flex items-center justify-center flex-shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-white font-medium">Authorized Personnel</p>
-                    <p className="text-gold-400 text-sm">
-                      Ministry of Tourism, Govt. of India
+                    <p className="font-display text-ivory">Authorized Personnel</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent mt-0.5">
+                      Ministry of Tourism · Govt. of India
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Decorative corner elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 border-t-2 border-r-2 border-gold-500 opacity-50" />
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 border-b-2 border-l-2 border-gold-500 opacity-50" />
+            {/* corner accents */}
+            <div className="absolute -top-3 -right-3 w-20 h-20 border-t border-r border-accent/40" />
+            <div className="absolute -bottom-3 -left-3 w-20 h-20 border-b border-l border-accent/40" />
           </motion.div>
         </div>
       </div>

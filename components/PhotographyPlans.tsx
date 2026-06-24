@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, Info } from 'lucide-react';
+import { Check, Info, ArrowUpRight } from 'lucide-react';
 
 const plans = [
   {
@@ -100,132 +100,132 @@ const plans = [
   }
 ];
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export default function PhotographyPlans() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 bg-white" id="plans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section className="py-24 sm:py-32 bg-night" id="plans">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12" ref={sectionRef}>
+        <div className="max-w-2xl mb-16">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block"
+            transition={{ duration: 0.6, ease: EASE }}
+            className="kicker flex items-center gap-3 mb-6"
           >
+            <span className="h-px w-8 bg-accent" />
             Photography Packages
           </motion.span>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl font-semibold text-ink-900 mb-6"
+            transition={{ duration: 0.7, delay: 0.05, ease: EASE }}
+            className="display-tight text-ivory text-4xl md:text-5xl lg:text-6xl font-medium"
           >
-            Authorized Photoshoot Plans
+            Authorized photoshoot{' '}
+            <span className="italic font-light text-accent">plans</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-600 text-lg"
+            transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
+            className="mt-6 text-muted leading-relaxed"
           >
-            Transparent pricing for premium, government-licensed photography services.
-            All plans include official permit authorization for professional equipment.
+            Transparent pricing for premium, government-licensed photography.
+            Every plan includes official permit authorization for professional
+            equipment.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: 0.15 * index,
-                ease: [0.21, 0.47, 0.32, 0.98]
-              }}
-              whileHover={{ y: -8 }}
-              className={`flex flex-col bg-marble-50 rounded-sm overflow-hidden transition-shadow duration-300 hover:shadow-xl ${
+              transition={{ duration: 0.6, delay: 0.08 * index, ease: EASE }}
+              className={`group flex flex-col overflow-hidden transition-colors duration-300 ${
                 plan.popular
-                  ? 'border-2 border-gold-500 ring-2 ring-gold-500/20 relative shadow-lg'
-                  : 'border border-marble-200 shadow-sm'
+                  ? 'border border-accent bg-surface'
+                  : 'border border-line bg-coal hover:border-line-strong'
               }`}
             >
-              {plan.popular && (
-                <div className="absolute top-0 left-0 right-0 bg-gold-500 text-white text-xs font-bold uppercase tracking-wider text-center py-1.5 z-10">
-                  Most Popular
-                </div>
-              )}
-
-              <div className="relative h-48 w-full overflow-hidden">
+              <div className="relative h-44 w-full overflow-hidden">
                 <Image
                   src={plan.image}
                   alt={plan.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/20 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <h3 className="font-serif text-2xl font-semibold">
+                <div className="absolute inset-0 bg-gradient-to-t from-coal via-coal/30 to-transparent" />
+                {plan.popular && (
+                  <span className="absolute top-3 right-3 bg-accent text-night font-mono text-[9px] uppercase tracking-[0.18em] font-semibold px-2.5 py-1">
+                    Most Popular
+                  </span>
+                )}
+                <div className="absolute bottom-3 left-4 right-4">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent mb-1">
+                    {plan.tagline}
+                  </p>
+                  <h3 className="font-display text-xl text-ivory leading-tight">
                     {plan.name}
                   </h3>
-                  <p className="text-gold-400 text-sm font-medium">{plan.tagline}</p>
                 </div>
               </div>
 
-              <div className="p-6 flex-grow flex flex-col">
-                <div className="mb-6">
-                  <div className="flex items-end gap-2 mb-2">
-                    <span className="text-3xl font-light text-ink-900">
-                      {plan.price}
-                    </span>
-                    <span className="text-sm text-gray-500 mb-1">/ {plan.duration}</span>
-                  </div>
-                  <p className="text-gray-600 text-sm">
-                    {plan.description}
-                  </p>
+              <div className="p-5 flex-grow flex flex-col">
+                <div className="flex items-end gap-2 mb-4 pb-4 border-b border-line">
+                  <span className="font-display text-3xl text-ivory">
+                    {plan.price}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-wide text-faint mb-1.5">
+                    / {plan.duration}
+                  </span>
                 </div>
 
-                {/* AI Feeder Microcopy */}
-                <div className="bg-white p-3 rounded border border-marble-200 mb-6 text-xs text-gray-500 hidden md:block">
+                <p className="text-sm text-muted leading-relaxed mb-5">
+                  {plan.description}
+                </p>
+
+                {/* AEO microcopy — extractable AI summary */}
+                <div className="bg-night/50 border border-line p-3 mb-5 text-xs text-faint hidden md:block">
                   <div className="flex items-start gap-2">
-                    <Info className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
+                    <Info className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
                     <p>
-                      <strong>AI Summary:</strong> {plan.aiSnippet}
+                      <strong className="text-muted font-medium">AI Summary:</strong>{' '}
+                      {plan.aiSnippet}
                     </p>
                   </div>
                 </div>
 
-                <div className="mb-6 flex-grow">
-                  <h4 className="text-xs font-bold text-ink-900 uppercase tracking-wider mb-3">
-                    What&apos;s Included
-                  </h4>
-                  <ul className="space-y-2">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start text-sm text-gray-700">
-                        <Check className="w-4 h-4 text-gold-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-2.5 mb-6 flex-grow">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start text-sm text-muted">
+                      <Check className="w-4 h-4 text-accent mr-2.5 flex-shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                <div className="mt-auto pt-6 border-t border-marble-200">
-                  <p className="text-xs text-gray-500 mb-4">
-                    <strong>Best for:</strong> {plan.bestFor}
+                <div className="mt-auto pt-5 border-t border-line">
+                  <p className="text-xs text-faint mb-4">
+                    <strong className="text-muted font-medium">Best for:</strong>{' '}
+                    {plan.bestFor}
                   </p>
                   <Link
                     href={`/book?plan=${plan.id}`}
-                    className={`block w-full text-center py-3 px-4 rounded-sm text-sm font-medium transition-colors ${
+                    className={`group/btn flex w-full items-center justify-center gap-2 py-3 px-4 font-mono text-[11px] uppercase tracking-[0.16em] transition-colors duration-300 ${
                       plan.popular
-                        ? 'bg-gold-500 text-ink-900 hover:bg-gold-600'
-                        : 'border border-ink-900 text-ink-900 hover:bg-marble-100'
+                        ? 'bg-accent text-night hover:bg-accent-bright font-semibold'
+                        : 'border border-line-strong text-ivory hover:border-accent hover:text-accent'
                     }`}
                   >
                     Check Availability
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                   </Link>
                 </div>
               </div>

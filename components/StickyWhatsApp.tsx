@@ -25,11 +25,11 @@ export default function StickyWhatsApp() {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg flex items-center justify-center group animate-pulse-gold"
+      className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg shadow-black/40 flex items-center justify-center group hover:scale-105 transition-transform"
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="h-6 w-6" />
-      <span className="absolute right-full mr-4 bg-white text-ink-900 text-xs font-medium px-3 py-1.5 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+      <span className="absolute right-full mr-4 bg-surface text-ivory border border-line font-mono text-[10px] uppercase tracking-[0.14em] px-3 py-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
         Chat with us
       </span>
     </motion.a>
