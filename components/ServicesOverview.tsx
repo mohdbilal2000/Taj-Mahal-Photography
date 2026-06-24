@@ -5,14 +5,15 @@ import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { IMG, img } from '@/lib/images';
 
 const services = [
   {
     title: 'Sunrise Photoshoot',
     description:
       'The most magical hour. Soft morning light, empty courtyards, and the marble at its purest.',
-    image:
-      'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=900&auto=format&fit=crop',
+    image: img(IMG.tajReflection, 900, { ar: '3/4' }),
+    alt: IMG.tajReflection.alt,
     link: '/services/sunrise',
     offset: 'lg:mt-0',
   },
@@ -20,8 +21,8 @@ const services = [
     title: 'Couple & Pre-Wedding',
     description:
       'Romantic, editorial portraits set against the ultimate monument to love.',
-    image:
-      'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=900&auto=format&fit=crop',
+    image: img(IMG.tajGoldenHour, 900, { ar: '3/4' }),
+    alt: IMG.tajGoldenHour.alt,
     link: '/services/couple',
     offset: 'lg:mt-16',
   },
@@ -29,8 +30,8 @@ const services = [
     title: 'Family Photography',
     description:
       'Composed group portraits and unscripted candids from your family’s journey.',
-    image:
-      'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=900&auto=format&fit=crop',
+    image: img(IMG.tajGardens, 900, { ar: '3/4' }),
+    alt: IMG.tajGardens.alt,
     link: '/services/family',
     offset: 'lg:mt-8',
   },
@@ -103,7 +104,7 @@ export default function ServicesOverview() {
                   >
                     <Image
                       src={service.image}
-                      alt={service.title}
+                      alt={service.alt}
                       fill
                       className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
                       referrerPolicy="no-referrer"

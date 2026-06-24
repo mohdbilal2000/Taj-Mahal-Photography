@@ -41,6 +41,16 @@ const BODY = `# ${SITE.name}
 - [Sunrise Luxury Tour (Private Innova) — $650](${SITE.url}/services/sunrise-luxury-innova): Same-day Delhi/NCR ↔ Agra in a private Toyota Innova (up to 6 guests). Covers Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort that skips the entry line. Ideal for couples and small families.
 - [Sunrise Luxury Urbania Tour — $899](${SITE.url}/services/sunrise-luxury-urbania): Same-day Delhi/NCR ↔ Agra in a private Force Urbania luxury coach (up to 13 guests) with reclining seats, A/C and Wi-Fi. Same inclusions as the Innova tour — guide, photographer, tickets, golf cart, security escort — sized for larger families and groups.
 
+## Transport & Custom Tours (Delhi + Agra)
+
+- [Agra ⇄ Delhi Private Car — from $42/day](${SITE.url}/book?plan=agra-delhi-car): Chauffeur-driven, air-conditioned car for Delhi–Agra transfers, airport pickups and full-day disposal in Agra. From about $42 USD per day (₹3,500) for an AC sedan; SUV/Toyota Innova and Force Urbania luxury coaches quoted on request. Fuel, tolls and parking included; English-friendly drivers; pickup across Delhi, Noida, Gurugram, Ghaziabad and Faridabad.
+- [Custom Delhi Photography Tour — tailored quote](${SITE.url}/book?plan=delhi-photo-tour): Fully-private photography tour of Old & New Delhi with your own photographer — Qutub Minar, Humayun's Tomb, India Gate, Jama Masjid, the Lotus Temple and Chandni Chowk. Built around your shot list; half-day or full-day; edited high-resolution gallery delivered.
+- [Delhi + Agra Custom Multi-Day Trip — tailored](${SITE.url}/book?plan=delhi-agra-custom): Combines a Delhi photography tour with an Agra Taj Mahal sunrise shoot on one private car with one team. Permits, tickets and timing handled end-to-end; overnight-in-Agra option.
+
+## Add-Ons
+
+- Extra edited high-resolution photos: a flat $20 USD each, addable to any photography package or tour beyond the images already included. Requested at gallery delivery.
+
 ## Key Site Pages
 
 - [Home](${SITE.url}/): Overview of services, plans and luxury tours.

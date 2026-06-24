@@ -85,6 +85,26 @@ export const faqs: Faq[] = [
       'Yes. Our Pre-Wedding and Couple package ($199) is a 2+ hour editorial-style session that includes 100+ high-resolution natural photos, 50 printed photographs, a 30-second cinematic video, and posing direction. It is one of our most popular packages alongside the sunrise session.',
   },
   {
+    question: 'Do you provide a car or transport between Delhi and Agra?',
+    answer:
+      'Yes. We offer chauffeur-driven, air-conditioned cars for Delhi–Agra transfers, airport pickups and full-day disposal in Agra. Car hire starts at about $42 USD per day (₹3,500) for an AC sedan, with SUV / Toyota Innova and Force Urbania luxury coaches quoted on request. Fuel, tolls and parking are included, drivers are English-friendly, and pickup is available across Delhi, Noida, Gurugram, Ghaziabad and Faridabad. The final fare depends on distance, vehicle and duration and is confirmed in writing before you pay.',
+  },
+  {
+    question: 'How much does a car from Delhi to Agra cost?',
+    answer:
+      'A private chauffeur-driven car starts at roughly $42 USD per day, which is about ₹3,500 at current exchange rates, for an air-conditioned sedan. SUVs such as the Toyota Innova and the 13-seater Force Urbania luxury coach cost more and are quoted on request. The rate covers the driver, fuel, tolls and parking; you only confirm the exact fare, based on your route and vehicle, before paying.',
+  },
+  {
+    question: 'Do you offer custom photography tours in Delhi?',
+    answer:
+      'Yes. We run fully-custom private photography tours of Old and New Delhi with your own photographer, covering landmarks such as Qutub Minar, Humayun’s Tomb, India Gate, Jama Masjid, the Lotus Temple and the lanes of Chandni Chowk. The itinerary is built entirely around your shot list and schedule, delivered as an edited high-resolution online gallery, and priced as a tailored quote depending on the length (half-day or full-day) and locations. We can also combine a Delhi photo tour with an Agra Taj Mahal shoot into a single multi-day trip on one private car.',
+  },
+  {
+    question: 'Can I add extra edited photos to my package?',
+    answer:
+      'Yes. Every photography package and tour includes a set number of professionally edited, high-resolution images. If you would like more, you can add extra hand-edited high-resolution photos to any package or tour for a flat $20 USD each. Just tell us how many extra photos you want when your private gallery is delivered.',
+  },
+  {
     question: 'Do you have a budget package that combines a guide and a photographer?',
     answer:
       'Yes. Our Guided Tour + Photo combo covers both the Taj Mahal and Agra Fort with a licensed local guide and a professional photographer at a single fixed price. The small-group package is $50 USD for up to 5 guests (couples or small families), and the large-group package is $80 USD for groups of 6 to 12 guests. Both include 20 natural high-resolution digital photos plus 20 premium printed photo copies. Monument entry tickets are not included.',

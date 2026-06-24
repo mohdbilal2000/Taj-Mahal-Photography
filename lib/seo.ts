@@ -149,6 +149,8 @@ export function localBusinessSchema() {
         offerSchema('Guided Tour + Photo Combo (Large Group, 6–12 Guests)', 80, 'Licensed local guide plus professional photographer at Taj Mahal & Agra Fort for groups of 6 to 12. Group + individual portraits, 20 digital photos + 20 printed copies. Monument tickets not included.', `${SITE.url}/services/guided-photo-tour-large`),
         offerSchema('Taj Mahal Sunrise Luxury Tour (Private Innova)', 650, 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Includes Ministry of Tourism licensed guide and photographer, Taj Mahal & Agra Fort tickets, private golf cart inside the complex, and skip-the-line security escort.', `${SITE.url}/services/sunrise-luxury-innova`),
         offerSchema('Taj Mahal Sunrise Luxury Urbania Tour', 899, 'Same-day sunrise tour from Delhi/NCR to Agra in a private Force Urbania luxury coach for families and groups (up to 13 guests). Includes guide, photographer, Taj Mahal & Agra Fort tickets, golf cart, and skip-the-line security escort.', `${SITE.url}/services/sunrise-luxury-urbania`),
+        offerSchema('Agra–Delhi Private Car (per day)', 42, 'Chauffeur-driven air-conditioned car for Delhi–Agra transfers, airport pickups and full-day disposal in Agra. From $42 per day (about ₹3,500) for an AC sedan; SUV/Innova quoted on request. Fuel, tolls and parking included.', `${SITE.url}/book?plan=agra-delhi-car`),
+        offerSchema('Extra Edited High-Resolution Photo (Add-On)', 20, 'Add extra hand-edited high-resolution photos to any photography package or tour for a flat $20 per photo, beyond the images already included in the package.', `${SITE.url}/book`),
       ],
     },
   };

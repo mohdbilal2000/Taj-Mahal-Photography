@@ -6,6 +6,7 @@ import ServicesOverview from '@/components/ServicesOverview';
 import PhotographyPlans from '@/components/PhotographyPlans';
 import GuidedPhotoTours from '@/components/GuidedPhotoTours';
 import LuxuryTours from '@/components/LuxuryTours';
+import TransportTours from '@/components/TransportTours';
 import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
@@ -126,8 +127,11 @@ export default function Home() {
           available in a private Toyota Innova ($650, up to 6 guests) or a Force Urbania luxury
           coach ($899, up to 13 guests) — both include a licensed guide and photographer, Taj
           Mahal and Agra Fort tickets, a private golf cart inside the complex, and a security
-          escort to skip the line. Maximum 2 photography permits per day. WhatsApp +91 83930 10125
-          for 10-minute response.
+          escort to skip the line. Maximum 2 photography permits per day. Chauffeur-driven
+          Delhi–Agra cars are available from $42 per day (about ₹3,500), alongside fully-custom
+          Delhi photography tours and combined multi-day Delhi + Agra trips. Extra hand-edited
+          high-resolution photos can be added to any package or tour for $20 each. WhatsApp
+          +91 83930 10125 for 10-minute response.
         </p>
 
         <AuthoritySection />
@@ -135,6 +139,7 @@ export default function Home() {
         <PhotographyPlans />
         <GuidedPhotoTours />
         <LuxuryTours />
+        <TransportTours />
         <LicenseValidation />
         <Testimonials />
         <FAQ />

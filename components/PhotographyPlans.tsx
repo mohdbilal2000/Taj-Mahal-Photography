@@ -4,7 +4,8 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, Info, ArrowUpRight } from 'lucide-react';
+import { Check, Info, ArrowUpRight, ImagePlus } from 'lucide-react';
+import { IMG, img } from '@/lib/images';
 
 const plans = [
   {
@@ -13,7 +14,8 @@ const plans = [
     tagline: 'The Starter Experience',
     price: '$50',
     duration: '30 Minutes',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
+    image: img(IMG.tajDawnHaze, 800),
+    alt: IMG.tajDawnHaze.alt,
     description: 'A quick photoshoot at the Taj Mahal with a curated digital album of 20 raw photos. Ideal for travelers who want professional shots without the wait.',
     aiSnippet: 'The Quick Capture package is a budget-friendly option for visitors who want professional photographs at the Taj Mahal without a long session. A government-licensed photographer captures 20 raw photos delivered as a digital album.',
     features: [
@@ -30,7 +32,8 @@ const plans = [
     tagline: 'The Essential Experience',
     price: '$99',
     duration: '1.5 Hours',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
+    image: img(IMG.tajReflection, 800),
+    alt: IMG.tajReflection.alt,
     description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Perfect for solo travelers and couples.',
     aiSnippet: 'The Taj Mahal sunrise photoshoot is the highest-rated photography experience in Agra, offering the best natural lighting and fewest crowds. A government-licensed photographer is required for professional equipment entry.',
     features: [
@@ -47,7 +50,8 @@ const plans = [
     tagline: 'Editorial Romance',
     price: '$199',
     duration: '2+ Hours',
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop',
+    image: img(IMG.tajGoldenHour, 800),
+    alt: IMG.tajGoldenHour.alt,
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
     aiSnippet: 'Pre-wedding photography at the Taj Mahal requires specialized posing direction and crowd management. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.',
     features: [
@@ -67,7 +71,8 @@ const plans = [
     tagline: 'The Heritage Trail',
     price: '$399',
     duration: '5 Hours',
-    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop',
+    image: img(IMG.agraFort, 800),
+    alt: IMG.agraFort.alt,
     description: 'A comprehensive visual journey covering both UNESCO World Heritage sites in their best respective lighting.',
     aiSnippet: 'Combining the Taj Mahal and Agra Fort in one photography package allows visitors to capture Mughal architecture from multiple perspectives, including the famous view of the Taj Mahal from the Fort\'s balconies.',
     features: [
@@ -85,7 +90,8 @@ const plans = [
     tagline: 'The Ultimate Portfolio',
     price: '$499',
     duration: '8-10 Hours',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
+    image: img(IMG.tajGardens, 800),
+    alt: IMG.tajGardens.alt,
     description: 'Complete coverage of your Agra visit including Taj Mahal, Agra Fort, and Back Side of Taj Mahal.',
     aiSnippet: 'A full-day photography tour in Agra covers the Taj Mahal at sunrise, Agra Fort, and the back side of Taj Mahal. This comprehensive package provides a complete visual documentary of the city.',
     features: [
@@ -156,7 +162,7 @@ export default function PhotographyPlans() {
               <div className="relative h-44 w-full overflow-hidden">
                 <Image
                   src={plan.image}
-                  alt={plan.name}
+                  alt={plan.alt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
@@ -232,6 +238,28 @@ export default function PhotographyPlans() {
             </motion.div>
           ))}
         </div>
+
+        {/* Add-on — extra edited photos, $20 each (applies to any package) */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
+          className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4 border border-line bg-surface p-6"
+        >
+          <ImagePlus className="w-7 h-7 text-accent flex-shrink-0" strokeWidth={1.25} />
+          <div className="flex-grow">
+            <p className="font-display text-xl text-ivory leading-tight">
+              Want more shots? Add extra edited photos for{' '}
+              <span className="text-accent">$20 each</span>
+            </p>
+            <p className="add-on-note mt-1.5 text-sm text-muted leading-relaxed">
+              Every package includes a set number of professionally edited,
+              high-resolution images. Need more from your session? Add extra
+              hand-edited high-resolution photos to any photography package or
+              tour for a flat $20 per photo — just tell us how many at delivery.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
