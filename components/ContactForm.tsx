@@ -1,17 +1,26 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Send, CheckCircle, MessageCircle, Clock } from 'lucide-react';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [waUrl, setWaUrl] = useState('');
+  const [minDate, setMinDate] = useState('');
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // Set the date floor to today on the client (avoids a hydration mismatch
+  // and stops anyone requesting a shoot in the past). This is a deliberate
+  // client-only value, so the set-state-in-effect lint rule doesn't apply.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMinDate(new Date().toISOString().split('T')[0]);
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus('submitting');
 
     const formData = new FormData(e.currentTarget);
     const name = formData.get('name') as string;
@@ -32,12 +41,14 @@ export default function ContactForm() {
       `*Additional Details:* ${message || 'None'}`,
     ].join('\n');
 
-    const waUrl = `https://wa.me/918393010125?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/918393010125?text=${encodeURIComponent(text)}`;
+    setWaUrl(url);
 
-    setTimeout(() => {
-      setStatus('success');
-      window.open(waUrl, '_blank');
-    }, 800);
+    // Open WhatsApp synchronously inside the submit gesture so the browser
+    // doesn't treat it as a blocked pop-up. A fallback link is shown on the
+    // success screen in case the tab was still blocked.
+    window.open(url, '_blank', 'noopener,noreferrer');
+    setStatus('success');
   };
 
   const leftColumnVariants = {
@@ -173,9 +184,20 @@ export default function ContactForm() {
                   Thank you for reaching out. I will contact you via WhatsApp
                   shortly to confirm availability.
                 </p>
+                {waUrl && (
+                  <a
+                    href={waUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    Didn&apos;t see WhatsApp open? Tap here
+                  </a>
+                )}
                 <button
                   onClick={() => setStatus('idle')}
-                  className="mt-8 text-gold-600 font-medium hover:underline"
+                  className="mt-6 text-gold-600 font-medium hover:underline"
                 >
                   Send another message
                 </button>
@@ -195,6 +217,7 @@ export default function ContactForm() {
                       id="name"
                       name="name"
                       required
+                      autoComplete="name"
                       className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors"
                     />
                   </div>
@@ -210,6 +233,7 @@ export default function ContactForm() {
                       id="nationality"
                       name="nationality"
                       required
+                      autoComplete="country-name"
                       className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors"
                     />
                   </div>
@@ -228,6 +252,8 @@ export default function ContactForm() {
                       id="whatsapp"
                       name="whatsapp"
                       required
+                      autoComplete="tel"
+                      inputMode="tel"
                       placeholder="+1 234 567 8900"
                       className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors"
                     />
@@ -244,6 +270,7 @@ export default function ContactForm() {
                       id="date"
                       name="date"
                       required
+                      min={minDate || undefined}
                       className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors"
                     />
                   </div>
@@ -261,10 +288,13 @@ export default function ContactForm() {
                     name="service"
                     className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors bg-white"
                   >
-                    <option>Sunrise Photoshoot</option>
-                    <option>Couple / Pre-Wedding</option>
-                    <option>Family Photography</option>
-                    <option>Proposal Shoot</option>
+                    <option>Quick Capture ($50)</option>
+                    <option>Sunrise Photoshoot ($99)</option>
+                    <option>Pre-Wedding &amp; Couple ($199)</option>
+                    <option>Family Photography ($299)</option>
+                    <option>Proposal Photography ($350)</option>
+                    <option>Taj Mahal + Agra Fort Heritage Trail ($399)</option>
+                    <option>Full Day Agra Experience ($499)</option>
                     <option>Guide + Photo Combo – Small Group ($50)</option>
                     <option>Guide + Photo Combo – Large Group ($80)</option>
                     <option>Sunrise Luxury Tour – Private Innova ($650)</option>

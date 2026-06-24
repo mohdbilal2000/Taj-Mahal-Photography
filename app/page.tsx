@@ -114,7 +114,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col pt-20">
       <Header />
 
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         <Hero />
 
         {/* Accessible site facts block — read by screen readers and AI extractors.

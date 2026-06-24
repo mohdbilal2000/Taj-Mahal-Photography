@@ -95,3 +95,43 @@ body {
   background: linear-gradient(90deg, #D4AF37, #AA8A22);
   border-radius: 2px;
 }
+
+/* ───── Keyboard focus visibility (a11y) ───── */
+:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ───── Skip-to-content link ───── */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-120%);
+  z-index: 100;
+  background: var(--color-ink-900);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 4px 0;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ───── Respect users who prefer reduced motion (WCAG + INP) ───── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
