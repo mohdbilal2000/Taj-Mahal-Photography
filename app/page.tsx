@@ -9,7 +9,8 @@ import LuxuryTours from '@/components/LuxuryTours';
 import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
-import { faqs as siteFaqs, testimonials } from '@/lib/content';
+import { faqs as siteFaqs } from '@/lib/content';
+import { getReviews } from '@/lib/reviews';
 import ContactForm from '@/components/ContactForm';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import BackToTop from '@/components/BackToTop';
@@ -83,7 +84,9 @@ const homeWebPage = webPageSchema({
   speakableSelectors: ['.faq-answer', '.quick-answer', 'h1', 'h2'],
 });
 
-export default function Home() {
+export default async function Home() {
+  const reviewsData = await getReviews();
+
   const graph = graphSchema([
     personSchema(),
     localBusinessSchema(),
@@ -99,13 +102,14 @@ export default function Home() {
       speakable: speakableSpec(['.faq-answer']),
     },
     howToBook,
-    ...testimonials.map((t) =>
+    ...reviewsData.reviews.map((t) =>
       reviewSchema({
         author: t.name,
-        country: t.country,
+        country: t.country || 'International Guest',
         body: t.text,
         rating: t.rating,
-        datePublished: t.datePublished,
+        datePublished: t.datePublished || LAST_UPDATED,
+        sourceUrl: t.sourceUrl,
       }),
     ),
   ]);
@@ -136,7 +140,7 @@ export default function Home() {
         <GuidedPhotoTours />
         <LuxuryTours />
         <LicenseValidation />
-        <Testimonials />
+        <Testimonials data={reviewsData} />
         <FAQ />
         <ContactForm />
       </main>
