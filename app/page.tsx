@@ -5,6 +5,7 @@ import AuthoritySection from '@/components/AuthoritySection';
 import ServicesOverview from '@/components/ServicesOverview';
 import PhotographyPlans from '@/components/PhotographyPlans';
 import GuidedPhotoTours from '@/components/GuidedPhotoTours';
+import TransportCombos from '@/components/TransportCombos';
 import LuxuryTours from '@/components/LuxuryTours';
 import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
@@ -59,9 +60,9 @@ const howToBook = howToSchema({
   description:
     'Step-by-step instructions for booking a government-licensed Taj Mahal photoshoot in Agra or a same-day Sunrise Luxury Tour from Delhi/NCR.',
   totalTime: 'PT10M',
-  estimatedCost: { value: 59, currency: 'USD' },
+  estimatedCost: { value: 49, currency: 'USD' },
   steps: [
-    { name: 'Choose your package or tour', text: 'Pick from sunrise photoshoot, couple/pre-wedding, family, heritage trail, full day Agra, or a same-day Sunrise Luxury Tour from Delhi (Innova $650 or Urbania $899).', url: `${SITE.url}/services` },
+    { name: 'Choose your package or tour', text: 'Pick from sunrise photoshoot, couple/pre-wedding, family, heritage trail, full day Agra, an Agra transport combo (Transport + Photography $129 or Transport + Guide $89), or a same-day Sunrise Luxury Tour from Delhi (Innova $650 or Urbania $899).', url: `${SITE.url}/services` },
     { name: 'Submit the inquiry form', text: 'Send your name, nationality, WhatsApp number, preferred date and service through the booking form.', url: `${SITE.url}/book` },
     { name: 'Confirm on WhatsApp', text: 'You receive a WhatsApp reply within 10 minutes during business hours confirming availability and answering any questions.' },
     { name: 'Pay a deposit', text: 'A small deposit secures your slot. Remaining balance is paid in cash, UPI or bank transfer on the day of the shoot.' },
@@ -122,7 +123,10 @@ export default function Home() {
         <p className="sr-only tldr">
           Taj Mahal Photography is an official government-licensed photographer in Agra, India,
           authorized by the Ministry of Tourism for professional photoshoots inside the Taj Mahal.
-          Photography packages start at $59. Same-day Sunrise Luxury Tours from Delhi to Agra are
+          Photography packages start at $49. Agra transport combos pair a private A/C car with
+          a licensed photographer ($129) or a licensed guide with no photography ($89), covering
+          the Taj Mahal and Agra Fort with hotel or railway station pickup. Same-day Sunrise
+          Luxury Tours from Delhi to Agra are
           available in a private Toyota Innova ($650, up to 6 guests) or a Force Urbania luxury
           coach ($899, up to 13 guests) — both include a licensed guide and photographer, Taj
           Mahal and Agra Fort tickets, a private golf cart inside the complex, and a security
@@ -134,6 +138,7 @@ export default function Home() {
         <ServicesOverview />
         <PhotographyPlans />
         <GuidedPhotoTours />
+        <TransportCombos />
         <LuxuryTours />
         <LicenseValidation />
         <Testimonials />

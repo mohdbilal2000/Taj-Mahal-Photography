@@ -119,7 +119,7 @@ The single number-swing factor is *Priority 1 (Google Business Profile).*
 ✅ Wikidata entity links for Taj Mahal, Agra Fort, Agra, Delhi, Ministry of Tourism
 ✅ Visible "Quick Answer" + FAQ + step-by-step itinerary on every package page
 ✅ /llms.txt + speakable schema for voice / AI extraction
-✅ All 6 packages live: Quick Capture $59, Sunrise $99, Pre-Wedding $199, Family $299, Heritage Trail $399, Full Day $499
+✅ All 6 packages live: Quick Capture $49, Sunrise $99, Pre-Wedding $199, Family $299, Heritage Trail $399, Full Day $499
 ✅ Guide + Photo combos live: $79 small group / $99 large group
 ✅ Delhi luxury tours live: $650 Innova / $899 Urbania
 

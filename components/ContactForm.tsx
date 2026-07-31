@@ -267,6 +267,8 @@ export default function ContactForm() {
                     <option>Proposal Shoot</option>
                     <option>Guide + Photo Combo – Small Group ($79)</option>
                     <option>Guide + Photo Combo – Large Group ($99)</option>
+                    <option>Transport + Photography – Agra ($129)</option>
+                    <option>Transport + Guide – Agra, No Photography ($89)</option>
                     <option>Sunrise Luxury Tour – Private Innova ($650)</option>
                     <option>Sunrise Luxury Urbania Tour – Group ($899)</option>
                     <option>Other</option>

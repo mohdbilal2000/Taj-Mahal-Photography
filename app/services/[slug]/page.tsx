@@ -40,18 +40,18 @@ const servicesData: Record<string, ServiceData> = {
     title: 'Quick Capture | 30-Minute Taj Mahal Photoshoot',
     description: 'A 30-minute Taj Mahal photoshoot with 30 raw photos delivered as a digital album — ideal for budget travellers.',
     quickAnswer:
-      'A 30-minute Taj Mahal photoshoot by a government-licensed photographer. $59 USD, includes 30 raw photos delivered as a digital album. No physical prints. Ideal for budget travellers and short visits who still want professional shots without the long session.',
+      'A 30-minute Taj Mahal photoshoot by a government-licensed photographer. $49 USD, includes 30 raw photos delivered as a digital album. No physical prints. Ideal for budget travellers and short visits who still want professional shots without the long session.',
     longDescription:
       'Quick Capture is the most affordable way to get professional Taj Mahal photographs. In 30 focused minutes the licensed photographer takes you to the iconic vantage points — the reflecting pool, the elevated platform, and a couple of garden angles — and captures 30 raw, high-resolution images. The album is delivered digitally. Best for solo travellers and couples who are short on time but still want photographs that smartphones cannot match.',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop',
     features: ['30 Minute Session', '30 Raw Photos (Digital Album)', 'Official Photography Permit', 'No Physical Prints', 'Instant Digital Delivery'],
-    price: 59,
+    price: 49,
     duration: '30 Minutes',
     bestFor: 'Budget travellers, quick visits, short layovers',
     faqs: [
       { question: 'How long is the Quick Capture session?', answer: 'The session is 30 minutes inside the Taj Mahal complex with a government-licensed photographer.' },
       { question: 'How many photos do I receive?', answer: '30 raw, high-resolution photos delivered digitally. No printed photos.' },
-      { question: 'Is the photography permit included?', answer: 'Yes. The official Ministry of Tourism photography permit is included in the $59 price. Monument entry tickets are separate.' },
+      { question: 'Is the photography permit included?', answer: 'Yes. The official Ministry of Tourism photography permit is included in the $49 price. Monument entry tickets are separate.' },
     ],
   },
   couple: {
@@ -211,6 +211,75 @@ const servicesData: Record<string, ServiceData> = {
     faqs: [
       { question: 'Will my partner know there is a photographer?', answer: 'No. We position ourselves as casual tourists with a camera and only step into the scene once the proposal moment begins. We coordinate signals over WhatsApp the morning of.' },
       { question: 'Can you send a few photos right after the proposal?', answer: 'Yes. A same-day sneak peek of 3 to 5 edited photos is delivered within hours so you can share the news with family and on social media.' },
+    ],
+  },
+  'transport-photography': {
+    title: 'Transport + Photography | Private Car & Licensed Photographer in Agra',
+    description: 'A private A/C car with chauffeur plus a government-licensed photographer covering the Taj Mahal and Agra Fort. $129 total, half day, 60+ high-resolution photos.',
+    quickAnswer:
+      'A half-day (4–5 hour) combo in Agra: a private air-conditioned car with a professional chauffeur plus a government-licensed photographer. $129 USD total. Pickup from any Agra hotel or Agra Cantt railway station, the Taj Mahal and Agra Fort covered in one loop, and 60+ natural high-resolution photos delivered to a private gallery within 48 hours. Monument entry tickets are not included.',
+    longDescription:
+      'Transport + Photography removes the two biggest headaches of an Agra visit at once: getting between the monuments, and coming home with photos worth keeping. A private air-conditioned car with a professional chauffeur collects you from your hotel in Agra or from Agra Cantt railway station, and a government-licensed photographer rides along for the whole loop. At the Taj Mahal the photographer walks you through the reflecting pool, the elevated platform and the garden angles; at Agra Fort you are photographed at the Diwan-i-Khas, Sheesh Mahal and the famous balcony that frames the Taj Mahal in the distance. Between monuments you relax in the car instead of negotiating taxis or tuk-tuks in the heat. You receive 60+ natural high-resolution photos in a private online gallery within 48 hours. Monument entry tickets are separate.',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop',
+    features: [
+      'Private A/C car with professional chauffeur',
+      'Pickup from any Agra hotel or Agra Cantt railway station',
+      'Government-licensed photographer throughout',
+      '60+ natural high-resolution digital photos',
+      'Taj Mahal + Agra Fort in one relaxed loop',
+      'Best photo locations & pose assistance',
+      'Private online gallery within 48 hours',
+    ],
+    price: 129,
+    duration: 'Half Day (4–5 Hours)',
+    bestFor: 'Travellers arriving by train or staying in Agra who want transport and photography handled together',
+    itinerary: [
+      { time: 'Pickup', title: 'Hotel or railway station pickup', detail: 'The private A/C car collects you from any hotel in Agra or from Agra Cantt railway station at your chosen time — sunrise slots recommended.' },
+      { time: 'Stop 1', title: 'Taj Mahal photoshoot', detail: 'The licensed photographer guides you through the reflecting pool, elevated platform and garden vantage points, directing poses at each.' },
+      { time: 'Stop 2', title: 'Agra Fort photoshoot', detail: 'Portraits at the Diwan-i-Khas, Sheesh Mahal exteriors and the balcony view that frames the Taj Mahal in the distance.' },
+      { time: 'Drop', title: 'Return drop anywhere in Agra', detail: 'The car drops you back at your hotel, the railway station, or a restaurant of your choice.' },
+      { time: '+48 hrs', title: 'Gallery delivery', detail: '60+ natural high-resolution photos arrive in your private online gallery within 48 hours.' },
+    ],
+    faqs: [
+      { question: 'How much does the Transport + Photography package cost?', answer: 'The package is $129 USD total for a half day (4–5 hours). It includes a private A/C car with chauffeur, a government-licensed photographer, and 60+ high-resolution digital photos. Monument entry tickets are not included.' },
+      { question: 'Where does the pickup happen?', answer: 'We pick up from any hotel in Agra or from Agra Cantt railway station — convenient if you arrive on the Gatimaan or Shatabdi Express from Delhi.' },
+      { question: 'How many photos do I receive?', answer: '60+ natural high-resolution digital photos covering both the Taj Mahal and Agra Fort, delivered to a private online gallery within 48 hours.' },
+      { question: 'Are monument entry tickets included?', answer: 'No. Taj Mahal and Agra Fort entry tickets are purchased separately. The photography permit and all transport within Agra ARE included.' },
+      { question: 'How is this different from the Heritage Trail ($399)?', answer: 'The Heritage Trail is a 5-hour dedicated photography session with 250+ photos. Transport + Photography at $129 is a lighter combo focused on comfort — fewer photos, same private car, ideal for shorter visits.' },
+    ],
+  },
+  'transport-guide': {
+    title: 'Transport + Guide | Private Car & Licensed Guide in Agra (No Photography)',
+    description: 'A private A/C car with chauffeur plus a Ministry of Tourism licensed guide for the Taj Mahal and Agra Fort. $89 total, half day. No photographer — shoot your own photos.',
+    quickAnswer:
+      'A half-day (4–5 hour) combo in Agra: a private air-conditioned car with a professional chauffeur plus a Ministry of Tourism licensed guide who narrates the history of the Taj Mahal and Agra Fort. $89 USD total. No photographer is included — ideal if you prefer shooting on your own phone or camera. Pickup from any Agra hotel or Agra Cantt railway station. Monument entry tickets are not included.',
+    longDescription:
+      'Transport + Guide is built for independent travellers who want the comfort and the storytelling, but prefer to take their own photos. A private air-conditioned car with a professional chauffeur handles all the logistics — hotel or railway station pickup, parking, and the transfer between monuments — while a Ministry of Tourism licensed guide brings the Mughal era to life: Shah Jahan and Mumtaz Mahal at the Taj Mahal, then the Diwan-i-Khas, Sheesh Mahal and Musamman Burj at Agra Fort. The guide also knows every good phone-photo and selfie spot and will happily take a few shots of you on your own device. Because there is no photographer in the package, it is our most affordable private combo. Monument entry tickets are separate.',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1920&auto=format&fit=crop',
+    features: [
+      'Private A/C car with professional chauffeur',
+      'Pickup from any Agra hotel or Agra Cantt railway station',
+      'Ministry of Tourism licensed local guide',
+      'Full historical narration at Taj Mahal + Agra Fort',
+      'Flexible pacing — linger where you like',
+      'Tips on the best selfie and phone-photo spots',
+      'No photographer included — bring your own camera',
+    ],
+    price: 89,
+    duration: 'Half Day (4–5 Hours)',
+    bestFor: 'Independent travellers who want comfort and context but take their own photos',
+    itinerary: [
+      { time: 'Pickup', title: 'Hotel or railway station pickup', detail: 'The private A/C car collects you from any hotel in Agra or from Agra Cantt railway station at your chosen time.' },
+      { time: 'Stop 1', title: 'Taj Mahal guided walk', detail: 'The licensed guide narrates the story of Shah Jahan and Mumtaz Mahal while walking you to the best vantage points at your own pace.' },
+      { time: 'Stop 2', title: 'Agra Fort guided walk', detail: 'The Mughal story continues through the Diwan-i-Khas, Sheesh Mahal and Musamman Burj — the balcony from which Shah Jahan gazed at the Taj Mahal.' },
+      { time: 'Drop', title: 'Return drop anywhere in Agra', detail: 'The car drops you back at your hotel, the railway station, or a restaurant of your choice.' },
+    ],
+    faqs: [
+      { question: 'How much does the Transport + Guide package cost?', answer: 'The package is $89 USD total for a half day (4–5 hours). It includes a private A/C car with chauffeur and a Ministry of Tourism licensed guide for the Taj Mahal and Agra Fort. Monument entry tickets are not included.' },
+      { question: 'Is a photographer included?', answer: 'No — this package deliberately excludes the photographer, which is what makes it our most affordable private combo. If you want professional photos, choose Transport + Photography ($129) or a Guided Tour + Photo combo ($79 / $99).' },
+      { question: 'Can the guide take photos of us?', answer: 'The guide will happily take casual photos of you on your own phone or camera at the best spots, but professional photography with pro equipment requires a licensed photographer package.' },
+      { question: 'Where does the pickup happen?', answer: 'From any hotel in Agra or from Agra Cantt railway station — convenient for same-day train visitors from Delhi.' },
+      { question: 'Are monument entry tickets included?', answer: 'No. Taj Mahal and Agra Fort entry tickets are purchased separately at the gate or online.' },
     ],
   },
   'sunrise-luxury-innova': {

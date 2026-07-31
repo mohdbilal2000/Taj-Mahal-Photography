@@ -284,7 +284,7 @@ The dev team can ship any of these on request:
 | FAQ component (speakable selectors) | `components/FAQ.tsx` |
 | Testimonials | `components/Testimonials.tsx` |
 | Hero (alt text) | `components/Hero.tsx` |
-| Photography plans (5 cards, $59 to $499) | `components/PhotographyPlans.tsx` |
+| Photography plans (5 cards, $49 to $499) | `components/PhotographyPlans.tsx` |
 | Guided Photo Tours ($79 / $99) | `components/GuidedPhotoTours.tsx` |
 | Luxury Tours from Delhi ($650 / $899) | `components/LuxuryTours.tsx` |
 | Footer (`rel="me"` social, services list) | `components/Footer.tsx` |

@@ -11,7 +11,7 @@ const plans = [
     id: 'quick-capture',
     name: 'Quick Capture',
     tagline: 'The Starter Experience',
-    price: '$59',
+    price: '$49',
     duration: '30 Minutes',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
     description: 'A quick photoshoot at the Taj Mahal with a curated digital album of 30 raw photos. Ideal for travelers who want professional shots without the wait.',

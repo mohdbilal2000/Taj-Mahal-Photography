@@ -119,6 +119,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/services/transport-photography"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Transport + Photography ($129)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/transport-guide"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Transport + Guide ($89)
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/services/sunrise-luxury-innova"
                   className="text-gray-400 hover:text-white transition-colors"
                 >

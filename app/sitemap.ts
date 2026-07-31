@@ -72,6 +72,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${SITE.url}/services/transport-photography`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${SITE.url}/services/transport-guide`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${SITE.url}/services/sunrise-luxury-innova`,
       lastModified: now,
       changeFrequency: 'monthly',
