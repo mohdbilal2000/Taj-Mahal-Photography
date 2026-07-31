@@ -546,7 +546,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     </>
                   )}
                 </ul>
-                <a href="/book" className="block w-full text-center px-6 py-3 bg-ink-900 text-white font-medium rounded-sm hover:bg-ink-800 transition-colors">
+                <a href={`/book?plan=${slug}`} className="block w-full text-center px-6 py-3 bg-ink-900 text-white font-medium rounded-sm hover:bg-ink-800 transition-colors">
                   Check Availability
                 </a>
                 {!isLuxuryTour && (

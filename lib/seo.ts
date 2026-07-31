@@ -21,6 +21,7 @@ export const SITE = {
   phoneDisplay: '+91 83930 10125',
   email: 'booking@tajmahalphotography.com',
   whatsapp: '918393010125',
+  googleBusiness: 'https://maps.app.goo.gl/kFsckb7rMqJBugzV8',
   instagram: 'https://www.instagram.com/taj.mahal.photography',
   linkedin: 'https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/',
   facebook: 'https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr',
@@ -104,6 +105,15 @@ export function localBusinessSchema() {
       latitude: SITE.geo.lat,
       longitude: SITE.geo.lng,
     },
+    hasMap: SITE.googleBusiness,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'reservations',
+      telephone: SITE.phone,
+      email: SITE.email,
+      availableLanguage: ['en', 'hi', 'ur'],
+      areaServed: 'IN',
+    },
     areaServed: [
       {
         '@type': 'City',
@@ -135,7 +145,7 @@ export function localBusinessSchema() {
       url: 'https://tajmahaltouristguide.com',
       sameAs: ['https://tajmahaltouristguide.com'],
     },
-    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
+    sameAs: [SITE.googleBusiness, SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Taj Mahal Photography & Tour Packages',
@@ -317,7 +327,7 @@ export function personSchema() {
       },
     },
     worksFor: { '@id': `${SITE.url}/#business` },
-    sameAs: [SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
+    sameAs: [SITE.googleBusiness, SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
   };
 }
 

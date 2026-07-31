@@ -220,6 +220,15 @@ export default function Footer() {
                   Taj Mahal East Gate Road,
                   <br />
                   Agra, Uttar Pradesh, India
+                  <br />
+                  <a
+                    href="https://maps.app.goo.gl/kFsckb7rMqJBugzV8"
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-gold-400 hover:text-gold-300 transition-colors mt-1"
+                  >
+                    Find us on Google Maps →
+                  </a>
                 </span>
               </li>
               <li className="flex items-center text-gray-400">

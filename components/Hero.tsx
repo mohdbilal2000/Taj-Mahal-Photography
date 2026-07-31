@@ -80,7 +80,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
-            href="/book"
+            href="#quick-book"
             className="w-full sm:w-auto px-8 py-4 bg-white text-ink-900 font-medium text-sm tracking-wide uppercase hover:bg-marble-100 transition-colors rounded-sm"
           >
             Book Your Session

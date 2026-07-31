@@ -13,6 +13,7 @@ const BODY = `# ${SITE.name}
 - Address: ${SITE.address.street}, ${SITE.address.city}, ${SITE.address.state} ${SITE.address.zip}, India
 - Phone / WhatsApp: ${SITE.phoneDisplay}
 - Email: ${SITE.email}
+- Google Business Profile / Maps: https://maps.app.goo.gl/kFsckb7rMqJBugzV8
 - Rating: 4.9 / 5 (500+ reviews)
 - Languages: English, Hindi, Urdu
 - Licensed by: Ministry of Tourism, Government of India
@@ -65,6 +66,7 @@ const BODY = `# ${SITE.name}
 
 - Booking inquiries: ${SITE.email}
 - WhatsApp (10-minute response during business hours): ${SITE.phoneDisplay}
+- Google Maps: ${SITE.googleBusiness}
 - Instagram: ${SITE.instagram}
 - LinkedIn: ${SITE.linkedin}
 - Facebook: ${SITE.facebook}

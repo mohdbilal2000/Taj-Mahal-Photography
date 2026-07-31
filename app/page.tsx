@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import AuthoritySection from '@/components/AuthoritySection';
 import ServicesOverview from '@/components/ServicesOverview';
+import QuickBookRail from '@/components/QuickBookRail';
 import PhotographyPlans from '@/components/PhotographyPlans';
 import GuidedPhotoTours from '@/components/GuidedPhotoTours';
 import TransportCombos from '@/components/TransportCombos';
@@ -134,6 +135,7 @@ export default function Home() {
           for 10-minute response.
         </p>
 
+        <QuickBookRail />
         <AuthoritySection />
         <ServicesOverview />
         <PhotographyPlans />
