@@ -14,6 +14,13 @@ const TIMING_ICONS: Record<string, typeof Sun> = {
 
 const GUEST_OPTIONS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13+'];
 
+/** Owner's personal WhatsApp — every inquiry is redirected here pre-filled. */
+const OWNER_WHATSAPP = '918393010125';
+/** Owner's inbox — a copy of every inquiry is emailed here via FormSubmit
+ *  (no backend needed; the first submission triggers a one-time activation
+ *  email from formsubmit.co that must be confirmed). */
+const OWNER_EMAIL = 'mb9400900@gmail.com';
+
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [selectedPlan, setSelectedPlan] = useState('sunrise');
@@ -68,7 +75,31 @@ export default function ContactForm() {
       `*Additional Details:* ${message || 'None'}`,
     ].join('\n');
 
-    const waUrl = `https://wa.me/918393010125?text=${encodeURIComponent(text)}`;
+    const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(text)}`;
+
+    // Email a copy of the inquiry in the background (fire-and-forget so the
+    // WhatsApp redirect is never delayed or blocked by email problems).
+    fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        _subject: `New Booking Inquiry — ${plan ? plan.name : selectedPlan} — ${name}`,
+        _template: 'table',
+        Package: plan ? `${plan.name} ($${plan.price} USD)` : selectedPlan,
+        'Preferred Date': date,
+        'Preferred Timing': `${timingSlot?.label ?? timing} (exact hour flexible)`,
+        Guests: guests,
+        Ages: ages || 'Not specified',
+        Name: name,
+        Nationality: nationality,
+        WhatsApp: whatsapp,
+        Email: email || 'Not provided',
+        'Additional Details': message || 'None',
+        ...(email ? { _replyto: email } : {}),
+      }),
+    }).catch(() => {
+      // Email copy is best-effort; WhatsApp remains the primary channel.
+    });
 
     setTimeout(() => {
       setStatus('success');
@@ -479,8 +510,9 @@ export default function ContactForm() {
                   )}
                 </motion.button>
                 <p className="text-xs text-center text-gray-400">
-                  Submitting opens WhatsApp with your inquiry pre-filled — nothing is sent
-                  until you press send there. No payment is taken on this website.
+                  Submitting opens WhatsApp with your inquiry pre-filled and also emails a
+                  copy to our booking desk, so nothing gets missed. No payment is taken on
+                  this website.
                 </p>
               </form>
             )}
