@@ -39,8 +39,8 @@ const BODY = `# ${SITE.name}
 
 ## Same-Day Sunrise Luxury Tours from Delhi/NCR
 
-- [Sunrise Luxury Tour (Private Innova) — $650](${SITE.url}/services/sunrise-luxury-innova): Same-day Delhi/NCR ↔ Agra in a private Toyota Innova (up to 6 guests). Covers Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort that skips the entry line. Ideal for couples and small families.
-- [Sunrise Luxury Urbania Tour — $899](${SITE.url}/services/sunrise-luxury-urbania): Same-day Delhi/NCR ↔ Agra in a private Force Urbania luxury coach (up to 13 guests) with reclining seats, A/C and Wi-Fi. Same inclusions as the Innova tour — guide, photographer, tickets, golf cart, security escort — sized for larger families and groups.
+- [Sunrise Luxury Tour (Private Innova) — from $650](${SITE.url}/services/sunrise-luxury-innova): Same-day Delhi/NCR ↔ Agra in a private Toyota Innova (up to 6 guests), starting price with the exact quote confirmed on WhatsApp. Covers Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort that skips the entry line. Ideal for couples and small families.
+- [Sunrise Luxury Urbania Tour — from $899](${SITE.url}/services/sunrise-luxury-urbania): Same-day Delhi/NCR ↔ Agra in a private Force Urbania luxury coach (up to 13 guests) with reclining seats, A/C and Wi-Fi. Same inclusions as the Innova tour — guide, photographer, tickets, golf cart, security escort — sized for larger families and groups.
 
 ## Key Site Pages
 

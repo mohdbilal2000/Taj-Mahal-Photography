@@ -22,7 +22,7 @@ export const faqs: Faq[] = [
   {
     question: 'How much does a Taj Mahal photoshoot cost?',
     answer:
-      'Packages start at $49 USD for a 30-minute Quick Capture (30 raw photos). The Sunrise Photoshoot is $99 for a 1-hour session with 50 high-resolution photos. Pre-Wedding and Couple sessions are $199. Family is $299. Heritage Trail (Taj + Agra Fort) is $399. Full Day Agra is $499. The customisable Transport + Guide combo (private car + licensed guide, no photography) starts from $100 depending on your cities and days. Same-day Sunrise Luxury Tours from Delhi are $650 (private Innova) and $899 (Force Urbania luxury coach). All photography packages include the official permit; the luxury tours additionally include monument tickets and a private golf cart.',
+      'Packages start at $49 USD for a 30-minute Quick Capture (30 raw photos). The Sunrise Photoshoot is $99 for a 1-hour session with 50 high-resolution photos. Pre-Wedding and Couple sessions are $199. Family is $299. Heritage Trail (Taj + Agra Fort) is $399. Full Day Agra is $499. The customisable Transport + Guide combo (private car + licensed guide, no photography) starts from $100 depending on your cities and days. Same-day Sunrise Luxury Tours from Delhi start from $650 (private Innova) and from $899 (Force Urbania luxury coach); exact quotes are confirmed on WhatsApp. All photography packages include the official permit; the luxury tours additionally include monument tickets and a private golf cart.',
   },
   {
     question: 'How do I book a Taj Mahal photographer?',
@@ -47,7 +47,7 @@ export const faqs: Faq[] = [
   {
     question: 'Can you do a same-day Taj Mahal tour from Delhi?',
     answer:
-      'Yes. Our Sunrise Luxury Tour ($650 in a private Toyota Innova for up to 6 guests) and Sunrise Luxury Urbania Tour ($899 in a private Force Urbania luxury coach for up to 13 guests) both depart from Delhi/NCR around 2:30 AM, reach Agra for sunrise at the Taj Mahal, cover the Agra Fort, include monument tickets, a Ministry of Tourism licensed guide and photographer, a private golf cart inside the Taj complex, and a security escort to skip the entry line. Drop-off in Delhi/NCR is around 7–8 PM.',
+      'Yes. Our Sunrise Luxury Tour (from $650 in a private Toyota Innova for up to 6 guests) and Sunrise Luxury Urbania Tour (from $899 in a private Force Urbania luxury coach for up to 13 guests) both depart from Delhi/NCR around 2:30 AM, reach Agra for sunrise at the Taj Mahal, cover the Agra Fort, include monument tickets, a Ministry of Tourism licensed guide and photographer, a private golf cart inside the Taj complex, and a security escort to skip the entry line. Drop-off in Delhi/NCR is around 7–8 PM.',
   },
   {
     question: 'What is included in the Sunrise Luxury Tour from Delhi?',
@@ -57,7 +57,7 @@ export const faqs: Faq[] = [
   {
     question: 'How many people can join the Force Urbania luxury tour?',
     answer:
-      'The Force Urbania is a 13-seater luxury coach with reclining seats, A/C and Wi-Fi, so the $899 Sunrise Luxury Urbania tour comfortably accommodates families and groups of up to 13 guests.',
+      'The Force Urbania is a 13-seater luxury coach with reclining seats, A/C and Wi-Fi, so the Sunrise Luxury Urbania tour (from $899) comfortably accommodates families and groups of up to 13 guests.',
   },
   {
     question: 'How far is Delhi from the Taj Mahal in Agra?',
@@ -77,7 +77,7 @@ export const faqs: Faq[] = [
   {
     question: 'Are monument entry tickets included in the photography packages?',
     answer:
-      'Monument entry tickets are not included in the standalone photography packages ($49 to $499). They ARE included in both Sunrise Luxury Tours from Delhi ($650 and $899). Foreign-national tickets to the Taj Mahal currently cost ₹1,300 plus ₹200 for the main mausoleum.',
+      'Monument entry tickets are not included in the standalone photography packages ($49 to $499). They ARE included in both Sunrise Luxury Tours from Delhi (from $650 and from $899). Foreign-national tickets to the Taj Mahal currently cost ₹1,300 plus ₹200 for the main mausoleum.',
   },
   {
     question: 'Do you offer pre-wedding photography at the Taj Mahal?',

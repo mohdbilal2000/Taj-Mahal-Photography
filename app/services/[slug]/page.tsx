@@ -27,6 +27,8 @@ type ServiceData = {
   image: string;
   features: string[];
   price: number;
+  /** Price is a starting price ("From $X"), not a fixed total. */
+  fromPrice?: boolean;
   duration: string;
   bestFor: string;
   tourSlug?: 'sunrise-luxury-innova' | 'sunrise-luxury-urbania';
@@ -231,6 +233,7 @@ const servicesData: Record<string, ServiceData> = {
       'No photographer included — bring your own camera',
     ],
     price: 100,
+    fromPrice: true,
     duration: 'Flexible · You Pick the Days',
     bestFor: 'Independent travellers who want a private car and a licensed guide with simple, transparent pricing',
     itinerary: [
@@ -252,7 +255,7 @@ const servicesData: Record<string, ServiceData> = {
     title: 'Taj Mahal Sunrise Luxury Tour (Private Innova) | Delhi to Agra Same Day',
     description: 'A same-day private sunrise tour from Delhi/NCR to Agra in a Toyota Innova — guide, photographer, monument tickets and golf cart all included.',
     quickAnswer:
-      'A same-day private sunrise tour from Delhi/NCR to Agra in a Toyota Innova for couples and small families (up to 6 guests). $650 USD all-inclusive. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort monument tickets, a private golf cart inside the Taj Mahal complex, and a security escort that skips the entry line. Pickup at ~2:30 AM, drop in Delhi by ~7-8 PM.',
+      'A same-day private sunrise tour from Delhi/NCR to Agra in a Toyota Innova for couples and small families (up to 6 guests). Starting from $650 USD — exact quote confirmed on WhatsApp. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort monument tickets, a private golf cart inside the Taj Mahal complex, and a security escort that skips the entry line. Pickup at ~2:30 AM, drop in Delhi by ~7-8 PM.',
     longDescription:
       'Leave your Delhi/NCR hotel before dawn and watch the first light hit the Taj Mahal a few hours later — all from the comfort of a private Toyota Innova driven by a professional chauffeur. Our team handles every detail of the day: a Ministry of Tourism licensed guide narrates the history of Shah Jahan and Mumtaz Mahal, a licensed photographer captures your family at the iconic sunrise vantage points, and a private golf cart whisks you from the gate to the mausoleum inside the Taj Mahal complex. A security escort moves you past the queue at both the Taj Mahal and Agra Fort. Monument tickets are included, so the price you see is the price you pay. Pickup and drop are available across Delhi, Noida, Gurugram, Ghaziabad and Faridabad.',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1920&auto=format&fit=crop',
@@ -266,6 +269,7 @@ const servicesData: Record<string, ServiceData> = {
       'Sunrise arrival, full-day same-day return',
     ],
     price: 650,
+    fromPrice: true,
     duration: 'Same Day · 14–16 Hours',
     bestFor: 'Couples and families (up to 6 guests)',
     tourSlug: 'sunrise-luxury-innova',
@@ -280,10 +284,10 @@ const servicesData: Record<string, ServiceData> = {
       { time: '07:00–08:00 PM', title: 'Hotel drop in Delhi/NCR', detail: 'Comfortable evening drop at your starting hotel.' },
     ],
     faqs: [
-      { question: 'How much does the Sunrise Luxury Tour from Delhi cost?', answer: 'The Sunrise Luxury Tour in a private Toyota Innova is $650 USD all-inclusive for up to 6 guests. Includes vehicle, guide, photographer, Taj Mahal and Agra Fort tickets, golf cart inside the Taj complex, and security escort to skip the line.' },
+      { question: 'How much does the Sunrise Luxury Tour from Delhi cost?', answer: 'The Sunrise Luxury Tour in a private Toyota Innova starts from $650 USD for up to 6 guests; the exact quote is confirmed on WhatsApp before you book. Includes vehicle, guide, photographer, Taj Mahal and Agra Fort tickets, golf cart inside the Taj complex, and security escort to skip the line.' },
       { question: 'What time does the tour pick up from Delhi?', answer: 'Pickup is around 2:30 AM from your hotel in Delhi/NCR (Delhi, Noida, Gurugram, Ghaziabad or Faridabad). The drive to Agra on the Yamuna Expressway takes about 3 to 3.5 hours, so you arrive in time for sunrise at the Taj Mahal.' },
-      { question: 'Are Taj Mahal entry tickets included?', answer: 'Yes. The price includes monument tickets for both the Taj Mahal and Agra Fort, so the $650 you book is the all-in price for up to 6 guests.' },
-      { question: 'How many people fit in the Innova?', answer: 'The Toyota Innova seats up to 6 guests comfortably. For larger families or groups, choose the Sunrise Luxury Urbania ($899) which carries up to 13 guests.' },
+      { question: 'Are Taj Mahal entry tickets included?', answer: 'Yes. The price includes monument tickets for both the Taj Mahal and Agra Fort, and the confirmed WhatsApp quote (starting from $650) is the all-in price for up to 6 guests.' },
+      { question: 'How many people fit in the Innova?', answer: 'The Toyota Innova seats up to 6 guests comfortably. For larger families or groups, choose the Sunrise Luxury Urbania (from $899) which carries up to 13 guests.' },
       { question: 'Is there a security escort?', answer: 'Yes. We are accompanied by a security escort who allows our group to bypass the regular ticket queue at both the Taj Mahal east gate and Agra Fort.' },
       { question: 'Is the Taj Mahal open on Fridays?', answer: 'No — the Taj Mahal is closed every Friday for prayers. We schedule the sunrise tour for any other day of the week.' },
     ],
@@ -292,7 +296,7 @@ const servicesData: Record<string, ServiceData> = {
     title: 'Taj Mahal Sunrise Luxury Urbania Tour | Delhi to Agra for Groups',
     description: 'Our flagship same-day sunrise tour from Delhi/NCR to Agra in a private Force Urbania luxury coach for larger families and groups.',
     quickAnswer:
-      'A same-day private sunrise tour from Delhi/NCR to Agra in a Force Urbania luxury coach for larger families and groups (up to 13 guests). $899 USD all-inclusive. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj Mahal complex, and a security escort to skip the entry line. Reclining seats, A/C and Wi-Fi onboard.',
+      'A same-day private sunrise tour from Delhi/NCR to Agra in a Force Urbania luxury coach for larger families and groups (up to 13 guests). Starting from $899 USD — exact quote confirmed on WhatsApp. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj Mahal complex, and a security escort to skip the entry line. Reclining seats, A/C and Wi-Fi onboard.',
     longDescription:
       'Built for larger families and travel groups, the Sunrise Luxury Urbania tour takes up to 13 guests from Delhi/NCR to Agra and back in a single day in a private Force Urbania — a premium luxury coach with reclining seats, climate control and Wi-Fi. The structure of the day mirrors our private Innova tour: a sunrise arrival at the Taj Mahal east gate, a private golf cart inside the complex, a Ministry of Tourism licensed guide for the historical narration, a licensed photographer to document the visit, monument tickets to both the Taj Mahal and Agra Fort, and a security escort that lets everyone skip the queue. Because the coach has the capacity, families travelling together no longer need to split across multiple vehicles. Pickup and drop are available across Delhi, Noida, Gurugram, Ghaziabad and Faridabad.',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1920&auto=format&fit=crop',
@@ -307,6 +311,7 @@ const servicesData: Record<string, ServiceData> = {
       'Reclining seats, A/C and Wi-Fi onboard',
     ],
     price: 899,
+    fromPrice: true,
     duration: 'Same Day · 14–16 Hours',
     bestFor: 'Families and groups travelling together (up to 13 guests)',
     tourSlug: 'sunrise-luxury-urbania',
@@ -321,10 +326,10 @@ const servicesData: Record<string, ServiceData> = {
       { time: '07:00–08:00 PM', title: 'Hotel drop in Delhi/NCR', detail: 'Group drop at your starting hotel.' },
     ],
     faqs: [
-      { question: 'How much does the Sunrise Luxury Urbania tour cost?', answer: 'The Sunrise Luxury Urbania tour from Delhi/NCR to Agra is $899 USD all-inclusive for up to 13 guests in a private Force Urbania luxury coach.' },
+      { question: 'How much does the Sunrise Luxury Urbania tour cost?', answer: 'The Sunrise Luxury Urbania tour from Delhi/NCR to Agra starts from $899 USD for up to 13 guests in a private Force Urbania luxury coach; the exact quote is confirmed on WhatsApp before you book.' },
       { question: 'Why choose the Urbania over the Innova?', answer: 'The Force Urbania seats up to 13 guests in reclining seats with A/C and Wi-Fi, so larger families and friend groups stay together in one vehicle instead of splitting across multiple Innovas. The inclusions (guide, photographer, golf cart, tickets, security escort) are identical.' },
-      { question: 'How many people can the Urbania carry?', answer: 'Up to 13 guests. For couples or families under 6 guests, the $650 Sunrise Luxury Tour in a private Toyota Innova is the better fit.' },
-      { question: 'Are tickets included in the $899 price?', answer: 'Yes. Taj Mahal and Agra Fort monument tickets are included in the all-inclusive $899 USD price.' },
+      { question: 'How many people can the Urbania carry?', answer: 'Up to 13 guests. For couples or families under 6 guests, the Sunrise Luxury Tour in a private Toyota Innova (from $650) is the better fit.' },
+      { question: 'Are tickets included in the price?', answer: 'Yes. Taj Mahal and Agra Fort monument tickets are included in the confirmed quote, which starts from $899 USD.' },
       { question: 'Where does the tour pick up from?', answer: 'We pick up from any hotel in Delhi, Noida, Gurugram, Ghaziabad or Faridabad. Pickup is around 2:30 AM to reach the Taj Mahal for sunrise.' },
     ],
   },
@@ -461,7 +466,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="mt-12 bg-ink-900 text-white p-6 rounded-sm">
                   <p className="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Compare</p>
                   <p className="text-sm text-gray-200 mb-4">
-                    Looking for a different group size? The {service.tourSlug === 'sunrise-luxury-innova' ? 'Sunrise Luxury Urbania ($899)' : 'Sunrise Luxury Tour in a private Innova ($650)'} covers the same itinerary {service.tourSlug === 'sunrise-luxury-innova' ? 'in a 13-seat Force Urbania luxury coach for larger groups' : 'in a 6-seat private Toyota Innova for couples and small families'}.
+                    Looking for a different group size? The {service.tourSlug === 'sunrise-luxury-innova' ? 'Sunrise Luxury Urbania (from $899)' : 'Sunrise Luxury Tour in a private Innova (from $650)'} covers the same itinerary {service.tourSlug === 'sunrise-luxury-innova' ? 'in a 13-seat Force Urbania luxury coach for larger groups' : 'in a 6-seat private Toyota Innova for couples and small families'}.
                   </p>
                   <Link
                     href={`/services/${service.tourSlug === 'sunrise-luxury-innova' ? 'sunrise-luxury-urbania' : 'sunrise-luxury-innova'}`}
@@ -492,7 +497,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div>
               <div className="bg-marble-50 p-8 border border-marble-200 rounded-sm sticky top-32">
                 <h3 className="font-serif text-2xl font-semibold text-ink-900 mb-2">{isLuxuryTour ? 'Tour Details' : 'Package Details'}</h3>
-                <div className="text-3xl font-light text-ink-900 mb-1">${service.price} <span className="text-sm text-gray-500">USD</span></div>
+                <div className="text-3xl font-light text-ink-900 mb-1">{(isLuxuryTour || service.fromPrice) && <span className="block text-xs uppercase tracking-wide text-gray-400 font-normal">Starting from</span>}${service.price} <span className="text-sm text-gray-500">USD</span></div>
                 <p className="text-sm text-gray-500 mb-6">Duration: {service.duration}</p>
                 <ul className="space-y-3 mb-8 text-sm text-gray-600">
                   {isLuxuryTour ? (

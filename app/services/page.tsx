@@ -8,7 +8,7 @@ import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE
 
 export const metadata: Metadata = {
   title: 'Photography Services & Sunrise Luxury Tours from Delhi',
-  description: 'Taj Mahal photography from $49, a customisable Transport + Guide combo with private car and licensed guide from $100, and same-day Sunrise Luxury Tours from Delhi/NCR — private Innova ($650) or Force Urbania coach ($899) with guide, photographer, monument tickets, golf cart and skip-the-line escort.',
+  description: 'Taj Mahal photography from $49, a customisable Transport + Guide combo with private car and licensed guide from $100, and same-day Sunrise Luxury Tours from Delhi/NCR — private Innova (from $650) or Force Urbania coach (from $899) with guide, photographer, monument tickets, golf cart and skip-the-line escort.',
   alternates: { canonical: `${SITE.url}/services` },
   openGraph: {
     title: 'Taj Mahal Photography Services | Licensed Photographer',

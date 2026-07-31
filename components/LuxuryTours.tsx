@@ -11,7 +11,7 @@ const tours = [
     id: 'sunrise-luxury-innova',
     name: 'Taj Mahal Sunrise Luxury Tour',
     tagline: 'Private Innova · Couples & Families',
-    price: '$650',
+    price: 'From $650',
     duration: 'Same Day · 14–16 Hours',
     route: 'Delhi / NCR → Agra → Delhi / NCR',
     vehicle: 'Private Toyota Innova',
@@ -20,7 +20,7 @@ const tours = [
     description:
       'A premium same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Includes a government-licensed guide, a licensed photographer, monument tickets, a private golf cart inside the Taj Mahal complex, and a security escort to skip the line.',
     aiSnippet:
-      'A same-day private sunrise tour from Delhi/NCR to Agra covering the Taj Mahal and Agra Fort with a Toyota Innova, a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart, and skip-the-line security assistance — priced at $650 USD for couples and families.',
+      'A same-day private sunrise tour from Delhi/NCR to Agra covering the Taj Mahal and Agra Fort with a Toyota Innova, a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart, and skip-the-line security assistance — priced from $650 USD for couples and families.',
     bestFor: 'Couples, Families (up to 6 guests)',
     monuments: ['Taj Mahal', 'Agra Fort'],
     features: [
@@ -37,7 +37,7 @@ const tours = [
     id: 'sunrise-luxury-urbania',
     name: 'Taj Mahal Sunrise Luxury Urbania',
     tagline: 'Force Urbania · Families & Groups',
-    price: '$899',
+    price: 'From $899',
     duration: 'Same Day · 14–16 Hours',
     route: 'Delhi / NCR → Agra → Delhi / NCR',
     vehicle: 'Private Force Urbania (Luxury Coach)',
@@ -46,7 +46,7 @@ const tours = [
     description:
       'The same luxury sunrise experience scaled up for larger families and groups. Travel from Delhi/NCR to Agra in a private Force Urbania coach with reclining seats, government-licensed guide and photographer, monument tickets, a private golf cart, and skip-the-line security assistance.',
     aiSnippet:
-      'A same-day private sunrise tour from Delhi/NCR to Agra in a Force Urbania luxury coach for larger families and groups. Covers the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart, and a security escort to skip the line — priced at $899 USD.',
+      'A same-day private sunrise tour from Delhi/NCR to Agra in a Force Urbania luxury coach for larger families and groups. Covers the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart, and a security escort to skip the line — priced from $899 USD.',
     bestFor: 'Families & Groups (up to 13 guests)',
     monuments: ['Taj Mahal', 'Agra Fort'],
     features: [
@@ -150,7 +150,7 @@ export default function LuxuryTours() {
                     <span className="text-4xl font-light">
                       {tour.price}
                     </span>
-                    <span className="text-sm text-gray-500 mb-1.5">/ tour · all inclusive</span>
+                    <span className="text-sm text-gray-500 mb-1.5">/ tour · starting price, confirmed on WhatsApp</span>
                   </div>
                   <p className="text-xs text-gray-500 mb-5">{tour.duration}</p>
 

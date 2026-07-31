@@ -62,7 +62,7 @@ const howToBook = howToSchema({
   totalTime: 'PT10M',
   estimatedCost: { value: 49, currency: 'USD' },
   steps: [
-    { name: 'Choose your package or tour', text: 'Pick from sunrise photoshoot, couple/pre-wedding, family, heritage trail, full day Agra, a customisable Transport + Guide combo (private car + licensed guide, from $100), or a same-day Sunrise Luxury Tour from Delhi (Innova $650 or Urbania $899).', url: `${SITE.url}/services` },
+    { name: 'Choose your package or tour', text: 'Pick from sunrise photoshoot, couple/pre-wedding, family, heritage trail, full day Agra, a customisable Transport + Guide combo (private car + licensed guide, from $100), or a same-day Sunrise Luxury Tour from Delhi (Innova from $650 or Urbania from $899).', url: `${SITE.url}/services` },
     { name: 'Submit the inquiry form', text: 'Send your name, nationality, WhatsApp number, preferred date and service through the booking form.', url: `${SITE.url}/book` },
     { name: 'Confirm on WhatsApp', text: 'You receive a WhatsApp reply within 10 minutes during business hours confirming availability and answering any questions.' },
     { name: 'Pay a deposit', text: 'A small deposit secures your slot. Remaining balance is paid in cash, UPI or bank transfer on the day of the shoot.' },
@@ -128,8 +128,8 @@ export default function Home() {
           Delhi, Jaipur, Mathura-Vrindavan) and the number of days, and the exact quote is
           confirmed on WhatsApp. Same-day Sunrise
           Luxury Tours from Delhi to Agra are
-          available in a private Toyota Innova ($650, up to 6 guests) or a Force Urbania luxury
-          coach ($899, up to 13 guests) — both include a licensed guide and photographer, Taj
+          available in a private Toyota Innova (from $650, up to 6 guests) or a Force Urbania luxury
+          coach (from $899, up to 13 guests) — both include a licensed guide and photographer, Taj
           Mahal and Agra Fort tickets, a private golf cart inside the complex, and a security
           escort to skip the line. Maximum 2 photography permits per day. WhatsApp +91 83930 10125
           for 10-minute response.

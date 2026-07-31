@@ -72,7 +72,7 @@ export default function ContactForm() {
     const text = [
       `*New Booking Inquiry – Taj Mahal Photography*`,
       ``,
-      `*Package:* ${plan ? `${plan.name} ($${plan.price} USD)` : selectedPlan}`,
+      `*Package:* ${plan ? `${plan.name} (${plan.fromPrice ? 'from ' : ''}$${plan.price} USD)` : selectedPlan}`,
       `*Preferred Date:* ${date}`,
       `*Preferred Timing:* ${timingSlot?.label ?? timing} (exact hour flexible)`,
       `*Guests:* ${guests}`,
@@ -98,7 +98,7 @@ export default function ContactForm() {
       body: JSON.stringify({
         _subject: `New Booking Inquiry — ${plan ? plan.name : selectedPlan} — ${name}`,
         _template: 'table',
-        Package: plan ? `${plan.name} ($${plan.price} USD)` : selectedPlan,
+        Package: plan ? `${plan.name} (${plan.fromPrice ? 'from ' : ''}$${plan.price} USD)` : selectedPlan,
         'Preferred Date': date,
         'Preferred Timing': `${timingSlot?.label ?? timing} (exact hour flexible)`,
         Guests: guests,
@@ -306,7 +306,7 @@ export default function ContactForm() {
                   >
                     {PLANS.map((plan) => (
                       <option key={plan.id} value={plan.id}>
-                        {plan.name} — ${plan.price} USD
+                        {plan.name} — {plan.fromPrice ? 'from ' : ''}${plan.price} USD
                       </option>
                     ))}
                   </select>
