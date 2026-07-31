@@ -8,7 +8,7 @@ import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE
 
 export const metadata: Metadata = {
   title: 'Photography Services & Sunrise Luxury Tours from Delhi',
-  description: 'Taj Mahal photography from $49, Agra transport combos with private car + photographer ($129) or guide ($89), and same-day Sunrise Luxury Tours from Delhi/NCR — private Innova ($650) or Force Urbania coach ($899) with guide, photographer, monument tickets, golf cart and skip-the-line escort.',
+  description: 'Taj Mahal photography from $49, a customisable Transport + Guide combo with private car and licensed guide from $100, and same-day Sunrise Luxury Tours from Delhi/NCR — private Innova ($650) or Force Urbania coach ($899) with guide, photographer, monument tickets, golf cart and skip-the-line escort.',
   alternates: { canonical: `${SITE.url}/services` },
   openGraph: {
     title: 'Taj Mahal Photography Services | Licensed Photographer',
@@ -68,19 +68,11 @@ const services = [
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
-    id: 'transport-photography',
-    title: 'Transport + Photography (Agra)',
-    description: 'A private A/C car with chauffeur plus a government-licensed photographer covering the Taj Mahal and Agra Fort in one relaxed half-day loop. Pickup from any Agra hotel or Agra Cantt railway station, 60+ high-resolution photos delivered within 48 hours. Monument tickets not included.',
-    features: ['Half Day (4–5 Hours)', 'Private A/C car + chauffeur', 'Hotel / railway station pickup in Agra', 'Govt. licensed photographer', '60+ high-res digital photos', 'Taj Mahal + Agra Fort covered'],
-    price: '$129',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
     id: 'transport-guide',
-    title: 'Transport + Guide (Agra · No Photography)',
-    description: 'A private A/C car with chauffeur plus a Ministry of Tourism licensed guide narrating the Taj Mahal and Agra Fort. No photographer — perfect if you shoot on your own phone or camera. Our most affordable private combo. Monument tickets not included.',
-    features: ['Half Day (4–5 Hours)', 'Private A/C car + chauffeur', 'Hotel / railway station pickup in Agra', 'Ministry of Tourism licensed guide', 'Full historical narration', 'No photographer — bring your own camera'],
-    price: '$89',
+    title: 'Transport + Guide (No Photography)',
+    description: 'A private A/C car with chauffeur plus a Ministry of Tourism licensed guide — you choose the cities (Agra, Delhi, Jaipur, Mathura-Vrindavan) and the number of days, and we confirm one clear quote on WhatsApp starting from $100. No photographer — shoot on your own camera. Monument tickets not included.',
+    features: ['Starting from $100 — exact quote on WhatsApp', 'Your choice of cities & days', 'Private A/C car + chauffeur', 'Ministry of Tourism licensed guide', 'Hotel / railway station pickup', 'No photographer — bring your own camera'],
+    price: '$100',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {

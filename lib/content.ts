@@ -22,7 +22,7 @@ export const faqs: Faq[] = [
   {
     question: 'How much does a Taj Mahal photoshoot cost?',
     answer:
-      'Packages start at $49 USD for a 30-minute Quick Capture (30 raw photos). The Sunrise Photoshoot is $99 for a 1-hour session with 50 high-resolution photos. Pre-Wedding and Couple sessions are $199. Family is $299. Heritage Trail (Taj + Agra Fort) is $399. Full Day Agra is $499. In Agra, Transport + Photography (private car + licensed photographer) is $129 and Transport + Guide (private car + licensed guide, no photography) is $89. Same-day Sunrise Luxury Tours from Delhi are $650 (private Innova) and $899 (Force Urbania luxury coach). All photography packages include the official permit; the luxury tours additionally include monument tickets and a private golf cart.',
+      'Packages start at $49 USD for a 30-minute Quick Capture (30 raw photos). The Sunrise Photoshoot is $99 for a 1-hour session with 50 high-resolution photos. Pre-Wedding and Couple sessions are $199. Family is $299. Heritage Trail (Taj + Agra Fort) is $399. Full Day Agra is $499. The customisable Transport + Guide combo (private car + licensed guide, no photography) starts from $100 depending on your cities and days. Same-day Sunrise Luxury Tours from Delhi are $650 (private Innova) and $899 (Force Urbania luxury coach). All photography packages include the official permit; the luxury tours additionally include monument tickets and a private golf cart.',
   },
   {
     question: 'How do I book a Taj Mahal photographer?',
@@ -92,7 +92,7 @@ export const faqs: Faq[] = [
   {
     question: 'Do you provide transport within Agra with a photographer or guide?',
     answer:
-      'Yes. Our Transport + Photography combo ($129 USD) pairs a private air-conditioned car and chauffeur with a government-licensed photographer for a half day covering the Taj Mahal and Agra Fort, including 60+ high-resolution photos. If you prefer to take your own photos, the Transport + Guide combo ($89 USD) pairs the same private car with a Ministry of Tourism licensed guide and no photographer. Both include pickup from any Agra hotel or Agra Cantt railway station; monument entry tickets are not included.',
+      'Yes. Our Transport + Guide combo pairs a private air-conditioned car and chauffeur with a Ministry of Tourism licensed guide, starting from $100 USD. You choose the cities — Agra, Delhi, Jaipur, Mathura-Vrindavan — and the number of days, and we confirm one clear all-in quote on WhatsApp before you book. No photographer is included, so it suits travellers who shoot their own photos; if you want professional photos, choose a Guided Tour + Photo combo ($79 / $99) instead. Monument entry tickets are not included.',
   },
 ];
 

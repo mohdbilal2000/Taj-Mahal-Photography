@@ -33,10 +33,9 @@ const BODY = `# ${SITE.name}
 - [Guided Tour + Photo · Small Group (1–5 Guests) — $79](${SITE.url}/services/guided-photo-tour-small): Licensed local guide plus a professional photographer at the Taj Mahal and Agra Fort for up to 5 guests. 30 natural digital photos plus 30 premium printed copies. Monument tickets not included.
 - [Guided Tour + Photo · Large Group (6–12 Guests) — $99](${SITE.url}/services/guided-photo-tour-large): Same combo for larger groups of 6 to 12 guests. Group portraits plus individual portraits. 30 digital photos plus 30 printed copies. Monument tickets not included.
 
-## Transport Combos in Agra (Private Car)
+## Transport + Guide (Private Car, Customisable)
 
-- [Transport + Photography — $129](${SITE.url}/services/transport-photography): Half-day private A/C car with chauffeur plus a government-licensed photographer. Pickup from any Agra hotel or Agra Cantt railway station, Taj Mahal and Agra Fort covered, 60+ high-resolution photos within 48 hours. Monument tickets not included.
-- [Transport + Guide (No Photography) — $89](${SITE.url}/services/transport-guide): Half-day private A/C car with chauffeur plus a Ministry of Tourism licensed guide narrating the Taj Mahal and Agra Fort. No photographer — ideal for travellers who shoot their own photos. Monument tickets not included.
+- [Transport + Guide (No Photography) — from $100](${SITE.url}/services/transport-guide): Private A/C car with chauffeur plus a Ministry of Tourism licensed guide, starting from $100 USD. The customer chooses the cities (Agra, Delhi, Jaipur, Mathura-Vrindavan) and the number of days; the exact all-in quote is confirmed on WhatsApp before booking. No photographer — ideal for travellers who shoot their own photos. Monument tickets not included.
 
 ## Same-Day Sunrise Luxury Tours from Delhi/NCR
 

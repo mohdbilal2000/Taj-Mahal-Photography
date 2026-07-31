@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
-import { Send, CheckCircle, MessageCircle, Clock, Users, Sunrise, Sun, CloudSun, Sunset } from 'lucide-react';
-import { PLANS, TIMING_SLOTS, planById } from '@/lib/plans';
+import { Send, CheckCircle, MessageCircle, Clock, Users, Sunrise, Sun, CloudSun, Sunset, MapPin, CalendarRange } from 'lucide-react';
+import { PLANS, TIMING_SLOTS, TRAVEL_CITIES, TRAVEL_DAYS, planById } from '@/lib/plans';
 
 const TIMING_ICONS: Record<string, typeof Sun> = {
   sunrise: Sunrise,
@@ -25,6 +25,13 @@ export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [selectedPlan, setSelectedPlan] = useState('sunrise');
   const [timing, setTiming] = useState('sunrise');
+  const [cities, setCities] = useState<string[]>(['Agra']);
+
+  const toggleCity = (city: string) => {
+    setCities((prev) =>
+      prev.includes(city) ? prev.filter((c) => c !== city) : [...prev, city],
+    );
+  };
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -55,9 +62,12 @@ export default function ContactForm() {
     const ages = formData.get('ages') as string;
     const date = formData.get('date') as string;
     const message = formData.get('message') as string;
+    const days = (formData.get('days') as string) || '';
 
     const plan = planById(selectedPlan);
     const timingSlot = TIMING_SLOTS.find((t) => t.id === timing);
+    const needsRoute = Boolean(plan?.needsRoute);
+    const routeCities = cities.length ? cities.join(', ') : 'Not specified';
 
     const text = [
       `*New Booking Inquiry – Taj Mahal Photography*`,
@@ -67,6 +77,9 @@ export default function ContactForm() {
       `*Preferred Timing:* ${timingSlot?.label ?? timing} (exact hour flexible)`,
       `*Guests:* ${guests}`,
       `*Ages:* ${ages || 'Not specified'}`,
+      ...(needsRoute
+        ? [`*Cities of Travel:* ${routeCities}`, `*Number of Days:* ${days || 'Not specified'}`]
+        : []),
       ``,
       `*Name:* ${name}`,
       `*Nationality:* ${nationality}`,
@@ -90,6 +103,9 @@ export default function ContactForm() {
         'Preferred Timing': `${timingSlot?.label ?? timing} (exact hour flexible)`,
         Guests: guests,
         Ages: ages || 'Not specified',
+        ...(needsRoute
+          ? { 'Cities of Travel': routeCities, 'Number of Days': days || 'Not specified' }
+          : {}),
         Name: name,
         Nationality: nationality,
         WhatsApp: whatsapp,
@@ -371,6 +387,63 @@ export default function ContactForm() {
                     WhatsApp, since sunrise/sunset times change with the season.
                   </p>
                 </div>
+
+                {/* Route: cities + days (transport / multi-day plans only) */}
+                {planById(selectedPlan)?.needsRoute && (
+                  <div className="bg-marble-50 border border-marble-200 rounded-lg p-4 space-y-4">
+                    <div>
+                      <span className="block text-sm font-medium text-gray-700 mb-2">
+                        <span className="inline-flex items-center gap-1">
+                          <MapPin className="w-3.5 h-3.5" /> Cities of Travel *
+                        </span>
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {TRAVEL_CITIES.map((city) => {
+                          const active = cities.includes(city);
+                          return (
+                            <button
+                              key={city}
+                              type="button"
+                              aria-pressed={active}
+                              onClick={() => toggleCity(city)}
+                              className={`px-3 py-2 rounded-full border text-xs font-medium transition-all ${
+                                active
+                                  ? 'border-gold-500 bg-gold-500/10 text-ink-900 ring-1 ring-gold-500'
+                                  : 'border-gray-200 bg-white text-gray-600 hover:border-gold-400'
+                              }`}
+                            >
+                              {city}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <p className="text-xs text-gray-400 mt-1.5">
+                        Tap all the cities you want covered — other cities can go in the details box.
+                      </p>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="days"
+                        className="block text-sm font-medium text-gray-700 mb-1"
+                      >
+                        <span className="inline-flex items-center gap-1">
+                          <CalendarRange className="w-3.5 h-3.5" /> Number of Days *
+                        </span>
+                      </label>
+                      <select id="days" name="days" className={`${inputClass} bg-white`}>
+                        {TRAVEL_DAYS.map((d) => (
+                          <option key={d} value={d}>
+                            {d} {d === '1' ? 'day' : 'days'}
+                          </option>
+                        ))}
+                      </select>
+                      <p className="text-xs text-gray-400 mt-1">
+                        Starting from $100 for one day in Agra — we confirm the exact quote for
+                        your cities and days on WhatsApp before you commit.
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 {/* Name + Nationality */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

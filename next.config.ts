@@ -23,6 +23,16 @@ const nextConfig: NextConfig = {
     ],
   },
   transpilePackages: ['motion'],
+  async redirects() {
+    return [
+      {
+        // Retired offering — merged into the customisable Transport + Guide plan.
+        source: '/services/transport-photography',
+        destination: '/services/transport-guide',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
