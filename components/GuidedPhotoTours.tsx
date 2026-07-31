@@ -11,17 +11,17 @@ const packages = [
     id: 'guided-photo-tour-small',
     name: 'Guided Tour + Photo · Small Group',
     tagline: '1–5 Guests · Taj Mahal + Agra Fort',
-    price: '$50',
+    price: '$79',
     capacity: 'Up to 5 guests',
     icon: Users,
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
     description:
-      'A guided walk through the Taj Mahal and Agra Fort with a licensed local guide and a professional photographer. Includes 20 natural digital photos and 20 premium printed photo copies. Best photo locations and pose assistance throughout.',
+      'A guided walk through the Taj Mahal and Agra Fort with a licensed local guide and a professional photographer. Includes 30 natural digital photos and 30 premium printed photo copies. Best photo locations and pose assistance throughout.',
     features: [
       'Licensed local guide for Taj Mahal & Agra Fort',
       'Professional photographer alongside',
-      '20 natural high-resolution digital photos',
-      '20 premium printed photo copies',
+      '30 natural high-resolution digital photos',
+      '30 premium printed photo copies',
       'Best photo locations & pose assistance',
       'Personalised pacing for couples and small families',
     ],
@@ -31,17 +31,17 @@ const packages = [
     id: 'guided-photo-tour-large',
     name: 'Guided Tour + Photo · Large Group',
     tagline: '6–12 Guests · Taj Mahal + Agra Fort',
-    price: '$80',
+    price: '$99',
     capacity: 'Up to 12 guests',
     icon: Users,
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
     description:
-      'The same guided tour and photography combo scaled up for larger groups of 6 to 12 guests. Group portraits plus individual portraits at the Taj Mahal and Agra Fort, with 20 digital photos and 20 printed copies delivered.',
+      'The same guided tour and photography combo scaled up for larger groups of 6 to 12 guests. Group portraits plus individual portraits at the Taj Mahal and Agra Fort, with 30 digital photos and 30 printed copies delivered.',
     features: [
       'Licensed local guide for Taj Mahal & Agra Fort',
       'Professional photographer alongside',
-      '20 natural high-resolution digital photos',
-      '20 premium printed photo copies',
+      '30 natural high-resolution digital photos',
+      '30 premium printed photo copies',
       'Group portraits AND individual portraits',
       'Best photo locations & pose assistance',
     ],
@@ -81,8 +81,8 @@ export default function GuidedPhotoTours() {
             className="text-gray-600 text-lg"
           >
             Pair a licensed local guide with a professional photographer for a single, simple
-            price. Both packages cover the Taj Mahal and Agra Fort, deliver 20 natural digital
-            photos plus 20 premium printed copies, and include pose assistance at every iconic
+            price. Both packages cover the Taj Mahal and Agra Fort, deliver 30 natural digital
+            photos plus 30 premium printed copies, and include pose assistance at every iconic
             spot.
           </motion.p>
         </div>
@@ -153,7 +153,7 @@ export default function GuidedPhotoTours() {
                       <Camera className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Photos</p>
-                        <p className="text-gray-600">20 digital + 20 printed</p>
+                        <p className="text-gray-600">30 digital + 30 printed</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">

@@ -106,7 +106,7 @@ export default function Footer() {
                   href="/services/guided-photo-tour-small"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Guide + Photo · Small Group ($50)
+                  Guide + Photo · Small Group ($79)
                 </Link>
               </li>
               <li>
@@ -114,7 +114,7 @@ export default function Footer() {
                   href="/services/guided-photo-tour-large"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Guide + Photo · Large Group ($80)
+                  Guide + Photo · Large Group ($99)
                 </Link>
               </li>
               <li>

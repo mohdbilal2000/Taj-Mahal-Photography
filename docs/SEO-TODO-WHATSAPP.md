@@ -46,7 +46,7 @@ _Why_
 These platforms own "things to do in Agra" / "Taj Mahal tour" queries. Each listing drives direct bookings AND a backlink to our site.
 
 _How_
-List both Sunrise Luxury Tours ($650 / $899) plus both Guide+Photo combos ($50 / $80) on:
+List both Sunrise Luxury Tours ($650 / $899) plus both Guide+Photo combos ($79 / $99) on:
 • GetYourGuide
 • Viator
 • Klook (huge Asia / Southeast Asia traffic)
@@ -120,7 +120,7 @@ The single number-swing factor is *Priority 1 (Google Business Profile).*
 ✅ Visible "Quick Answer" + FAQ + step-by-step itinerary on every package page
 ✅ /llms.txt + speakable schema for voice / AI extraction
 ✅ All 6 packages live: Quick Capture $59, Sunrise $99, Pre-Wedding $199, Family $299, Heritage Trail $399, Full Day $499
-✅ Guide + Photo combos live: $50 small group / $80 large group
+✅ Guide + Photo combos live: $79 small group / $99 large group
 ✅ Delhi luxury tours live: $650 Innova / $899 Urbania
 
 ━━━━━━━━━━━━━━━━━━

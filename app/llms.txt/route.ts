@@ -20,7 +20,7 @@ const BODY = `# ${SITE.name}
 ## Photography Packages
 
 - [Quick Capture — $59](${SITE.url}/services/quick-capture): 30-minute Taj Mahal photoshoot, 30 raw photos delivered digitally.
-- [Sunrise Photoshoot — $99](${SITE.url}/services/sunrise): 1.5-hour sunrise session, 50 high-resolution photos, skip-the-line guidance.
+- [Sunrise Photoshoot — $99](${SITE.url}/services/sunrise): 1-hour sunrise session, 50 high-resolution photos, skip-the-line guidance.
 - [Pre-Wedding & Couple — $199](${SITE.url}/services/couple): 2+ hour editorial session, 100+ natural photos, 50 prints, 30-second cinematic video.
 - [Family Photography — $299](${SITE.url}/services/family): 1.5-hour family session, 40+ photos, child-friendly pacing.
 - [Proposal Photography — $350](${SITE.url}/services/proposal): Discreet coordination, same-day sneak peek, post-proposal couple session.
@@ -29,8 +29,8 @@ const BODY = `# ${SITE.name}
 
 ## Guide + Photographer Combo (Taj Mahal + Agra Fort)
 
-- [Guided Tour + Photo · Small Group (1–5 Guests) — $50](${SITE.url}/services/guided-photo-tour-small): Licensed local guide plus a professional photographer at the Taj Mahal and Agra Fort for up to 5 guests. 20 natural digital photos plus 20 premium printed copies. Monument tickets not included.
-- [Guided Tour + Photo · Large Group (6–12 Guests) — $80](${SITE.url}/services/guided-photo-tour-large): Same combo for larger groups of 6 to 12 guests. Group portraits plus individual portraits. 20 digital photos plus 20 printed copies. Monument tickets not included.
+- [Guided Tour + Photo · Small Group (1–5 Guests) — $79](${SITE.url}/services/guided-photo-tour-small): Licensed local guide plus a professional photographer at the Taj Mahal and Agra Fort for up to 5 guests. 30 natural digital photos plus 30 premium printed copies. Monument tickets not included.
+- [Guided Tour + Photo · Large Group (6–12 Guests) — $99](${SITE.url}/services/guided-photo-tour-large): Same combo for larger groups of 6 to 12 guests. Group portraits plus individual portraits. 30 digital photos plus 30 printed copies. Monument tickets not included.
 
 ## Same-Day Sunrise Luxury Tours from Delhi/NCR
 

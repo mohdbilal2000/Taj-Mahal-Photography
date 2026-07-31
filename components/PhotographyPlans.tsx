@@ -29,7 +29,7 @@ const plans = [
     name: 'Taj Mahal Sunrise',
     tagline: 'The Essential Experience',
     price: '$99',
-    duration: '1.5 Hours',
+    duration: '1 Hour',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
     description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Perfect for solo travelers and couples.',
     aiSnippet: 'The Taj Mahal sunrise photoshoot is the highest-rated photography experience in Agra, offering the best natural lighting and fewest crowds. A government-licensed photographer is required for professional equipment entry.',
