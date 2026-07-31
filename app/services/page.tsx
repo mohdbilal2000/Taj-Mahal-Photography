@@ -22,9 +22,9 @@ const services = [
   {
     id: 'quick-capture',
     title: 'Quick Capture',
-    description: 'A quick, professional photoshoot at the Taj Mahal. You receive a curated digital album of 20 raw photos — perfect for travelers who want quality shots without the wait.',
-    features: ['30 Minute Session', '20 Raw Photos (Digital Album)', 'No Physical Prints', 'Instant Digital Delivery'],
-    price: '$50',
+    description: 'A quick, professional photoshoot at the Taj Mahal. You receive a curated digital album of 30 raw photos — perfect for travelers who want quality shots without the wait.',
+    features: ['30 Minute Session', '30 Raw Photos (Digital Album)', 'No Physical Prints', 'Instant Digital Delivery'],
+    price: '$59',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {

@@ -19,7 +19,7 @@ const BODY = `# ${SITE.name}
 
 ## Photography Packages
 
-- [Quick Capture — $50](${SITE.url}/services/quick-capture): 30-minute Taj Mahal photoshoot, 20 raw photos delivered digitally.
+- [Quick Capture — $59](${SITE.url}/services/quick-capture): 30-minute Taj Mahal photoshoot, 30 raw photos delivered digitally.
 - [Sunrise Photoshoot — $99](${SITE.url}/services/sunrise): 1.5-hour sunrise session, 50 high-resolution photos, skip-the-line guidance.
 - [Pre-Wedding & Couple — $199](${SITE.url}/services/couple): 2+ hour editorial session, 100+ natural photos, 50 prints, 30-second cinematic video.
 - [Family Photography — $299](${SITE.url}/services/family): 1.5-hour family session, 40+ photos, child-friendly pacing.

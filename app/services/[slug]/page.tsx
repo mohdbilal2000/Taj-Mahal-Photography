@@ -38,20 +38,20 @@ type ServiceData = {
 const servicesData: Record<string, ServiceData> = {
   'quick-capture': {
     title: 'Quick Capture | 30-Minute Taj Mahal Photoshoot',
-    description: 'A 30-minute Taj Mahal photoshoot with 20 raw photos delivered as a digital album — ideal for budget travellers.',
+    description: 'A 30-minute Taj Mahal photoshoot with 30 raw photos delivered as a digital album — ideal for budget travellers.',
     quickAnswer:
-      'A 30-minute Taj Mahal photoshoot by a government-licensed photographer. $50 USD, includes 20 raw photos delivered as a digital album. No physical prints. Ideal for budget travellers and short visits who still want professional shots without the long session.',
+      'A 30-minute Taj Mahal photoshoot by a government-licensed photographer. $59 USD, includes 30 raw photos delivered as a digital album. No physical prints. Ideal for budget travellers and short visits who still want professional shots without the long session.',
     longDescription:
-      'Quick Capture is the most affordable way to get professional Taj Mahal photographs. In 30 focused minutes the licensed photographer takes you to the iconic vantage points — the reflecting pool, the elevated platform, and a couple of garden angles — and captures 20 raw, high-resolution images. The album is delivered digitally. Best for solo travellers and couples who are short on time but still want photographs that smartphones cannot match.',
+      'Quick Capture is the most affordable way to get professional Taj Mahal photographs. In 30 focused minutes the licensed photographer takes you to the iconic vantage points — the reflecting pool, the elevated platform, and a couple of garden angles — and captures 30 raw, high-resolution images. The album is delivered digitally. Best for solo travellers and couples who are short on time but still want photographs that smartphones cannot match.',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop',
-    features: ['30 Minute Session', '20 Raw Photos (Digital Album)', 'Official Photography Permit', 'No Physical Prints', 'Instant Digital Delivery'],
-    price: 50,
+    features: ['30 Minute Session', '30 Raw Photos (Digital Album)', 'Official Photography Permit', 'No Physical Prints', 'Instant Digital Delivery'],
+    price: 59,
     duration: '30 Minutes',
     bestFor: 'Budget travellers, quick visits, short layovers',
     faqs: [
       { question: 'How long is the Quick Capture session?', answer: 'The session is 30 minutes inside the Taj Mahal complex with a government-licensed photographer.' },
-      { question: 'How many photos do I receive?', answer: '20 raw, high-resolution photos delivered digitally. No printed photos.' },
-      { question: 'Is the photography permit included?', answer: 'Yes. The official Ministry of Tourism photography permit is included in the $50 price. Monument entry tickets are separate.' },
+      { question: 'How many photos do I receive?', answer: '30 raw, high-resolution photos delivered digitally. No printed photos.' },
+      { question: 'Is the photography permit included?', answer: 'Yes. The official Ministry of Tourism photography permit is included in the $59 price. Monument entry tickets are separate.' },
     ],
   },
   couple: {

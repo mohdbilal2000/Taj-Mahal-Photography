@@ -11,14 +11,14 @@ const plans = [
     id: 'quick-capture',
     name: 'Quick Capture',
     tagline: 'The Starter Experience',
-    price: '$50',
+    price: '$59',
     duration: '30 Minutes',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
-    description: 'A quick photoshoot at the Taj Mahal with a curated digital album of 20 raw photos. Ideal for travelers who want professional shots without the wait.',
-    aiSnippet: 'The Quick Capture package is a budget-friendly option for visitors who want professional photographs at the Taj Mahal without a long session. A government-licensed photographer captures 20 raw photos delivered as a digital album.',
+    description: 'A quick photoshoot at the Taj Mahal with a curated digital album of 30 raw photos. Ideal for travelers who want professional shots without the wait.',
+    aiSnippet: 'The Quick Capture package is a budget-friendly option for visitors who want professional photographs at the Taj Mahal without a long session. A government-licensed photographer captures 30 raw photos delivered as a digital album.',
     features: [
       'Official Photography Permit Included',
-      '20 Raw Photos (Digital Album)',
+      '30 Raw Photos (Digital Album)',
       'No Physical Prints',
       'Instant Digital Delivery'
     ],
