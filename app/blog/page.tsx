@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { breadcrumbSchema, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
+import { blogPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
   title: 'Taj Mahal Photography Blog | Tips, Guides & Travel Advice',
@@ -16,63 +17,6 @@ export const metadata: Metadata = {
     url: `${SITE.url}/blog`,
   },
 };
-
-const blogPosts = [
-  {
-    slug: 'best-time-to-photograph-taj-mahal',
-    title: 'Best Time to Photograph the Taj Mahal: A Complete Guide',
-    excerpt: 'Sunrise, sunset, or monsoon season? Learn exactly when to visit the Taj Mahal for the most stunning photographs, including monthly lighting conditions and crowd levels.',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
-    date: '2025-01-15',
-    readTime: '8 min read',
-    category: 'Photography Tips',
-  },
-  {
-    slug: 'what-to-wear-taj-mahal-photoshoot',
-    title: 'What to Wear for a Taj Mahal Photoshoot: Outfit Guide',
-    excerpt: 'Your outfit choice matters against the white marble backdrop. Discover the best colors, fabrics, and styles that photograph beautifully at the Taj Mahal.',
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop',
-    date: '2025-02-10',
-    readTime: '6 min read',
-    category: 'Style Guide',
-  },
-  {
-    slug: 'taj-mahal-photography-rules-2025',
-    title: 'Taj Mahal Photography Rules: What Is and Isn\'t Allowed',
-    excerpt: 'A definitive guide to photography regulations at the Taj Mahal. Learn about permit requirements, prohibited items, restricted zones, and how to avoid security issues.',
-    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop',
-    date: '2025-03-05',
-    readTime: '10 min read',
-    category: 'Travel Guide',
-  },
-  {
-    slug: 'pre-wedding-shoot-taj-mahal-planning',
-    title: 'Planning a Pre-Wedding Shoot at the Taj Mahal',
-    excerpt: 'Everything couples need to know about planning a pre-wedding or engagement photoshoot at the Taj Mahal, from permits to poses to the perfect timeline.',
-    image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop',
-    date: '2025-04-20',
-    readTime: '7 min read',
-    category: 'Pre-Wedding',
-  },
-  {
-    slug: 'agra-beyond-taj-mahal-photo-locations',
-    title: '5 Stunning Photo Locations in Agra Beyond the Taj Mahal',
-    excerpt: 'Discover Agra Fort, Mehtab Bagh, Itimad-ud-Daulah, and other magnificent locations that complement your Taj Mahal photography experience.',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
-    date: '2025-05-12',
-    readTime: '9 min read',
-    category: 'Travel Guide',
-  },
-  {
-    slug: 'taj-mahal-camera-settings-tips',
-    title: 'Camera Settings for Taj Mahal Photography: Pro Tips',
-    excerpt: 'Professional camera settings recommendations for photographing the Taj Mahal in different lighting conditions, from sunrise golden hour to harsh midday light.',
-    image: 'https://images.unsplash.com/photo-1514222288957-49a4653e1073?q=80&w=800&auto=format&fit=crop',
-    date: '2025-06-18',
-    readTime: '11 min read',
-    category: 'Photography Tips',
-  },
-];
 
 export default function BlogPage() {
   return (
@@ -94,33 +38,39 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article key={post.slug} className="bg-white rounded-sm border border-marble-200 overflow-hidden group hover:shadow-lg transition-shadow">
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-gold-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-                      {post.category}
-                    </span>
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="bg-white rounded-sm border border-marble-200 overflow-hidden group hover:shadow-lg transition-shadow"
+              >
+                <article>
+                  <div className="relative h-56 overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-gold-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                        {post.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center text-xs text-gray-500 mb-3 space-x-3">
-                    <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
-                    <span>·</span>
-                    <span>{post.readTime}</span>
+                  <div className="p-6">
+                    <div className="flex items-center text-xs text-gray-500 mb-3 space-x-3">
+                      <time dateTime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</time>
+                      <span>·</span>
+                      <span>{post.readTime}</span>
+                    </div>
+                    <h2 className="font-serif text-xl font-semibold text-ink-900 mb-3 group-hover:text-gold-600 transition-colors leading-tight">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600 text-sm leading-relaxed">{post.excerpt}</p>
                   </div>
-                  <h2 className="font-serif text-xl font-semibold text-ink-900 mb-3 group-hover:text-gold-600 transition-colors leading-tight">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600 text-sm leading-relaxed">{post.excerpt}</p>
-                </div>
-              </article>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -172,15 +122,14 @@ export default function BlogPage() {
                 description: 'Insider tips, outfit guides, and expert advice from a licensed Taj Mahal photographer.',
                 url: `${SITE.url}/blog`,
                 publisher: { '@id': `${SITE.url}/#business` },
-                // Article posts are referenced as BlogPosting summaries only.
-                // No mainEntityOfPage URL is emitted — individual post pages
-                // do not exist yet, so we avoid Article schema with 404 URLs.
                 blogPost: blogPosts.map((post) => ({
                   '@type': 'BlogPosting',
                   headline: post.title,
                   description: post.excerpt,
                   datePublished: post.date,
                   image: post.image,
+                  url: `${SITE.url}/blog/${post.slug}`,
+                  mainEntityOfPage: `${SITE.url}/blog/${post.slug}`,
                   author: { '@id': `${SITE.url}/#photographer` },
                   publisher: { '@id': `${SITE.url}/#business` },
                 })),
