@@ -20,22 +20,20 @@ const BODY = `# ${SITE.name}
 
 ## Photography Packages
 
-- [Quick Capture — $49](${SITE.url}/services/quick-capture): 30-minute Taj Mahal photoshoot, 30 raw photos delivered digitally.
-- [Sunrise Photoshoot — $99](${SITE.url}/services/sunrise): 1-hour sunrise session, 50 high-resolution photos, skip-the-line guidance.
-- [Pre-Wedding & Couple — $199](${SITE.url}/services/couple): 2+ hour editorial session, 100+ natural photos, 50 prints, 30-second cinematic video.
-- [Family Photography — $299](${SITE.url}/services/family): 1.5-hour family session, 40+ photos, child-friendly pacing.
+- [Sunrise Photoshoot — $120](${SITE.url}/services/sunrise): 1.5–2 hour sunrise session, 120+ photos, 3–5 reels (solo/couple/family), hotel pickup and drop-off included. Customisable; 20% advance confirms the booking.
+- [Pre-Wedding & Couple — from $199](${SITE.url}/services/couple): 2+ hour editorial session, 200+ high-resolution photos, 30 edited photos of your choice, 30-second cinematic video, posing direction. Customisable; 20% advance confirms the booking.
 - [Proposal Photography — $350](${SITE.url}/services/proposal): Discreet coordination, same-day sneak peek, post-proposal couple session.
 - [Taj Mahal + Agra Fort Heritage Trail — $399](${SITE.url}/services/taj-agra-fort): 5 hours, both UNESCO sites, 250+ photos.
 - [Full Day Agra Experience — $499](${SITE.url}/services/full-day): 8–10 hours, Taj Mahal + Agra Fort + Back Side of Taj, 350+ photos.
 
-## Guide + Photographer Combo (Taj Mahal + Agra Fort)
+## Guide + Photographer Combo (Taj Mahal, Agra Fort, Mehtab Bagh / Itmad-ud-Daulah)
 
-- [Guided Tour + Photo · Small Group (1–5 Guests) — $79](${SITE.url}/services/guided-photo-tour-small): Licensed local guide plus a professional photographer at the Taj Mahal and Agra Fort for up to 5 guests. 30 natural digital photos plus 30 premium printed copies. Monument tickets not included.
-- [Guided Tour + Photo · Large Group (6–12 Guests) — $99](${SITE.url}/services/guided-photo-tour-large): Same combo for larger groups of 6 to 12 guests. Group portraits plus individual portraits. 30 digital photos plus 30 printed copies. Monument tickets not included.
+- [Guided Tour + Photo · Small Group (1–5 Guests) — from $89](${SITE.url}/services/guided-photo-tour-small): Licensed local guide plus a professional photographer at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for up to 5 guests. 40 natural digital photos plus 5 reels. 20% advance confirms the booking, balance after the tour. Monument tickets not included.
+- [Guided Tour + Photo · Large Group (6–12 Guests) — from $119](${SITE.url}/services/guided-photo-tour-large): Same combo for larger groups of 6 to 12 guests. Group portraits plus individual portraits. 60 natural digital photos plus 7 reels. 20% advance confirms the booking, balance after the tour. Monument tickets not included.
 
-## Transport + Guide (Private Car, Customisable)
+## Transport + Guide (Private Car, Same Day Agra)
 
-- [Transport + Guide (No Photography) — from $100](${SITE.url}/services/transport-guide): Private A/C car with chauffeur plus a Ministry of Tourism licensed guide, starting from $100 USD. The customer chooses the cities (Agra, Delhi, Jaipur, Mathura-Vrindavan) and the number of days; the exact all-in quote is confirmed on WhatsApp before booking. No photographer — ideal for travellers who shoot their own photos. Monument tickets not included.
+- [Transport + Guide (No Photography) — from $99](${SITE.url}/services/transport-guide): Same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from $99 USD. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh, with hotel, railway station or Agra airport pickup; the exact all-in quote is confirmed on WhatsApp before booking. No photographer — ideal for travellers who shoot their own photos. Monument tickets not included.
 
 ## Same-Day Sunrise Luxury Tours from Delhi/NCR
 

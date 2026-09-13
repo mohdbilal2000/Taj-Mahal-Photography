@@ -23,20 +23,11 @@ export type Plan = {
 
 export const PLANS: Plan[] = [
   {
-    id: 'quick-capture',
-    name: 'Quick Capture',
-    price: 49,
-    tagline: '30 raw photos in 30 minutes — the fastest way to pro shots',
-    duration: '30 Minutes',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
-    badge: 'Fastest',
-  },
-  {
     id: 'sunrise',
-    name: 'Sunrise Photoshoot',
-    price: 99,
-    tagline: 'Best light, fewest crowds — our most-booked session',
-    duration: '1 Hour',
+    name: 'Taj Mahal Sunrise Photoshoot',
+    price: 120,
+    tagline: '120+ photos, 3–5 reels and hotel pickup & drop included',
+    duration: '1.5–2 Hours',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
     badge: 'Bestseller',
     popular: true,
@@ -45,18 +36,40 @@ export const PLANS: Plan[] = [
     id: 'pre-wedding',
     name: 'Couple & Pre-Wedding',
     price: 199,
-    tagline: '100+ photos, 50 prints and a cinematic video at the monument of love',
+    fromPrice: true,
+    tagline: '200+ high-resolution photos, 30 edited photos and a cinematic video',
     duration: '2+ Hours',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
     badge: 'Couples\u2019 Favourite',
   },
   {
-    id: 'family',
-    name: 'Family Photography',
-    price: 299,
-    tagline: 'Group portraits at a child-friendly pace',
-    duration: '1.5 Hours',
+    id: 'guided-photo-tour-small',
+    name: 'Guide + Photo · Small Group (1–5)',
+    price: 89,
+    fromPrice: true,
+    tagline: 'Licensed guide + photographer, 40 natural digital photos and 5 reels',
+    duration: 'Half Day',
+    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
+    badge: 'Best Value',
+  },
+  {
+    id: 'guided-photo-tour-large',
+    name: 'Guide + Photo · Large Group (6–12)',
+    price: 119,
+    fromPrice: true,
+    tagline: 'Same combo for bigger groups — 60 natural digital photos and 7 reels',
+    duration: 'Half Day',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
+  },
+  {
+    id: 'transport-guide',
+    name: 'Transport + Guide (No Photography)',
+    price: 99,
+    fromPrice: true,
+    tagline: 'Same-day Agra tour — private A/C car + licensed guide, bring your own camera',
+    duration: 'Same Day · Agra',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
+    badge: 'Customisable',
   },
   {
     id: 'proposal',
@@ -83,34 +96,6 @@ export const PLANS: Plan[] = [
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
-    id: 'guided-photo-tour-small',
-    name: 'Guide + Photo · Small Group (1–5)',
-    price: 79,
-    tagline: 'Licensed guide + photographer, 30 digital + 30 printed photos',
-    duration: 'Half Day',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
-    badge: 'Best Value',
-  },
-  {
-    id: 'guided-photo-tour-large',
-    name: 'Guide + Photo · Large Group (6–12)',
-    price: 99,
-    tagline: 'Same combo for bigger groups, with group portraits',
-    duration: 'Half Day',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
-    id: 'transport-guide',
-    name: 'Transport + Guide',
-    price: 100,
-    fromPrice: true,
-    tagline: 'Private A/C car + licensed guide — your cities, your days, one honest quote',
-    duration: 'Flexible · You Pick the Days',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
-    badge: 'Customisable',
-    needsRoute: true,
-  },
-  {
     id: 'sunrise-luxury-innova',
     name: 'Sunrise Luxury Tour · Private Innova',
     price: 650,
@@ -133,13 +118,16 @@ export const PLANS: Plan[] = [
 
 /** The 5 plans surfaced in the homepage quick-book rail. */
 export const QUICK_BOOK_IDS = [
-  'quick-capture',
   'sunrise',
   'pre-wedding',
   'guided-photo-tour-small',
+  'guided-photo-tour-large',
   'transport-guide',
-  'sunrise-luxury-innova',
 ] as const;
+
+/** Deposit terms shown alongside every plan. */
+export const DEPOSIT_NOTE =
+  '20% advance confirms the booking — the balance is paid after the tour. Every package is customisable to your plans.';
 
 export const TRAVEL_CITIES = ['Agra', 'Delhi', 'Jaipur', 'Mathura & Vrindavan'] as const;
 

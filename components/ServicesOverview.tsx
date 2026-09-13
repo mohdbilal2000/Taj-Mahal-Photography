@@ -24,12 +24,12 @@ const services = [
     link: '/services/couple',
   },
   {
-    title: 'Family Photography',
+    title: 'Guide + Photo Tour',
     description:
-      'Beautifully composed group portraits and candid moments of your family vacation.',
+      'A licensed local guide and a professional photographer together — natural photos and reels at every iconic spot.',
     image:
       'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
-    link: '/services/family',
+    link: '/services/guided-photo-tour-small',
   },
 ];
 

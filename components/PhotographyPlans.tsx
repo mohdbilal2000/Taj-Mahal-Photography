@@ -8,36 +8,20 @@ import { Check, Info } from 'lucide-react';
 
 const plans = [
   {
-    id: 'quick-capture',
-    name: 'Quick Capture',
-    tagline: 'The Starter Experience',
-    price: '$49',
-    duration: '30 Minutes',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
-    description: 'A quick photoshoot at the Taj Mahal with a curated digital album of 30 raw photos. Ideal for travelers who want professional shots without the wait.',
-    aiSnippet: 'The Quick Capture package is a budget-friendly option for visitors who want professional photographs at the Taj Mahal without a long session. A government-licensed photographer captures 30 raw photos delivered as a digital album.',
-    features: [
-      'Official Photography Permit Included',
-      '30 Raw Photos (Digital Album)',
-      'No Physical Prints',
-      'Instant Digital Delivery'
-    ],
-    bestFor: 'Budget Travelers, Quick Visits'
-  },
-  {
     id: 'sunrise',
     name: 'Taj Mahal Sunrise',
     tagline: 'The Essential Experience',
-    price: '$99',
-    duration: '1 Hour',
+    price: '$120',
+    duration: '1.5–2 Hours',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
-    description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Perfect for solo travelers and couples.',
-    aiSnippet: 'The Taj Mahal sunrise photoshoot is the highest-rated photography experience in Agra, offering the best natural lighting and fewest crowds. A government-licensed photographer is required for professional equipment entry.',
+    description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Hotel pickup and drop-off included, so the whole morning is handled for you.',
+    aiSnippet: 'The Taj Mahal sunrise photoshoot is a 1.5 to 2 hour session priced at $120 USD with more than 120 photos, 3 to 5 reels, and hotel pickup and drop-off included. A government-licensed photographer is required for professional equipment entry.',
     features: [
       'Official Photography Permit Included',
-      '50 High-Resolution Photos',
-      'Skip-the-line Entry Guidance',
-      'Private Online Gallery (48hr delivery)'
+      '120+ Photos',
+      '3–5 Reels (Solo / Couple / Family)',
+      'Hotel Pickup & Drop-off Included',
+      'Customisable · 20% Advance Confirms Booking'
     ],
     bestFor: 'Couples, Solo Travelers, First-time Visitors'
   },
@@ -45,18 +29,18 @@ const plans = [
     id: 'pre-wedding',
     name: 'Pre-Wedding & Couple',
     tagline: 'Editorial Romance',
-    price: '$199',
+    price: 'From $199',
     duration: '2+ Hours',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop',
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
-    aiSnippet: 'Pre-wedding photography at the Taj Mahal requires specialized posing direction and crowd management. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.',
+    aiSnippet: 'Pre-wedding photography at the Taj Mahal starts from $199 USD for a 2+ hour session with more than 200 high-resolution photos, 30 professionally edited photos of your choice, and a 30-second cinematic video. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.',
     features: [
       'Official Photography Permit Included',
-      '100+ Natural High-Resolution Photos',
-      '50 Raw Physical Photographs',
+      '200+ High-Resolution Photos',
+      '30 Edited Photos (You Choose Which)',
       '30 Second Cinematic Video',
-      'Outfit Change Guidance (Outside Gates)',
-      'Posing Direction & Creative Styling'
+      'Posing Direction & Creative Styling',
+      'Customisable · 20% Advance Confirms Booking'
     ],
     bestFor: 'Engagements, Pre-Weddings, Anniversaries',
     popular: true
@@ -135,7 +119,7 @@ export default function PhotographyPlans() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}

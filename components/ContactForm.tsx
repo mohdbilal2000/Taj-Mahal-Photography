@@ -438,7 +438,7 @@ export default function ContactForm() {
                         ))}
                       </select>
                       <p className="text-xs text-gray-400 mt-1">
-                        Starting from $100 for one day in Agra — we confirm the exact quote for
+                        Starting from $99 for one day in Agra — we confirm the exact quote for
                         your cities and days on WhatsApp before you commit.
                       </p>
                     </div>

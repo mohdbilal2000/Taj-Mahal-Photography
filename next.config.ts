@@ -31,6 +31,19 @@ const nextConfig: NextConfig = {
         destination: '/services/transport-guide',
         permanent: true,
       },
+      {
+        // Retired package — the sunrise session now covers short visits.
+        source: '/services/quick-capture',
+        destination: '/services/sunrise',
+        permanent: true,
+      },
+      {
+        // Retired package — family groups are covered by the sunrise session
+        // (3–5 reels: solo / couple / family) and the Guide + Photo combos.
+        source: '/services/family',
+        destination: '/services/sunrise',
+        permanent: true,
+      },
     ];
   },
 };

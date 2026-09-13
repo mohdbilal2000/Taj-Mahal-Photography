@@ -7,8 +7,8 @@ import Image from 'next/image';
 import { breadcrumbSchema, serviceSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Taj Mahal Sunrise Photoshoot | $99 | Best Morning Light',
-  description: 'Book a premium sunrise photoshoot at the Taj Mahal from $99. 1-hour session, 50 high-resolution photos, skip-the-line guidance, and official permit included. The most magical light and fewest crowds.',
+  title: 'Taj Mahal Sunrise Photoshoot | $120 | Best Morning Light',
+  description: 'Book a premium sunrise photoshoot at the Taj Mahal for $120. 1.5–2 hour session, 120+ photos, 3–5 reels, hotel pickup and drop-off, and official permit included. The most magical light and fewest crowds.',
   alternates: { canonical: `${SITE.url}/services/sunrise` },
   openGraph: {
     title: 'Taj Mahal Sunrise Photoshoot | Licensed Photographer',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const sunriseFaqs = [
   { question: 'What time does the Taj Mahal sunrise photoshoot start?', answer: 'The session starts at gate opening, which varies by season. Typically around 5:30 AM in summer and 6:30 AM in winter. We will confirm exact timing when you book.' },
-  { question: 'How many photos will I receive from the sunrise session?', answer: 'You will receive 50 high-resolution photographs delivered via a private online gallery within 48 hours.' },
+  { question: 'How many photos will I receive from the sunrise session?', answer: 'You will receive more than 120 photographs plus 3 to 5 reels, delivered via a private online gallery within 48 hours.' },
   { question: 'Is the sunrise session worth the early wake-up?', answer: 'Absolutely. Sunrise offers the best natural lighting with warm golden tones, the fewest crowds for clean compositions, and the iconic sight of the marble changing colors as the sun rises. It is our most popular and highest-rated session.' },
 ];
 
@@ -63,12 +63,15 @@ export default function SunriseServicePage() {
 
                 <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">What&apos;s Included</h3>
                 <ul className="space-y-2">
-                  <li><strong>1 Hour Guided Session:</strong> Plenty of time to explore all the best vantage points.</li>
-                  <li><strong>50 High-Resolution Photos:</strong> Professionally captured at all the best angles.</li>
+                  <li><strong>1.5–2 Hour Guided Session:</strong> Plenty of time to explore all the best vantage points.</li>
+                  <li><strong>120+ Photos:</strong> Professionally captured at all the best angles.</li>
+                  <li><strong>3–5 Reels:</strong> Solo, couple or family — ready to post.</li>
+                  <li><strong>Hotel Pickup &amp; Drop-off:</strong> We collect you before the shoot and drop you back afterwards.</li>
                   <li><strong>Official Photography Permit:</strong> Full authorization for professional equipment entry.</li>
                   <li><strong>Skip-the-Line Guidance:</strong> We know exactly which gate to use and how to navigate security quickly.</li>
                   <li><strong>Posing Direction:</strong> Gentle guidance to ensure you look natural and elegant.</li>
                   <li><strong>Private Online Gallery:</strong> Delivered within 48 hours for easy downloading and sharing.</li>
+                  <li><strong>Fully Customisable:</strong> A 20% advance confirms the booking.</li>
                 </ul>
 
                 <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">Sunrise Session Timeline</h3>
@@ -76,7 +79,7 @@ export default function SunriseServicePage() {
                   <li><strong>30 min before sunrise:</strong> Meet at the East Gate. Quick introductions and plan review.</li>
                   <li><strong>Gate opening:</strong> Enter together, clear security with official permit.</li>
                   <li><strong>First 30 minutes:</strong> Capture the iconic reflecting pool shots as the light transforms.</li>
-                  <li><strong>Next 45 minutes:</strong> Move to the elevated platform for close-up portraits and varied angles.</li>
+                  <li><strong>Next 45–60 minutes:</strong> Move to the elevated platform for close-up portraits and varied angles.</li>
                   <li><strong>Final 30 minutes:</strong> Garden shots, candid moments, and any specific requests.</li>
                 </ol>
               </div>
@@ -85,14 +88,15 @@ export default function SunriseServicePage() {
             <div>
               <div className="bg-marble-50 p-8 border border-marble-200 rounded-sm sticky top-32">
                 <h3 className="font-serif text-2xl font-semibold text-ink-900 mb-2">Package Details</h3>
-                <div className="text-3xl font-light text-ink-900 mb-6">$99 <span className="text-sm text-gray-500">USD</span></div>
+                <div className="text-3xl font-light text-ink-900 mb-6">$120 <span className="text-sm text-gray-500">USD</span></div>
 
                 <ul className="space-y-4 mb-8 text-sm text-gray-600">
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Meeting Time: 5:30 AM (Varies by season)</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Duration: 1 Hour</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Photos: 50 High-Resolution</li>
+                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Duration: 1.5–2 Hours</li>
+                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Photos: 120+ plus 3–5 reels</li>
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Delivery: 48 Hours</li>
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Official Permit Included</li>
+                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Hotel pickup &amp; drop-off included</li>
                 </ul>
 
                 <a href="#book" className="block w-full text-center px-6 py-3 bg-ink-900 text-white font-medium rounded-sm hover:bg-ink-800 transition-colors">
@@ -125,16 +129,16 @@ export default function SunriseServicePage() {
               webPageSchema({
                 url: `${SITE.url}/services/sunrise`,
                 name: 'Taj Mahal Sunrise Photoshoot',
-                description: 'Premium sunrise photography at the Taj Mahal — 1 hour, 50 photos, permit and skip-the-line included.',
+                description: 'Premium sunrise photography at the Taj Mahal — 1.5–2 hours, 120+ photos, 3–5 reels, hotel pickup and drop-off, permit and skip-the-line included.',
                 image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
                 lastReviewed: LAST_UPDATED,
                 speakableSelectors: ['.faq-answer', 'h1', 'h2'],
               }),
               serviceSchema(
                 'Taj Mahal Sunrise Photoshoot',
-                'Premium sunrise photography at the Taj Mahal. 1-hour session with 50 high-resolution photos, official permit, and skip-the-line guidance.',
-                99,
-                '1 Hour',
+                'Premium sunrise photography at the Taj Mahal. 1.5–2 hour session with 120+ photos, 3–5 reels, hotel pickup and drop-off, official permit, and skip-the-line guidance.',
+                120,
+                '1.5–2 Hours',
                 `${SITE.url}/services/sunrise`,
                 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
               ),

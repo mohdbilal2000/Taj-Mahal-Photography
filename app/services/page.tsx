@@ -8,7 +8,7 @@ import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE
 
 export const metadata: Metadata = {
   title: 'Photography Services & Sunrise Luxury Tours from Delhi',
-  description: 'Taj Mahal photography from $49, a customisable Transport + Guide combo with private car and licensed guide from $100, and same-day Sunrise Luxury Tours from Delhi/NCR — private Innova (from $650) or Force Urbania coach (from $899) with guide, photographer, monument tickets, golf cart and skip-the-line escort.',
+  description: 'Taj Mahal photography from $120, a same-day Agra Transport + Guide combo with private car and licensed guide from $99, and same-day Sunrise Luxury Tours from Delhi/NCR — private Innova (from $650) or Force Urbania coach (from $899) with guide, photographer, monument tickets, golf cart and skip-the-line escort.',
   alternates: { canonical: `${SITE.url}/services` },
   openGraph: {
     title: 'Taj Mahal Photography Services | Licensed Photographer',
@@ -20,59 +20,43 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    id: 'quick-capture',
-    title: 'Quick Capture',
-    description: 'A quick, professional photoshoot at the Taj Mahal. You receive a curated digital album of 30 raw photos — perfect for travelers who want quality shots without the wait.',
-    features: ['30 Minute Session', '30 Raw Photos (Digital Album)', 'No Physical Prints', 'Instant Digital Delivery'],
-    price: '$49',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
     id: 'sunrise',
     title: 'Taj Mahal Sunrise Photoshoot',
-    description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. We capture the monument as it changes colors with the rising sun.',
-    features: ['1 Hour Session', '50 High-Res Photos', 'Skip-the-line guidance', 'Best lighting conditions'],
-    price: '$99',
+    description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. Hotel pickup before the shoot and drop-off after are included, and the session is fully customisable to your plans.',
+    features: ['1.5–2 Hour Session', '120+ Photos', '3–5 Reels (Solo / Couple / Family)', 'Hotel pickup & drop-off included', 'Customisable — 20% advance confirms booking'],
+    price: '$120',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'couple',
     title: 'Couple & Pre-Wedding Photography',
     description: 'Celebrate your love story at the ultimate monument of love. We provide editorial-style posing guidance while capturing candid, romantic moments.',
-    features: ['2+ Hour Session', '100+ Natural High-Res Photos', '50 Raw Physical Photographs', '30 Second Cinematic Video', 'Outfit change allowed (outside gates)', 'Posing direction'],
+    features: ['2+ Hour Session', '200+ High-Resolution Photos', '30 Edited Photos (you choose which)', '30 Second Cinematic Video', 'Posing direction', 'Customisable — 20% advance confirms booking'],
     price: '$199',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
   {
-    id: 'family',
-    title: 'Family Vacation Photography',
-    description: 'Preserve your family memories with beautiful group portraits and candid shots of you exploring the monument together.',
-    features: ['1.5 Hour Session', '40+ High-Res Photos', 'Group and individual portraits', 'Child-friendly pacing'],
-    price: '$299',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
-  },
-  {
     id: 'guided-photo-tour-small',
     title: 'Guided Tour + Photo · Small Group (1–5 Guests)',
-    description: 'A licensed local guide plus a professional photographer at the Taj Mahal and Agra Fort. 30 natural high-resolution digital photos and 30 premium printed copies. Single fixed price for up to 5 guests. Monument tickets not included.',
-    features: ['Licensed local guide for Taj Mahal & Agra Fort', 'Professional photographer alongside', '30 natural digital photos', '30 premium printed photo copies', 'Best photo locations & pose assistance', 'Up to 5 guests'],
-    price: '$79',
+    description: 'A licensed local guide plus a professional photographer at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. 40 natural digital photos and 5 reels for up to 5 guests. Monument tickets not included.',
+    features: ['Licensed local guide for Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah', 'Professional photographer alongside', '40 natural digital photos', '5 reels (couple / solo / family)', 'Best photo locations & pose assistance', 'Up to 5 guests — customisable', '20% advance confirms booking, balance after the tour'],
+    price: '$89',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'guided-photo-tour-large',
     title: 'Guided Tour + Photo · Large Group (6–12 Guests)',
-    description: 'The same guide + photographer combo covering the Taj Mahal and Agra Fort, scaled up for groups of 6 to 12 guests. Group portraits and individual portraits, 30 digital photos and 30 printed copies. Monument tickets not included.',
-    features: ['Licensed local guide for Taj Mahal & Agra Fort', 'Professional photographer alongside', '30 natural digital photos', '30 premium printed photo copies', 'Group portraits + individual portraits', 'Best photo locations & pose assistance', 'Up to 12 guests'],
-    price: '$99',
+    description: 'The same guide + photographer combo covering the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, scaled up for groups of 6 to 12 guests. 60 natural digital photos and 7 reels. Monument tickets not included.',
+    features: ['Licensed local guide for Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah', 'Professional photographer alongside', '60 natural digital photos', '7 reels (group / solo / couple / kids / family)', 'Group portraits + individual portraits', 'Up to 12 guests — customisable', '20% advance confirms booking, balance after the tour'],
+    price: '$119',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'transport-guide',
     title: 'Transport + Guide (No Photography)',
-    description: 'A private A/C car with chauffeur plus a Ministry of Tourism licensed guide — you choose the cities (Agra, Delhi, Jaipur, Mathura-Vrindavan) and the number of days, and we confirm one clear quote on WhatsApp starting from $100. No photographer — shoot on your own camera. Monument tickets not included.',
-    features: ['Starting from $100 — exact quote on WhatsApp', 'Your choice of cities & days', 'Private A/C car + chauffeur', 'Ministry of Tourism licensed guide', 'Hotel / railway station pickup', 'No photographer — bring your own camera'],
-    price: '$100',
+    description: 'A same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from $99. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh. No photographer — shoot on your own camera. Monument tickets not included.',
+    features: ['Starting from $99 — exact quote on WhatsApp', 'Same day tour · Agra only', 'Private A/C car + chauffeur', 'Ministry of Tourism licensed guide', 'Hotel / railway station / Agra airport pickup', 'Taj Mahal, Agra Fort, Itmad-ud-Daulah & Mehtab Bagh', 'No photographer — bring your own camera'],
+    price: '$99',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
@@ -161,7 +145,7 @@ export default function ServicesPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Which Taj Mahal photography package is most popular?</h3>
-                <p className="text-gray-600">The Sunrise Photoshoot ($99, 1 hour) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
+                <p className="text-gray-600">The Sunrise Photoshoot ($120, 1.5–2 hours) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Can I combine multiple photography services?</h3>

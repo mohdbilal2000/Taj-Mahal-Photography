@@ -22,7 +22,7 @@ export const faqs: Faq[] = [
   {
     question: 'How much does a Taj Mahal photoshoot cost?',
     answer:
-      'Packages start at $49 USD for a 30-minute Quick Capture (30 raw photos). The Sunrise Photoshoot is $99 for a 1-hour session with 50 high-resolution photos. Pre-Wedding and Couple sessions are $199. Family is $299. Heritage Trail (Taj + Agra Fort) is $399. Full Day Agra is $499. The customisable Transport + Guide combo (private car + licensed guide, no photography) starts from $100 depending on your cities and days. Same-day Sunrise Luxury Tours from Delhi start from $650 (private Innova) and from $899 (Force Urbania luxury coach); exact quotes are confirmed on WhatsApp. All photography packages include the official permit; the luxury tours additionally include monument tickets and a private golf cart.',
+      'The Taj Mahal Sunrise Photoshoot is $120 USD for a 1.5–2 hour session with 120+ photos, 3–5 reels and hotel pickup and drop-off. Couple and Pre-Wedding sessions start from $199 with 200+ high-resolution photos, 30 edited photos and a 30-second cinematic video. The Guide + Photo combo is from $89 for 1–5 guests and from $119 for 6–12 guests. Heritage Trail (Taj + Agra Fort) is $399 and Full Day Agra is $499. The Transport + Guide combo (private car + licensed guide, no photography) is a same-day Agra tour from $99. Every package is customisable and a 20% advance confirms the booking, with the balance paid after the tour. Same-day Sunrise Luxury Tours from Delhi start from $650 (private Innova) and from $899 (Force Urbania luxury coach); exact quotes are confirmed on WhatsApp. All photography packages include the official permit; the luxury tours additionally include monument tickets and a private golf cart.',
   },
   {
     question: 'How do I book a Taj Mahal photographer?',
@@ -77,22 +77,22 @@ export const faqs: Faq[] = [
   {
     question: 'Are monument entry tickets included in the photography packages?',
     answer:
-      'Monument entry tickets are not included in the standalone photography packages ($49 to $499). They ARE included in both Sunrise Luxury Tours from Delhi (from $650 and from $899). Foreign-national tickets to the Taj Mahal currently cost ₹1,300 plus ₹200 for the main mausoleum.',
+      'Monument entry tickets are not included in the standalone photography packages ($89 to $499). They ARE included in both Sunrise Luxury Tours from Delhi (from $650 and from $899). Foreign-national tickets to the Taj Mahal currently cost ₹1,300 plus ₹200 for the main mausoleum.',
   },
   {
     question: 'Do you offer pre-wedding photography at the Taj Mahal?',
     answer:
-      'Yes. Our Pre-Wedding and Couple package ($199) is a 2+ hour editorial-style session that includes 100+ high-resolution natural photos, 50 printed photographs, a 30-second cinematic video, and posing direction. It is one of our most popular packages alongside the sunrise session.',
+      'Yes. Our Pre-Wedding and Couple package (from $199) is a 2+ hour editorial-style session that includes 200+ high-resolution photos, 30 edited photos of your choice, a 30-second cinematic video, and posing direction. It is one of our most popular packages alongside the sunrise session.',
   },
   {
     question: 'Do you have a budget package that combines a guide and a photographer?',
     answer:
-      'Yes. Our Guided Tour + Photo combo covers both the Taj Mahal and Agra Fort with a licensed local guide and a professional photographer at a single fixed price. The small-group package is $79 USD for up to 5 guests (couples or small families), and the large-group package is $99 USD for groups of 6 to 12 guests. Both include 30 natural high-resolution digital photos plus 30 premium printed photo copies. Monument entry tickets are not included.',
+      'Yes. Our Guided Tour + Photo combo covers the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah with a licensed local guide and a professional photographer. The small-group package starts from $89 USD for up to 5 guests (couples or small families) with 40 natural digital photos and 5 reels, and the large-group package starts from $119 USD for groups of 6 to 12 guests with 60 natural digital photos and 7 reels. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
   },
   {
     question: 'Do you provide transport within Agra with a photographer or guide?',
     answer:
-      'Yes. Our Transport + Guide combo pairs a private air-conditioned car and chauffeur with a Ministry of Tourism licensed guide, starting from $100 USD. You choose the cities — Agra, Delhi, Jaipur, Mathura-Vrindavan — and the number of days, and we confirm one clear all-in quote on WhatsApp before you book. No photographer is included, so it suits travellers who shoot their own photos; if you want professional photos, choose a Guided Tour + Photo combo ($79 / $99) instead. Monument entry tickets are not included.',
+      'Yes. Our Transport + Guide combo pairs a private air-conditioned car and chauffeur with a Ministry of Tourism licensed guide for a same-day Agra tour, starting from $99 USD. It covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh with pickup from your hotel, the railway station or Agra airport, and we confirm one clear all-in quote on WhatsApp before you book. No photographer is included, so it suits travellers who shoot their own photos; if you want professional photos, choose a Guided Tour + Photo combo (from $89 / from $119) instead. Monument entry tickets are not included.',
   },
 ];
 

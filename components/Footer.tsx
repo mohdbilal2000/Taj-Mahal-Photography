@@ -87,14 +87,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services/family"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Family Photography
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/services/proposal"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -106,7 +98,7 @@ export default function Footer() {
                   href="/services/guided-photo-tour-small"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Guide + Photo · Small Group ($79)
+                  Guide + Photo · Small Group (from $89)
                 </Link>
               </li>
               <li>
@@ -114,7 +106,7 @@ export default function Footer() {
                   href="/services/guided-photo-tour-large"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Guide + Photo · Large Group ($99)
+                  Guide + Photo · Large Group (from $119)
                 </Link>
               </li>
               <li>
@@ -122,7 +114,7 @@ export default function Footer() {
                   href="/services/transport-guide"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Transport + Guide (from $100)
+                  Transport + Guide (from $99)
                 </Link>
               </li>
               <li>
