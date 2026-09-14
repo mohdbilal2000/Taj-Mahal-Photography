@@ -1,10 +1,10 @@
 'use client';
 
-import { formatMoney, inrRate, useCurrency } from '@/lib/currency';
+import { formatMoney, toInr, useCurrency } from '@/lib/currency';
 
 type PriceProps = {
-  /** Plan id — used to look up the domestic INR rate. */
-  planId: string;
+  /** Plan id — kept for the download links and analytics on the same cards. */
+  planId?: string;
   /** USD price, used as the server-rendered default. */
   usd: number;
   /** Render a "Starting from" label above the amount. */
@@ -17,13 +17,8 @@ type PriceProps = {
   hideCode?: boolean;
 };
 
-/**
- * One price, in whichever currency the visitor picked. Plans with no domestic
- * rate stay in USD even when INR is selected — better an honest USD figure
- * than an invented rupee one.
- */
+/** One price, in whichever currency the visitor picked. */
 export default function Price({
-  planId,
   usd,
   fromPrice,
   className = '',
@@ -31,10 +26,9 @@ export default function Price({
   hideCode,
 }: PriceProps) {
   const { currency } = useCurrency();
-  const inr = inrRate(planId);
-  const showInr = currency === 'INR' && inr !== undefined;
-  const amount = showInr ? inr! : usd;
-  const code = showInr ? 'INR' : 'USD';
+  const showInr = currency === 'INR';
+  const amount = showInr ? toInr(usd) : usd;
+  const code: 'INR' | 'USD' = showInr ? 'INR' : 'USD';
 
   return (
     <>
@@ -43,7 +37,7 @@ export default function Price({
           Starting from
         </span>
       )}
-      <span className={className}>{formatMoney(amount, code === 'INR' ? 'INR' : 'USD')}</span>
+      <span className={className}>{formatMoney(amount, code)}</span>
       {!hideCode && <span className={codeClassName}> {code}</span>}
     </>
   );

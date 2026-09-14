@@ -87,7 +87,7 @@ export const faqs: Faq[] = [
   {
     question: 'Do you have a budget package that combines a guide and a photographer?',
     answer:
-      'Yes. Our Guided Tour + Photo combo covers the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah with a licensed local guide and a professional photographer. The small-group package starts from $89 USD for up to 5 guests (couples or small families) with 40 natural digital photos and 5 reels, and the large-group package starts from $119 USD for groups of 6 to 12 guests with 60 natural digital photos and 7 reels. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
+      'Yes. Our Guided Tour + Photo combo covers the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah with a licensed local guide and a professional photographer. Note that inside the Taj Mahal a guide is not allowed alongside a photographer, so your photographer takes you through the Taj and the guide covers the other monuments. The small-group package starts from $89 USD for up to 5 guests (couples or small families) with 40 natural digital photos and 5 reels, and the large-group package starts from $119 USD for groups of 6 to 12 guests with 60 natural digital photos and 7 reels. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
   },
   {
     question: 'Do you provide transport within Agra with a photographer or guide?',

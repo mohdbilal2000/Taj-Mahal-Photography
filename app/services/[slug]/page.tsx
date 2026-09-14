@@ -4,6 +4,8 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import ContactForm from '@/components/ContactForm';
 import Price from '@/components/Price';
 import PackagePdfLinks from '@/components/PackagePdfLinks';
+import TajGuideNotice from '@/components/TajGuideNotice';
+import packagesData from '@/lib/packages.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -38,6 +40,15 @@ type ServiceData = {
   faqs: { question: string; answer: string }[];
   audience?: string;
 };
+
+/** Slugs whose package includes a photographer inside the Taj Mahal. */
+const PACKAGES_WITH_GUIDE_RULE = new Set([
+  ...packagesData.packages.filter((p) => p.category !== 'transport').map((p) => p.id),
+  'couple',
+  'taj-agra-fort',
+  'full-day',
+  'proposal',
+]);
 
 const servicesData: Record<string, ServiceData> = {
   couple: {
@@ -114,14 +125,14 @@ const servicesData: Record<string, ServiceData> = {
   },
   'guided-photo-tour-small': {
     title: 'Guided Tour + Photo Combo · Small Group (1–5 Guests)',
-    description: 'A licensed local guide plus a professional photographer at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, with 40 natural digital photos and 5 reels. From $89 for up to 5 guests.',
+    description: 'A licensed local guide across Agra plus a professional photographer at the Taj Mahal, with 40 natural digital photos and 5 reels. From $89 for up to 5 guests.',
     quickAnswer:
-      'A budget-friendly guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for 1 to 5 guests, from $89 USD. Includes a licensed local guide, a professional photographer, 40 natural digital photos and 5 reels. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
+      'A budget-friendly guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for 1 to 5 guests, from $89 USD. Includes a licensed local guide, a professional photographer, 40 natural digital photos and 5 reels. Inside the Taj Mahal a guide is not allowed alongside a photographer, so your photographer takes you through the Taj and the guide covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
     longDescription:
-      'This combo package pairs a licensed local guide with a professional photographer for a single fixed price across the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. The guide narrates the Mughal history of the monuments while the photographer captures you at every iconic vantage point — the reflecting pool, the elevated platform, the gardens at the Taj, the Diwan-i-Khas, Sheesh Mahal and the famous balcony view of the Taj from Agra Fort. You receive 40 natural digital photos and 5 reels (couple, solo or family). Best for couples, solo travellers and small families up to 5 guests, and the itinerary is customisable. A 20% advance confirms the booking; the balance is paid after the tour. Monument entry tickets are separate.',
+      'This combo package pairs a licensed local guide with a professional photographer for a single fixed price across the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. The guide narrates the Mughal history at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah — inside the Taj Mahal a guide is not permitted alongside a photographer, so your photographer takes you through the Taj — and captures you at every iconic vantage point — the reflecting pool, the elevated platform, the gardens at the Taj, the Diwan-i-Khas, Sheesh Mahal and the famous balcony view of the Taj from Agra Fort. You receive 40 natural digital photos and 5 reels (couple, solo or family). Best for couples, solo travellers and small families up to 5 guests, and the itinerary is customisable. A 20% advance confirms the booking; the balance is paid after the tour. Monument entry tickets are separate.',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop',
     features: [
-      'Licensed local guide for Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah',
+      'Licensed local guide at Agra Fort, Mehtab Bagh & Itmad-ud-Daulah (guides are not allowed inside the Taj Mahal with a photographer)',
       'Professional photographer alongside',
       '40 natural digital photos',
       '5 reels (couple / solo / family)',
@@ -136,19 +147,19 @@ const servicesData: Record<string, ServiceData> = {
       { question: 'How many people does the small-group package cover?', answer: 'The from-$89 USD price is for up to 5 guests in total. For groups of 6 or more, the from-$119 large-group package is the right choice.' },
       { question: 'Are monument entry tickets included?', answer: 'No. Taj Mahal and Agra Fort entry tickets are not included and must be purchased separately. Photography permits ARE included.' },
       { question: 'What do I receive?', answer: '40 natural digital photos delivered to a private gallery, plus 5 reels you can post straight to social media.' },
-      { question: 'Which monuments does it cover?', answer: 'The Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, all with the same guide and photographer. The itinerary can be customised to your plans.' },
+      { question: 'Which monuments does it cover?', answer: 'The Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. The photographer is with you at every monument; the guide joins you everywhere except inside the Taj Mahal, where guides are not allowed alongside a photographer. The itinerary can be customised to your plans.' },
     ],
   },
   'guided-photo-tour-large': {
     title: 'Guided Tour + Photo Combo · Large Group (6–12 Guests)',
     description: 'The same guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, scaled up for groups of 6 to 12 guests. Group portraits plus individual portraits. From $119.',
     quickAnswer:
-      'A guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for groups of 6 to 12 guests, from $119 USD. Includes a licensed local guide, a professional photographer, group portraits and individual portraits, 60 natural digital photos and 7 reels. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
+      'A guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for groups of 6 to 12 guests, from $119 USD. Includes a licensed local guide, a professional photographer, group portraits and individual portraits, 60 natural digital photos and 7 reels. Inside the Taj Mahal a guide is not allowed alongside a photographer, so your photographer takes you through the Taj and the guide covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
     longDescription:
-      'Built for larger families and friend groups visiting Agra together, this package covers up to 12 guests for a single fixed price. The licensed local guide narrates the Mughal history of the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah while the photographer captures group portraits alongside individual portraits at every iconic spot. You receive 60 natural digital photos and 7 reels (group, solo, couple, kids or family) for the group. A 20% advance confirms the booking; the balance is paid after the tour. Monument entry tickets are separate. For groups of 5 or fewer, the from-$89 small-group package is the right pick.',
+      'Built for larger families and friend groups visiting Agra together, this package covers up to 12 guests for a single fixed price. The licensed local guide narrates the Mughal history at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah — guides are not allowed inside the Taj Mahal alongside a photographer — while the photographer captures group portraits alongside individual portraits at every iconic spot. You receive 60 natural digital photos and 7 reels (group, solo, couple, kids or family) for the group. A 20% advance confirms the booking; the balance is paid after the tour. Monument entry tickets are separate. For groups of 5 or fewer, the from-$89 small-group package is the right pick.',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1920&auto=format&fit=crop',
     features: [
-      'Licensed local guide for Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah',
+      'Licensed local guide at Agra Fort, Mehtab Bagh & Itmad-ud-Daulah (guides are not allowed inside the Taj Mahal with a photographer)',
       'Professional photographer alongside',
       '60 natural digital photos',
       '7 reels (group / solo / couple / kids / family)',
@@ -161,7 +172,7 @@ const servicesData: Record<string, ServiceData> = {
     bestFor: 'Families and groups travelling together (6–12 guests)',
     faqs: [
       { question: 'How many people does the large-group package cover?', answer: 'Up to 12 guests in total. Larger groups can be split into multiple packages — message us on WhatsApp for a tailored quote.' },
-      { question: 'Do we get group portraits and individual portraits?', answer: 'Yes. The photographer captures group portraits of everyone together AND individual portraits during the walk through the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah.' },
+      { question: 'Do we get group portraits and individual portraits?', answer: 'Yes. The photographer captures group portraits of everyone together AND individual portraits during the walk through the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. The guide is with you at every monument except inside the Taj Mahal, where guides cannot accompany a photographer.' },
       { question: 'Are monument tickets included?', answer: 'No. Taj Mahal and Agra Fort entry tickets are purchased separately. The photography permits and the guide are included.' },
       { question: 'How is this different from the Heritage Trail ($399)?', answer: 'This from-$119 combo focuses on a guided walk plus 60 photos and 7 reels. The Heritage Trail is a 5-hour dedicated photography session with 250+ high-resolution photos and a fully managed schedule — more output, no group cap.' },
     ],
@@ -334,6 +345,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const pageUrl = `${SITE.url}/services/${slug}`;
   const isLuxuryTour = Boolean(service.tourSlug);
+  /** Packages that put a photographer inside the Taj Mahal, where a guide cannot follow. */
+  const showsGuideNotice = PACKAGES_WITH_GUIDE_RULE.has(slug);
 
   const tripOrService = isLuxuryTour && service.tourSlug
     ? luxuryTourSchema({
@@ -397,6 +410,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <p className="text-xs uppercase tracking-widest text-gold-600 font-bold mb-2">Quick Answer</p>
             <p className="quick-answer text-ink-900 text-lg leading-relaxed">{service.quickAnswer}</p>
           </div>
+
+          {showsGuideNotice && <TajGuideNotice className="mb-12" />}
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">

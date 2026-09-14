@@ -17,9 +17,9 @@ const packages = [
     icon: Users,
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
     description:
-      'A guided walk through the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah with a licensed local guide and a professional photographer. Includes 40 natural digital photos and 5 reels. Best photo locations and pose assistance throughout.',
+      'A guided walk through the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah with a licensed local guide and a professional photographer. Includes 40 natural digital photos and 5 reels. Inside the Taj Mahal a guide is not allowed with a photographer, so your photographer takes you through the Taj.',
     features: [
-      'Licensed local guide for Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah',
+      'Licensed guide at Agra Fort, Mehtab Bagh & Itmad-ud-Daulah',
       'Professional photographer alongside',
       '40 natural digital photos',
       '5 reels (couple / solo / family)',
@@ -37,9 +37,9 @@ const packages = [
     icon: Users,
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
     description:
-      'The same guided tour and photography combo scaled up for larger groups of 6 to 12 guests. Group portraits plus individual portraits at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, with 60 natural digital photos and 7 reels delivered.',
+      'The same guided tour and photography combo scaled up for larger groups of 6 to 12 guests. Group portraits plus individual portraits at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, with 60 natural digital photos and 7 reels. Guides are not allowed inside the Taj Mahal alongside a photographer.',
     features: [
-      'Licensed local guide for Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah',
+      'Licensed guide at Agra Fort, Mehtab Bagh & Itmad-ud-Daulah',
       'Professional photographer alongside',
       '60 natural digital photos',
       '7 reels (group / solo / couple / kids / family)',

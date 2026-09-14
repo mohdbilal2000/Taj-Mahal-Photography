@@ -1,23 +1,56 @@
 {
   "meta": {
-    "currencyNote": "INR rates are domestic rates for Indian clients, not a conversion of the USD price.",
-    "updated": "2026-09"
+    "updated": "2026-09",
+    "usdToInr": 88,
+    "inrRoundTo": 500,
+    "inrNote": "INR shown at ₹88 = $1, rounded — indicative, confirmed on WhatsApp when you book."
   },
+  "notices": {
+    "tajGuide": "Inside the Taj Mahal a guide is NOT allowed alongside a photographer. On photography packages your licensed photographer is with you inside; on guide + photo tours the guide covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah, and the photographer takes you through the Taj Mahal.",
+    "tajGuideShort": "Inside the Taj Mahal a guide is NOT allowed alongside a photographer. Your photographer is with you inside the Taj; the guide covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah."
+  },
+  "tickets": "Monument entry tickets are not included in any package. Taj Mahal entry is about ₹50 for Indian nationals and about ₹1,300 for foreign nationals, plus ₹200 to enter the main mausoleum. Rates are set by the ASI and can change.",
+  "terms": [
+    "All prices are per package — not per person.",
+    "20% advance confirms the booking; the balance is paid after the tour.",
+    "Every package is customisable — tell us what you want changed and we re-quote.",
+    "The official photography permit is included in every photography package.",
+    "The Taj Mahal is closed to visitors on Fridays.",
+    "Payment: UPI, bank transfer, card or PayPal. Balance in INR, USD, EUR or GBP."
+  ],
+  "categories": [
+    {
+      "id": "photography",
+      "title": "Photography Tours",
+      "blurb": "A licensed photographer inside the monument. No guide — see the Taj Mahal rule below."
+    },
+    {
+      "id": "guide-photo",
+      "title": "Guide + Photo Tours",
+      "blurb": "A licensed local guide and a professional photographer across Agra's monuments."
+    },
+    {
+      "id": "transport",
+      "title": "Transport + Guide Rates",
+      "blurb": "Private car, chauffeur and a licensed guide. No photographer."
+    }
+  ],
   "packages": [
     {
       "id": "sunrise",
       "num": "01",
+      "category": "photography",
       "name": "Taj Mahal Sunrise Photoshoot",
       "short": "Sunrise Photoshoot",
       "subtitle": "Solo · Couple · Family",
       "usd": 120,
-      "inr": 10000,
       "fromPrice": false,
       "duration": "1.5–2 hours",
-      "guide": "Not included — this is a photography-only session",
-      "photographer": "Government-licensed photographer",
+      "guide": "NO GUIDE — a guide is not allowed with a photographer inside the Taj Mahal",
+      "guideShort": "No guide (not allowed with a photographer inside the Taj Mahal)",
+      "photographer": "Government-licensed photographer with you throughout",
       "includes": [
-        "1.5–2 hour guided photo session",
+        "1.5–2 hour photo session",
         "More than 120 photos",
         "3–5 reels (solo / couple / family)",
         "Hotel pickup before the shoot",
@@ -25,24 +58,26 @@
         "Official photography permit included"
       ],
       "excludes": [
-        "Tour guide — not included in this package",
+        "Tour guide — not permitted alongside the photographer",
         "Monument entry tickets",
         "Meals and personal expenses"
       ],
-      "bestFor": "First-time visitors, couples and families who want the best light and the fewest crowds."
+      "bestFor": "First-time visitors, couples and families who want the best light and the fewest crowds.",
+      "photographerShort": "Licensed photographer, with you throughout"
     },
     {
       "id": "pre-wedding",
       "num": "02",
+      "category": "photography",
       "name": "Couple & Pre-Wedding Photography",
       "short": "Couple & Pre-Wedding",
       "subtitle": "Couples · Engagements · Anniversaries",
       "usd": 199,
-      "inr": 15000,
       "fromPrice": true,
       "duration": "2+ hours",
-      "guide": "Not included — this is a photography-only session",
-      "photographer": "Government-licensed photographer",
+      "guide": "NO GUIDE — a guide is not allowed with a photographer inside the Taj Mahal",
+      "guideShort": "No guide (not allowed with a photographer inside the Taj Mahal)",
+      "photographer": "Government-licensed photographer with you throughout",
       "includes": [
         "2+ hour editorial session",
         "More than 200 high-resolution photos",
@@ -52,27 +87,29 @@
         "Official photography permit included"
       ],
       "excludes": [
-        "Tour guide — not included in this package",
+        "Tour guide — not permitted alongside the photographer",
         "Monument entry tickets",
         "Outfits, hair and make-up"
       ],
-      "bestFor": "Pre-wedding shoots, engagements and anniversaries at the monument of love."
+      "bestFor": "Pre-wedding shoots, engagements and anniversaries at the monument of love.",
+      "photographerShort": "Licensed photographer, with you throughout"
     },
     {
       "id": "guided-photo-tour-small",
       "num": "03",
+      "category": "guide-photo",
       "name": "Guide Tour + Photo · Small Group",
       "short": "Guide + Photo · Small Group",
       "subtitle": "1–5 guests",
       "usd": 89,
-      "inr": 7500,
       "fromPrice": true,
       "duration": "Half day",
-      "guide": "Licensed local guide included throughout",
-      "photographer": "Professional photographer alongside the guide",
+      "guide": "Licensed local guide at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah — not inside the Taj Mahal, where guides are not allowed with a photographer",
+      "guideShort": "Guide at Agra Fort & other monuments; photographer inside the Taj Mahal",
+      "photographer": "Professional photographer throughout, including inside the Taj Mahal",
       "includes": [
-        "Licensed local guide for the full tour",
-        "Professional photographer alongside",
+        "Licensed local guide for the monuments",
+        "Professional photographer throughout",
         "40 natural digital photos",
         "5 reels (couple / solo / family)",
         "Taj Mahal, Agra Fort, Mehtab Bagh / Itmad-ud-Daulah",
@@ -80,52 +117,56 @@
         "Up to 5 guests"
       ],
       "excludes": [
+        "Guide inside the Taj Mahal — not permitted with a photographer",
         "Monument entry tickets",
-        "Transport between monuments",
         "Meals and personal expenses"
       ],
-      "bestFor": "Couples, solo travellers and small families who want the history and the photos in one tour."
+      "bestFor": "Couples, solo travellers and small families who want the history and the photos in one tour.",
+      "photographerShort": "Professional photographer throughout"
     },
     {
       "id": "guided-photo-tour-large",
       "num": "04",
+      "category": "guide-photo",
       "name": "Guide Tour + Photo · Large Group",
       "short": "Guide + Photo · Large Group",
       "subtitle": "6–12 guests",
       "usd": 119,
-      "inr": 10000,
       "fromPrice": true,
       "duration": "Half day",
-      "guide": "Licensed local guide included throughout",
-      "photographer": "Professional photographer alongside the guide",
+      "guide": "Licensed local guide at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah — not inside the Taj Mahal, where guides are not allowed with a photographer",
+      "guideShort": "Guide at Agra Fort & other monuments; photographer inside the Taj Mahal",
+      "photographer": "Professional photographer throughout, including inside the Taj Mahal",
       "includes": [
-        "Licensed local guide for the full tour",
-        "Professional photographer alongside",
+        "Licensed local guide for the monuments",
+        "Professional photographer throughout",
         "60 natural digital photos",
         "7 reels (group / solo / couple / kids / family)",
         "Group portraits and individual portraits",
         "Taj Mahal, Agra Fort, Mehtab Bagh / Itmad-ud-Daulah",
-        "Best photo locations & pose assistance"
+        "Up to 12 guests"
       ],
       "excludes": [
+        "Guide inside the Taj Mahal — not permitted with a photographer",
         "Monument entry tickets",
-        "Transport between monuments",
         "Meals and personal expenses"
       ],
-      "bestFor": "Families and friend groups travelling together who want one price for everyone."
+      "bestFor": "Families and friend groups travelling together who want one price for everyone.",
+      "photographerShort": "Professional photographer throughout"
     },
     {
       "id": "transport-guide",
       "num": "05",
+      "category": "transport",
       "name": "Transport + Guide",
       "short": "Transport + Guide",
       "subtitle": "Same day tour · Agra only · No photography",
       "usd": 99,
-      "inr": 8000,
       "fromPrice": true,
       "duration": "Same day",
-      "guide": "Ministry of Tourism licensed guide included",
-      "photographer": "Not included — bring your own camera",
+      "guide": "Ministry of Tourism licensed guide included — full guiding, since no photographer travels with you",
+      "guideShort": "Licensed guide included throughout",
+      "photographer": "No photographer — bring your own camera",
       "includes": [
         "Private A/C car with chauffeur",
         "Ministry of Tourism licensed guide",
@@ -139,37 +180,51 @@
         "Monument entry tickets",
         "Meals and personal expenses"
       ],
-      "bestFor": "Independent travellers who shoot their own photos and want a private car and a licensed guide."
+      "bestFor": "Independent travellers who shoot their own photos and want a private car and a licensed guide.",
+      "photographerShort": "None — bring your own camera"
     }
   ],
-  "audiences": {
-    "international": {
-      "label": "International Guests",
-      "currency": "USD",
-      "symbol": "$",
-      "priceKey": "usd",
-      "tickets": "Taj Mahal entry for foreign nationals is about ₹1,300, plus ₹200 to enter the main mausoleum. Agra Fort is about ₹650. Rates are set by the ASI and can change.",
-      "payment": "20% advance by bank transfer, card or PayPal confirms the booking. The balance is paid in cash (USD, EUR, GBP or INR) or by transfer after the tour.",
-      "language": "Your photographer and guide speak English; Hindi, Urdu, French and Spanish guides are available on request.",
-      "extras": [
-        "Carry your passport — it is required to buy monument tickets.",
-        "Sunrise entry is 30 minutes before sunrise; we share the exact meeting time the evening before.",
-        "The Taj Mahal is closed to visitors on Fridays."
-      ]
+  "otherPackages": [
+    {
+      "id": "proposal",
+      "name": "Proposal Photography",
+      "usd": 350,
+      "fromPrice": false,
+      "duration": "1.5 hours",
+      "summary": "Discreet coordination, 50+ photos, same-day sneak peek."
     },
-    "india": {
-      "label": "Indian Guests",
-      "currency": "INR",
-      "symbol": "₹",
-      "priceKey": "inr",
-      "tickets": "Taj Mahal entry for Indian nationals is about ₹50, plus ₹200 to enter the main mausoleum. Agra Fort is about ₹50. Rates are set by the ASI and can change.",
-      "payment": "20% advance by UPI, bank transfer or card confirms the booking. The balance is paid after the tour by UPI, cash or transfer.",
-      "language": "Hindi, Urdu aur English — aapki pasand ki language mein photographer aur guide available hain.",
-      "extras": [
-        "Carry a government photo ID — it is required to buy monument tickets.",
-        "Sunrise entry is 30 minutes before sunrise; we share the exact meeting time the evening before.",
-        "The Taj Mahal is closed to visitors on Fridays."
-      ]
+    {
+      "id": "taj-agra-fort",
+      "name": "Heritage Trail · Taj + Agra Fort",
+      "usd": 399,
+      "fromPrice": false,
+      "duration": "5 hours",
+      "summary": "Both UNESCO sites, 250+ photos, transport between monuments."
+    },
+    {
+      "id": "full-day",
+      "name": "Full Day Agra Experience",
+      "usd": 499,
+      "fromPrice": false,
+      "duration": "8–10 hours",
+      "summary": "Taj Mahal, Agra Fort and the back-side sunset, 350+ photos."
+    },
+    {
+      "id": "sunrise-luxury-innova",
+      "name": "Sunrise Luxury Tour · Private Innova",
+      "usd": 650,
+      "fromPrice": true,
+      "duration": "Same day from Delhi",
+      "summary": "Delhi ↔ Agra, up to 6 guests, tickets and golf cart included."
+    },
+    {
+      "id": "sunrise-luxury-urbania",
+      "name": "Sunrise Luxury Tour · Urbania Coach",
+      "usd": 899,
+      "fromPrice": true,
+      "duration": "Same day from Delhi",
+      "summary": "Delhi ↔ Agra for up to 13 guests, tickets and golf cart included."
     }
-  }
+  ],
+  "ticketsShort": "Monument tickets not included — about ₹50 (Indian) or ₹1,300 (foreign national), plus ₹200 for the mausoleum."
 }
