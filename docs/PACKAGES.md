@@ -1,32 +1,66 @@
-# Packages & Pricing (source of truth)
+# Packages, pricing & PDFs
 
-The five bookable packages, matching `docs/Taj-Mahal-Photography-Packages-2026.pdf`.
-Prices are USD, per package (not per person). Monument entry tickets are never included;
-the official photography permit is included in every photography package.
-Every package is customisable — **20% advance confirms the booking**, balance after the tour.
+`lib/packages.json` is the single source of truth for the five bookable packages:
+the website reads it (prices, the INR rate card, the download links) and
+`scripts/generate-pdfs.mjs` renders every PDF from it. Edit that file, re-run the
+generator, and the site and the PDFs stay in step.
 
-| # | Package | Price | Duration | Key inclusions |
-|---|---------|-------|----------|----------------|
-| 1 | Taj Mahal Sunrise Photoshoot | $120 | 1.5–2 hours | 120+ photos · 3–5 reels (solo/couple/family) · hotel pickup & drop-off |
-| 2 | Couple & Pre-Wedding | from $199 | 2+ hours | 200+ high-res photos · 30 edited photos (guest picks) · 30-sec cinematic video · posing direction |
-| 3 | Guide Tour + Photo · Small Group (1–5) | from $89 | Half day | Licensed guide · photographer · 40 natural digital photos · 5 reels |
-| 4 | Guide Tour + Photo · Large Group (6–12) | from $119 | Half day | Licensed guide · photographer · 60 natural digital photos · 7 reels · group + individual portraits |
-| 5 | Transport + Guide (no photography) | from $99 | Same day, Agra only | Private A/C car + chauffeur · Ministry of Tourism licensed guide · hotel/station/airport pickup · no photographer |
+## Prices
 
-Packages 3–5 cover the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah.
+International guests are quoted USD. Indian guests are quoted a **domestic INR rate
+card** — these are their own round-figure rates, not a conversion of the USD price,
+so a moving exchange rate never makes them wrong.
 
-## Regenerating the PDF
+| # | Package | USD | INR | Duration | Guide |
+|---|---------|-----|-----|----------|-------|
+| 1 | Taj Mahal Sunrise Photoshoot | $120 | ₹10,000 | 1.5–2 hours | Not included |
+| 2 | Couple & Pre-Wedding | from $199 | from ₹15,000 | 2+ hours | Not included |
+| 3 | Guide Tour + Photo · Small Group (1–5) | from $89 | from ₹7,500 | Half day | Included |
+| 4 | Guide Tour + Photo · Large Group (6–12) | from $119 | from ₹10,000 | Half day | Included |
+| 5 | Transport + Guide (no photography) | from $99 | from ₹8,000 | Same day, Agra | Included |
 
-The brochure source is `docs/packages-brochure.html`. Render with headless Chromium:
+Every PDF states the guide position explicitly — included, or not included — so no
+guest assumes a guide comes with a photography-only session.
+
+INR rates for the older plans that are not in the PDF set (proposal, heritage trail,
+full day, the two luxury tours) live in `INR_RATES` in `lib/currency.tsx`.
+
+Shared terms: 20% advance confirms the booking, balance after the tour; every package
+is customisable; monument entry tickets are never included; the photography permit is
+included in every photography package.
+
+## The PDFs
 
 ```sh
-chrome --headless --no-pdf-header-footer \
-  --print-to-pdf=docs/Taj-Mahal-Photography-Packages-2026.pdf \
-  file://$PWD/docs/packages-brochure.html
+npm run pdfs     # renders all 12 files into public/pdf/
 ```
+
+Twelve files — for each audience (`international`, `india`): a one-page sheet per
+package plus a three-page brochure covering all five.
+
+```
+public/pdf/<package-id>-<audience>.pdf     e.g. sunrise-india.pdf
+public/pdf/all-packages-<audience>.pdf
+```
+
+The generator needs a Chromium binary. It finds Playwright's by default; set
+`CHROME_PATH` to point it elsewhere.
+
+Because they live in `public/`, every sheet is downloadable from the site and can be
+linked straight into WhatsApp, e.g.
+`https://tajmahalphotography.com/pdf/sunrise-india.pdf`.
+
+## Where prices appear on the site
+
+- Currency switch: `lib/currency.tsx`, `components/CurrencyToggle.tsx` (in the header)
+- Price rendering: `components/Price.tsx` — plans without an INR rate stay in USD
+- Download links: `components/PackagePdfLinks.tsx` (service pages),
+  `components/PdfDownloadCentre.tsx` (`/services#downloads`)
+
+Prose that quotes a price (FAQ answers, schema.org offers, `llms.txt`) is written in
+USD and updated by hand — grep for the figure when a price changes.
 
 ## Retired packages
 
 Quick Capture ($49) and Family Vacation Photography ($299) were withdrawn; their
 `/services/*` URLs 301-redirect to `/services/sunrise` (see `next.config.ts`).
-Family groups are covered by the sunrise session's reels and the Guide + Photo combos.

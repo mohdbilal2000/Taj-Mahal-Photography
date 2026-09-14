@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Cormorant_Garamond } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SITE } from '@/lib/seo';
+import { CurrencyProvider } from '@/lib/currency';
 import './globals.css';
 
 const inter = Inter({
@@ -152,7 +153,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="ICBM" content={`${SITE.geo.lat}, ${SITE.geo.lng}`} />
       </head>
       <body className="font-sans bg-[#FAFAFA] text-[#1A1A1A] antialiased" suppressHydrationWarning>
-        {children}
+        <CurrencyProvider>{children}</CurrencyProvider>
         <Analytics />
       </body>
     </html>

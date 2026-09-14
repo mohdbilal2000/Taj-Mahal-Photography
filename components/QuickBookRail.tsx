@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Zap, Clock, BadgeCheck, ShieldCheck } from 'lucide-react';
 import { PLANS, QUICK_BOOK_IDS } from '@/lib/plans';
+import Price from './Price';
 
 const quickPlans = QUICK_BOOK_IDS.map((id) => PLANS.find((p) => p.id === id)!).filter(Boolean);
 
@@ -105,15 +106,13 @@ export default function QuickBookRail() {
                   {/* Price footer */}
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-marble-200 mt-5">
                     <div>
-                      {plan.fromPrice && (
-                        <span className="block text-[10px] uppercase tracking-wide text-gray-400">
-                          Starting from
-                        </span>
-                      )}
-                      <span className="text-2xl font-light text-ink-900">
-                        ${plan.price}
-                        <span className="text-xs text-gray-400 ml-1">USD</span>
-                      </span>
+                      <Price
+                        planId={plan.id}
+                        usd={plan.price}
+                        fromPrice={plan.fromPrice}
+                        className="text-2xl font-light text-ink-900"
+                        codeClassName="text-xs text-gray-400 ml-1"
+                      />
                     </div>
                     <span className="flex items-center justify-center w-10 h-10 rounded-full bg-marble-50 border border-marble-200 text-ink-900 transition-all duration-300 group-hover:bg-gold-500 group-hover:border-gold-500">
                       <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" />

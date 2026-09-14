@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import ScarcityBanner from './ScarcityBanner';
+import CurrencyToggle from './CurrencyToggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,8 +26,11 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50">
       <ScarcityBanner />
 
-      <div className="bg-ink-900 text-white text-xs py-2 px-4 text-center tracking-wider font-medium">
-        <span className="text-gold-400">★</span> OFFICIAL GOVERNMENT LICENSED PHOTOGRAPHER <span className="text-gold-400">★</span>
+      <div className="bg-ink-900 text-white text-xs py-2 px-4 tracking-wider font-medium flex items-center justify-center gap-4">
+        <span className="text-center">
+          <span className="text-gold-400">★</span> OFFICIAL GOVERNMENT LICENSED PHOTOGRAPHER <span className="text-gold-400">★</span>
+        </span>
+        <CurrencyToggle className="flex-shrink-0" />
       </div>
 
       <motion.div

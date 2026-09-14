@@ -4,6 +4,8 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import Price from '@/components/Price';
+import PdfDownloadCentre from '@/components/PdfDownloadCentre';
 import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -24,7 +26,7 @@ const services = [
     title: 'Taj Mahal Sunrise Photoshoot',
     description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. Hotel pickup before the shoot and drop-off after are included, and the session is fully customisable to your plans.',
     features: ['1.5–2 Hour Session', '120+ Photos', '3–5 Reels (Solo / Couple / Family)', 'Hotel pickup & drop-off included', 'Customisable — 20% advance confirms booking'],
-    price: '$120',
+    price: 120,
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
@@ -32,7 +34,7 @@ const services = [
     title: 'Couple & Pre-Wedding Photography',
     description: 'Celebrate your love story at the ultimate monument of love. We provide editorial-style posing guidance while capturing candid, romantic moments.',
     features: ['2+ Hour Session', '200+ High-Resolution Photos', '30 Edited Photos (you choose which)', '30 Second Cinematic Video', 'Posing direction', 'Customisable — 20% advance confirms booking'],
-    price: '$199',
+    price: 199,
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
   {
@@ -40,7 +42,7 @@ const services = [
     title: 'Guided Tour + Photo · Small Group (1–5 Guests)',
     description: 'A licensed local guide plus a professional photographer at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. 40 natural digital photos and 5 reels for up to 5 guests. Monument tickets not included.',
     features: ['Licensed local guide for Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah', 'Professional photographer alongside', '40 natural digital photos', '5 reels (couple / solo / family)', 'Best photo locations & pose assistance', 'Up to 5 guests — customisable', '20% advance confirms booking, balance after the tour'],
-    price: '$89',
+    price: 89,
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
@@ -48,7 +50,7 @@ const services = [
     title: 'Guided Tour + Photo · Large Group (6–12 Guests)',
     description: 'The same guide + photographer combo covering the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, scaled up for groups of 6 to 12 guests. 60 natural digital photos and 7 reels. Monument tickets not included.',
     features: ['Licensed local guide for Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah', 'Professional photographer alongside', '60 natural digital photos', '7 reels (group / solo / couple / kids / family)', 'Group portraits + individual portraits', 'Up to 12 guests — customisable', '20% advance confirms booking, balance after the tour'],
-    price: '$119',
+    price: 119,
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
@@ -56,7 +58,7 @@ const services = [
     title: 'Transport + Guide (No Photography)',
     description: 'A same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from $99. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh. No photographer — shoot on your own camera. Monument tickets not included.',
     features: ['Starting from $99 — exact quote on WhatsApp', 'Same day tour · Agra only', 'Private A/C car + chauffeur', 'Ministry of Tourism licensed guide', 'Hotel / railway station / Agra airport pickup', 'Taj Mahal, Agra Fort, Itmad-ud-Daulah & Mehtab Bagh', 'No photographer — bring your own camera'],
-    price: '$99',
+    price: 99,
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
@@ -64,7 +66,7 @@ const services = [
     title: 'Taj Mahal Sunrise Luxury Tour (Innova)',
     description: 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Covers the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort to skip the line. Ideal for couples and small families.',
     features: ['Same Day · 14–16 Hours', 'Private Toyota Innova (Delhi/NCR ↔ Agra)', 'Govt. licensed guide & photographer', 'Taj Mahal + Agra Fort tickets included', 'Private golf cart inside Taj complex', 'Skip-the-line with security escort'],
-    price: '$650',
+    price: 650,
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
   {
@@ -72,7 +74,7 @@ const services = [
     title: 'Taj Mahal Sunrise Luxury Urbania',
     description: 'The flagship same-day sunrise tour from Delhi/NCR for larger families and groups. Travel in a private Force Urbania luxury coach with reclining seats, A/C and Wi-Fi. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj complex, and a security escort to skip the line.',
     features: ['Same Day · 14–16 Hours', 'Private Force Urbania luxury coach', 'Up to 13 guests', 'Govt. licensed guide & photographer', 'Taj Mahal + Agra Fort tickets included', 'Private golf cart inside Taj complex', 'Skip-the-line with security escort'],
-    price: '$899',
+    price: 899,
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
 ];
@@ -110,7 +112,9 @@ export default function ServicesPage() {
                   <div className="flex items-center gap-3 mb-4">
                     <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink-900">{service.title}</h2>
                   </div>
-                  <p className="text-2xl font-light text-gold-600 mb-4">From {service.price} <span className="text-sm text-gray-500">USD</span></p>
+                  <p className="text-2xl font-light text-gold-600 mb-4">
+                    From <Price planId={service.id} usd={service.price} codeClassName="text-sm text-gray-500" />
+                  </p>
                   <p className="text-gray-600 text-lg mb-8">{service.description}</p>
 
                   <ul className="space-y-3 mb-8">
@@ -132,6 +136,10 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          <PdfDownloadCentre />
         </div>
 
         {/* AEO: Direct answers for service queries */}
@@ -189,7 +197,7 @@ export default function ServicesPage() {
                     description: s.description,
                     url: `${SITE.url}/services/${s.id}`,
                     provider: { '@id': `${SITE.url}/#business` },
-                    offers: offerSchema(s.title, Number(s.price.replace('$', '')), s.description, `${SITE.url}/services/${s.id}`),
+                    offers: offerSchema(s.title, s.price, s.description, `${SITE.url}/services/${s.id}`),
                   },
                 })),
               },

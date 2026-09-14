@@ -1,6 +1,8 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import Price from '@/components/Price';
+import PackagePdfLinks from '@/components/PackagePdfLinks';
 import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -88,7 +90,9 @@ export default function SunriseServicePage() {
             <div>
               <div className="bg-marble-50 p-8 border border-marble-200 rounded-sm sticky top-32">
                 <h3 className="font-serif text-2xl font-semibold text-ink-900 mb-2">Package Details</h3>
-                <div className="text-3xl font-light text-ink-900 mb-6">$120 <span className="text-sm text-gray-500">USD</span></div>
+                <div className="text-3xl font-light text-ink-900 mb-6">
+                  <Price planId="sunrise" usd={120} />
+                </div>
 
                 <ul className="space-y-4 mb-8 text-sm text-gray-600">
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Meeting Time: 5:30 AM (Varies by season)</li>
@@ -105,6 +109,7 @@ export default function SunriseServicePage() {
                 <p className="text-xs text-center text-gray-500 mt-4">
                   * Monument entry tickets are not included in the photography fee.
                 </p>
+                <PackagePdfLinks planId="sunrise" />
               </div>
             </div>
           </div>

@@ -5,13 +5,14 @@ import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Users, Camera, ShieldCheck, MapPin, Printer } from 'lucide-react';
+import Price from './Price';
 
 const packages = [
   {
     id: 'guided-photo-tour-small',
     name: 'Guided Tour + Photo · Small Group',
     tagline: '1–5 Guests · Taj Mahal, Agra Fort & more',
-    price: 'From $89',
+    price: 89,
     capacity: 'Up to 5 guests',
     icon: Users,
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
@@ -31,7 +32,7 @@ const packages = [
     id: 'guided-photo-tour-large',
     name: 'Guided Tour + Photo · Large Group',
     tagline: '6–12 Guests · Taj Mahal, Agra Fort & more',
-    price: 'From $119',
+    price: 119,
     capacity: 'Up to 12 guests',
     icon: Users,
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
@@ -135,8 +136,10 @@ export default function GuidedPhotoTours() {
 
                 <div className="p-6 md:p-8 flex-grow flex flex-col">
                   <div className="flex items-end gap-2 mb-1">
-                    <span className="text-4xl font-light text-ink-900">{pkg.price}</span>
-                    <span className="text-sm text-gray-500 mb-1.5">/ total · {pkg.capacity}</span>
+                    <span className="text-4xl font-light text-ink-900">
+                      <Price planId={pkg.id} usd={pkg.price} hideCode />
+                    </span>
+                    <span className="text-sm text-gray-500 mb-1.5">/ from · {pkg.capacity}</span>
                   </div>
 
                   <p className="text-gray-600 text-sm mt-4 mb-6">{pkg.description}</p>

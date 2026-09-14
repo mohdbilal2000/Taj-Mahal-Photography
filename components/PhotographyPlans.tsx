@@ -5,13 +5,14 @@ import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Info } from 'lucide-react';
+import Price from './Price';
 
 const plans = [
   {
     id: 'sunrise',
     name: 'Taj Mahal Sunrise',
     tagline: 'The Essential Experience',
-    price: '$120',
+    price: 120,
     duration: '1.5–2 Hours',
     image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
     description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Hotel pickup and drop-off included, so the whole morning is handled for you.',
@@ -29,7 +30,8 @@ const plans = [
     id: 'pre-wedding',
     name: 'Pre-Wedding & Couple',
     tagline: 'Editorial Romance',
-    price: 'From $199',
+    price: 199,
+    fromPrice: true,
     duration: '2+ Hours',
     image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop',
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
@@ -49,7 +51,7 @@ const plans = [
     id: 'taj-agra-fort',
     name: 'Taj Mahal + Agra Fort',
     tagline: 'The Heritage Trail',
-    price: '$399',
+    price: 399,
     duration: '5 Hours',
     image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop',
     description: 'A comprehensive visual journey covering both UNESCO World Heritage sites in their best respective lighting.',
@@ -67,7 +69,7 @@ const plans = [
     id: 'full-day',
     name: 'Full Day Agra Experience',
     tagline: 'The Ultimate Portfolio',
-    price: '$499',
+    price: 499,
     duration: '8-10 Hours',
     image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
     description: 'Complete coverage of your Agra visit including Taj Mahal, Agra Fort, and Back Side of Taj Mahal.',
@@ -164,7 +166,7 @@ export default function PhotographyPlans() {
                 <div className="mb-6">
                   <div className="flex items-end gap-2 mb-2">
                     <span className="text-3xl font-light text-ink-900">
-                      {plan.price}
+                      <Price planId={plan.id} usd={plan.price} hideCode />
                     </span>
                     <span className="text-sm text-gray-500 mb-1">/ {plan.duration}</span>
                   </div>

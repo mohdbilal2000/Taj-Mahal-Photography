@@ -2,6 +2,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import ContactForm from '@/components/ContactForm';
+import Price from '@/components/Price';
+import PackagePdfLinks from '@/components/PackagePdfLinks';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -463,7 +465,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div>
               <div className="bg-marble-50 p-8 border border-marble-200 rounded-sm sticky top-32">
                 <h3 className="font-serif text-2xl font-semibold text-ink-900 mb-2">{isLuxuryTour ? 'Tour Details' : 'Package Details'}</h3>
-                <div className="text-3xl font-light text-ink-900 mb-1">{(isLuxuryTour || service.fromPrice) && <span className="block text-xs uppercase tracking-wide text-gray-400 font-normal">Starting from</span>}${service.price} <span className="text-sm text-gray-500">USD</span></div>
+                <div className="text-3xl font-light text-ink-900 mb-1">
+                  <Price planId={slug} usd={service.price} fromPrice={isLuxuryTour || service.fromPrice} />
+                </div>
                 <p className="text-sm text-gray-500 mb-6">Duration: {service.duration}</p>
                 <ul className="space-y-3 mb-8 text-sm text-gray-600">
                   {isLuxuryTour ? (
@@ -489,6 +493,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 {!isLuxuryTour && (
                   <p className="text-xs text-center text-gray-500 mt-4">* Monument entry tickets are not included.</p>
                 )}
+                <PackagePdfLinks planId={slug} />
               </div>
             </div>
           </div>
