@@ -5,6 +5,7 @@ import ContactForm from '@/components/ContactForm';
 import Price from '@/components/Price';
 import PackagePdfLinks from '@/components/PackagePdfLinks';
 import TajGuideNotice from '@/components/TajGuideNotice';
+import InrRateNote from '@/components/InrRateNote';
 import packagesData from '@/lib/packages.json';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -483,6 +484,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="text-3xl font-light text-ink-900 mb-1">
                   <Price planId={slug} usd={service.price} fromPrice={isLuxuryTour || service.fromPrice} />
                 </div>
+                <InrRateNote className="mb-2" />
                 <p className="text-sm text-gray-500 mb-6">Duration: {service.duration}</p>
                 <ul className="space-y-3 mb-8 text-sm text-gray-600">
                   {isLuxuryTour ? (

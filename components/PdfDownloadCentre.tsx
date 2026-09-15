@@ -2,7 +2,7 @@
 
 import { Download, FileText } from 'lucide-react';
 import packagesData from '@/lib/packages.json';
-import { formatMoney, toInr } from '@/lib/currency';
+import { formatMoney, toInr, INR_NOTE } from '@/lib/currency';
 
 /**
  * Every rate sheet in one place. Each PDF prints USD and INR together, so a
@@ -61,7 +61,7 @@ export default function PdfDownloadCentre() {
         ))}
       </div>
 
-      <p className="text-sm text-gray-500 mt-6">{packagesData.meta.inrNote}</p>
+      <p className="text-sm text-gray-500 mt-6">{INR_NOTE}</p>
     </section>
   );
 }

@@ -1,9 +1,12 @@
 'use client';
 
 /**
- * Site-wide currency switch. Rupee prices are the dollar price converted at
- * the rate in lib/packages.json and rounded, which is exactly what the PDFs
- * print — one rate constant keeps the site, the sheets and WhatsApp in step.
+ * Site-wide currency switch.
+ *
+ * USD is the real package price; rupees are converted from it at the single
+ * rate in lib/packages.json. Exchange rates move, so that rate — and the date
+ * it was set — is the only thing to edit, and every rupee figure and every
+ * "converted at" line on the site and in the PDFs follows from it.
  *
  * The choice is remembered per browser in localStorage. Server-rendered pages
  * always paint USD first so the static HTML (and anything crawling it) stays
@@ -17,18 +20,22 @@ export type Currency = 'USD' | 'INR';
 
 const STORAGE_KEY = 'tmp:currency';
 
-/**
- * INR is a straight conversion of the USD price, rounded to a clean figure —
- * the same formula scripts/generate-pdfs.mjs uses, so the site and the PDFs
- * always show the same rupee number.
- */
+export const INR_RATE = packagesData.meta.usdToInr;
+export const RATE_UPDATED = packagesData.meta.rateUpdated;
+
+/** Rupees from dollars, at the one rate the whole site shares. */
 export function toInr(usd: number): number {
   const { usdToInr, inrRoundTo } = packagesData.meta;
   return Math.round((usd * usdToInr) / inrRoundTo) * inrRoundTo;
 }
 
-/** The note shown wherever rupee prices appear. */
-export const INR_NOTE = packagesData.meta.inrNote;
+/** The full "how we got this rupee figure" line, built from the rate itself. */
+export const INR_NOTE =
+  `USD is the package price. ₹ is converted at $1 = ₹${INR_RATE} (rate updated ${RATE_UPDATED}) — ` +
+  'exchange rates move, so the rupee amount is confirmed on WhatsApp when you book.';
+
+/** Same thing, short enough to sit under a price. */
+export const INR_NOTE_SHORT = `Converted at $1 = ₹${INR_RATE} · ${packagesData.meta.rateUpdatedShort} · confirmed when you book`;
 
 export function formatMoney(amount: number, currency: Currency): string {
   return currency === 'INR'

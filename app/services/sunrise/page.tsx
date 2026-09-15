@@ -4,6 +4,7 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import Price from '@/components/Price';
 import PackagePdfLinks from '@/components/PackagePdfLinks';
 import TajGuideNotice from '@/components/TajGuideNotice';
+import InrRateNote from '@/components/InrRateNote';
 import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -96,6 +97,7 @@ export default function SunriseServicePage() {
                 <div className="text-3xl font-light text-ink-900 mb-6">
                   <Price planId="sunrise" usd={120} />
                 </div>
+                <InrRateNote className="-mt-4 mb-6" />
 
                 <ul className="space-y-4 mb-8 text-sm text-gray-600">
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Meeting Time: 5:30 AM (Varies by season)</li>

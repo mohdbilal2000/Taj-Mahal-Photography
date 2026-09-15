@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Price from '@/components/Price';
 import PdfDownloadCentre from '@/components/PdfDownloadCentre';
+import InrRateNote from '@/components/InrRateNote';
 import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
@@ -90,6 +91,7 @@ export default function ServicesPage() {
             <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Our Expertise</span>
             <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Photography Services</h1>
             <p className="text-lg text-gray-300">Premium, authorized photoshoots tailored to your needs. All packages include official photography permit authorization.</p>
+            <InrRateNote full className="text-gray-400 mt-4" />
           </div>
         </div>
 

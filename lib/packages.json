@@ -1,9 +1,10 @@
 {
   "meta": {
     "updated": "2026-09",
-    "usdToInr": 88,
-    "inrRoundTo": 500,
-    "inrNote": "INR shown at ₹88 = $1, rounded — indicative, confirmed on WhatsApp when you book."
+    "usdToInr": 95,
+    "inrRoundTo": 5,
+    "rateUpdated": "15 September 2026",
+    "rateUpdatedShort": "15 Sep 2026"
   },
   "notices": {
     "tajGuide": "Inside the Taj Mahal a guide is NOT allowed alongside a photographer. On photography packages your licensed photographer is with you inside; on guide + photo tours the guide covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah, and the photographer takes you through the Taj Mahal.",
@@ -160,7 +161,7 @@
       "category": "transport",
       "name": "Transport + Guide",
       "short": "Transport + Guide",
-      "subtitle": "Same day tour · Agra only · No photography",
+      "subtitle": "Agra only · No photography",
       "usd": 99,
       "fromPrice": true,
       "duration": "Same day",

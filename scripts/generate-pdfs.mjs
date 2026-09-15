@@ -35,11 +35,22 @@ const CHROME_CANDIDATES = [
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-/** INR is a straight conversion of the USD rate, rounded to a clean figure. */
+/** Rupees from dollars, at the one rate in lib/packages.json. */
 export function toInr(usd) {
   const { usdToInr, inrRoundTo } = DATA.meta;
   return Math.round((usd * usdToInr) / inrRoundTo) * inrRoundTo;
 }
+
+/**
+ * The rate line, built from the rate itself so it can never contradict the
+ * numbers printed above it. Mirrors INR_NOTE in lib/currency.tsx.
+ */
+const INR_NOTE =
+  `USD is the package price. ₹ is converted at $1 = ₹${DATA.meta.usdToInr} (rate updated ${DATA.meta.rateUpdated}) — ` +
+  'exchange rates move, so the rupee amount is confirmed on WhatsApp when you book.';
+
+/** Short form, for page footers. */
+const INR_NOTE_SHORT = `₹ converted at $1 = ₹${DATA.meta.usdToInr} · ${DATA.meta.rateUpdatedShort}`;
 
 const usdText = (p) => `$${p.usd.toLocaleString('en-US')}`;
 const inrText = (p) => `₹${toInr(p.usd).toLocaleString('en-IN')}`;
@@ -173,7 +184,7 @@ function sheet(pkg) {
           <div class="per">per package, not per person</div>
         </div>
       </div>
-      <div class="ratefoot">${esc(DATA.meta.inrNote)}</div>
+      <div class="ratefoot">${esc(INR_NOTE)}</div>
 
       <div class="facts">
         <div class="fact"><h4>Duration</h4><p>${esc(pkg.duration)}</p></div>
@@ -240,7 +251,7 @@ function allRates() {
       </div>
       ${showAlert ? `<div class="alert"><h4>Important · Guide rule at the Taj Mahal</h4><p>${esc(DATA.notices.tajGuide)}</p></div>` : ''}
       ${rows.map(row).join('')}
-      <div class="foot"><div>All prices per package · ${esc(DATA.meta.inrNote)}</div><div>WhatsApp ${esc(CONTACT.whatsapp)}</div></div>
+      <div class="foot"><div>All prices per package · ${esc(INR_NOTE_SHORT)}</div><div>WhatsApp ${esc(CONTACT.whatsapp)}</div></div>
     </section>`;
   };
 
@@ -278,7 +289,7 @@ function allRates() {
           <h4 style="color:#e08b7a">Important · Guide rule at the Taj Mahal</h4>
           <p style="color:#ddd7cd">${esc(DATA.notices.tajGuide)}</p>
         </div>
-        <p style="font-size:9pt;color:#8d8578;margin-top:6mm;line-height:1.5;">${esc(DATA.meta.inrNote)} All prices are per package, not per person.</p>
+        <p style="font-size:9pt;color:#8d8578;margin-top:6mm;line-height:1.5;">${esc(INR_NOTE)} All prices are per package, not per person.</p>
       </div>
       <div class="coverfoot">
         <div>WhatsApp <b>${esc(CONTACT.whatsapp)}</b> · ${esc(CONTACT.email)}</div>

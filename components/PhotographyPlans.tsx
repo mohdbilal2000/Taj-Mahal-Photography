@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Info } from 'lucide-react';
 import Price from './Price';
+import InrRateNote from './InrRateNote';
 
 const plans = [
   {
@@ -119,6 +120,7 @@ export default function PhotographyPlans() {
             Transparent pricing for premium, government-licensed photography services.
             All plans include official permit authorization for professional equipment.
           </motion.p>
+          <InrRateNote full className="mt-4" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ArrowRight, Zap, Clock, BadgeCheck, ShieldCheck } from 'lucide-react';
 import { PLANS, QUICK_BOOK_IDS } from '@/lib/plans';
 import Price from './Price';
+import InrRateNote from './InrRateNote';
 
 const quickPlans = QUICK_BOOK_IDS.map((id) => PLANS.find((p) => p.id === id)!).filter(Boolean);
 
@@ -124,10 +125,12 @@ export default function QuickBookRail() {
           ))}
         </div>
 
+        <InrRateNote className="text-center mt-8" />
+
         <p className="text-center text-sm text-gray-500 mt-8">
           Looking for something else?{' '}
           <Link href="/services" className="text-gold-600 font-medium hover:underline">
-            Compare all 12 packages →
+            Compare all {PLANS.length} packages →
           </Link>
         </p>
       </div>

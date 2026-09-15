@@ -1,29 +1,52 @@
 # Packages, pricing & PDFs
 
-`lib/packages.json` is the single source of truth for the five bookable packages:
-the website reads it (prices, the INR rate card, the download links) and
-`scripts/generate-pdfs.mjs` renders every PDF from it. Edit that file, re-run the
-generator, and the site and the PDFs stay in step.
+`lib/packages.json` is the single source of truth: the website reads it (prices, the
+exchange rate, download links, the Taj Mahal guide notice) and
+`scripts/generate-pdfs.mjs` renders every PDF from it. Edit that file, run
+`npm run pdfs`, and the site and the sheets stay in step.
 
-## Prices
+## The Taj Mahal guide rule
 
-International guests are quoted USD. Indian guests are quoted a **domestic INR rate
-card** — these are their own round-figure rates, not a conversion of the USD price,
-so a moving exchange rate never makes them wrong.
+**A guide is not allowed inside the Taj Mahal alongside a photographer.** This is a
+deal-breaker for guests who assume they get both, so it is stated up front, never in
+fine print:
 
-| # | Package | USD | INR | Duration | Guide |
-|---|---------|-----|-----|----------|-------|
-| 1 | Taj Mahal Sunrise Photoshoot | $120 | ₹10,000 | 1.5–2 hours | Not included |
-| 2 | Couple & Pre-Wedding | from $199 | from ₹15,000 | 2+ hours | Not included |
-| 3 | Guide Tour + Photo · Small Group (1–5) | from $89 | from ₹7,500 | Half day | Included |
-| 4 | Guide Tour + Photo · Large Group (6–12) | from $119 | from ₹10,000 | Half day | Included |
-| 5 | Transport + Guide (no photography) | from $99 | from ₹8,000 | Same day, Agra | Included |
+- Photography packages (sunrise, couple/pre-wedding): no guide at all — the licensed
+  photographer is with you inside.
+- Guide + photo tours: the guide covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah;
+  inside the Taj Mahal the photographer takes you through.
+- Transport + Guide: guide throughout, because no photographer travels with you.
 
-Every PDF states the guide position explicitly — included, or not included — so no
-guest assumes a guide comes with a photography-only session.
+On the site it renders as `components/TajGuideNotice.tsx` on every affected package
+page; in the PDFs it is a red banner on every sheet and on each rate-card page.
 
-INR rates for the older plans that are not in the PDF set (proposal, heritage trail,
-full day, the two luxury tours) live in `INR_RATES` in `lib/currency.tsx`.
+## Prices and the exchange rate
+
+**USD is the price. Rupees are converted from it**, at one rate that lives in
+`lib/packages.json`:
+
+```json
+"usdToInr": 95,          // $1 = ₹95
+"inrRoundTo": 5,
+"rateUpdated": "15 September 2026"
+```
+
+Exchange rates move, so this is the only thing to edit when they do. `toInr()` exists
+in both `lib/currency.tsx` and `scripts/generate-pdfs.mjs` and returns the same
+figure, and the "converted at $1 = ₹95, rate updated …" line shown on the site and
+printed in the PDFs is **built from those constants** — it cannot fall out of step
+with the numbers beside it. After changing the rate, run `npm run pdfs`.
+
+| # | Package | USD | INR @ ₹95 | Duration | Guide |
+|---|---------|-----|-----------|----------|-------|
+| 1 | Taj Mahal Sunrise Photoshoot | $120 | ₹11,400 | 1.5–2 hours | None (not allowed with a photographer) |
+| 2 | Couple & Pre-Wedding | from $199 | from ₹18,905 | 2+ hours | None (not allowed with a photographer) |
+| 3 | Guide Tour + Photo · Small Group (1–5) | from $89 | from ₹8,455 | Half day | Outside the Taj Mahal |
+| 4 | Guide Tour + Photo · Large Group (6–12) | from $119 | from ₹11,305 | Half day | Outside the Taj Mahal |
+| 5 | Transport + Guide (no photography) | from $99 | from ₹9,405 | Same day, Agra | Throughout |
+
+Longer photography days and the Delhi luxury tours live in `otherPackages` and appear
+on the "Other Tours" page of the rate card.
 
 Shared terms: 20% advance confirms the booking, balance after the tour; every package
 is customisable; monument entry tickets are never included; the photography permit is
@@ -32,29 +55,32 @@ included in every photography package.
 ## The PDFs
 
 ```sh
-npm run pdfs     # renders all 12 files into public/pdf/
+npm run pdfs     # renders into public/pdf/
 ```
 
-Twelve files — for each audience (`international`, `india`): a one-page sheet per
-package plus a three-page brochure covering all five.
+Every page prints **USD and INR together**, so one file suits any guest.
 
 ```
-public/pdf/<package-id>-<audience>.pdf     e.g. sunrise-india.pdf
-public/pdf/all-packages-<audience>.pdf
+public/pdf/<package-id>.pdf   one big-type page per package (5 files)
+public/pdf/all-rates.pdf      cover + a page per category (photography tours,
+                              guide + photo tours, transport + guide) + other
+                              tours and shared terms
 ```
 
-The generator needs a Chromium binary. It finds Playwright's by default; set
-`CHROME_PATH` to point it elsewhere.
+The generator needs a Chromium binary — it finds Playwright's by default, or set
+`CHROME_PATH`. `PDF_DUMP_DIR=<dir>` writes the HTML instead of rendering, which is
+how to eyeball a layout change quickly.
 
-Because they live in `public/`, every sheet is downloadable from the site and can be
-linked straight into WhatsApp, e.g.
-`https://tajmahalphotography.com/pdf/sunrise-india.pdf`.
+Because they live in `public/`, every sheet is linkable straight into WhatsApp, e.g.
+`https://tajmahalphotography.com/pdf/sunrise.pdf`.
 
 ## Where prices appear on the site
 
-- Currency switch: `lib/currency.tsx`, `components/CurrencyToggle.tsx` (in the header)
-- Price rendering: `components/Price.tsx` — plans without an INR rate stay in USD
-- Download links: `components/PackagePdfLinks.tsx` (service pages),
+- Currency switch: `lib/currency.tsx`, `components/CurrencyToggle.tsx` (header)
+- Price rendering: `components/Price.tsx`
+- The "converted at" line: `components/InrRateNote.tsx` — renders only in ₹ mode,
+  since in dollars there is nothing to qualify
+- Downloads: `components/PackagePdfLinks.tsx` (package pages),
   `components/PdfDownloadCentre.tsx` (`/services#downloads`)
 
 Prose that quotes a price (FAQ answers, schema.org offers, `llms.txt`) is written in
