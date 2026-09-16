@@ -66,7 +66,7 @@ export default function SunriseServicePage() {
                   Beyond the lighting, the sunrise session offers the most crucial advantage for photography: <strong>fewer crowds</strong>. By entering as soon as the gates open, we capture wide, sweeping shots of you with the monument without hundreds of tourists in the background.
                 </p>
 
-                <TajGuideNotice className="mt-10" />
+                <TajGuideNotice planId="sunrise" className="mt-10" />
 
                 <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">What&apos;s Included</h3>
                 <ul className="space-y-2">

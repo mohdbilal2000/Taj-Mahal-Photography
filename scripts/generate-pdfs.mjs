@@ -150,12 +150,17 @@ const CSS = `
 const shell = (title, inner) =>
   `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>${esc(title)}</title><style>${CSS}</style></head><body>${inner}</body></html>`;
 
-/** The guide rule, styled by whether it restricts this package. */
+/**
+ * Whether a guide comes with the package, stated as the headline of the box.
+ * Listing "guide" under *not included* on a tour literally sold as Guide +
+ * Photo reads as "no guide at all", which is the opposite of what is sold —
+ * so a package that includes a guide gets a gold "Guide included" box, and
+ * only the photography-only sessions get the red one.
+ */
 function guideAlert(pkg) {
-  const restricted = pkg.category !== 'transport';
-  return `<div class="alert${restricted ? '' : ' ok'}">
-    <h4>${restricted ? 'Important · Guide rule at the Taj Mahal' : 'Guide included'}</h4>
-    <p>${restricted ? esc(DATA.notices.tajGuideShort) : esc(pkg.guide)}</p>
+  return `<div class="alert${pkg.guideIncluded ? ' ok' : ''}">
+    <h4>${pkg.guideIncluded ? 'Guide included' : 'No guide in this package'}</h4>
+    <p>${esc(pkg.guideNotice)}</p>
   </div>`;
 }
 
@@ -234,12 +239,11 @@ function allRates() {
         </div>
       </div>
       <ul class="inc">${pkg.includes.slice(0, 6).map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
-      <div class="guide"><b>Guide:</b> ${esc(pkg.guideShort)}</div>
+      <div class="guide"><b style="color:${pkg.guideIncluded ? '#8a6f14' : '#b04a3a'}">Guide:</b> ${esc(pkg.guideShort)}</div>
     </div>`;
 
   const categoryPage = (cat, index) => {
     const rows = DATA.packages.filter((p) => p.category === cat.id);
-    const showAlert = cat.id !== 'transport';
     return `<section class="page">
       <div class="head">
         <div class="brand">Taj Mahal <span>Photography</span></div>
@@ -249,7 +253,9 @@ function allRates() {
         <h2>${esc(cat.title)}</h2>
         <p class="blurb">${esc(cat.blurb)}</p>
       </div>
-      ${showAlert ? `<div class="alert"><h4>Important · Guide rule at the Taj Mahal</h4><p>${esc(DATA.notices.tajGuide)}</p></div>` : ''}
+      ${cat.id === 'photography'
+        ? `<div class="alert"><h4>No guide on these sessions</h4><p>${esc(DATA.packages.find((p) => p.category === 'photography').guideNotice)}</p></div>`
+        : `<div class="alert ok"><h4>Guide included</h4><p>${esc(DATA.packages.find((p) => p.category === cat.id).guideNotice)}</p></div>`}
       ${rows.map(row).join('')}
       <div class="foot"><div>All prices per package · ${esc(INR_NOTE_SHORT)}</div><div>WhatsApp ${esc(CONTACT.whatsapp)}</div></div>
     </section>`;

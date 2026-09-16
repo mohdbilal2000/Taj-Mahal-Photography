@@ -7,8 +7,7 @@
     "rateUpdatedShort": "15 Sep 2026"
   },
   "notices": {
-    "tajGuide": "Inside the Taj Mahal a guide is NOT allowed alongside a photographer. On photography packages your licensed photographer is with you inside; on guide + photo tours the guide covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah, and the photographer takes you through the Taj Mahal.",
-    "tajGuideShort": "Inside the Taj Mahal a guide is NOT allowed alongside a photographer. Your photographer is with you inside the Taj; the guide covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah."
+    "tajGuide": "Inside the Taj Mahal, a guide is not permitted alongside a photographer. On the guide + photo tours your guide is included and covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah, and your photographer takes you through the Taj Mahal itself. The photography-only sessions include no guide."
   },
   "tickets": "Monument entry tickets are not included in any package. Taj Mahal entry is about ₹50 for Indian nationals and about ₹1,300 for foreign nationals, plus ₹200 to enter the main mausoleum. Rates are set by the ASI and can change.",
   "terms": [
@@ -23,17 +22,17 @@
     {
       "id": "photography",
       "title": "Photography Tours",
-      "blurb": "A licensed photographer inside the monument. No guide — see the Taj Mahal rule below."
+      "blurb": "A licensed photographer inside the monument. No guide on these sessions — see below."
     },
     {
       "id": "guide-photo",
       "title": "Guide + Photo Tours",
-      "blurb": "A licensed local guide and a professional photographer across Agra's monuments."
+      "blurb": "A licensed local guide and a professional photographer together, across Agra."
     },
     {
       "id": "transport",
       "title": "Transport + Guide Rates",
-      "blurb": "Private car, chauffeur and a licensed guide. No photographer."
+      "blurb": "Private car, chauffeur and a licensed guide throughout. No photographer."
     }
   ],
   "packages": [
@@ -47,8 +46,8 @@
       "usd": 120,
       "fromPrice": false,
       "duration": "1.5–2 hours",
-      "guide": "NO GUIDE — a guide is not allowed with a photographer inside the Taj Mahal",
-      "guideShort": "No guide (not allowed with a photographer inside the Taj Mahal)",
+      "guide": "Not included — this is a photography-only session",
+      "guideShort": "No guide — photography-only session",
       "photographer": "Government-licensed photographer with you throughout",
       "includes": [
         "1.5–2 hour photo session",
@@ -59,12 +58,14 @@
         "Official photography permit included"
       ],
       "excludes": [
-        "Tour guide — not permitted alongside the photographer",
+        "Tour guide — this is a photography-only session",
         "Monument entry tickets",
         "Meals and personal expenses"
       ],
       "bestFor": "First-time visitors, couples and families who want the best light and the fewest crowds.",
-      "photographerShort": "Licensed photographer, with you throughout"
+      "photographerShort": "Licensed photographer, with you throughout",
+      "guideIncluded": false,
+      "guideNotice": "This is a photography-only session, so no guide is included. Inside the Taj Mahal a guide is not permitted alongside a photographer — your licensed photographer is with you throughout."
     },
     {
       "id": "pre-wedding",
@@ -76,8 +77,8 @@
       "usd": 199,
       "fromPrice": true,
       "duration": "2+ hours",
-      "guide": "NO GUIDE — a guide is not allowed with a photographer inside the Taj Mahal",
-      "guideShort": "No guide (not allowed with a photographer inside the Taj Mahal)",
+      "guide": "Not included — this is a photography-only session",
+      "guideShort": "No guide — photography-only session",
       "photographer": "Government-licensed photographer with you throughout",
       "includes": [
         "2+ hour editorial session",
@@ -88,12 +89,14 @@
         "Official photography permit included"
       ],
       "excludes": [
-        "Tour guide — not permitted alongside the photographer",
+        "Tour guide — this is a photography-only session",
         "Monument entry tickets",
         "Outfits, hair and make-up"
       ],
       "bestFor": "Pre-wedding shoots, engagements and anniversaries at the monument of love.",
-      "photographerShort": "Licensed photographer, with you throughout"
+      "photographerShort": "Licensed photographer, with you throughout",
+      "guideIncluded": false,
+      "guideNotice": "This is a photography-only session, so no guide is included. Inside the Taj Mahal a guide is not permitted alongside a photographer — your licensed photographer is with you throughout."
     },
     {
       "id": "guided-photo-tour-small",
@@ -105,8 +108,8 @@
       "usd": 89,
       "fromPrice": true,
       "duration": "Half day",
-      "guide": "Licensed local guide at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah — not inside the Taj Mahal, where guides are not allowed with a photographer",
-      "guideShort": "Guide at Agra Fort & other monuments; photographer inside the Taj Mahal",
+      "guide": "INCLUDED — licensed local guide with you across Agra",
+      "guideShort": "Included — licensed local guide across Agra",
       "photographer": "Professional photographer throughout, including inside the Taj Mahal",
       "includes": [
         "Licensed local guide for the monuments",
@@ -118,12 +121,14 @@
         "Up to 5 guests"
       ],
       "excludes": [
-        "Guide inside the Taj Mahal — not permitted with a photographer",
         "Monument entry tickets",
+        "Transport between monuments",
         "Meals and personal expenses"
       ],
       "bestFor": "Couples, solo travellers and small families who want the history and the photos in one tour.",
-      "photographerShort": "Professional photographer throughout"
+      "photographerShort": "Professional photographer throughout",
+      "guideIncluded": true,
+      "guideNotice": "Your licensed local guide is included and covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. Inside the Taj Mahal itself, guides are not permitted alongside a photographer — so there your photographer takes you through."
     },
     {
       "id": "guided-photo-tour-large",
@@ -135,8 +140,8 @@
       "usd": 119,
       "fromPrice": true,
       "duration": "Half day",
-      "guide": "Licensed local guide at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah — not inside the Taj Mahal, where guides are not allowed with a photographer",
-      "guideShort": "Guide at Agra Fort & other monuments; photographer inside the Taj Mahal",
+      "guide": "INCLUDED — licensed local guide with you across Agra",
+      "guideShort": "Included — licensed local guide across Agra",
       "photographer": "Professional photographer throughout, including inside the Taj Mahal",
       "includes": [
         "Licensed local guide for the monuments",
@@ -148,12 +153,14 @@
         "Up to 12 guests"
       ],
       "excludes": [
-        "Guide inside the Taj Mahal — not permitted with a photographer",
         "Monument entry tickets",
+        "Transport between monuments",
         "Meals and personal expenses"
       ],
       "bestFor": "Families and friend groups travelling together who want one price for everyone.",
-      "photographerShort": "Professional photographer throughout"
+      "photographerShort": "Professional photographer throughout",
+      "guideIncluded": true,
+      "guideNotice": "Your licensed local guide is included and covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. Inside the Taj Mahal itself, guides are not permitted alongside a photographer — so there your photographer takes you through."
     },
     {
       "id": "transport-guide",
@@ -165,8 +172,8 @@
       "usd": 99,
       "fromPrice": true,
       "duration": "Same day",
-      "guide": "Ministry of Tourism licensed guide included — full guiding, since no photographer travels with you",
-      "guideShort": "Licensed guide included throughout",
+      "guide": "INCLUDED — Ministry of Tourism licensed guide, everywhere",
+      "guideShort": "Included — licensed guide throughout, Taj Mahal included",
       "photographer": "No photographer — bring your own camera",
       "includes": [
         "Private A/C car with chauffeur",
@@ -182,7 +189,9 @@
         "Meals and personal expenses"
       ],
       "bestFor": "Independent travellers who shoot their own photos and want a private car and a licensed guide.",
-      "photographerShort": "None — bring your own camera"
+      "photographerShort": "None — bring your own camera",
+      "guideIncluded": true,
+      "guideNotice": "A Ministry of Tourism licensed guide is included throughout. No photographer travels with you on this tour, so the guide stays with you everywhere — the Taj Mahal included."
     }
   ],
   "otherPackages": [
