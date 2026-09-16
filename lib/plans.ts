@@ -1,3 +1,5 @@
+import { planImage } from './images';
+
 // Single source of truth for bookable plans — consumed by the QuickBookRail,
 // the booking form (plan preselection via /book?plan=<id>) and anywhere else
 // a compact plan list is needed. IDs match the /services/[slug] routes.
@@ -11,8 +13,8 @@ export type Plan = {
   /** One-line hook shown in compact lists. */
   tagline: string;
   duration: string;
-  /** Card image for tour-card grids. */
-  image: string;
+  /** Card image for tour-card grids (resolved from lib/images.ts). */
+  image?: string;
   /** Short badge shown on tour cards, e.g. "Bestseller". */
   badge?: string;
   /** Highlighted in the quick-book rail. */
@@ -28,7 +30,6 @@ export const PLANS: Plan[] = [
     price: 120,
     tagline: '120+ photos, 3–5 reels and hotel pickup & drop included',
     duration: '1.5–2 Hours',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
     badge: 'Bestseller',
     popular: true,
   },
@@ -39,7 +40,6 @@ export const PLANS: Plan[] = [
     fromPrice: true,
     tagline: '200+ high-resolution photos, 30 edited photos and a cinematic video',
     duration: '2+ Hours',
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
     badge: 'Couples\u2019 Favourite',
   },
   {
@@ -49,7 +49,6 @@ export const PLANS: Plan[] = [
     fromPrice: true,
     tagline: 'Licensed guide + photographer, 40 natural digital photos and 5 reels',
     duration: 'Half Day',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
     badge: 'Best Value',
   },
   {
@@ -59,7 +58,6 @@ export const PLANS: Plan[] = [
     fromPrice: true,
     tagline: 'Same combo for bigger groups — 60 natural digital photos and 7 reels',
     duration: 'Half Day',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'transport-guide',
@@ -68,7 +66,6 @@ export const PLANS: Plan[] = [
     fromPrice: true,
     tagline: 'Same-day Agra tour — private A/C car + licensed guide, bring your own camera',
     duration: 'Same Day · Agra',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
     badge: 'Customisable',
   },
   {
@@ -77,7 +74,6 @@ export const PLANS: Plan[] = [
     price: 350,
     tagline: 'Discreet coordination and a same-day sneak peek',
     duration: '1.5 Hours',
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'taj-agra-fort',
@@ -85,7 +81,6 @@ export const PLANS: Plan[] = [
     price: 399,
     tagline: 'Both UNESCO sites, 250+ photos, transport included',
     duration: '5 Hours',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'full-day',
@@ -93,7 +88,6 @@ export const PLANS: Plan[] = [
     price: 499,
     tagline: 'Taj Mahal, Agra Fort and the back-side sunset — 350+ photos',
     duration: '8–10 Hours',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'sunrise-luxury-innova',
@@ -102,7 +96,6 @@ export const PLANS: Plan[] = [
     fromPrice: true,
     tagline: 'Same-day Delhi ↔ Agra, all-inclusive, up to 6 guests',
     duration: 'Same Day · 14–16 Hours',
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
     badge: 'All-Inclusive',
   },
   {
@@ -112,7 +105,6 @@ export const PLANS: Plan[] = [
     fromPrice: true,
     tagline: 'Same-day Delhi ↔ Agra for groups up to 13, all-inclusive',
     duration: 'Same Day · 14–16 Hours',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
 ];
 
@@ -145,6 +137,11 @@ const PLAN_ALIASES: Record<string, string> = {
   couple: 'pre-wedding',
   'transport-photography': 'transport-guide',
 };
+
+/** A plan's card image, from the shared photo map. */
+export function imageForPlan(plan: Plan): string {
+  return plan.image ?? planImage(plan.id);
+}
 
 export function planById(id: string | null | undefined): Plan | undefined {
   if (!id) return undefined;

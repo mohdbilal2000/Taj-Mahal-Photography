@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import MobileActionBar from '@/components/MobileActionBar';
 import Price from '@/components/Price';
 import PackagePdfLinks from '@/components/PackagePdfLinks';
 import TajGuideNotice from '@/components/TajGuideNotice';
@@ -125,6 +126,7 @@ export default function SunriseServicePage() {
 
       <Footer />
       <StickyWhatsApp />
+      <MobileActionBar />
 
       <script
         type="application/ld+json"

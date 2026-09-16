@@ -13,6 +13,7 @@ import FAQ from '@/components/FAQ';
 import { faqs as siteFaqs, testimonials } from '@/lib/content';
 import ContactForm from '@/components/ContactForm';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import MobileActionBar from '@/components/MobileActionBar';
 import BackToTop from '@/components/BackToTop';
 import {
   localBusinessSchema,
@@ -112,7 +113,7 @@ export default function Home() {
   ]);
 
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="min-h-screen flex flex-col">
       <Header />
 
       <main className="flex-grow">
@@ -151,6 +152,7 @@ export default function Home() {
 
       <Footer />
       <StickyWhatsApp />
+      <MobileActionBar />
       <BackToTop />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(graph) }} />

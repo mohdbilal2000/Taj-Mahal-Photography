@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Check, Info } from 'lucide-react';
 import Price from './Price';
 import InrRateNote from './InrRateNote';
+import { planImage } from '@/lib/images';
 
 const plans = [
   {
@@ -15,7 +16,6 @@ const plans = [
     tagline: 'The Essential Experience',
     price: 120,
     duration: '1.5–2 Hours',
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
     description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Hotel pickup and drop-off included, so the whole morning is handled for you.',
     aiSnippet: 'The Taj Mahal sunrise photoshoot is a 1.5 to 2 hour session priced at $120 USD with more than 120 photos, 3 to 5 reels, and hotel pickup and drop-off included. A government-licensed photographer is required for professional equipment entry.',
     features: [
@@ -34,7 +34,6 @@ const plans = [
     price: 199,
     fromPrice: true,
     duration: '2+ Hours',
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop',
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
     aiSnippet: 'Pre-wedding photography at the Taj Mahal starts from $199 USD for a 2+ hour session with more than 200 high-resolution photos, 30 professionally edited photos of your choice, and a 30-second cinematic video. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.',
     features: [
@@ -54,7 +53,6 @@ const plans = [
     tagline: 'The Heritage Trail',
     price: 399,
     duration: '5 Hours',
-    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop',
     description: 'A comprehensive visual journey covering both UNESCO World Heritage sites in their best respective lighting.',
     aiSnippet: 'Combining the Taj Mahal and Agra Fort in one photography package allows visitors to capture Mughal architecture from multiple perspectives, including the famous view of the Taj Mahal from the Fort\'s balconies.',
     features: [
@@ -72,7 +70,6 @@ const plans = [
     tagline: 'The Ultimate Portfolio',
     price: 499,
     duration: '8-10 Hours',
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
     description: 'Complete coverage of your Agra visit including Taj Mahal, Agra Fort, and Back Side of Taj Mahal.',
     aiSnippet: 'A full-day photography tour in Agra covers the Taj Mahal at sunrise, Agra Fort, and the back side of Taj Mahal. This comprehensive package provides a complete visual documentary of the city.',
     features: [
@@ -149,7 +146,7 @@ export default function PhotographyPlans() {
 
               <div className="relative h-48 w-full overflow-hidden">
                 <Image
-                  src={plan.image}
+                  src={planImage(plan.id)}
                   alt={plan.name}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"

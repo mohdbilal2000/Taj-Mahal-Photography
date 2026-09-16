@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import MobileActionBar from '@/components/MobileActionBar';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { breadcrumbSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
@@ -135,6 +136,7 @@ export default function PermitGuidePage() {
 
       <Footer />
       <StickyWhatsApp />
+      <MobileActionBar />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import MobileActionBar from '@/components/MobileActionBar';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,6 +9,7 @@ import Price from '@/components/Price';
 import PdfDownloadCentre from '@/components/PdfDownloadCentre';
 import InrRateNote from '@/components/InrRateNote';
 import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
+import { planImage } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Photography Services & Sunrise Luxury Tours from Delhi',
@@ -28,7 +30,6 @@ const services = [
     description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. Hotel pickup before the shoot and drop-off after are included, and the session is fully customisable to your plans.',
     features: ['1.5–2 Hour Session', '120+ Photos', '3–5 Reels (Solo / Couple / Family)', 'Hotel pickup & drop-off included', 'Customisable — 20% advance confirms booking'],
     price: 120,
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'couple',
@@ -36,7 +37,6 @@ const services = [
     description: 'Celebrate your love story at the ultimate monument of love. We provide editorial-style posing guidance while capturing candid, romantic moments.',
     features: ['2+ Hour Session', '200+ High-Resolution Photos', '30 Edited Photos (you choose which)', '30 Second Cinematic Video', 'Posing direction', 'Customisable — 20% advance confirms booking'],
     price: 199,
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'guided-photo-tour-small',
@@ -44,7 +44,6 @@ const services = [
     description: 'A licensed local guide across Agra plus a professional photographer at every monument. 40 natural digital photos and 5 reels for up to 5 guests. Guides are not allowed inside the Taj Mahal alongside a photographer, so your photographer takes you through the Taj. Monument tickets not included.',
     features: ['Licensed local guide at Agra Fort, Mehtab Bagh & Itmad-ud-Daulah (guides are not allowed inside the Taj Mahal with a photographer)', 'Professional photographer alongside', '40 natural digital photos', '5 reels (couple / solo / family)', 'Best photo locations & pose assistance', 'Up to 5 guests — customisable', '20% advance confirms booking, balance after the tour'],
     price: 89,
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'guided-photo-tour-large',
@@ -52,7 +51,6 @@ const services = [
     description: 'The same guide + photographer combo covering the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, scaled up for groups of 6 to 12 guests. 60 natural digital photos and 7 reels. Guides are not allowed inside the Taj Mahal alongside a photographer. Monument tickets not included.',
     features: ['Licensed local guide at Agra Fort, Mehtab Bagh & Itmad-ud-Daulah (guides are not allowed inside the Taj Mahal with a photographer)', 'Professional photographer alongside', '60 natural digital photos', '7 reels (group / solo / couple / kids / family)', 'Group portraits + individual portraits', 'Up to 12 guests — customisable', '20% advance confirms booking, balance after the tour'],
     price: 119,
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'transport-guide',
@@ -60,7 +58,6 @@ const services = [
     description: 'A same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from $99. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh. No photographer — shoot on your own camera. Monument tickets not included.',
     features: ['Starting from $99 — exact quote on WhatsApp', 'Same day tour · Agra only', 'Private A/C car + chauffeur', 'Ministry of Tourism licensed guide', 'Hotel / railway station / Agra airport pickup', 'Taj Mahal, Agra Fort, Itmad-ud-Daulah & Mehtab Bagh', 'No photographer — bring your own camera'],
     price: 99,
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'sunrise-luxury-innova',
@@ -68,7 +65,6 @@ const services = [
     description: 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Covers the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort to skip the line. Ideal for couples and small families.',
     features: ['Same Day · 14–16 Hours', 'Private Toyota Innova (Delhi/NCR ↔ Agra)', 'Govt. licensed guide & photographer', 'Taj Mahal + Agra Fort tickets included', 'Private golf cart inside Taj complex', 'Skip-the-line with security escort'],
     price: 650,
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'sunrise-luxury-urbania',
@@ -76,7 +72,6 @@ const services = [
     description: 'The flagship same-day sunrise tour from Delhi/NCR for larger families and groups. Travel in a private Force Urbania luxury coach with reclining seats, A/C and Wi-Fi. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj complex, and a security escort to skip the line.',
     features: ['Same Day · 14–16 Hours', 'Private Force Urbania luxury coach', 'Up to 13 guests', 'Govt. licensed guide & photographer', 'Taj Mahal + Agra Fort tickets included', 'Private golf cart inside Taj complex', 'Skip-the-line with security escort'],
     price: 899,
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
   },
 ];
 
@@ -102,7 +97,7 @@ export default function ServicesPage() {
                 <div className="w-full lg:w-1/2">
                   <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-xl">
                     <Image
-                      src={service.image}
+                      src={planImage(service.id)}
                       alt={service.title}
                       fill
                       className="object-cover"
@@ -168,6 +163,7 @@ export default function ServicesPage() {
 
       <Footer />
       <StickyWhatsApp />
+      <MobileActionBar />
 
       <script
         type="application/ld+json"

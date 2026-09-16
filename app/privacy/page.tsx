@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import MobileActionBar from '@/components/MobileActionBar';
 import { Metadata } from 'next';
 import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
 
@@ -329,6 +330,7 @@ export default function PrivacyPage() {
 
       <Footer />
       <StickyWhatsApp />
+      <MobileActionBar />
 
       <script
         type="application/ld+json"

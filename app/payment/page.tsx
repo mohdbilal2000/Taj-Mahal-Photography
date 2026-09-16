@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import MobileActionBar from '@/components/MobileActionBar';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
@@ -284,6 +285,7 @@ export default function PaymentPage() {
       </main>
       <Footer />
       <StickyWhatsApp />
+      <MobileActionBar />
 
       <script
         type="application/ld+json"

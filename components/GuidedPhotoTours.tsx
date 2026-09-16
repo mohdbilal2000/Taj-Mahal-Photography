@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Check, Users, Camera, ShieldCheck, MapPin, Printer } from 'lucide-react';
 import Price from './Price';
+import { planImage } from '@/lib/images';
 
 const packages = [
   {
@@ -15,7 +16,6 @@ const packages = [
     price: 89,
     capacity: 'Up to 5 guests',
     icon: Users,
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop',
     description:
       'A guided walk through the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah with a licensed local guide and a professional photographer. Includes 40 natural digital photos and 5 reels. Inside the Taj Mahal a guide is not allowed with a photographer, so your photographer takes you through the Taj.',
     features: [
@@ -35,7 +35,6 @@ const packages = [
     price: 119,
     capacity: 'Up to 12 guests',
     icon: Users,
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
     description:
       'The same guided tour and photography combo scaled up for larger groups of 6 to 12 guests. Group portraits plus individual portraits at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, with 60 natural digital photos and 7 reels. Guides are not allowed inside the Taj Mahal alongside a photographer.',
     features: [
@@ -116,7 +115,7 @@ export default function GuidedPhotoTours() {
 
                 <div className="relative h-56 w-full overflow-hidden">
                   <Image
-                    src={pkg.image}
+                    src={planImage(pkg.id)}
                     alt={pkg.name}
                     fill
                     className="object-cover"

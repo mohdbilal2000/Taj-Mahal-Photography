@@ -5,7 +5,7 @@ import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Zap, Clock, BadgeCheck, ShieldCheck } from 'lucide-react';
-import { PLANS, QUICK_BOOK_IDS } from '@/lib/plans';
+import { PLANS, QUICK_BOOK_IDS, imageForPlan } from '@/lib/plans';
 import Price from './Price';
 import InrRateNote from './InrRateNote';
 
@@ -68,7 +68,7 @@ export default function QuickBookRail() {
                 {/* Image header */}
                 <div className="relative h-40 w-full overflow-hidden">
                   <Image
-                    src={plan.image}
+                    src={imageForPlan(plan)}
                     alt={plan.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"

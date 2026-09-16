@@ -76,37 +76,29 @@ export default function AuthoritySection() {
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => {
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-marble-200 border border-marble-200 rounded-sm overflow-hidden"
+        >
+          {features.map((feature) => {
             const Icon = feature.icon;
 
             return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 40 }
-                }
-                transition={{
-                  duration: 0.5,
-                  delay: (index + 1) * 0.1,
-                  ease: 'easeOut',
-                }}
-                className="p-8 bg-white border border-marble-200 rounded-lg text-center hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              <div
+                key={feature.title}
+                className="group bg-white p-6 md:p-8 h-full transition-colors duration-300 hover:bg-marble-50"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-marble-50 mb-6">
-                  <Icon className="h-8 w-8 text-gold-500" />
-                </div>
-                <h3 className="font-serif text-xl font-semibold text-ink-900 mb-3">
+                <Icon className="h-6 w-6 text-gold-500 mb-5" strokeWidth={1.5} />
+                <h3 className="font-serif text-lg md:text-xl font-semibold text-ink-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-gray-600">{feature.description}</p>
-              </motion.div>
+                <p className="text-sm text-ink-500 leading-relaxed">{feature.description}</p>
+              </div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

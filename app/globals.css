@@ -1,18 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-marble-50: #FAFAFA;
-  --color-marble-100: #F5F5F5;
-  --color-marble-200: #E5E5E5;
-  --color-marble-300: #D4D4D4;
+  /* Warm marble rather than flat grey — paper, not screen. */
+  --color-marble-50: #FBF9F5;
+  --color-marble-100: #F4F1EA;
+  --color-marble-200: #E7E2D8;
+  --color-marble-300: #D5CEC0;
   --color-gold-400: #D4AF37;
-  --color-gold-500: #C5A028;
-  --color-gold-600: #AA8A22;
-  --color-ink-900: #1A1A1A;
-  --color-ink-800: #2D2D2D;
+  --color-gold-500: #C9A227;
+  --color-gold-600: #A8851C;
+  --color-gold-700: #8A6D14;
+  --color-ink-900: #14110F;
+  --color-ink-800: #241F1B;
+  --color-ink-700: #3A332C;
+  --color-ink-500: #6F675C;
+  --color-ink-400: #8D8578;
 
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
+
+  /* Fluid display sizes: one scale from 390px to 1440px, no breakpoint jumps. */
+  --text-display: clamp(2.75rem, 1.6rem + 5.2vw, 6rem);
+  --text-h1: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+  --text-h2: clamp(1.75rem, 1.2rem + 2.2vw, 3rem);
+  --text-h3: clamp(1.35rem, 1.1rem + 1vw, 1.875rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.5vw, 1.3125rem);
+
+  /* Layered, warm-tinted shadows — the tell of an expensive interface. */
+  --shadow-soft: 0 1px 2px rgba(20, 17, 15, 0.04), 0 8px 24px -12px rgba(20, 17, 15, 0.12);
+  --shadow-lift: 0 2px 4px rgba(20, 17, 15, 0.05), 0 18px 40px -18px rgba(20, 17, 15, 0.22);
+  --shadow-deep: 0 4px 8px rgba(20, 17, 15, 0.06), 0 32px 64px -24px rgba(20, 17, 15, 0.3);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ───── Base ───── */
@@ -94,4 +113,115 @@ body {
   height: 3px;
   background: linear-gradient(90deg, #D4AF37, #AA8A22);
   border-radius: 2px;
+}
+
+/* ───── Typography rhythm ───── */
+/* Large serif needs negative tracking; small caps labels need the opposite. */
+.display {
+  font-family: var(--font-serif);
+  font-size: var(--text-display);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+}
+
+.h1-fluid { font-size: var(--text-h1); line-height: 1.05; letter-spacing: -0.015em; }
+.h2-fluid { font-size: var(--text-h2); line-height: 1.1; letter-spacing: -0.01em; }
+.h3-fluid { font-size: var(--text-h3); line-height: 1.2; }
+.lead { font-size: var(--text-lead); line-height: 1.65; }
+
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Balanced headline wrapping — no orphan words in display type. */
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* ───── Surfaces ───── */
+.hairline { border-color: color-mix(in srgb, var(--color-ink-900) 10%, transparent); }
+
+.card-lift {
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo),
+    border-color 0.4s ease;
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Photograph inside a card: the image moves, the frame does not. */
+.img-zoom { overflow: hidden; }
+.img-zoom img {
+  transition: transform 0.9s var(--ease-out-expo);
+  will-change: transform;
+}
+.group:hover .img-zoom img,
+.img-zoom:hover img {
+  transform: scale(1.06);
+}
+
+/* Legibility scrim for text over photography — stronger at the base where
+   copy sits, so the image still reads as an image at the top. */
+.scrim-hero {
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 17, 15, 0.55) 0%,
+    rgba(20, 17, 15, 0.3) 35%,
+    rgba(20, 17, 15, 0.62) 72%,
+    rgba(20, 17, 15, 0.86) 100%
+  );
+}
+.scrim-card {
+  background: linear-gradient(to top, rgba(20, 17, 15, 0.92) 0%, rgba(20, 17, 15, 0.1) 55%, transparent 100%);
+}
+
+/* Fine grain over dark photography — kills banding, reads as print. */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Gold hairline that draws itself on hover — used on text links. */
+.link-sweep {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.45s var(--ease-out-expo);
+}
+.link-sweep:hover { background-size: 100% 1px; }
+
+/* ───── Accessibility ───── */
+:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Respect the OS setting: no transforms, no parallax, no autoplay motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card-lift:hover { transform: none; }
+  .group:hover .img-zoom img { transform: none; }
+}
+
+/* Room for the mobile action bar so it never covers the last element. */
+@supports (padding: max(0px)) {
+  .pb-action-bar { padding-bottom: max(5.5rem, calc(4.5rem + env(safe-area-inset-bottom))); }
 }

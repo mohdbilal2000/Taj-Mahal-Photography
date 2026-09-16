@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import MobileActionBar from '@/components/MobileActionBar';
 import ContactForm from '@/components/ContactForm';
 import Price from '@/components/Price';
 import PackagePdfLinks from '@/components/PackagePdfLinks';
@@ -519,6 +520,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </main>
       <Footer />
       <StickyWhatsApp />
+      <MobileActionBar />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(graph) }} />
     </div>

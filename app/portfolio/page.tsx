@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
+import MobileActionBar from '@/components/MobileActionBar';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -70,6 +71,7 @@ export default function PortfolioPage() {
       </main>
       <Footer />
       <StickyWhatsApp />
+      <MobileActionBar />
 
       <script
         type="application/ld+json"
