@@ -15,13 +15,16 @@
 const U = (id: string, w = 1200) =>
   `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 
-/** Distinct frames, so neighbouring cards never show the same picture. */
+/**
+ * Distinct frames, spread so neighbouring cards never repeat one. All are
+ * Agra: a Delhi frame (India Gate) was previously landing on the Agra-only
+ * transport card, which reads as a different city's tour.
+ */
 const FRAMES = {
   reflectingPool: 'photo-1564507592333-c60657eea523',
   couple: 'photo-1585506942812-e72b29cef752',
   gardens: 'photo-1548013146-72479768bada',
   archway: 'photo-1524492412937-b28074a5d7da',
-  detail: 'photo-1587474260584-136574528ed5',
 } as const;
 
 export const HERO_IMAGE = U(FRAMES.reflectingPool, 2400);
@@ -30,13 +33,14 @@ export const HERO_IMAGE = U(FRAMES.reflectingPool, 2400);
 export const PLAN_IMAGES: Record<string, string> = {
   sunrise: U(FRAMES.reflectingPool),
   'pre-wedding': U(FRAMES.couple),
-  'guided-photo-tour-small': U(FRAMES.archway),
-  'guided-photo-tour-large': U(FRAMES.gardens),
-  'transport-guide': U(FRAMES.detail),
+  'guided-photo-tour-small': U(FRAMES.gardens),
+  'guided-photo-tour-large': U(FRAMES.archway),
+  // Four frames across five cards: the one repeat sits diagonally opposite.
+  'transport-guide': U(FRAMES.reflectingPool),
   proposal: U(FRAMES.couple),
   'taj-agra-fort': U(FRAMES.archway),
   'full-day': U(FRAMES.gardens),
-  'sunrise-luxury-innova': U(FRAMES.detail),
+  'sunrise-luxury-innova': U(FRAMES.couple),
   'sunrise-luxury-urbania': U(FRAMES.gardens),
 };
 

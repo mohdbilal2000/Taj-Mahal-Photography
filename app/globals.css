@@ -225,3 +225,16 @@ body {
 @supports (padding: max(0px)) {
   .pb-action-bar { padding-bottom: max(5.5rem, calc(4.5rem + env(safe-area-inset-bottom))); }
 }
+
+/* ───── Entrance ───── */
+/* CSS-driven so the markup ships visible: a JS-gated opacity:0 would hide the
+   H1 from anything that does not run scripts. Reduced-motion zeroes the
+   duration above, which lands straight on the final state. */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+.rise {
+  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

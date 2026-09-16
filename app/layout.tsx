@@ -151,6 +151,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="geo.placename" content="Agra, Uttar Pradesh, India" />
         <meta name="geo.position" content={`${SITE.geo.lat};${SITE.geo.lng}`} />
         <meta name="ICBM" content={`${SITE.geo.lat}, ${SITE.geo.lng}`} />
+        {/* Sections below the fold reveal via motion, which renders its initial
+            opacity:0 into the server HTML. Without JS that content would stay
+            invisible, so force it visible when scripts do not run. */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
       </head>
       <body className="font-sans bg-[#FAFAFA] text-[#1A1A1A] antialiased" suppressHydrationWarning>
         <CurrencyProvider>{children}</CurrencyProvider>
