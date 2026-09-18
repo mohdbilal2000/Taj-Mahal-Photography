@@ -43,9 +43,14 @@ type ServiceData = {
   audience?: string;
 };
 
-/** Slugs whose package includes a photographer inside the Taj Mahal. */
-const PACKAGES_WITH_GUIDE_RULE = new Set([
-  ...packagesData.packages.filter((p) => p.category !== 'transport').map((p) => p.id),
+/**
+ * Photography-only sessions, which include no guide. They are the only pages
+ * that carry the guide notice: on a tour that does include a guide, a box
+ * about where he cannot follow reads as "no guide", which is the opposite of
+ * what is sold.
+ */
+const PACKAGES_WITHOUT_GUIDE = new Set([
+  ...packagesData.packages.filter((p) => !p.guideIncluded).map((p) => p.id),
   'couple',
   'taj-agra-fort',
   'full-day',
@@ -347,8 +352,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const pageUrl = `${SITE.url}/services/${slug}`;
   const isLuxuryTour = Boolean(service.tourSlug);
-  /** Packages that put a photographer inside the Taj Mahal, where a guide cannot follow. */
-  const showsGuideNotice = PACKAGES_WITH_GUIDE_RULE.has(slug);
+  /** Only sessions that include no guide carry the notice — see PACKAGES_WITHOUT_GUIDE. */
+  const showsGuideNotice = PACKAGES_WITHOUT_GUIDE.has(slug);
 
   const tripOrService = isLuxuryTour && service.tourSlug
     ? luxuryTourSchema({

@@ -83,6 +83,9 @@ const CSS = `
   .fact { border: 1px solid #e3ded4; padding: 4.5mm 5mm; }
   .fact h4 { font-size: 8pt; letter-spacing: 2pt; text-transform: uppercase; color: #8d8578; margin-bottom: 3px; }
   .fact p { font-size: 10.5pt; font-weight: 600; line-height: 1.35; }
+  .facts-3 { grid-template-columns: 1fr 1.25fr 1.15fr; }
+  .facts-3 .fact p { font-size: 9.6pt; }
+  .fact p.yes { color: #8a6f14; }
 
   /* The Taj guide rule is a deal-breaker, so it is a banner, not fine print. */
   .alert { margin-top: 5mm; border: 2px solid #b04a3a; background: #fdf4f2; padding: 4.5mm 6mm; }
@@ -158,8 +161,13 @@ const shell = (title, inner) =>
  * only the photography-only sessions get the red one.
  */
 function guideAlert(pkg) {
-  return `<div class="alert${pkg.guideIncluded ? ' ok' : ''}">
-    <h4>${pkg.guideIncluded ? 'Guide included' : 'No guide in this package'}</h4>
+  // A package that includes a guide gets no notice at all: the guide is in the
+  // inclusions and in the Guide line, and a box explaining where he cannot
+  // follow only makes a guest doubt what they are buying. The warning belongs
+  // on the photography-only sessions, where there genuinely is no guide.
+  if (pkg.guideIncluded) return '';
+  return `<div class="alert">
+    <h4>No guide in this package</h4>
     <p>${esc(pkg.guideNotice)}</p>
   </div>`;
 }
@@ -191,8 +199,9 @@ function sheet(pkg) {
       </div>
       <div class="ratefoot">${esc(INR_NOTE)}</div>
 
-      <div class="facts">
+      <div class="facts facts-3">
         <div class="fact"><h4>Duration</h4><p>${esc(pkg.duration)}</p></div>
+        <div class="fact"><h4>Guide</h4><p${pkg.guideIncluded ? ' class="yes"' : ''}>${esc(pkg.guideShort)}</p></div>
         <div class="fact"><h4>Photographer</h4><p>${esc(pkg.photographerShort)}</p></div>
       </div>
 
@@ -255,7 +264,7 @@ function allRates() {
       </div>
       ${cat.id === 'photography'
         ? `<div class="alert"><h4>No guide on these sessions</h4><p>${esc(DATA.packages.find((p) => p.category === 'photography').guideNotice)}</p></div>`
-        : `<div class="alert ok"><h4>Guide included</h4><p>${esc(DATA.packages.find((p) => p.category === cat.id).guideNotice)}</p></div>`}
+        : ''}
       ${rows.map(row).join('')}
       <div class="foot"><div>All prices per package · ${esc(INR_NOTE_SHORT)}</div><div>WhatsApp ${esc(CONTACT.whatsapp)}</div></div>
     </section>`;

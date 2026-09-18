@@ -27,7 +27,7 @@
     {
       "id": "guide-photo",
       "title": "Guide + Photo Tours",
-      "blurb": "A licensed local guide and a professional photographer together, across Agra."
+      "blurb": "A licensed local guide and a professional photographer, both included, across Agra."
     },
     {
       "id": "transport",
@@ -47,7 +47,7 @@
       "fromPrice": false,
       "duration": "1.5–2 hours",
       "guide": "Not included — this is a photography-only session",
-      "guideShort": "No guide — photography-only session",
+      "guideShort": "Not included — photography only",
       "photographer": "Government-licensed photographer with you throughout",
       "includes": [
         "1.5–2 hour photo session",
@@ -78,7 +78,7 @@
       "fromPrice": true,
       "duration": "2+ hours",
       "guide": "Not included — this is a photography-only session",
-      "guideShort": "No guide — photography-only session",
+      "guideShort": "Not included — photography only",
       "photographer": "Government-licensed photographer with you throughout",
       "includes": [
         "2+ hour editorial session",
@@ -109,7 +109,7 @@
       "fromPrice": true,
       "duration": "Half day",
       "guide": "INCLUDED — licensed local guide with you across Agra",
-      "guideShort": "Included — licensed local guide across Agra",
+      "guideShort": "Included — licensed local guide",
       "photographer": "Professional photographer throughout, including inside the Taj Mahal",
       "includes": [
         "Licensed local guide for the monuments",
@@ -141,7 +141,7 @@
       "fromPrice": true,
       "duration": "Half day",
       "guide": "INCLUDED — licensed local guide with you across Agra",
-      "guideShort": "Included — licensed local guide across Agra",
+      "guideShort": "Included — licensed local guide",
       "photographer": "Professional photographer throughout, including inside the Taj Mahal",
       "includes": [
         "Licensed local guide for the monuments",
@@ -173,7 +173,7 @@
       "fromPrice": true,
       "duration": "Same day",
       "guide": "INCLUDED — Ministry of Tourism licensed guide, everywhere",
-      "guideShort": "Included — licensed guide throughout, Taj Mahal included",
+      "guideShort": "Included — licensed guide throughout",
       "photographer": "No photographer — bring your own camera",
       "includes": [
         "Private A/C car with chauffeur",
