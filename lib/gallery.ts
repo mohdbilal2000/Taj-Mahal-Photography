@@ -25,10 +25,10 @@ export const GALLERY: GalleryImage[] = [
   { src: '/photos/gallery/15.jpg', alt: 'A couple standing together at the end of the reflecting pool', category: 'Couple' },
   { src: '/photos/gallery/17.jpg', alt: 'A couple posed hand in hand on the marble walkway', category: 'Couple' },
   { src: '/photos/gallery/03.jpg', alt: 'A solo guest photographed beside the reflecting pool', category: 'Sunrise' },
-  { src: '/photos/gallery/18.jpg', alt: 'A family group photographed together in the Taj Mahal gardens', category: 'Family' },
+  { src: '/photos/gallery/18.jpg', alt: 'A couple photographed on the lawns with the Taj Mahal behind them', category: 'Family' },
   { src: '/photos/gallery/06.jpg', alt: 'A couple close together with the dome of the Taj Mahal behind them', category: 'Couple' },
   { src: '/photos/gallery/09.jpg', alt: 'A couple posed at the reflecting pool, the Taj Mahal centred behind', category: 'Couple' },
-  { src: '/photos/gallery/14.jpg', alt: 'A guest holding a keepsake frame in front of the Taj Mahal', category: 'Family' },
+  { src: '/photos/gallery/14.jpg', alt: 'A guest photographed in the Taj Mahal gardens in the late afternoon', category: 'Sunrise' },
   { src: '/photos/gallery/10.jpg', alt: 'A couple photographed on the marble platform at the Taj Mahal', category: 'Couple' },
   { src: '/photos/gallery/07.jpg', alt: 'A couple in traditional dress photographed at the monument', category: 'Couple' },
 ];

@@ -61,10 +61,21 @@ with its subject dead centre survives that better than one weighted to a side.
 - WhatsApp links are built in `lib/contact.ts` with the message pre-filled from
   context — a pre-filled message gets a reply, a bare "Hi" does not.
 
+## Guest moments
+
+`components/GuestMoments.tsx` on the homepage mounts six photographs as
+polaroids — cream mount, a tilt, a hand-written caption in Caveat, a heart —
+matching the cards the studio posts on Instagram.
+
+Two of the supplied photographs arrived with that frame already burned into
+the pixels, and in the plain portfolio grid they read as a mistake. They are
+cropped back to the photograph itself (`sharp().extract()`), so the section
+mounts all six identically and the treatment is the design rather than an
+inconsistency.
+
 ## Still open
 
-- A gallery section on the homepage — `/portfolio` now holds eighteen real
-  photographs, but the landing page still shows none of them as a set.
+- Nothing outstanding on imagery.
 - Testimonials are three static quotes; real Google reviews with names and dates
   would carry far more weight.
 - Sections below the fold still reveal via motion; moving them to `.rise` would

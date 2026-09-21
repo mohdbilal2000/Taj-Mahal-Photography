@@ -18,6 +18,7 @@
 
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
+  --font-hand: var(--font-hand);
 
   /* Fluid display sizes: one scale from 390px to 1440px, no breakpoint jumps. */
   --text-display: clamp(2.75rem, 1.6rem + 5.2vw, 6rem);
@@ -237,4 +238,33 @@ body {
 
 .rise {
   animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ───── Guest moment cards ───── */
+/* Mirrors the polaroid cards the studio posts on Instagram: a cream mount,
+   a hand-written caption and a slight tilt, as if dropped on a table. */
+.moment-card {
+  background: #F2E7D2;
+  border-radius: 14px;
+  padding: 14px 14px 0;
+  box-shadow: 0 2px 4px rgba(20, 17, 15, 0.06), 0 18px 36px -20px rgba(20, 17, 15, 0.35);
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+.moment-card:hover {
+  transform: rotate(0deg) translateY(-6px) !important;
+  box-shadow: var(--shadow-deep);
+}
+.font-hand { font-family: var(--font-hand), 'Segoe Script', cursive; }
+
+/* The faint repeated wordmark behind the cards, as on the posts. */
+.moments-watermark {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #14110F;
+  opacity: 0.04;
+  white-space: nowrap;
+  user-select: none;
 }

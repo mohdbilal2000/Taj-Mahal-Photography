@@ -9,6 +9,7 @@ import GuidedPhotoTours from '@/components/GuidedPhotoTours';
 import LuxuryTours from '@/components/LuxuryTours';
 import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
+import GuestMoments from '@/components/GuestMoments';
 import FAQ from '@/components/FAQ';
 import { faqs as siteFaqs, testimonials } from '@/lib/content';
 import ContactForm from '@/components/ContactForm';
@@ -145,6 +146,7 @@ export default function Home() {
         <GuidedPhotoTours />
         <LuxuryTours />
         <LicenseValidation />
+        <GuestMoments />
         <Testimonials />
         <FAQ />
         <ContactForm />

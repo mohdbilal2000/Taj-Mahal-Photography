@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Cormorant_Garamond } from 'next/font/google';
+import { Inter, Cormorant_Garamond, Caveat } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SITE } from '@/lib/seo';
 import { CurrencyProvider } from '@/lib/currency';
@@ -8,6 +8,13 @@ import './globals.css';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
+});
+
+/** Handwritten captions on the guest-moment cards. */
+const caveat = Caveat({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  variable: '--font-hand',
 });
 
 const cormorant = Cormorant_Garamond({
@@ -142,7 +149,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable} ${caveat.variable}`}>
       <head>
         <meta name="geo.region" content="IN-UP" />
         <meta name="geo.placename" content="Agra, Uttar Pradesh, India" />
