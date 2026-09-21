@@ -97,3 +97,26 @@ pulled from an H.264 file in this environment.
   would carry far more weight.
 - Sections below the fold still reveal via motion; moving them to `.rise` would
   let the noscript rule go.
+
+## Checking the whole site, not the page you just edited
+
+`scripts/audit-pages.mjs` sweeps every route at phone and desktop width, at
+five scroll depths, and reports four faults that are invisible from whichever
+page you happen to be working on:
+
+- **horizontal overflow** — the page can be scrolled sideways
+- **float-covers-content** — fixed furniture (back-to-top, chat bubble, action
+  bar) sitting on top of a heading, link or paragraph
+- **broken-image** — an `<img>` that resolved to nothing
+- **small-tap-target** — below WCAG 2.5.8's 24px on a phone, skipping links
+  that flow inline in a sentence, which the guideline exempts
+
+```sh
+npm run build && npx next start -p 3000 &
+node scripts/audit-pages.mjs 3000        # needs headless Chrome on :9231
+```
+
+It exists because a floating button was covering body copy on phones for
+several commits while every individual page looked fine in isolation. Run it
+before pushing anything that touches layout, and treat a non-clean result as
+a broken build.

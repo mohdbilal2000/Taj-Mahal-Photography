@@ -29,7 +29,7 @@ export default function Footer() {
                 href="https://www.instagram.com/taj.mahal.photography"
                 target="_blank"
                 rel="me noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-gray-400 hover:text-white transition-colors"
                 aria-label="Follow on Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -38,7 +38,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/"
                 target="_blank"
                 rel="me noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-gray-400 hover:text-white transition-colors"
                 aria-label="Connect on LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -47,7 +47,7 @@ export default function Footer() {
                 href="https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr"
                 target="_blank"
                 rel="me noopener noreferrer"
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-gray-400 hover:text-white transition-colors"
                 aria-label="Follow on Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -64,7 +64,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/sunrise"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Sunrise Photoshoot
                 </Link>
@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/couple"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Couple Photography
                 </Link>
@@ -80,7 +80,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/pre-wedding"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Pre-Wedding Shoot
                 </Link>
@@ -88,7 +88,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/guided-photo-tour-small"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Guide + Photo · Small Group (from $89)
                 </Link>
@@ -96,7 +96,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/guided-photo-tour-large"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Guide + Photo · Large Group (from $119)
                 </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/transport-guide"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Transport + Guide (from $99)
                 </Link>
@@ -112,7 +112,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/sunrise-luxury-innova"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Sunrise Luxury Tour (Innova)
                 </Link>
@@ -120,7 +120,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/sunrise-luxury-urbania"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Sunrise Luxury Urbania Tour
                 </Link>
@@ -137,7 +137,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/permit-guide"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Permit Guide
                 </Link>
@@ -145,7 +145,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/faq"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   FAQ
                 </Link>
@@ -153,7 +153,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   About
                 </Link>
@@ -161,23 +161,23 @@ export default function Footer() {
               <li>
                 <Link
                   href="/blog"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
                 >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/payment" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/payment" className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors">
                   Payment Methods
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/privacy" className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/terms" className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
@@ -209,11 +209,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-gray-400">
                 <Phone className="h-4 w-4 mr-3 flex-shrink-0 text-gold-400" />
-                <a href="tel:+918393010125" className="hover:text-white transition-colors">+91 83930 10125</a>
+                <a href="tel:+918393010125" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">+91 83930 10125</a>
               </li>
               <li className="flex items-center text-gray-400">
                 <Mail className="h-4 w-4 mr-3 flex-shrink-0 text-gold-400" />
-                <a href="mailto:booking@tajmahalphotography.com" className="hover:text-white transition-colors">booking@tajmahalphotography.com</a>
+                <a href="mailto:booking@tajmahalphotography.com" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">booking@tajmahalphotography.com</a>
               </li>
             </ul>
           </div>
@@ -226,13 +226,13 @@ export default function Footer() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
             <span className="text-gray-600">Sister Brand:</span>
-            <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 font-medium hover:text-white transition-colors">
+            <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] text-gray-400 font-medium hover:text-white transition-colors">
               TajMahalTouristGuide.com
             </a>
             <span className="text-gray-700 hidden sm:inline">|</span>
             <span className="text-gray-600">Featured On:</span>
-            <a href="https://guideindiatours.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Guide India Tours</a>
-            <a href="https://www.asiabylocals.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Asia By Locals</a>
+            <a href="https://guideindiatours.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">Guide India Tours</a>
+            <a href="https://www.asiabylocals.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">Asia By Locals</a>
           </div>
         </div>
 
@@ -245,11 +245,11 @@ export default function Footer() {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link
               href="/privacy"
-              className="hover:text-white transition-colors"
+              className="inline-flex items-center min-h-[36px] hover:text-white transition-colors"
             >
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
+            <Link href="/terms" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">
               Terms of Service
             </Link>
           </div>

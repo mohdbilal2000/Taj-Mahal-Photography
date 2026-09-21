@@ -21,7 +21,7 @@ export default function CurrencyToggle({ className = '' }: { className?: string 
           type="button"
           onClick={() => setCurrency(option)}
           aria-pressed={currency === option}
-          className={`px-2.5 py-1 text-[11px] font-bold tracking-wider transition-colors ${
+          className={`px-3 min-h-[34px] flex items-center text-[11px] font-bold tracking-wider transition-colors ${
             currency === option
               ? 'bg-gold-500 text-ink-900'
               : 'text-white/70 hover:text-white'

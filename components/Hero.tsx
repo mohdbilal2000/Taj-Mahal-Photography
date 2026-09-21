@@ -70,7 +70,7 @@ export default function Hero({ rating }: { rating: Rating }) {
             href={SITE.googleBusiness}
             target="_blank"
             rel="noopener noreferrer"
-            className="rise inline-flex items-center gap-3 mb-6 group"
+            className="rise inline-flex items-center gap-3 mb-6 py-2 -my-2 group"
           >
             <span className="flex items-center gap-1" aria-hidden>
               {[0, 1, 2, 3, 4].map((i) => (

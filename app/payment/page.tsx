@@ -186,7 +186,7 @@ export default function PaymentPage() {
                     <a
                       href={`https://wa.me/${SITE.whatsapp}?text=Hi%2C%20I%20would%20like%20the%20UPI%20QR%20code%20to%20pay%20for%20my%20photography%20booking.`}
                       target="_blank" rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-green-700 hover:text-green-800 transition-colors"
+                      className="mt-4 inline-flex items-center gap-2 min-h-[44px] py-2 text-sm font-medium text-green-700 hover:text-green-800 transition-colors"
                     >
                       <MessageCircle className="h-4 w-4" />
                       Request UPI QR via WhatsApp →
