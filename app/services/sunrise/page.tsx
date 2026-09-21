@@ -3,7 +3,6 @@ import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import MobileActionBar from '@/components/MobileActionBar';
 import Price from '@/components/Price';
-import PackagePdfLinks from '@/components/PackagePdfLinks';
 import TajGuideNotice from '@/components/TajGuideNotice';
 import InrRateNote from '@/components/InrRateNote';
 import ContactForm from '@/components/ContactForm';
@@ -13,7 +12,7 @@ import { breadcrumbSchema, serviceSchema, faqSchema, speakableSpec, webPageSchem
 
 export const metadata: Metadata = {
   title: 'Taj Mahal Sunrise Photoshoot | $120 | Best Morning Light',
-  description: 'Book a premium sunrise photoshoot at the Taj Mahal for $120. 1.5–2 hour session, 120+ photos, 3–5 reels, hotel pickup and drop-off, and official permit included. The most magical light and fewest crowds.',
+  description: 'Book a premium sunrise photoshoot at the Taj Mahal for $120. 1.5–2 hour session, 120+ photos, 3–5 reels and the official permit included. Your photographer meets you at your hotel. The most magical light and fewest crowds.',
   alternates: { canonical: `${SITE.url}/services/sunrise` },
   openGraph: {
     title: 'Taj Mahal Sunrise Photoshoot | Licensed Photographer',
@@ -73,7 +72,7 @@ export default function SunriseServicePage() {
                   <li><strong>1.5–2 Hour Guided Session:</strong> Plenty of time to explore all the best vantage points.</li>
                   <li><strong>120+ Photos:</strong> Professionally captured at all the best angles.</li>
                   <li><strong>3–5 Reels:</strong> Solo, couple or family — ready to post.</li>
-                  <li><strong>Hotel Pickup &amp; Drop-off:</strong> We collect you before the shoot and drop you back afterwards.</li>
+                  <li><strong>We Meet You at Your Hotel:</strong> Your photographer meets you there and walks you to the gate. Transport is not included in this package.</li>
                   <li><strong>Official Photography Permit:</strong> Full authorization for professional equipment entry.</li>
                   <li><strong>Skip-the-Line Guidance:</strong> We know exactly which gate to use and how to navigate security quickly.</li>
                   <li><strong>Posing Direction:</strong> Gentle guidance to ensure you look natural and elegant.</li>
@@ -106,7 +105,7 @@ export default function SunriseServicePage() {
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Photos: 120+ plus 3–5 reels</li>
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Delivery: 48 Hours</li>
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Official Permit Included</li>
-                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Hotel pickup &amp; drop-off included</li>
+                  <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Photographer meets you at your hotel</li>
                 </ul>
 
                 <a href="#book" className="block w-full text-center px-6 py-3 bg-ink-900 text-white font-medium rounded-sm hover:bg-ink-800 transition-colors">
@@ -115,7 +114,6 @@ export default function SunriseServicePage() {
                 <p className="text-xs text-center text-gray-500 mt-4">
                   * Monument entry tickets are not included in the photography fee.
                 </p>
-                <PackagePdfLinks planId="sunrise" />
               </div>
             </div>
           </div>
@@ -141,14 +139,14 @@ export default function SunriseServicePage() {
               webPageSchema({
                 url: `${SITE.url}/services/sunrise`,
                 name: 'Taj Mahal Sunrise Photoshoot',
-                description: 'Premium sunrise photography at the Taj Mahal — 1.5–2 hours, 120+ photos, 3–5 reels, hotel pickup and drop-off, permit and skip-the-line included.',
+                description: 'Premium sunrise photography at the Taj Mahal — 1.5–2 hours, 120+ photos, 3–5 reels, permit and skip-the-line included. Photographer meets you at your hotel.',
                 image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
                 lastReviewed: LAST_UPDATED,
                 speakableSelectors: ['.faq-answer', 'h1', 'h2'],
               }),
               serviceSchema(
                 'Taj Mahal Sunrise Photoshoot',
-                'Premium sunrise photography at the Taj Mahal. 1.5–2 hour session with 120+ photos, 3–5 reels, hotel pickup and drop-off, official permit, and skip-the-line guidance.',
+                'Premium sunrise photography at the Taj Mahal. 1.5–2 hour session with 120+ photos, 3–5 reels, official permit, and skip-the-line guidance. The photographer meets you at your hotel; transport is not included.',
                 120,
                 '1.5–2 Hours',
                 `${SITE.url}/services/sunrise`,

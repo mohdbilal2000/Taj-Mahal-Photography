@@ -16,13 +16,13 @@ const plans = [
     tagline: 'The Essential Experience',
     price: 120,
     duration: '1.5–2 Hours',
-    description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Hotel pickup and drop-off included, so the whole morning is handled for you.',
-    aiSnippet: 'The Taj Mahal sunrise photoshoot is a 1.5 to 2 hour session priced at $120 USD with more than 120 photos, 3 to 5 reels, and hotel pickup and drop-off included. A government-licensed photographer is required for professional equipment entry.',
+    description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Your photographer meets you at your hotel and walks the morning with you.',
+    aiSnippet: 'The Taj Mahal sunrise photoshoot is a 1.5 to 2 hour session priced at $120 USD with more than 120 photos and 3 to 5 reels. The photographer meets you at your hotel; no car or transport is included. A government-licensed photographer is required for professional equipment entry.',
     features: [
       'Official Photography Permit Included',
       '120+ Photos',
       '3–5 Reels (Solo / Couple / Family)',
-      'Hotel Pickup & Drop-off Included',
+      'Photographer Meets You at Your Hotel',
       'Customisable · 20% Advance Confirms Booking'
     ],
     bestFor: 'Couples, Solo Travelers, First-time Visitors'

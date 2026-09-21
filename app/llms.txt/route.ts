@@ -20,9 +20,8 @@ const BODY = `# ${SITE.name}
 
 ## Photography Packages
 
-- [Sunrise Photoshoot — $120](${SITE.url}/services/sunrise): 1.5–2 hour sunrise session, 120+ photos, 3–5 reels (solo/couple/family), hotel pickup and drop-off included. Customisable; 20% advance confirms the booking.
+- [Sunrise Photoshoot — $120](${SITE.url}/services/sunrise): 1.5–2 hour sunrise session, 120+ photos, 3–5 reels (solo/couple/family). The photographer meets you at your hotel; no car or transport is included. Customisable; 20% advance confirms the booking.
 - [Pre-Wedding & Couple — from $199](${SITE.url}/services/couple): 2+ hour editorial session, 200+ high-resolution photos, 30 edited photos of your choice, 30-second cinematic video, posing direction. Customisable; 20% advance confirms the booking.
-- [Proposal Photography — $350](${SITE.url}/services/proposal): Discreet coordination, same-day sneak peek, post-proposal couple session.
 - [Taj Mahal + Agra Fort Heritage Trail — $399](${SITE.url}/services/taj-agra-fort): 5 hours, both UNESCO sites, 250+ photos.
 - [Full Day Agra Experience — $499](${SITE.url}/services/full-day): 8–10 hours, Taj Mahal + Agra Fort + Back Side of Taj, 350+ photos.
 

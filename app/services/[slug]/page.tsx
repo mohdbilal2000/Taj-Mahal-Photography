@@ -4,7 +4,6 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import MobileActionBar from '@/components/MobileActionBar';
 import ContactForm from '@/components/ContactForm';
 import Price from '@/components/Price';
-import PackagePdfLinks from '@/components/PackagePdfLinks';
 import TajGuideNotice from '@/components/TajGuideNotice';
 import InrRateNote from '@/components/InrRateNote';
 import packagesData from '@/lib/packages.json';
@@ -54,7 +53,6 @@ const PACKAGES_WITHOUT_GUIDE = new Set([
   'couple',
   'taj-agra-fort',
   'full-day',
-  'proposal',
 ]);
 
 const servicesData: Record<string, ServiceData> = {
@@ -182,23 +180,6 @@ const servicesData: Record<string, ServiceData> = {
       { question: 'Do we get group portraits and individual portraits?', answer: 'Yes. The photographer captures group portraits of everyone together AND individual portraits during the walk through the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. The guide is with you at every monument except inside the Taj Mahal, where guides cannot accompany a photographer.' },
       { question: 'Are monument tickets included?', answer: 'No. Taj Mahal and Agra Fort entry tickets are purchased separately. The photography permits and the guide are included.' },
       { question: 'How is this different from the Heritage Trail ($399)?', answer: 'This from-$119 combo focuses on a guided walk plus 60 photos and 7 reels. The Heritage Trail is a 5-hour dedicated photography session with 250+ high-resolution photos and a fully managed schedule — more output, no group cap.' },
-    ],
-  },
-  proposal: {
-    title: 'Surprise Proposal Photography at the Taj Mahal',
-    description: 'Capture the exact moment she says yes with the Taj Mahal as your backdrop.',
-    quickAnswer:
-      'A discreet surprise-proposal photoshoot at the Taj Mahal. $350 USD for a 1.5-hour session, includes secret coordination, 50+ high-resolution photos, a same-day sneak peek (3–5 photos), and a post-proposal couple session. The photographer poses as a casual tourist until the proposal moment.',
-    longDescription:
-      'Planning a proposal at the Taj Mahal? We help coordinate every detail discreetly. We position ourselves as casual tourists while you lead your partner to the perfect spot. The moment you get down on one knee, we capture every expression, tear, and embrace in high resolution. After the proposal, we transition into a celebratory couple session to capture the joy of your new engagement.',
-    image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1920&auto=format&fit=crop',
-    features: ['1.5 Hour Session', 'Secret Coordination & Planning', '50+ High-Res Photos', 'Same-Day Sneak Peek (3-5 photos)', 'Post-Proposal Couple Session'],
-    price: 350,
-    duration: '1.5 Hours',
-    bestFor: 'Proposals, Surprise engagements',
-    faqs: [
-      { question: 'Will my partner know there is a photographer?', answer: 'No. We position ourselves as casual tourists with a camera and only step into the scene once the proposal moment begins. We coordinate signals over WhatsApp the morning of.' },
-      { question: 'Can you send a few photos right after the proposal?', answer: 'Yes. A same-day sneak peek of 3 to 5 edited photos is delivered within hours so you can share the news with family and on social media.' },
     ],
   },
   'transport-guide': {
@@ -516,7 +497,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 {!isLuxuryTour && (
                   <p className="text-xs text-center text-gray-500 mt-4">* Monument entry tickets are not included.</p>
                 )}
-                <PackagePdfLinks planId={slug} />
               </div>
             </div>
           </div>

@@ -44,6 +44,12 @@ const nextConfig: NextConfig = {
         destination: '/services/sunrise',
         permanent: true,
       },
+      {
+        // Retired package — couples are served by the pre-wedding session.
+        source: '/services/proposal',
+        destination: '/services/pre-wedding',
+        permanent: true,
+      },
     ];
   },
 };

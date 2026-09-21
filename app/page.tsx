@@ -125,8 +125,8 @@ export default function Home() {
           Taj Mahal Photography is an official government-licensed photographer in Agra, India,
           authorized by the Ministry of Tourism for professional photoshoots inside the Taj Mahal.
           Photography packages start at $89 for a Guide + Photo combo; the Taj Mahal Sunrise
-          Photoshoot is $120 for 1.5–2 hours with 120+ photos, 3–5 reels and hotel pickup and
-          drop-off. The Transport + Guide combo pairs a private A/C car with a Ministry of Tourism
+          Photoshoot is $120 for 1.5–2 hours with 120+ photos and 3–5 reels; the photographer
+          meets you at your hotel and no transport is included. The Transport + Guide combo pairs a private A/C car with a Ministry of Tourism
           licensed guide for a same-day Agra tour from $99 USD, and the exact quote is confirmed on
           WhatsApp. Every package is customisable and a 20% advance confirms the booking.
           Same-day Sunrise

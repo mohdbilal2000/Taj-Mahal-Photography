@@ -16,6 +16,12 @@ const U = (id: string, w = 1200) =>
   `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 
 /**
+ * Swap a placeholder for real work by changing its value to the local path,
+ * e.g. `sunrise: '/photos/sunrise.jpg'`. public/photos/README.md lists the
+ * filename each slot expects and the frame that suits it.
+ */
+
+/**
  * Distinct frames, spread so neighbouring cards never repeat one. All are
  * Agra: a Delhi frame (India Gate) was previously landing on the Agra-only
  * transport card, which reads as a different city's tour.
@@ -37,7 +43,6 @@ export const PLAN_IMAGES: Record<string, string> = {
   'guided-photo-tour-large': U(FRAMES.archway),
   // Four frames across five cards: the one repeat sits diagonally opposite.
   'transport-guide': U(FRAMES.reflectingPool),
-  proposal: U(FRAMES.couple),
   'taj-agra-fort': U(FRAMES.archway),
   'full-day': U(FRAMES.gardens),
   'sunrise-luxury-innova': U(FRAMES.couple),

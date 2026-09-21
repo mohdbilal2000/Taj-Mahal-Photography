@@ -28,7 +28,7 @@ export const PLANS: Plan[] = [
     id: 'sunrise',
     name: 'Taj Mahal Sunrise Photoshoot',
     price: 120,
-    tagline: '120+ photos, 3–5 reels and hotel pickup & drop included',
+    tagline: '120+ photos and 3–5 reels — your photographer meets you at your hotel',
     duration: '1.5–2 Hours',
     badge: 'Bestseller',
     popular: true,
@@ -67,13 +67,6 @@ export const PLANS: Plan[] = [
     tagline: 'Same-day Agra tour — private A/C car + licensed guide, bring your own camera',
     duration: 'Same Day · Agra',
     badge: 'Customisable',
-  },
-  {
-    id: 'proposal',
-    name: 'Proposal Photography',
-    price: 350,
-    tagline: 'Discreet coordination and a same-day sneak peek',
-    duration: '1.5 Hours',
   },
   {
     id: 'taj-agra-fort',

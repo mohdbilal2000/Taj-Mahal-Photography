@@ -16,12 +16,28 @@ export const SITE = {
   domain: 'tajmahalphotography.com',
   title: 'Official Government Licensed Taj Mahal Photographer | Agra, India',
   description:
-    'Book an official government-licensed Taj Mahal photographer in Agra, India. Authorized permit holder for professional photography inside the Taj Mahal. Sunrise, couple, pre-wedding, family & proposal photoshoots with 48-hour delivery.',
+    'Book an official government-licensed Taj Mahal photographer in Agra, India. Authorized permit holder for professional photography inside the Taj Mahal. Sunrise, couple, pre-wedding and guided photo tours with 48-hour delivery.',
   phone: '+918393010125',
   phoneDisplay: '+91 83930 10125',
   email: 'booking@tajmahalphotography.com',
   whatsapp: '918393010125',
-  googleBusiness: 'https://maps.app.goo.gl/kFsckb7rMqJBugzV8',
+  /**
+   * Canonical Google Business link, by place CID rather than a short link.
+   * Several Agra photographers use near-identical names, and a shortened URL
+   * gives no way to tell from the code which profile it opens; the CID can
+   * only ever resolve to this one — "Tajmahal Photography", Agra
+   * (0x39747131e3553055:0x7e4e33174e3dd711).
+   */
+  googleBusiness: 'https://maps.google.com/?cid=9101268072152291089',
+  /**
+   * Rating as shown on the profile. Kept here so the figure on the page and
+   * the figure on Google cannot drift apart silently — update both together.
+   * Deliberately NOT emitted as AggregateRating schema: Google does not allow
+   * a business to mark up reviews of itself on its own site.
+   */
+  googleRating: 4.7,
+  googleReviewCount: 13,
+  googleRatingChecked: '21 September 2026',
   instagram: 'https://www.instagram.com/taj.mahal.photography',
   linkedin: 'https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/',
   facebook: 'https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr',
@@ -153,7 +169,7 @@ export function localBusinessSchema() {
       '@type': 'OfferCatalog',
       name: 'Taj Mahal Photography & Tour Packages',
       itemListElement: [
-        offerSchema('Taj Mahal Sunrise Photoshoot', 120, 'Avoid crowds, best light. 1.5–2 hour session, 120+ photos, 3–5 reels, hotel pickup and drop-off included.', `${SITE.url}/services/sunrise`),
+        offerSchema('Taj Mahal Sunrise Photoshoot', 120, 'Avoid crowds, best light. 1.5–2 hour session, 120+ photos, 3–5 reels. Photographer meets you at your hotel; no transport included.', `${SITE.url}/services/sunrise`),
         offerSchema('Pre-Wedding & Couple Photography', 199, 'Editorial romance at the monument of love. 2+ hours, 200+ high-resolution photos, 30 edited photos of your choice, 30-second cinematic video.', `${SITE.url}/services/couple`),
         offerSchema('Taj Mahal + Agra Fort Heritage Trail', 399, 'Both UNESCO sites in one day. 5 hours, 250+ natural high-resolution photos, transport included.', `${SITE.url}/services/taj-agra-fort`),
         offerSchema('Full Day Agra Experience', 499, 'Taj Mahal, Agra Fort & back side coverage. 8-10 hours, 350+ natural high-resolution photos, 48-hour delivery.', `${SITE.url}/services/full-day`),

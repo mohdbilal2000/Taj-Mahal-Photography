@@ -32,7 +32,6 @@ const KEYWORDS = [
   'pre-wedding photography Taj Mahal',
   'Taj Mahal couple photoshoot',
   'Taj Mahal family photography',
-  'Taj Mahal proposal photographer',
   'Taj Mahal photography permit',
   'Agra photographer',
   'photographer in Agra',

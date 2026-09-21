@@ -25,8 +25,8 @@ export default function TajGuideNotice({
   const id = ALIASES[planId] ?? planId;
   const pkg = packagesData.packages.find((p) => p.id === id);
 
-  // Plans outside the five rate-card packages (heritage trail, full day,
-  // proposal) are photographer-led, so they follow the no-guide wording.
+  // Plans outside the five rate-card packages (heritage trail, full day)
+  // are photographer-led, so they follow the no-guide wording.
   const included = pkg ? pkg.guideIncluded : false;
   const body = pkg ? pkg.guideNotice : packagesData.packages[0].guideNotice;
   const Icon = included ? BadgeCheck : AlertTriangle;

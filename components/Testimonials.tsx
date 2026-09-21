@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Star, Quote } from 'lucide-react';
 import { testimonials } from '@/lib/content';
+import { SITE } from '@/lib/seo';
 
 export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,6 +22,22 @@ export default function Testimonials() {
           </h2>
           <p className="text-gray-600">
             Read what couples and families from around the world have to say about their experience.
+          </p>
+          <p className="mt-5 inline-flex items-center gap-2 text-ink-900">
+            <span className="flex items-center gap-0.5" aria-hidden>
+              {[0, 1, 2, 3, 4].map((i) => (
+                <Star
+                  key={i}
+                  className={`w-4 h-4 ${
+                    i < Math.floor(SITE.googleRating)
+                      ? 'fill-gold-500 text-gold-500'
+                      : 'text-gold-500/40'
+                  }`}
+                />
+              ))}
+            </span>
+            <span className="font-semibold">{SITE.googleRating}</span>
+            <span className="text-ink-500">from {SITE.googleReviewCount} Google reviews</span>
           </p>
         </div>
 
@@ -79,7 +96,9 @@ export default function Testimonials() {
 
         <div className="mt-12 text-center">
           <a
-            href="#"
+            href={SITE.googleBusiness}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 border border-ink-900 text-sm font-medium rounded-sm text-ink-900 hover:bg-ink-900 hover:text-white transition-colors"
           >
             Read more reviews on Google

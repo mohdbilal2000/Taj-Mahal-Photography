@@ -87,14 +87,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services/proposal"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Proposal Shoot
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/services/guided-photo-tour-small"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
@@ -107,14 +99,6 @@ export default function Footer() {
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Guide + Photo · Large Group (from $119)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services#downloads"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Download price list (PDF)
                 </Link>
               </li>
               <li>

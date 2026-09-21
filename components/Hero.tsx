@@ -72,11 +72,21 @@ export default function Hero() {
             className="rise inline-flex items-center gap-3 mb-6 group"
           >
             <span className="flex items-center gap-1" aria-hidden>
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
+              {[0, 1, 2, 3, 4].map((i) => (
+                <Star
+                  key={i}
+                  className={`w-3.5 h-3.5 ${
+                    i < Math.floor(SITE.googleRating)
+                      ? 'fill-gold-400 text-gold-400'
+                      : 'text-gold-400/50'
+                  }`}
+                />
               ))}
             </span>
-            <span className="text-white/85 text-sm link-sweep">Read guest reviews on Google</span>
+            <span className="text-white/85 text-sm">
+              <strong className="font-semibold text-white">{SITE.googleRating}</strong> from{' '}
+              <span className="link-sweep">{SITE.googleReviewCount} Google reviews</span>
+            </span>
           </a>
 
           <h1

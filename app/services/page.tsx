@@ -6,7 +6,6 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Price from '@/components/Price';
-import PdfDownloadCentre from '@/components/PdfDownloadCentre';
 import InrRateNote from '@/components/InrRateNote';
 import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 import { planImage } from '@/lib/images';
@@ -27,8 +26,8 @@ const services = [
   {
     id: 'sunrise',
     title: 'Taj Mahal Sunrise Photoshoot',
-    description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. Hotel pickup before the shoot and drop-off after are included, and the session is fully customisable to your plans.',
-    features: ['1.5–2 Hour Session', '120+ Photos', '3–5 Reels (Solo / Couple / Family)', 'Hotel pickup & drop-off included', 'Customisable — 20% advance confirms booking'],
+    description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. Your photographer meets you at your hotel — no car or transport is included — and the session is fully customisable to your plans.',
+    features: ['1.5–2 Hour Session', '120+ Photos', '3–5 Reels (Solo / Couple / Family)', 'Photographer meets you at your hotel (no transport)', 'Customisable — 20% advance confirms booking'],
     price: 120,
   },
   {
@@ -133,10 +132,6 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <PdfDownloadCentre />
         </div>
 
         {/* AEO: Direct answers for service queries */}

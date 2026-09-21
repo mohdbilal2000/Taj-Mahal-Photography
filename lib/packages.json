@@ -53,14 +53,13 @@
         "1.5–2 hour photo session",
         "More than 120 photos",
         "3–5 reels (solo / couple / family)",
-        "Hotel pickup before the shoot",
-        "Drop back at your hotel afterwards",
+        "Photographer meets you at your hotel",
         "Official photography permit included"
       ],
       "excludes": [
         "Tour guide — this is a photography-only session",
-        "Monument entry tickets",
-        "Meals and personal expenses"
+        "Transport — no car service on this package",
+        "Monument entry tickets"
       ],
       "bestFor": "First-time visitors, couples and families who want the best light and the fewest crowds.",
       "photographerShort": "Licensed photographer, with you throughout",
@@ -195,14 +194,6 @@
     }
   ],
   "otherPackages": [
-    {
-      "id": "proposal",
-      "name": "Proposal Photography",
-      "usd": 350,
-      "fromPrice": false,
-      "duration": "1.5 hours",
-      "summary": "Discreet coordination, 50+ photos, same-day sneak peek."
-    },
     {
       "id": "taj-agra-fort",
       "name": "Heritage Trail · Taj + Agra Fort",
