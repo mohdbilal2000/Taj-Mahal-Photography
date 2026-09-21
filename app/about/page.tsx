@@ -41,7 +41,7 @@ export default function AboutPage() {
       <main className="flex-grow">
         {/* Hero */}
         <section className="relative bg-ink-900 text-white py-24">
-          <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center" />
+          <div className="absolute inset-0 opacity-10 bg-[url('/photos/gallery/02.jpg')] bg-cover bg-center" />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">About the Photographer</span>
             <h1 className="font-serif text-4xl md:text-6xl font-semibold mb-6">Official Government Licensed Taj Mahal Photographer</h1>

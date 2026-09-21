@@ -12,7 +12,7 @@ const services = [
     description:
       'The most magical time to visit. Avoid the crowds and capture the Taj Mahal bathed in soft morning light.',
     image:
-      'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop',
+      '/photos/gallery/16.jpg',
     link: '/services/sunrise',
   },
   {
@@ -20,7 +20,7 @@ const services = [
     description:
       'Romantic, editorial-style portraits celebrating your love story against the ultimate monument of love.',
     image:
-      'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop',
+      '/photos/gallery/11.jpg',
     link: '/services/couple',
   },
   {
@@ -28,7 +28,7 @@ const services = [
     description:
       'A licensed local guide and a professional photographer together — natural photos and reels at every iconic spot.',
     image:
-      'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop',
+      '/photos/gallery/13.jpg',
     link: '/services/guided-photo-tour-small',
   },
 ];

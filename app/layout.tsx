@@ -144,8 +144,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <head>
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <meta name="geo.region" content="IN-UP" />
         <meta name="geo.placename" content="Agra, Uttar Pradesh, India" />
         <meta name="geo.position" content={`${SITE.geo.lat};${SITE.geo.lng}`} />

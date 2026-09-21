@@ -16,7 +16,7 @@ const tours = [
     route: 'Delhi / NCR → Agra → Delhi / NCR',
     vehicle: 'Private Toyota Innova',
     icon: Car,
-    image: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop',
+    image: '/photos/gallery/11.jpg',
     description:
       'A premium same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Includes a government-licensed guide, a licensed photographer, monument tickets, a private golf cart inside the Taj Mahal complex, and a security escort to skip the line.',
     aiSnippet:
@@ -42,7 +42,7 @@ const tours = [
     route: 'Delhi / NCR → Agra → Delhi / NCR',
     vehicle: 'Private Force Urbania (Luxury Coach)',
     icon: Bus,
-    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop',
+    image: '/photos/gallery/13.jpg',
     description:
       'The same luxury sunrise experience scaled up for larger families and groups. Travel from Delhi/NCR to Agra in a private Force Urbania coach with reclining seats, government-licensed guide and photographer, monument tickets, a private golf cart, and skip-the-line security assistance.',
     aiSnippet:

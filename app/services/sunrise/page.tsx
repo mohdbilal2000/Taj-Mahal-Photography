@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import MobileActionBar from '@/components/MobileActionBar';
 import Price from '@/components/Price';
+import { planImage } from '@/lib/images';
 import TajGuideNotice from '@/components/TajGuideNotice';
 import InrRateNote from '@/components/InrRateNote';
 import ContactForm from '@/components/ContactForm';
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Taj Mahal Sunrise Photoshoot | Licensed Photographer',
     description: 'Capture the Taj Mahal in the most magical morning light with a licensed photographer.',
     url: `${SITE.url}/services/sunrise`,
-    images: [{ url: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop', width: 1200, height: 630, alt: 'Taj Mahal at Sunrise' }],
+    images: [{ url: `${SITE.url}${planImage('sunrise')}`, width: 1200, height: 630, alt: 'Taj Mahal at Sunrise' }],
   },
 };
 
@@ -36,7 +37,7 @@ export default function SunriseServicePage() {
       <main className="flex-grow bg-white">
         <div className="relative h-[60vh] min-h-[500px]">
           <Image
-            src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1920&auto=format&fit=crop"
+            src={planImage('sunrise')}
             alt="Taj Mahal at sunrise with golden light on white marble"
             fill
             className="object-cover"
@@ -140,7 +141,7 @@ export default function SunriseServicePage() {
                 url: `${SITE.url}/services/sunrise`,
                 name: 'Taj Mahal Sunrise Photoshoot',
                 description: 'Premium sunrise photography at the Taj Mahal — 1.5–2 hours, 120+ photos, 3–5 reels, permit and skip-the-line included. Photographer meets you at your hotel.',
-                image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
+                image: `${SITE.url}${planImage('sunrise')}`,
                 lastReviewed: LAST_UPDATED,
                 speakableSelectors: ['.faq-answer', 'h1', 'h2'],
               }),
@@ -150,7 +151,7 @@ export default function SunriseServicePage() {
                 120,
                 '1.5–2 Hours',
                 `${SITE.url}/services/sunrise`,
-                'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1200&auto=format&fit=crop',
+                `${SITE.url}${planImage('sunrise')}`,
               ),
               {
                 ...faqSchema(sunriseFaqs),

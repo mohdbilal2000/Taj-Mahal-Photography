@@ -62,7 +62,7 @@ export default function LicenseValidation() {
       className="py-24 bg-ink-900 text-white overflow-hidden relative"
     >
       {/* Background image with parallax */}
-      <div className="absolute inset-0 opacity-10 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1514222288957-49a4653e1073?q=80&w=1920&auto=format&fit=crop')]" />
+      <div className="absolute inset-0 opacity-10 bg-cover bg-center bg-[url('/photos/gallery/05.jpg')]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -153,7 +153,7 @@ export default function LicenseValidation() {
           >
             <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white/10 shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop"
+                src="/photos/gallery/02.jpg"
                 alt="Photographer in action at Taj Mahal"
                 fill
                 className="object-cover"

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
+import { GALLERY } from '@/lib/gallery';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Taj Mahal Photography Gallery',
@@ -19,14 +20,6 @@ export const metadata: Metadata = {
   },
 };
 
-const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800&auto=format&fit=crop', alt: 'Taj Mahal at sunrise with golden light reflecting on white marble', category: 'Sunrise' },
-  { src: 'https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=800&auto=format&fit=crop', alt: 'Romantic couple portrait at the Taj Mahal reflecting pool', category: 'Couple' },
-  { src: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop', alt: 'Taj Mahal grand view from the main gateway entrance', category: 'Heritage' },
-  { src: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=800&auto=format&fit=crop', alt: 'Taj Mahal with visitors on the elevated platform', category: 'Family' },
-  { src: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=800&auto=format&fit=crop', alt: 'Close-up architectural detail of Taj Mahal marble inlay work', category: 'Detail' },
-  { src: 'https://images.unsplash.com/photo-1590136132691-8b19a18b4ef3?q=80&w=800&auto=format&fit=crop', alt: 'Taj Mahal reflected in the central water channel at dawn', category: 'Sunrise' },
-];
 
 export default function PortfolioPage() {
   return (
@@ -43,7 +36,7 @@ export default function PortfolioPage() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {galleryImages.map((img, i) => (
+            {GALLERY.map((img, i) => (
               <div key={i} className="relative aspect-square overflow-hidden rounded-sm group">
                 <Image
                   src={img.src}

@@ -1,21 +1,25 @@
 # Design & UX notes
 
-## The one change that matters most
+## Photography
 
-**Every photograph on this site is stock.** Thirty image slots were drawing on
-five Unsplash frames, repeated across neighbouring cards — for a photography
-business that is the loudest possible signal that a site is a template, and no
-amount of layout work compensates for it. A guest deciding whether to hand over
-their one morning at the Taj Mahal is buying the photographs, and right now they
-cannot see any.
+The site runs on the studio's own photographs of real guests — supplied from
+Drive in September 2026 and processed into `public/photos`. There is no stock
+imagery left anywhere in the codebase.
 
-Replacing them is a one-line change per plan:
+- `public/photos/<slot>.jpg` — one per plan, plus `hero.jpg`, wired through
+  `lib/images.ts`
+- `public/photos/gallery/01–18.jpg` — the portfolio, listed with alt text in
+  `lib/gallery.ts`
 
-1. Drop files into `public/photos/`
-2. In `lib/images.ts`, change the value to `/photos/<file>.jpg`
+To swap any of them, replace the file or point the map at a different one.
+Process new files the way these were: `sharp().rotate()` (honours EXIF, which
+one of the originals needed), resize to 2000px for the hero and 1200–1400px
+elsewhere, `jpeg({ quality: 80–82, mozjpeg: true })`. That lands each frame
+around 100–200KB.
 
-Everything reads from that map — hero, cards, service pages. Real work in the
-hero alone would do more for conversion than anything else listed here.
+The hero photograph needs its left third reasonably clear — the headline sits
+there on desktop. On phones the crop is a narrow vertical slice, so a frame
+with its subject dead centre survives that better than one weighted to a side.
 
 ## Design tokens
 
@@ -59,9 +63,8 @@ hero alone would do more for conversion than anything else listed here.
 
 ## Still open
 
-- Real photography (above).
-- A portfolio/gallery section on the homepage — there is a `/portfolio` route but
-  nothing proving the work on the landing page.
+- A gallery section on the homepage — `/portfolio` now holds eighteen real
+  photographs, but the landing page still shows none of them as a set.
 - Testimonials are three static quotes; real Google reviews with names and dates
   would carry far more weight.
 - Sections below the fold still reveal via motion; moving them to `.rise` would
