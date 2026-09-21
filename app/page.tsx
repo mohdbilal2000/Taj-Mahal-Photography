@@ -11,6 +11,8 @@ import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
 import GuestMoments from '@/components/GuestMoments';
 import FilmShowcase from '@/components/FilmShowcase';
+import ReviewCta from '@/components/ReviewCta';
+import { getRating } from '@/lib/reviews';
 import FAQ from '@/components/FAQ';
 import { faqs as siteFaqs, testimonials } from '@/lib/content';
 import ContactForm from '@/components/ContactForm';
@@ -24,6 +26,7 @@ import {
   faqSchema,
   personSchema,
   reviewSchema,
+  videoObjectSchema,
   tajMahalAttractionSchema,
   agraFortAttractionSchema,
   luxuryTourSchema,
@@ -87,8 +90,38 @@ const homeWebPage = webPageSchema({
   speakableSelectors: ['.faq-answer', '.quick-answer', 'h1', 'h2'],
 });
 
-export default function Home() {
+/**
+ * Rebuild daily so the Google rating stays current when a key is configured.
+ * Next requires this to be a literal it can read statically, so it cannot be
+ * the RATING_REVALIDATE constant — 86400 is that same one day in seconds.
+ */
+export const revalidate = 86400;
+
+export default async function Home() {
+  const rating = await getRating();
+
   const graph = graphSchema([
+    // The two clips the film section plays. Without duration, a thumbnail and
+    // an upload date these are invisible to Google; with them they can carry
+    // a video result nothing else on the site competes for.
+    videoObjectSchema({
+      name: 'Cinematic edit from a Taj Mahal couple session',
+      description:
+        'A 30-second cinematic edit filmed during a couple session at the Taj Mahal in Agra by a government-licensed photographer. Included with the Couple & Pre-Wedding package.',
+      contentUrl: `${SITE.url}/videos/cinematic.mp4`,
+      thumbnailUrl: `${SITE.url}/photos/gallery/05.jpg`,
+      duration: 'PT27S',
+      uploadDate: '2026-09-21',
+    }),
+    videoObjectSchema({
+      name: 'Taj Mahal photoshoot reel',
+      description:
+        'A vertical reel cut from a Taj Mahal photoshoot in Agra. Every photography package includes three to five of these alongside the full gallery.',
+      contentUrl: `${SITE.url}/videos/reel.mp4`,
+      thumbnailUrl: `${SITE.url}/photos/gallery/11.jpg`,
+      duration: 'PT14S',
+      uploadDate: '2026-09-21',
+    }),
     personSchema(),
     localBusinessSchema(),
     websiteSchema(),
@@ -119,7 +152,7 @@ export default function Home() {
       <Header />
 
       <main className="flex-grow">
-        <Hero />
+        <Hero rating={rating} />
 
         {/* Accessible site facts block — read by screen readers and AI extractors.
             Kept off-screen with sr-only (legitimate accessibility pattern, not cloaking). */}
@@ -149,7 +182,8 @@ export default function Home() {
         <LicenseValidation />
         <FilmShowcase />
         <GuestMoments />
-        <Testimonials />
+        <Testimonials rating={rating} />
+        <ReviewCta rating={rating} />
         <FAQ />
         <ContactForm />
       </main>

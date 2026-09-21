@@ -10,6 +10,7 @@ import { SITE } from '@/lib/seo';
 import { HERO_IMAGE } from '@/lib/images';
 import { whatsappUrl, WHATSAPP_MESSAGES } from '@/lib/contact';
 import Price from './Price';
+import type { Rating } from '@/lib/reviews';
 
 const LOWEST = PLANS.reduce((min, p) => (p.price < min.price ? p : min), PLANS[0]);
 
@@ -28,7 +29,7 @@ const PROOF = [
  */
 const rise = (delay: number) => ({ style: { animationDelay: `${delay}s` } });
 
-export default function Hero() {
+export default function Hero({ rating }: { rating: Rating }) {
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
 
@@ -76,7 +77,7 @@ export default function Hero() {
                 <Star
                   key={i}
                   className={`w-3.5 h-3.5 ${
-                    i < Math.floor(SITE.googleRating)
+                    i < Math.floor(rating.value)
                       ? 'fill-gold-400 text-gold-400'
                       : 'text-gold-400/50'
                   }`}
@@ -84,8 +85,8 @@ export default function Hero() {
               ))}
             </span>
             <span className="text-white/85 text-sm">
-              <strong className="font-semibold text-white">{SITE.googleRating}</strong> from{' '}
-              <span className="link-sweep">{SITE.googleReviewCount} Google reviews</span>
+              <strong className="font-semibold text-white">{rating.value}</strong> from{' '}
+              <span className="link-sweep">{rating.count} Google reviews</span>
             </span>
           </a>
 

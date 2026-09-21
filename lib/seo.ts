@@ -521,6 +521,69 @@ export function reviewSchema(opts: {
 }
 
 /** Speakable schema — marks extractable answer passages for voice/AI. */
+/**
+ * One photograph, described for image search.
+ *
+ * Google Images is a real channel for a photography business and it ranks on
+ * what surrounds a file, not on the pixels: a caption, what the picture is
+ * of, where it was taken, who made it and what licence it carries. Emitting
+ * this per frame is the difference between eighteen anonymous JPEGs and
+ * eighteen indexed photographs of a named landmark.
+ */
+export function imageObjectSchema(opts: {
+  url: string;
+  caption: string;
+  contentLocation?: string;
+}) {
+  return {
+    '@type': 'ImageObject',
+    contentUrl: opts.url,
+    url: opts.url,
+    caption: opts.caption,
+    description: opts.caption,
+    representativeOfPage: false,
+    creator: { '@id': `${SITE.url}/#photographer` },
+    copyrightHolder: { '@id': `${SITE.url}/#business` },
+    creditText: SITE.name,
+    copyrightNotice: `© ${new Date().getFullYear()} ${SITE.name}`,
+    acquireLicensePage: `${SITE.url}/contact`,
+    license: `${SITE.url}/terms`,
+    contentLocation: {
+      '@type': 'Place',
+      name: opts.contentLocation ?? 'Taj Mahal',
+      address: { '@type': 'PostalAddress', addressLocality: 'Agra', addressRegion: 'Uttar Pradesh', addressCountry: 'IN' },
+    },
+  };
+}
+
+/**
+ * A clip, described for video search. Without duration, a thumbnail and an
+ * upload date a <video> is invisible to Google; with them it can surface as a
+ * video result, which nothing else on this site competes for.
+ */
+export function videoObjectSchema(opts: {
+  name: string;
+  description: string;
+  contentUrl: string;
+  thumbnailUrl: string;
+  /** ISO 8601, e.g. PT27S */
+  duration: string;
+  uploadDate: string;
+}) {
+  return {
+    '@type': 'VideoObject',
+    name: opts.name,
+    description: opts.description,
+    contentUrl: opts.contentUrl,
+    thumbnailUrl: [opts.thumbnailUrl],
+    duration: opts.duration,
+    uploadDate: opts.uploadDate,
+    publisher: { '@id': `${SITE.url}/#business` },
+    isFamilyFriendly: true,
+    inLanguage: 'en',
+  };
+}
+
 export function speakableSpec(cssSelectors: string[]) {
   return {
     '@type': 'SpeakableSpecification',

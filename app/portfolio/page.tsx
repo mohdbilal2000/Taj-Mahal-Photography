@@ -5,8 +5,9 @@ import MobileActionBar from '@/components/MobileActionBar';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { breadcrumbSchema, jsonLd, SITE } from '@/lib/seo';
-import { GALLERY } from '@/lib/gallery';
+import { breadcrumbSchema, imageObjectSchema, jsonLd, SITE } from '@/lib/seo';
+import { GALLERY, planFor } from '@/lib/gallery';
+import PortfolioGallery from '@/components/PortfolioGallery';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Taj Mahal Photography Gallery',
@@ -30,34 +31,22 @@ export default function PortfolioPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Our Work</span>
             <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Photography Portfolio</h1>
-            <p className="text-lg text-gray-300">A glimpse into the magical moments we have captured at the Taj Mahal and across Agra.</p>
+            <p className="text-lg text-gray-300">Every photograph here is our own work, at the Taj Mahal and across Agra — and each one is tagged with the package that produced it.</p>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {GALLERY.map((img, i) => (
-              <div key={i} className="relative aspect-square overflow-hidden rounded-sm group">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500 flex items-end">
-                  <div className="p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-gold-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">{img.category}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+          <PortfolioGallery />
 
-          <div className="mt-16 text-center">
-            <p className="text-gray-600 mb-6">Want to see yourself in front of the Taj Mahal?</p>
-            <Link href="/book" className="inline-flex items-center px-8 py-4 bg-ink-900 text-white font-medium text-sm tracking-wide uppercase hover:bg-ink-800 transition-colors rounded-sm">
-              Book Your Photoshoot
+          <div className="mt-20 text-center border-t border-marble-200 pt-14">
+            <p className="text-ink-500 mb-6 lead">
+              Every frame above came from a package you can book today.
+            </p>
+            <Link
+              href="/services"
+              className="inline-flex items-center px-8 py-4 bg-ink-900 text-white font-medium text-sm tracking-wide hover:bg-ink-800 transition-colors rounded-sm"
+            >
+              See the packages
             </Link>
           </div>
         </div>
@@ -82,6 +71,15 @@ export default function PortfolioPage() {
           description: 'Professional photographs of the Taj Mahal captured by a government-licensed photographer in Agra, India.',
           url: `${SITE.url}/portfolio`,
           about: { '@type': 'Place', name: 'Taj Mahal', address: 'Agra, Uttar Pradesh, India' },
+          // Each frame described individually, so image search has something
+          // to rank beyond a filename.
+          associatedMedia: GALLERY.map((img) =>
+            imageObjectSchema({
+              url: `${SITE.url}${img.src}`,
+              caption: img.alt,
+              contentLocation: img.place,
+            })
+          ),
         }) }}
       />
     </div>

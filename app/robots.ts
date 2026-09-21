@@ -46,7 +46,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: '*', allow: '/', disallow: ['/api/', '/_next/'] },
       ...AI_ALLOWED.map((ua) => ({ userAgent: ua, allow: '/' })),
     ],
-    sitemap: `${SITE.url}/sitemap.xml`,
+    sitemap: [`${SITE.url}/sitemap.xml`, `${SITE.url}/image-sitemap.xml`],
     host: SITE.domain,
   };
 }

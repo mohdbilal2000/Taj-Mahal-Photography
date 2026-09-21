@@ -6,7 +6,7 @@ import { Star, Quote } from 'lucide-react';
 import { testimonials } from '@/lib/content';
 import { SITE } from '@/lib/seo';
 
-export default function Testimonials() {
+export default function Testimonials({ rating }: { rating: { value: number; count: number } }) {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
@@ -29,15 +29,15 @@ export default function Testimonials() {
                 <Star
                   key={i}
                   className={`w-4 h-4 ${
-                    i < Math.floor(SITE.googleRating)
+                    i < Math.floor(rating.value)
                       ? 'fill-gold-500 text-gold-500'
                       : 'text-gold-500/40'
                   }`}
                 />
               ))}
             </span>
-            <span className="font-semibold">{SITE.googleRating}</span>
-            <span className="text-ink-500">from {SITE.googleReviewCount} Google reviews</span>
+            <span className="font-semibold">{rating.value}</span>
+            <span className="text-ink-500">from {rating.count} Google reviews</span>
           </p>
         </div>
 
