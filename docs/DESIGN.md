@@ -73,6 +73,23 @@ cropped back to the photograph itself (`sharp().extract()`), so the section
 mounts all six identically and the treatment is the design rather than an
 inconsistency.
 
+## Film
+
+`components/FilmShowcase.tsx` shows the two clips the studio supplied. Both
+are things already sold and previously invisible on the site: a 27-second
+landscape edit (the "30 second cinematic video" in the couple package) and a
+vertical 14-second reel (the "3–5 reels" every package includes).
+
+The cinematic clip starts as a card and scales to fill the screen on scroll;
+the reel then rises beside it in a phone-shaped frame. The choreography is
+decoration, so `useReducedMotion` drops it entirely and renders the same two
+clips stacked and still.
+
+The files are ~5MB together, so they are `preload="none"` and only given a
+`src` once an IntersectionObserver says they are within 400px of the
+viewport. Posters are stills from the gallery, since a poster frame cannot be
+pulled from an H.264 file in this environment.
+
 ## Still open
 
 - Nothing outstanding on imagery.
