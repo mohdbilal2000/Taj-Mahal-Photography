@@ -38,9 +38,9 @@ export default function ServicesOverview() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="bg-mughal-pattern bg-marble-50 py-24">
+    <section className="bg-mughal-pattern bg-marble-50 py-16 md:py-24">
       <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-16">
           <div className="max-w-2xl">
             <span className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block">
               Our Expertise

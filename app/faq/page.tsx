@@ -23,7 +23,7 @@ export default function FAQPage() {
     <div className="min-h-screen flex flex-col pt-20">
       <Header />
       <main className="flex-grow">
-        <div className="bg-ink-900 text-white py-20">
+        <div className="bg-ink-900 text-white py-14 md:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Frequently Asked Questions</h1>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">Everything you need to know about photography at the Taj Mahal, answered by a government-licensed photographer.</p>
@@ -32,7 +32,7 @@ export default function FAQPage() {
         <FAQ />
 
         {/* AEO: Extended answers for AI crawlers */}
-        <section className="py-20 bg-white border-t border-marble-200">
+        <section className="py-14 md:py-20 bg-white border-t border-marble-200">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-10">Detailed Answers for Visitors</h2>
             <div className="space-y-10">

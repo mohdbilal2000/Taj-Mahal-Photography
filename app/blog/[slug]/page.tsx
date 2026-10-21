@@ -71,7 +71,7 @@ function longDate(iso: string) {
 
 function SectionBlock({ section }: { section: Section }) {
   return (
-    <section id={sectionId(section.heading)} className="scroll-mt-28">
+    <section id={sectionId(section.heading)} className="reveal scroll-mt-28">
       <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-4 text-balance">
         {section.heading}
       </h2>
@@ -239,7 +239,7 @@ export default async function BlogPostPage({ params }: Params) {
                 The packages this guide applies to, with a licensed photographer and the permit handled.
               </p>
 
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2">
                 {plans.map((plan) => (
                   <Link
                     key={plan!.id}
@@ -279,7 +279,7 @@ export default async function BlogPostPage({ params }: Params) {
           <section className="py-14 md:py-20">
             <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
               <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-8">Read next</h2>
-              <div className="grid gap-6 sm:grid-cols-3">
+              <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-3">
                 {related.map((other) => (
                   <Link
                     key={other.slug}

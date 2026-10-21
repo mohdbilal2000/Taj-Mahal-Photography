@@ -1,4 +1,6 @@
 import { SITE } from '@/lib/seo';
+import { POSTS } from '@/lib/blog';
+import { LOCALES } from '@/lib/i18n';
 
 export const dynamic = 'force-static';
 
@@ -13,8 +15,8 @@ const BODY = `# ${SITE.name}
 - Address: ${SITE.address.street}, ${SITE.address.city}, ${SITE.address.state} ${SITE.address.zip}, India
 - Phone / WhatsApp: ${SITE.phoneDisplay}
 - Email: ${SITE.email}
-- Google Business Profile / Maps: https://maps.app.goo.gl/kFsckb7rMqJBugzV8
-- Rating: 4.9 / 5 (500+ reviews)
+- Google Business Profile / Maps: ${SITE.googleBusiness}
+- Google rating: ${SITE.googleRating} / 5 from ${SITE.googleReviewCount} reviews (checked ${SITE.googleRatingChecked})
 - Languages: English, Hindi, Urdu
 - Licensed by: Ministry of Tourism, Government of India
 
@@ -49,6 +51,17 @@ const BODY = `# ${SITE.name}
 - [About](${SITE.url}/about): About the photographer and government license.
 - [Blog](${SITE.url}/blog): Articles about Taj Mahal photography, timing, weather and planning.
 - [Book](${SITE.url}/book): Booking inquiry form (WhatsApp follow-up within 10 minutes).
+
+## Guides (full articles, each answering one question directly)
+
+${POSTS.map((post) => `- [${post.title}](${SITE.url}/blog/${post.slug}): ${post.answer}`).join('\n')}
+
+## Pages in other languages
+
+Each page carries the licence, the booking process, the same package prices and
+local-language FAQs. English is canonical (x-default).
+
+${LOCALES.map((locale) => `- [${locale.endonym}](${SITE.url}/${locale.code})`).join('\n')}
 
 ## Quick Facts
 

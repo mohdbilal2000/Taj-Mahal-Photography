@@ -68,7 +68,7 @@ export default function GuestMoments() {
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   return (
-    <section ref={sectionRef} className="relative py-24 bg-marble-100 overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 md:py-24 bg-marble-100 overflow-hidden">
       {/* The faint repeated wordmark that sits behind the posts. */}
       <div
         className="absolute inset-0 flex flex-col justify-center gap-2 pointer-events-none"

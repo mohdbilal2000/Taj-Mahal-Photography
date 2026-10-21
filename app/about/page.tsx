@@ -40,7 +40,7 @@ export default function AboutPage() {
       <Header />
       <main className="flex-grow">
         {/* Hero */}
-        <section className="relative bg-ink-900 text-white py-24">
+        <section className="relative bg-ink-900 text-white py-16 md:py-24">
           <div className="absolute inset-0 opacity-10 bg-[url('/photos/gallery/02.jpg')] bg-cover bg-center" />
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">About the Photographer</span>
@@ -66,7 +66,7 @@ export default function AboutPage() {
         </section>
 
         {/* Story Section - AEO optimized with clear, direct answers */}
-        <section className="py-20 bg-marble-50">
+        <section className="py-14 md:py-20 bg-marble-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink-900 mb-8">What Does a Licensed Taj Mahal Photographer Do?</h2>
             <div className="prose prose-lg prose-slate max-w-none text-gray-600 space-y-6">
@@ -97,7 +97,7 @@ export default function AboutPage() {
         </section>
 
         {/* Journey Timeline */}
-        <section className="py-20 bg-white">
+        <section className="py-14 md:py-20 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink-900 mb-12 text-center">The Journey</h2>
             <div className="space-y-12">
@@ -118,7 +118,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-ink-900 text-white text-center">
+        <section className="py-14 md:py-20 bg-ink-900 text-white text-center">
           <div className="max-w-3xl mx-auto px-4">
             <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">Ready to Capture Your Taj Mahal Moment?</h2>
             <p className="text-gray-300 text-lg mb-10">Book an authorized photoshoot and experience the Taj Mahal through the lens of a certified professional.</p>

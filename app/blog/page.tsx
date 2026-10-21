@@ -116,7 +116,7 @@ export default function BlogPage() {
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-8 md:-mt-12">
           <Link
             href={`/blog/${featured.slug}`}
-            className="card-lift group grid overflow-hidden rounded-sm border hairline bg-white md:grid-cols-2"
+            className="reveal card-lift group grid overflow-hidden rounded-sm border hairline bg-white md:grid-cols-2"
           >
             <div className="img-zoom relative aspect-[16/10] md:aspect-auto md:min-h-[320px]">
               <Image
@@ -144,7 +144,7 @@ export default function BlogPage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}
@@ -163,7 +163,7 @@ export default function BlogPage() {
 
             <div className="divide-y hairline">
               {POSTS.map((post) => (
-                <div key={post.slug} className="py-6">
+                <div key={post.slug} className="reveal py-6">
                   <h3 className="font-serif text-lg font-semibold text-ink-900 text-pretty">
                     {post.title}
                   </h3>

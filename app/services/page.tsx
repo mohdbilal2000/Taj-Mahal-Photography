@@ -80,7 +80,7 @@ export default function ServicesPage() {
       <Header />
 
       <main className="flex-grow bg-marble-50">
-        <div className="bg-ink-900 text-white py-20">
+        <div className="bg-ink-900 text-white py-14 md:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Our Expertise</span>
             <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Photography Services</h1>
@@ -89,7 +89,7 @@ export default function ServicesPage() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
           <div className="space-y-24">
             {services.map((service, index) => (
               <div key={service.id} className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
@@ -135,7 +135,7 @@ export default function ServicesPage() {
         </div>
 
         {/* AEO: Direct answers for service queries */}
-        <section className="py-20 bg-white border-t border-marble-200">
+        <section className="py-14 md:py-20 bg-white border-t border-marble-200">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-8">Service Quick Answers</h2>
             <div className="space-y-8">

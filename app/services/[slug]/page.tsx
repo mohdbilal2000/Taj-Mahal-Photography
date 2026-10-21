@@ -384,7 +384,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
           {/* Quick Answer block — direct-answer text that AI engines preferentially extract */}
           <div className="bg-marble-50 border-l-4 border-gold-500 p-6 mb-12 rounded-sm">
             <p className="text-xs uppercase tracking-widest text-gold-600 font-bold mb-2">Quick Answer</p>

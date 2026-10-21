@@ -27,7 +27,7 @@ export default function PortfolioPage() {
     <div className="min-h-screen flex flex-col pt-20">
       <Header />
       <main className="flex-grow">
-        <div className="bg-ink-900 text-white py-20">
+        <div className="bg-ink-900 text-white py-14 md:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Our Work</span>
             <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Photography Portfolio</h1>

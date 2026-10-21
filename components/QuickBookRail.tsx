@@ -16,7 +16,7 @@ export default function QuickBookRail() {
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   return (
-    <section className="py-20 bg-marble-50 border-b border-marble-200" id="quick-book">
+    <section className="py-14 md:py-20 bg-marble-50 border-b border-marble-200" id="quick-book">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
         <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.span

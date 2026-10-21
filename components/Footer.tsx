@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="h-1 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-10 md:mb-16">
           {/* Column 1 — Logo & Description */}
           <div>
             <Link href="/" className="flex flex-col items-start mb-6">

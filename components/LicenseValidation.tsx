@@ -59,7 +59,7 @@ export default function LicenseValidation() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-ink-900 text-white overflow-hidden relative"
+      className="py-16 md:py-24 bg-ink-900 text-white overflow-hidden relative"
     >
       {/* Background image with parallax */}
       <div className="absolute inset-0 opacity-10 bg-cover bg-center bg-[url('/photos/gallery/05.jpg')]" />

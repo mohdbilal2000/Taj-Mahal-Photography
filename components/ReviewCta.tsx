@@ -13,7 +13,7 @@ import type { Rating } from '@/lib/reviews';
  */
 export default function ReviewCta({ rating }: { rating: Rating }) {
   return (
-    <section className="bg-ink-900 text-white py-20 grain relative" id="review">
+    <section className="bg-ink-900 text-white py-14 md:py-20 grain relative" id="review">
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
           <div>

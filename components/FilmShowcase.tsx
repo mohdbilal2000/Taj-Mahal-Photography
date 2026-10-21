@@ -93,7 +93,7 @@ export default function FilmShowcase() {
 
   if (reduceMotion) {
     return (
-      <section className="bg-ink-900 py-24 grain">
+      <section className="bg-ink-900 py-16 md:py-24 grain">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <Header />
           <div className="grid md:grid-cols-[1.6fr_1fr] gap-8 mt-12 items-start">

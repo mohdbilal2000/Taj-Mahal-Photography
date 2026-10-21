@@ -153,7 +153,7 @@ export default function ContactForm() {
     'w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors';
 
   return (
-    <section ref={sectionRef} className="py-24 bg-ink-900 text-white" id="book">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-ink-900 text-white" id="book">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* LEFT COLUMN - Info Side */}

@@ -11,9 +11,9 @@ export default function Testimonials({ rating }: { rating: { value: number; coun
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={sectionRef} className="py-24 bg-marble-50">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-marble-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
           <span className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block">
             Client Stories
           </span>

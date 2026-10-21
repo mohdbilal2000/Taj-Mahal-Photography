@@ -100,7 +100,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <p
             id="answer"
-            className="lead border-l-2 border-gold-500 pl-5 text-ink-900 text-pretty"
+            className="reveal lead border-l-2 border-gold-500 pl-5 text-ink-900 text-pretty"
           >
             {locale.answer}
           </p>
@@ -111,7 +111,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-8">{locale.trustTitle}</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2">
             {locale.trust.map((item) => (
               <div key={item.title} className="rounded-sm border hairline bg-white p-6">
                 <h3 className="font-serif text-lg font-semibold text-ink-900">{item.title}</h3>
@@ -126,7 +126,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
       <section className="border-y hairline bg-marble-50 py-14 md:py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-8">{locale.stepsTitle}</h2>
-          <ol className="grid gap-6 sm:grid-cols-3">
+          <ol className="reveal reveal-stagger grid gap-6 sm:grid-cols-3">
             {locale.steps.map((step, i) => (
               <li key={step.title} className="rounded-sm bg-white p-6 border hairline">
                 <span className="font-serif text-3xl text-gold-500 tabular-nums">
@@ -148,7 +148,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
           </h2>
           <p className="mb-8 max-w-2xl text-ink-700">{locale.packagesIntro}</p>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {plans.map((plan) => {
               const label = locale.planLabels[plan!.id];
               const image = plan!.image ?? planImage(plan!.id);

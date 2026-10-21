@@ -67,9 +67,9 @@ export default function LuxuryTours() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-24 bg-ink-900 text-white" id="luxury-tours">
+    <section className="py-16 md:py-24 bg-ink-900 text-white" id="luxury-tours">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}

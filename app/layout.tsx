@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Cormorant_Garamond, Caveat } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import ScrollReveal from '@/components/ScrollReveal';
 import { localeAlternates } from '@/lib/i18n';
 import { SITE } from '@/lib/seo';
 import { CurrencyProvider } from '@/lib/currency';
@@ -165,6 +166,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </noscript>
       </head>
       <body className="font-sans bg-[#FAFAFA] text-[#1A1A1A] antialiased" suppressHydrationWarning>
+        <ScrollReveal />
         <CurrencyProvider>{children}</CurrencyProvider>
         <Analytics />
       </body>
