@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 import { SITE } from '@/lib/seo';
+import { POSTS } from '@/lib/blog';
+import { LOCALES } from '@/lib/i18n';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
@@ -113,6 +115,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    // Translated landing pages — one per language, each self-canonical.
+    ...LOCALES.map((locale) => ({
+      url: `${SITE.url}/${locale.code}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+    // Every article, newest change first — the blog is a real surface now.
+    ...POSTS.map((post) => ({
+      url: `${SITE.url}/blog/${post.slug}`,
+      lastModified: new Date(post.updated).toISOString(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
+    })),
     {
       url: `${SITE.url}/payment`,
       lastModified: now,

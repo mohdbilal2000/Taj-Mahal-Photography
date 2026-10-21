@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Instagram, Mail, Phone, MapPin, Camera, Linkedin, Facebook } from 'lucide-react';
+import { LOCALES } from '@/lib/i18n';
 
 export default function Footer() {
   return (
@@ -233,6 +234,24 @@ export default function Footer() {
             <span className="text-gray-600">Featured On:</span>
             <a href="https://guideindiatours.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">Guide India Tours</a>
             <a href="https://www.asiabylocals.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">Asia By Locals</a>
+          </div>
+        </div>
+
+        {/* Languages — a visitor who searched in their own language can stay in it */}
+        <div className="border-t border-gray-800 pt-8 mb-8 text-center">
+          <p className="text-xs text-gray-500 mb-3">Also available in</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs">
+            {LOCALES.map((locale) => (
+              <Link
+                key={locale.code}
+                href={`/${locale.code}`}
+                hrefLang={locale.hreflang}
+                lang={locale.hreflang}
+                className="inline-flex items-center min-h-[36px] text-gray-400 hover:text-white transition-colors"
+              >
+                {locale.endonym}
+              </Link>
+            ))}
           </div>
         </div>
 

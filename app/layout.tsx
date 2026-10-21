@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Cormorant_Garamond, Caveat } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import { localeAlternates } from '@/lib/i18n';
 import { SITE } from '@/lib/seo';
 import { CurrencyProvider } from '@/lib/currency';
 import './globals.css';
@@ -77,6 +78,7 @@ export const metadata: Metadata = {
       'en-US': SITE.url,
       'en-GB': SITE.url,
       'en-IN': SITE.url,
+      ...localeAlternates(SITE.url),
       'x-default': SITE.url,
     },
   },
