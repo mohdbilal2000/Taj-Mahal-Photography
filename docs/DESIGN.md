@@ -90,6 +90,48 @@ The files are ~5MB together, so they are `preload="none"` and only given a
 viewport. Posters are stills from the gallery, since a poster frame cannot be
 pulled from an H.264 file in this environment.
 
+## Entrance and scroll
+
+Two mechanisms, deliberately both CSS:
+
+- `.rise` — a one-shot entrance for above-the-fold content (the hero H1).
+- `.reveal` / `.reveal-stagger` — fades and lifts an element, or walks a grid's
+  children in 70ms apart, as it scrolls into view.
+
+Both ship *visible*. `.reveal`'s hiding rules are scoped under
+`html[data-reveal='on']`, and that attribute is only set by
+`components/ScrollReveal.tsx` once it mounts — so a crawler, a reader with
+scripts off, or anyone with `prefers-reduced-motion: reduce` sees the content
+rather than an empty page. This is the trap worth remembering: a motion library
+writes `opacity: 0` into the *server* HTML, which is why `motion/react` is kept
+off anything that matters for SEO.
+
+Apply `.reveal` only where `motion/react` is not already animating the same
+element, or it animates twice.
+
+## Density
+
+Section rhythm is `py-14 md:py-20` (and `py-16 md:py-24` for the few feature
+sections), headers `mb-10 md:mb-16`. Phones get roughly a third less vertical
+air than desktop because the same padding that frames a section on a 1440px
+screen is dead scrolling on a 390px one.
+
+## Blog and languages
+
+`lib/blog.ts` holds the articles; `app/blog/[slug]/page.tsx` renders them. Each
+post leads with an `answer` field — one self-contained paragraph that answers
+the title — because that is the part a featured snippet or an AI answer quotes.
+Keep it standalone: no "as mentioned above".
+
+`lib/i18n.ts` holds one translated landing page per language, rendered by
+`components/LocaleLanding.tsx` at `/fr`, `/es`, `/de`, `/it`, `/pt`, `/ru`,
+`/ja`, `/zh`, `/ar`, `/hi`. Routes are explicit directories, not a `[locale]`
+segment, so they can never shadow a real page. Prices are read from
+`lib/plans.ts` and never translated, and `localeAlternates()` is the single
+source for hreflang, used by the root layout and every locale page with English
+as `x-default`. Adding a language is: one entry in `LOCALES`, one four-line
+`app/<code>/page.tsx`.
+
 ## Still open
 
 - Nothing outstanding on imagery.

@@ -247,7 +247,7 @@ export default function Footer() {
                 href={`/${locale.code}`}
                 hrefLang={locale.hreflang}
                 lang={locale.hreflang}
-                className="inline-flex items-center min-h-[36px] text-gray-400 hover:text-white transition-colors"
+                className="inline-flex min-w-[2.75rem] items-center justify-center px-1 min-h-[36px] text-gray-400 hover:text-white transition-colors"
               >
                 {locale.endonym}
               </Link>
