@@ -5,7 +5,7 @@ import { LOCALES } from '@/lib/i18n';
 
 export default function Footer() {
   return (
-    <footer className="bg-ink-900 text-white pt-20 pb-8 pb-action-bar lg:pb-0">
+    <footer className="bg-ink-900 text-white pt-20 pb-8 pb-action-bar 2xl:pb-0">
       {/* Gold accent line */}
       <div className="h-1 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
 
@@ -215,7 +215,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-ink-400">
                 <Mail className="h-4 w-4 mr-3 flex-shrink-0 text-gold-400" />
-                <a href="mailto:booking@tajmahalphotography.com" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">booking@tajmahalphotography.com</a>
+                <a href="mailto:booking@tajmahalphotography.com" className="inline-flex min-h-[36px] items-center break-all hover:text-white transition-colors">booking@tajmahalphotography.com</a>
               </li>
             </ul>
           </div>

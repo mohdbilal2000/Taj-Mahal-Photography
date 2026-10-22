@@ -179,8 +179,8 @@ export default function LicenseValidation() {
             </div>
 
             {/* Decorative corner elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 border-t-2 border-r-2 border-gold-500 opacity-50" />
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 border-b-2 border-l-2 border-gold-500 opacity-50" />
+            <div className="pointer-events-none absolute -top-3 right-0 h-24 w-24 border-r-2 border-t-2 border-gold-500 opacity-50 lg:-right-6 lg:-top-6 lg:h-32 lg:w-32" />
+            <div className="pointer-events-none absolute -bottom-3 left-0 h-24 w-24 border-b-2 border-l-2 border-gold-500 opacity-50 lg:-bottom-6 lg:-left-6 lg:h-32 lg:w-32" />
           </motion.div>
         </div>
       </div>

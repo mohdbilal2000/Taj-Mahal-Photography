@@ -28,7 +28,7 @@ export default function StickyWhatsApp() {
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-      className="hidden lg:block fixed bottom-6 right-6 z-50 group"
+      className="hidden 2xl:block fixed bottom-6 right-6 z-50 group"
       aria-label="Chat on WhatsApp — replies within 10 minutes"
     >
       {/* Soft expanding halo behind the button */}

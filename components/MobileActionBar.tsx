@@ -28,7 +28,7 @@ export default function MobileActionBar() {
 
   return (
     <div
-      className={`lg:hidden fixed inset-x-0 bottom-0 z-40 transition-transform duration-500 ${
+      className={`2xl:hidden fixed inset-x-0 bottom-0 z-40 transition-transform duration-500 ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
