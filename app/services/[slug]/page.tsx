@@ -4,6 +4,7 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import MobileActionBar from '@/components/MobileActionBar';
 import ContactForm from '@/components/ContactForm';
 import Price from '@/components/Price';
+import QuickBook from '@/components/QuickBook';
 import TajGuideNotice from '@/components/TajGuideNotice';
 import InrRateNote from '@/components/InrRateNote';
 import packagesData from '@/lib/packages.json';
@@ -453,6 +454,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   </div>
                 </div>
               )}
+
+              <div className="mt-12">
+                <QuickBook defaultPlanId={slug} />
+              </div>
 
               <p className="mt-12 text-xs text-gray-400">Last updated: {LAST_UPDATED}</p>
             </div>

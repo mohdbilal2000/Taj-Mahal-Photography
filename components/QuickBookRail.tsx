@@ -8,6 +8,7 @@ import { ArrowRight, Zap, Clock, BadgeCheck, ShieldCheck } from 'lucide-react';
 import { PLANS, QUICK_BOOK_IDS, imageForPlan } from '@/lib/plans';
 import Price from './Price';
 import InrRateNote from './InrRateNote';
+import QuickBook from './QuickBook';
 
 const quickPlans = QUICK_BOOK_IDS.map((id) => PLANS.find((p) => p.id === id)!).filter(Boolean);
 
@@ -45,6 +46,12 @@ export default function QuickBookRail() {
             Tap a card to open the booking form with it pre-selected — confirmation on
             WhatsApp within 10 minutes.
           </motion.p>
+        </div>
+
+        {/* The whole booking path in three fields, above the cards: most
+            visitors already know which package they want. */}
+        <div className="mx-auto mb-12 max-w-3xl">
+          <QuickBook />
         </div>
 
         {/* Mobile: horizontal snap rail (Klook-style). Desktop: 3-column grid. */}

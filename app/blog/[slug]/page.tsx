@@ -4,6 +4,7 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import MobileActionBar from '@/components/MobileActionBar';
 import ReadingProgress from '@/components/ReadingProgress';
 import Price from '@/components/Price';
+import QuickBook from '@/components/QuickBook';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
@@ -238,6 +239,11 @@ export default async function BlogPostPage({ params }: Params) {
               <p className="text-ink-700 mb-8">
                 The packages this guide applies to, with a licensed photographer and the permit handled.
               </p>
+
+              <QuickBook
+                defaultPlanId={plans[0]!.id}
+                className="mb-10"
+              />
 
               <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2">
                 {plans.map((plan) => (

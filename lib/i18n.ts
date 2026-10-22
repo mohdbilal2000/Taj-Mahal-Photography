@@ -18,6 +18,29 @@ export type LocaleCode = 'fr' | 'es' | 'de' | 'it' | 'pt' | 'ja' | 'zh' | 'ru' |
 
 export type PlanLabel = { name: string; tagline: string };
 
+/**
+ * One translated service page: /<locale>/<slug>.
+ *
+ * The slug is written in the language, not transliterated from English, so
+ * the keyword a traveller types is in the URL. Each page carries its own
+ * direct answer, which is what an AI answer or a featured snippet quotes.
+ */
+export type LocaleService = {
+  /** Plan id in lib/plans.ts — the price and the booking link come from there. */
+  planId: string;
+  /** Localized, keyword-bearing slug. Must be unique within the locale. */
+  slug: string;
+  title: string;
+  description: string;
+  keywords: string[];
+  h1: string;
+  /** Snippet candidate: answers the page's question in one paragraph. */
+  answer: string;
+  intro: string[];
+  includes: string[];
+  faqs: { question: string; answer: string }[];
+};
+
 export type LocaleContent = {
   code: LocaleCode;
   /** hreflang / <html lang> value. */
@@ -55,6 +78,24 @@ export type LocaleContent = {
   englishLabel: string;
   /** The WhatsApp opener, pre-written in their language. */
   whatsappMessage: string;
+  /** Labels for the three-field quick-book block. */
+  quickBook: {
+    eyebrow: string;
+    title: string;
+    note: string;
+    packageLabel: string;
+    dateLabel: string;
+    guestsLabel: string;
+    submit: string;
+    tomorrow: string;
+    formLink: string;
+    opener: string;
+  };
+  /** Section headings reused by every service page in this language. */
+  serviceIncludesTitle: string;
+  serviceFaqTitle: string;
+  serviceOtherTitle: string;
+  serviceBackLabel: string;
 };
 
 const PLAN_IDS = [...QUICK_BOOK_IDS];
@@ -175,6 +216,22 @@ export const LOCALES: LocaleContent[] = [
     englishLabel: 'Voir le site complet en anglais',
     whatsappMessage:
       'Bonjour, je souhaite réserver une séance photo au Taj Mahal. Ma date :',
+    quickBook: {
+      eyebrow: 'Réservez en moins d’une minute',
+      title: 'Trois choix et c’est parti sur WhatsApp',
+      note: 'Aucun acompte demandé ici. Nous répondons avec les disponibilités, en général sous dix minutes.',
+      packageLabel: 'Formule',
+      dateLabel: 'Date',
+      guestsLabel: 'Personnes',
+      submit: 'Envoyer sur WhatsApp',
+      tomorrow: 'Demain au lever du soleil',
+      formLink: 'Vous préférez un formulaire ?',
+      opener: 'Bonjour ! Je souhaite réserver une séance photo au Taj Mahal.',
+    },
+    serviceIncludesTitle: 'Ce qui est compris',
+    serviceFaqTitle: 'Questions fréquentes',
+    serviceOtherTitle: 'Autres formules',
+    serviceBackLabel: 'Toutes les formules',
   },
   {
     code: 'es',
@@ -290,6 +347,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: 'Formulario de reserva',
     englishLabel: 'Ver la web completa en inglés',
     whatsappMessage: 'Hola, quiero reservar una sesión de fotos en el Taj Mahal. Mi fecha:',
+    quickBook: {
+      eyebrow: 'Reserva en menos de un minuto',
+      title: 'Tres toques y ya está en WhatsApp',
+      note: 'Aquí no pedimos señal. Contestamos con la disponibilidad, normalmente en diez minutos.',
+      packageLabel: 'Paquete',
+      dateLabel: 'Fecha',
+      guestsLabel: 'Personas',
+      submit: 'Enviar por WhatsApp',
+      tomorrow: 'Mañana al amanecer',
+      formLink: '¿Prefieres un formulario?',
+      opener: '¡Hola! Quiero reservar una sesión de fotos en el Taj Mahal.',
+    },
+    serviceIncludesTitle: 'Qué incluye',
+    serviceFaqTitle: 'Preguntas frecuentes',
+    serviceOtherTitle: 'Otros paquetes',
+    serviceBackLabel: 'Todos los paquetes',
   },
   {
     code: 'de',
@@ -405,6 +478,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: 'Buchungsformular',
     englishLabel: 'Zur vollständigen englischen Seite',
     whatsappMessage: 'Hallo, ich möchte ein Fotoshooting am Taj Mahal buchen. Mein Datum:',
+    quickBook: {
+      eyebrow: 'In unter einer Minute gebucht',
+      title: 'Drei Angaben, dann liegt es auf WhatsApp',
+      note: 'Hier wird keine Anzahlung verlangt. Wir antworten mit der Verfügbarkeit, meist innerhalb von zehn Minuten.',
+      packageLabel: 'Paket',
+      dateLabel: 'Datum',
+      guestsLabel: 'Personen',
+      submit: 'Per WhatsApp senden',
+      tomorrow: 'Morgen zum Sonnenaufgang',
+      formLink: 'Lieber ein Formular?',
+      opener: 'Hallo! Ich möchte ein Fotoshooting am Taj Mahal buchen.',
+    },
+    serviceIncludesTitle: 'Enthalten',
+    serviceFaqTitle: 'Häufige Fragen',
+    serviceOtherTitle: 'Weitere Pakete',
+    serviceBackLabel: 'Alle Pakete',
   },
   {
     code: 'it',
@@ -520,6 +609,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: 'Modulo di prenotazione',
     englishLabel: 'Vedi il sito completo in inglese',
     whatsappMessage: 'Buongiorno, vorrei prenotare un servizio fotografico al Taj Mahal. La mia data:',
+    quickBook: {
+      eyebrow: 'Prenotate in meno di un minuto',
+      title: 'Tre tocchi e arriva su WhatsApp',
+      note: 'Qui non chiediamo acconti. Rispondiamo con la disponibilità, di solito entro dieci minuti.',
+      packageLabel: 'Pacchetto',
+      dateLabel: 'Data',
+      guestsLabel: 'Persone',
+      submit: 'Invia su WhatsApp',
+      tomorrow: 'Domani all’alba',
+      formLink: 'Preferite un modulo?',
+      opener: 'Buongiorno! Vorrei prenotare un servizio fotografico al Taj Mahal.',
+    },
+    serviceIncludesTitle: 'Cosa comprende',
+    serviceFaqTitle: 'Domande frequenti',
+    serviceOtherTitle: 'Altri pacchetti',
+    serviceBackLabel: 'Tutti i pacchetti',
   },
   {
     code: 'pt',
@@ -635,6 +740,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: 'Formulário de reserva',
     englishLabel: 'Ver o site completo em inglês',
     whatsappMessage: 'Olá, quero reservar um ensaio fotográfico no Taj Mahal. Minha data:',
+    quickBook: {
+      eyebrow: 'Reserve em menos de um minuto',
+      title: 'Três toques e vai para o WhatsApp',
+      note: 'Aqui não pedimos sinal. Respondemos com a disponibilidade, normalmente em dez minutos.',
+      packageLabel: 'Pacote',
+      dateLabel: 'Data',
+      guestsLabel: 'Pessoas',
+      submit: 'Enviar no WhatsApp',
+      tomorrow: 'Amanhã ao amanhecer',
+      formLink: 'Prefere um formulário?',
+      opener: 'Olá! Quero reservar um ensaio fotográfico no Taj Mahal.',
+    },
+    serviceIncludesTitle: 'O que está incluído',
+    serviceFaqTitle: 'Perguntas frequentes',
+    serviceOtherTitle: 'Outros pacotes',
+    serviceBackLabel: 'Todos os pacotes',
   },
   {
     code: 'ru',
@@ -750,6 +871,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: 'Форма бронирования',
     englishLabel: 'Полная версия сайта на английском',
     whatsappMessage: 'Здравствуйте! Хочу забронировать фотосессию у Тадж-Махала. Моя дата:',
+    quickBook: {
+      eyebrow: 'Бронь меньше чем за минуту',
+      title: 'Три поля — и заявка уже в WhatsApp',
+      note: 'Здесь предоплата не нужна. Ответим со свободными датами, обычно в течение десяти минут.',
+      packageLabel: 'Пакет',
+      dateLabel: 'Дата',
+      guestsLabel: 'Человек',
+      submit: 'Отправить в WhatsApp',
+      tomorrow: 'Завтра на рассвете',
+      formLink: 'Удобнее через форму?',
+      opener: 'Здравствуйте! Хочу забронировать фотосессию у Тадж-Махала.',
+    },
+    serviceIncludesTitle: 'Что входит',
+    serviceFaqTitle: 'Частые вопросы',
+    serviceOtherTitle: 'Другие пакеты',
+    serviceBackLabel: 'Все пакеты',
   },
   {
     code: 'ja',
@@ -865,6 +1002,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: '予約フォーム',
     englishLabel: '英語版サイトを見る',
     whatsappMessage: 'こんにちは。タージ・マハルでの撮影を予約したいです。希望日：',
+    quickBook: {
+      eyebrow: '一分以内にご予約',
+      title: '三項目で、そのままWhatsAppへ',
+      note: 'ここでのお預かり金は不要です。空き状況を、通常十分以内にお返事します。',
+      packageLabel: 'プラン',
+      dateLabel: '希望日',
+      guestsLabel: '人数',
+      submit: 'WhatsAppで送る',
+      tomorrow: '明日の日の出',
+      formLink: 'フォームの方がよろしければ',
+      opener: 'こんにちは。タージ・マハルでの撮影を予約したいです。',
+    },
+    serviceIncludesTitle: '含まれるもの',
+    serviceFaqTitle: 'よくあるご質問',
+    serviceOtherTitle: 'ほかのプラン',
+    serviceBackLabel: 'プラン一覧',
   },
   {
     code: 'zh',
@@ -977,6 +1130,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: '预约表单',
     englishLabel: '查看完整英文网站',
     whatsappMessage: '你好，我想预约泰姬陵的拍摄。我的日期：',
+    quickBook: {
+      eyebrow: '一分钟内完成预约',
+      title: '选三项，直接发到 WhatsApp',
+      note: '此处无需支付定金。我们会回复档期，通常十分钟内。',
+      packageLabel: '套餐',
+      dateLabel: '日期',
+      guestsLabel: '人数',
+      submit: '用 WhatsApp 发送',
+      tomorrow: '明天日出',
+      formLink: '想用表单填写？',
+      opener: '你好，我想预约泰姬陵的拍摄。',
+    },
+    serviceIncludesTitle: '包含内容',
+    serviceFaqTitle: '常见问题',
+    serviceOtherTitle: '其他套餐',
+    serviceBackLabel: '全部套餐',
   },
   {
     code: 'ar',
@@ -1092,6 +1261,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: 'نموذج الحجز',
     englishLabel: 'تصفّح الموقع الكامل بالإنجليزية',
     whatsappMessage: 'مرحبًا، أريد حجز جلسة تصوير في تاج محل. التاريخ:',
+    quickBook: {
+      eyebrow: 'احجز في أقل من دقيقة',
+      title: 'ثلاث خطوات ويصل الطلب على واتساب',
+      note: 'لا نطلب عربونًا هنا. نرد بالمواعيد المتاحة، عادةً خلال عشر دقائق.',
+      packageLabel: 'الباقة',
+      dateLabel: 'التاريخ',
+      guestsLabel: 'عدد الأشخاص',
+      submit: 'أرسل على واتساب',
+      tomorrow: 'غدًا عند الشروق',
+      formLink: 'تفضّل نموذجًا؟',
+      opener: 'مرحبًا، أريد حجز جلسة تصوير في تاج محل.',
+    },
+    serviceIncludesTitle: 'ما تشمله الباقة',
+    serviceFaqTitle: 'أسئلة متكررة',
+    serviceOtherTitle: 'باقات أخرى',
+    serviceBackLabel: 'كل الباقات',
   },
   {
     code: 'hi',
@@ -1207,6 +1392,22 @@ export const LOCALES: LocaleContent[] = [
     bookLabel: 'बुकिंग फॉर्म',
     englishLabel: 'पूरी अंग्रेज़ी साइट देखें',
     whatsappMessage: 'नमस्ते, मुझे ताजमहल पर फोटो शूट बुक करना है। मेरी तारीख़:',
+    quickBook: {
+      eyebrow: 'एक मिनट में बुकिंग',
+      title: 'तीन चीज़ें चुनिए, सीधा WhatsApp पर',
+      note: 'यहाँ कोई एडवांस नहीं लगता। हम उपलब्ध तारीख़ें बता देते हैं, आम तौर पर दस मिनट में।',
+      packageLabel: 'पैकेज',
+      dateLabel: 'तारीख़',
+      guestsLabel: 'कितने लोग',
+      submit: 'WhatsApp पर भेजें',
+      tomorrow: 'कल सूर्योदय पर',
+      formLink: 'फॉर्म भरना है?',
+      opener: 'नमस्ते! मुझे ताजमहल पर फोटो शूट बुक करना है।',
+    },
+    serviceIncludesTitle: 'इसमें क्या शामिल है',
+    serviceFaqTitle: 'आम सवाल',
+    serviceOtherTitle: 'बाकी पैकेज',
+    serviceBackLabel: 'सारे पैकेज',
   },
 ];
 

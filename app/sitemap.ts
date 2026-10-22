@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { SITE } from '@/lib/seo';
 import { POSTS } from '@/lib/blog';
 import { LOCALES } from '@/lib/i18n';
+import { localeServices } from '@/lib/i18n-services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
@@ -122,6 +123,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
+    // Every translated service page: /<locale>/<localized-slug>.
+    ...LOCALES.flatMap((locale) =>
+      localeServices(locale.code).map((service) => ({
+        url: `${SITE.url}/${locale.code}/${service.slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly' as const,
+        priority: 0.75,
+      })),
+    ),
     // Every article, newest change first — the blog is a real surface now.
     ...POSTS.map((post) => ({
       url: `${SITE.url}/blog/${post.slug}`,

@@ -6,6 +6,8 @@ import StickyWhatsApp from '@/components/StickyWhatsApp';
 import { HERO_IMAGE, planImage } from '@/lib/images';
 import { planById } from '@/lib/plans';
 import { LOCALE_PLAN_IDS, localeAlternates, type LocaleContent } from '@/lib/i18n';
+import { localeServices } from '@/lib/i18n-services';
+import QuickBook from '@/components/QuickBook';
 import {
   SITE,
   jsonLd,
@@ -58,6 +60,15 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
   const plans = LOCALE_PLAN_IDS.map(planById).filter(Boolean);
   const wa = whatsappHref(locale);
 
+  // Where a translated service page exists, the card goes there rather than
+  // to the English one — the whole point of having them.
+  const serviceHref = new Map(
+    localeServices(locale.code).map((service) => [service.planId, `/${locale.code}/${service.slug}`]),
+  );
+  const planNames = Object.fromEntries(
+    Object.entries(locale.planLabels).map(([id, label]) => [id, label.name]),
+  );
+
   return (
     <div lang={locale.hreflang} dir={locale.dir} className="min-h-screen bg-white">
       {/* Hero */}
@@ -104,6 +115,14 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
           >
             {locale.answer}
           </p>
+        </div>
+      </section>
+
+      {/* Booking, high on the page: a visitor who already decided should not
+          have to read the whole page to act. */}
+      <section className="py-10 md:py-12">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <QuickBook labels={{ ...locale.quickBook }} planNames={planNames} />
         </div>
       </section>
 
@@ -156,7 +175,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
               return (
                 <Link
                   key={plan!.id}
-                  href={`/services/${plan!.id}`}
+                  href={serviceHref.get(plan!.id) ?? `/services/${plan!.id}`}
                   className="card-lift group flex flex-col overflow-hidden rounded-sm border hairline bg-white"
                 >
                   {image && (
