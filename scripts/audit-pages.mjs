@@ -17,7 +17,7 @@ const ROUTES = [
   '/', '/services', '/services/sunrise', '/services/pre-wedding',
   '/services/guided-photo-tour-small', '/services/transport-guide',
   '/services/sunrise-luxury-innova', '/portfolio', '/book', '/faq',
-  '/about', '/fr', '/de', '/ar', '/ja', '/hi', '/blog', '/blog/taj-mahal-photography-permit', '/blog/delhi-to-agra-day-trip-taj-mahal', '/permit-guide', '/payment', '/terms', '/privacy',
+  '/about', '/fr', '/de', '/ar', '/ja', '/hi', '/blog', '/blog/taj-mahal-photographer-cost', '/blog/best-photo-spots-taj-mahal', '/fr/photographe-taj-mahal-lever-du-soleil', '/ar/musawwir-taj-mahal-shuruq', '/ja/taj-mahal-sunrise-satsuei', '/permit-guide', '/payment', '/terms', '/privacy',
 ];
 const VIEWPORTS = [
   { name: 'phone', width: 390, height: 844, mobile: true },

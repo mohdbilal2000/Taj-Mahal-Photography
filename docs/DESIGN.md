@@ -130,7 +130,27 @@ segment, so they can never shadow a real page. Prices are read from
 `lib/plans.ts` and never translated, and `localeAlternates()` is the single
 source for hreflang, used by the root layout and every locale page with English
 as `x-default`. Adding a language is: one entry in `LOCALES`, one four-line
-`app/<code>/page.tsx`.
+`app/<code>/page.tsx`, one entry in `LOCALE_SERVICES` and one copy of
+`app/<code>/[slug]/page.tsx`.
+
+`lib/i18n-services.ts` holds five service pages per language at
+`/<locale>/<slug>`, rendered by `components/LocaleServicePage.tsx`. Slugs are
+written in the language, not transliterated, so the keyword is in the URL —
+which also means hreflang cannot pair pages by URL. `serviceAlternates()`
+pairs them by `planId` instead, with the English `/services/<id>` page as
+`x-default`. Each locale route sets `dynamicParams = false`, so an unknown
+slug 404s rather than rendering an empty shell.
+
+## Booking
+
+`components/QuickBook.tsx` is the booking path: package, date, guest count,
+then a WhatsApp link whose message already contains all three. It takes a
+`labels` object, so the message arrives in the language the guest was reading,
+and `planNames` so the package is named in that language too. It is on the
+homepage rail, every English service page, every article and every translated
+page. Keep it to three fields — the deposit, the meeting point and the ticket
+count are a reply away, and asking for them up front is what makes a form get
+abandoned.
 
 ## Still open
 

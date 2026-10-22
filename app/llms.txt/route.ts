@@ -1,6 +1,7 @@
 import { SITE } from '@/lib/seo';
 import { POSTS } from '@/lib/blog';
 import { LOCALES } from '@/lib/i18n';
+import { localeServices } from '@/lib/i18n-services';
 
 export const dynamic = 'force-static';
 
@@ -61,7 +62,14 @@ ${POSTS.map((post) => `- [${post.title}](${SITE.url}/blog/${post.slug}): ${post.
 Each page carries the licence, the booking process, the same package prices and
 local-language FAQs. English is canonical (x-default).
 
-${LOCALES.map((locale) => `- [${locale.endonym}](${SITE.url}/${locale.code})`).join('\n')}
+${LOCALES.map((locale) => {
+  const services = localeServices(locale.code);
+  const lines = [`- [${locale.endonym}](${SITE.url}/${locale.code})`];
+  for (const service of services) {
+    lines.push(`  - [${service.h1}](${SITE.url}/${locale.code}/${service.slug}): ${service.answer}`);
+  }
+  return lines.join('\n');
+}).join('\n')}
 
 ## Quick Facts
 
