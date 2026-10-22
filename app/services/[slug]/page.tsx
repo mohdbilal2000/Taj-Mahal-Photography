@@ -379,13 +379,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="absolute inset-0 flex items-center justify-center text-center px-4">
             <div className="max-w-3xl">
               <span className="text-gold-400 font-bold tracking-widest uppercase mb-4 block">{isLuxuryTour ? 'Same-Day Luxury Tour' : 'Premium Service'}</span>
-              <h1 className="font-serif text-5xl md:text-6xl font-semibold text-white mb-6">{service.title}</h1>
+              <h1 className="display font-serif font-semibold text-white mb-6">{service.title}</h1>
               <p className="text-xl text-white/90">{service.description}</p>
             </div>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <div className="shell section">
           {/* Quick Answer block — direct-answer text that AI engines preferentially extract */}
           <div className="bg-marble-50 border-l-4 border-gold-500 p-6 mb-12 rounded-sm">
             <p className="text-xs uppercase tracking-widest text-gold-600 font-bold mb-2">Quick Answer</p>
@@ -397,7 +397,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">
               <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-6">About This {isLuxuryTour ? 'Tour' : 'Session'}</h2>
-              <div className="prose prose-lg prose-slate max-w-none text-gray-600">
+              <div className="prose prose-lg prose-slate max-w-none text-ink-700">
                 <p>{service.longDescription}</p>
                 <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">What&apos;s Included</h3>
                 <ul className="space-y-2">
@@ -419,7 +419,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                         </span>
                         <p className="text-xs uppercase tracking-widest text-gold-600 font-bold">{step.time}</p>
                         <p className="font-serif text-lg font-semibold text-ink-900">{step.title}</p>
-                        <p className="text-gray-600 text-sm">{step.detail}</p>
+                        <p className="text-ink-700 text-sm">{step.detail}</p>
                       </li>
                     ))}
                   </ol>
@@ -448,7 +448,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     {service.faqs.map((f, i) => (
                       <div key={i}>
                         <p className="font-semibold text-ink-900 mb-1">{f.question}</p>
-                        <p className="faq-answer text-gray-600">{f.answer}</p>
+                        <p className="faq-answer text-ink-700">{f.answer}</p>
                       </div>
                     ))}
                   </div>
@@ -459,7 +459,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <QuickBook defaultPlanId={slug} />
               </div>
 
-              <p className="mt-12 text-xs text-gray-400">Last updated: {LAST_UPDATED}</p>
+              <p className="mt-12 text-xs text-ink-400">Last updated: {LAST_UPDATED}</p>
             </div>
 
             <div>
@@ -469,8 +469,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <Price planId={slug} usd={service.price} fromPrice={isLuxuryTour || service.fromPrice} />
                 </div>
                 <InrRateNote className="mb-2" />
-                <p className="text-sm text-gray-500 mb-6">Duration: {service.duration}</p>
-                <ul className="space-y-3 mb-8 text-sm text-gray-600">
+                <p className="text-sm text-ink-500 mb-6">Duration: {service.duration}</p>
+                <ul className="space-y-3 mb-8 text-sm text-ink-700">
                   {isLuxuryTour ? (
                     <>
                       <li className="flex items-start"><span className="text-gold-500 mr-3">✓</span> Private vehicle (Delhi/NCR ↔ Agra)</li>
@@ -488,11 +488,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     </>
                   )}
                 </ul>
-                <a href={`/book?plan=${slug}`} className="block w-full text-center px-6 py-3 bg-ink-900 text-white font-medium rounded-sm hover:bg-ink-800 transition-colors">
+                <a href={`/book?plan=${slug}`} className="btn btn-ink btn-block">
                   Check Availability
                 </a>
                 {!isLuxuryTour && (
-                  <p className="text-xs text-center text-gray-500 mt-4">* Monument entry tickets are not included.</p>
+                  <p className="text-xs text-center text-ink-500 mt-4">* Monument entry tickets are not included.</p>
                 )}
               </div>
             </div>

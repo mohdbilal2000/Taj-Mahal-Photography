@@ -19,9 +19,17 @@ const ROUTES = [
   '/services/sunrise-luxury-innova', '/portfolio', '/book', '/faq',
   '/about', '/fr', '/de', '/ar', '/ja', '/hi', '/blog', '/blog/taj-mahal-photographer-cost', '/blog/best-photo-spots-taj-mahal', '/fr/photographe-taj-mahal-lever-du-soleil', '/ar/musawwir-taj-mahal-shuruq', '/ja/taj-mahal-sunrise-satsuei', '/permit-guide', '/payment', '/terms', '/privacy',
 ];
+// Every width a real visitor arrives at: the smallest phone still in use,
+// the common Android, the large phone, the tablet in both orientations, the
+// small laptop and the desktop.
 const VIEWPORTS = [
-  { name: 'phone', width: 390, height: 844, mobile: true },
-  { name: 'desktop', width: 1440, height: 900, mobile: false },
+  { name: 'phone-320', width: 320, height: 640, mobile: true },
+  { name: 'phone-360', width: 360, height: 780, mobile: true },
+  { name: 'phone-414', width: 414, height: 896, mobile: true },
+  { name: 'tablet-768', width: 768, height: 1024, mobile: true },
+  { name: 'tablet-1024', width: 1024, height: 768, mobile: false },
+  { name: 'laptop-1280', width: 1280, height: 800, mobile: false },
+  { name: 'desktop-1440', width: 1440, height: 900, mobile: false },
 ];
 
 const AUDIT = `(() => {
@@ -110,7 +118,7 @@ for (const vp of VIEWPORTS) {
     await send('Page.navigate', { url: `http://localhost:${PORT}${route}` });
     await new Promise((r) => setTimeout(r, 2200));
     // check at the top and again a screen down, where floating furniture appears
-    for (const scroll of [0, 900, 1800, 3200, 5200]) {
+    for (const scroll of [0, 1000, 2200, 4000]) {
       await send('Runtime.evaluate', { expression: `window.scrollTo({top:${scroll},behavior:'instant'})` });
       await new Promise((r) => setTimeout(r, 550));
       const r = await send('Runtime.evaluate', { expression: AUDIT, returnByValue: true });

@@ -39,7 +39,7 @@ export default function Header({ onLight = false }: { onLight?: boolean } = {}) 
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="shell">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex flex-col items-center">
@@ -80,7 +80,7 @@ export default function Header({ onLight = false }: { onLight?: boolean } = {}) 
             <div className="hidden md:flex items-center space-x-4">
               <Link
                 href="/book"
-                className="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-sm bg-gold-500 text-ink-900 hover:bg-gold-400 transition-colors duration-300"
+                className="btn btn-gold btn-sm"
               >
                 Book Now
               </Link>

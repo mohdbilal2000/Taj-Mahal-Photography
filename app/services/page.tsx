@@ -80,16 +80,16 @@ export default function ServicesPage() {
       <Header />
 
       <main className="flex-grow bg-marble-50">
-        <div className="bg-ink-900 text-white py-14 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Our Expertise</span>
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Photography Services</h1>
-            <p className="text-lg text-gray-300">Premium, authorized photoshoots tailored to your needs. All packages include official photography permit authorization.</p>
-            <InrRateNote full className="text-gray-400 mt-4" />
+        <div className="bg-ink-900 text-white section">
+          <div className="shell-narrow max-w-4xl text-center">
+            <span className="eyebrow text-gold-400 mb-4 block">Our Expertise</span>
+            <h1 className="h1-fluid font-serif font-semibold mb-6">Photography Services</h1>
+            <p className="text-lg text-marble-300">Premium, authorized photoshoots tailored to your needs. All packages include official photography permit authorization.</p>
+            <InrRateNote full className="text-ink-400 mt-4" />
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <div className="shell section">
           <div className="space-y-24">
             {services.map((service, index) => (
               <div key={service.id} className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
@@ -115,12 +115,12 @@ export default function ServicesPage() {
                 </div>
                 <div className="w-full lg:w-1/2">
                   <div className="flex items-center gap-3 mb-4">
-                    <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink-900">{service.title}</h2>
+                    <h2 className="h2-fluid font-serif font-semibold text-ink-900">{service.title}</h2>
                   </div>
                   <p className="text-2xl font-light text-gold-600 mb-4">
-                    From <Price planId={service.id} usd={service.price} codeClassName="text-sm text-gray-500" />
+                    From <Price planId={service.id} usd={service.price} codeClassName="text-sm text-ink-500" />
                   </p>
-                  <p className="text-gray-600 text-lg mb-8">{service.description}</p>
+                  <p className="text-ink-700 text-lg mb-8">{service.description}</p>
 
                   <ul className="space-y-3 mb-8">
                     {service.features.map((feature, i) => (
@@ -133,7 +133,7 @@ export default function ServicesPage() {
 
                   <Link
                     href={`/book?service=${service.id}`}
-                    className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-sm font-medium rounded-sm text-white bg-ink-900 hover:bg-ink-800 transition-colors"
+                    className="btn btn-ink btn-lg"
                   >
                     Check Availability
                   </Link>
@@ -144,21 +144,21 @@ export default function ServicesPage() {
         </div>
 
         {/* AEO: Direct answers for service queries */}
-        <section className="py-14 md:py-20 bg-white border-t border-marble-200">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="section bg-white border-t border-marble-200">
+          <div className="shell-narrow max-w-4xl">
             <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-8">Service Quick Answers</h2>
             <div className="space-y-8">
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">What is included in a Taj Mahal photography package?</h3>
-                <p className="text-gray-600">All packages include an official photography permit, a professional photographer with full-frame camera equipment, posing guidance, and high-resolution photos delivered within 48 hours via a private online gallery. Monument entry tickets are not included.</p>
+                <p className="text-ink-700">All packages include an official photography permit, a professional photographer with full-frame camera equipment, posing guidance, and high-resolution photos delivered within 48 hours via a private online gallery. Monument entry tickets are not included.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Which Taj Mahal photography package is most popular?</h3>
-                <p className="text-gray-600">The Sunrise Photoshoot ($120, 1.5–2 hours) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
+                <p className="text-ink-700">The Sunrise Photoshoot ($120, 1.5–2 hours) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Can I combine multiple photography services?</h3>
-                <p className="text-gray-600">Yes. The Taj Mahal + Agra Fort Heritage Trail ($399, 5 hours) and Full Day Agra Experience ($499, 8-10 hours) combine multiple locations. Custom combinations can also be arranged upon request.</p>
+                <p className="text-ink-700">Yes. The Taj Mahal + Agra Fort Heritage Trail ($399, 5 hours) and Full Day Agra Experience ($499, 8-10 hours) combine multiple locations. Custom combinations can also be arranged upon request.</p>
               </div>
             </div>
           </div>

@@ -153,7 +153,7 @@ export default function QuickBook({
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex min-h-[52px] flex-1 items-center justify-center gap-2 rounded-sm bg-[#25D366] px-5 font-semibold text-ink-900 transition-transform hover:-translate-y-0.5"
+          className="btn btn-whatsapp btn-lg flex-1"
         >
           <WhatsAppIcon className="h-5 w-5" />
           {labels.submit}
@@ -165,7 +165,7 @@ export default function QuickBook({
             setPlanId('sunrise');
             setDate(isoDay(1));
           }}
-          className="inline-flex min-h-[52px] items-center gap-2 rounded-sm border border-gold-500/50 px-4 text-sm font-semibold text-gold-700 transition-colors hover:bg-gold-500/10"
+          className="btn btn-outline btn-lg text-gold-700"
         >
           <Sunrise className="h-4 w-4" />
           {labels.tomorrow}

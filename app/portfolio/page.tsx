@@ -27,15 +27,15 @@ export default function PortfolioPage() {
     <div className="min-h-screen flex flex-col pt-20">
       <Header />
       <main className="flex-grow">
-        <div className="bg-ink-900 text-white py-14 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Our Work</span>
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Photography Portfolio</h1>
-            <p className="text-lg text-gray-300">Every photograph here is our own work, at the Taj Mahal and across Agra — and each one is tagged with the package that produced it.</p>
+        <div className="bg-ink-900 text-white section">
+          <div className="shell-narrow max-w-4xl text-center">
+            <span className="eyebrow text-gold-400 mb-4 block">Our Work</span>
+            <h1 className="h1-fluid font-serif font-semibold mb-6">Photography Portfolio</h1>
+            <p className="text-lg text-marble-300">Every photograph here is our own work, at the Taj Mahal and across Agra — and each one is tagged with the package that produced it.</p>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="shell py-16 md:py-20">
           <PortfolioGallery />
 
           <div className="mt-20 text-center border-t border-marble-200 pt-14">
@@ -44,7 +44,7 @@ export default function PortfolioPage() {
             </p>
             <Link
               href="/services"
-              className="inline-flex items-center px-8 py-4 bg-ink-900 text-white font-medium text-sm tracking-wide hover:bg-ink-800 transition-colors rounded-sm"
+              className="btn btn-ink btn-lg"
             >
               See the packages
             </Link>

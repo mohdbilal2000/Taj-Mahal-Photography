@@ -91,9 +91,9 @@ export default function Hero({ rating }: { rating: Rating }) {
         <div className="absolute inset-0 bg-gradient-to-b from-marble-50 via-marble-50/70 to-marble-50" />
       </div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-y-9 px-5 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-x-14 lg:gap-y-6 lg:px-8">
+      <div className="shell grid grid-cols-1 items-center gap-y-9 md:grid-cols-[1.05fr_1fr] md:gap-x-10 md:gap-y-6 lg:gap-x-14">
         {/* ── Headline. On a phone this is all that precedes the work. */}
-        <div className="order-1 lg:col-start-1 lg:row-start-1 lg:self-end">
+        <div className="order-1 md:col-start-1 md:row-start-1 md:self-end">
           <span {...rise(0.04)} className="rise collage-label text-xs font-bold uppercase tracking-widest text-gold-700">
             Agra · India
           </span>
@@ -116,8 +116,8 @@ export default function Hero({ rating }: { rating: Rating }) {
         </div>
 
         {/* ── The prints */}
-        <div className="order-2 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center">
-          <div className="relative mx-auto flex max-w-[30rem] items-start gap-3 sm:gap-4 lg:max-w-none">
+        <div className="order-2 md:col-start-2 md:row-span-2 md:row-start-1 md:self-center">
+          <div className="relative mx-auto flex max-w-[30rem] items-start gap-3 sm:gap-4 md:max-w-none">
             <motion.figure
               style={{ y: leadY, ['--tilt' as string]: '-2.2deg' }}
               className="collage-card taped w-[58%] shrink-0"
@@ -168,11 +168,11 @@ export default function Hero({ rating }: { rating: Rating }) {
         </div>
 
         {/* ── What to do next */}
-        <div className="order-3 lg:col-start-1 lg:row-start-2 lg:self-start">
-          <div {...rise(0.26)} className="rise flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="order-3 md:col-start-1 md:row-start-2 md:self-start">
+          <div {...rise(0.26)} className="rise flex flex-col gap-3 sm:flex-row sm:items-center md:flex-col md:items-stretch lg:flex-row lg:items-center">
             <Link
               href="#quick-book"
-              className="group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-sm bg-gold-500 px-7 text-sm font-semibold tracking-wide text-ink-900 transition-colors hover:bg-gold-400"
+              className="btn btn-gold btn-lg group"
             >
               Book your session
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -181,10 +181,10 @@ export default function Hero({ rating }: { rating: Rating }) {
               href={whatsappUrl(WHATSAPP_MESSAGES.general)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-sm border border-ink-900/20 bg-white/70 px-7 text-sm font-medium tracking-wide text-ink-900 backdrop-blur-sm transition-colors hover:border-ink-900/40"
+              className="btn btn-outline btn-lg backdrop-blur-sm"
             >
               Ask on WhatsApp
-              <span className="text-xs font-normal text-ink-400">replies in ~10 min</span>
+              <span className="hidden text-xs font-normal text-ink-400 sm:inline md:hidden lg:inline">replies in ~10 min</span>
             </a>
           </div>
 

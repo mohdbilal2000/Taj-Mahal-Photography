@@ -28,7 +28,7 @@ export default function ScarcityBanner() {
 
   return (
     <div className="bg-ink-900 text-white/90 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4">
+      <div className="shell h-9 flex items-center justify-between gap-4">
         {/* Phones: one rotating fact. Desktop: all three, no motion needed. */}
         <div className="flex-1 min-w-0 md:hidden">
           {FACTS.map(({ Icon, short }, i) => (

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Instagram, Mail, Phone, MapPin, Camera, Linkedin, Facebook } from 'lucide-react';
+import { SITE } from '@/lib/seo';
 import { LOCALES } from '@/lib/i18n';
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
       {/* Gold accent line */}
       <div className="h-1 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+      <div className="shell mt-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-10 md:mb-16">
           {/* Column 1 — Logo & Description */}
           <div>
@@ -20,7 +21,7 @@ export default function Footer() {
                 Photography
               </span>
             </Link>
-            <p className="text-sm text-gray-400 leading-relaxed mb-6">
+            <p className="text-sm text-ink-400 leading-relaxed mb-6">
               Official Government Licensed Taj Mahal Photographer in Agra.
               Authorized for Photography Inside Taj Mahal. Trusted by
               International Visitors.
@@ -30,7 +31,7 @@ export default function Footer() {
                 href="https://www.instagram.com/taj.mahal.photography"
                 target="_blank"
                 rel="me noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-ink-400 hover:text-white transition-colors"
                 aria-label="Follow on Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -39,7 +40,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/"
                 target="_blank"
                 rel="me noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-ink-400 hover:text-white transition-colors"
                 aria-label="Connect on LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -48,7 +49,7 @@ export default function Footer() {
                 href="https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr"
                 target="_blank"
                 rel="me noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-gray-400 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-ink-400 hover:text-white transition-colors"
                 aria-label="Follow on Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -65,7 +66,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/sunrise"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Sunrise Photoshoot
                 </Link>
@@ -73,7 +74,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/couple"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Couple Photography
                 </Link>
@@ -81,7 +82,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/pre-wedding"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Pre-Wedding Shoot
                 </Link>
@@ -89,7 +90,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/guided-photo-tour-small"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Guide + Photo · Small Group (from $89)
                 </Link>
@@ -97,7 +98,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/guided-photo-tour-large"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Guide + Photo · Large Group (from $119)
                 </Link>
@@ -105,7 +106,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/transport-guide"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Transport + Guide (from $99)
                 </Link>
@@ -113,7 +114,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/sunrise-luxury-innova"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Sunrise Luxury Tour (Innova)
                 </Link>
@@ -121,7 +122,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services/sunrise-luxury-urbania"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Sunrise Luxury Urbania Tour
                 </Link>
@@ -138,7 +139,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/permit-guide"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Permit Guide
                 </Link>
@@ -146,7 +147,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/faq"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   FAQ
                 </Link>
@@ -154,7 +155,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   About
                 </Link>
@@ -162,23 +163,23 @@ export default function Footer() {
               <li>
                 <Link
                   href="/blog"
-                  className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/payment" className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors">
+                <Link href="/payment" className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors">
                   Payment Methods
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors">
+                <Link href="/privacy" className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="inline-flex items-center min-h-[40px] text-gray-400 hover:text-white transition-colors">
+                <Link href="/terms" className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
@@ -191,7 +192,7 @@ export default function Footer() {
               Contact
             </h3>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-start text-gray-400">
+              <li className="flex items-start text-ink-400">
                 <MapPin className="h-4 w-4 mr-3 mt-0.5 flex-shrink-0 text-gold-400" />
                 <span>
                   Taj Mahal East Gate Road,
@@ -199,20 +200,20 @@ export default function Footer() {
                   Agra, Uttar Pradesh, India
                   <br />
                   <a
-                    href="https://maps.app.goo.gl/kFsckb7rMqJBugzV8"
+                    href={SITE.googleBusiness}
                     target="_blank"
                     rel="me noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-gold-400 hover:text-gold-300 transition-colors mt-1"
+                    className="mt-1 inline-flex min-h-[32px] items-center gap-1 text-gold-400 transition-colors hover:text-gold-300"
                   >
                     Find us on Google Maps →
                   </a>
                 </span>
               </li>
-              <li className="flex items-center text-gray-400">
+              <li className="flex items-center text-ink-400">
                 <Phone className="h-4 w-4 mr-3 flex-shrink-0 text-gold-400" />
                 <a href="tel:+918393010125" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">+91 83930 10125</a>
               </li>
-              <li className="flex items-center text-gray-400">
+              <li className="flex items-center text-ink-400">
                 <Mail className="h-4 w-4 mr-3 flex-shrink-0 text-gold-400" />
                 <a href="mailto:booking@tajmahalphotography.com" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">booking@tajmahalphotography.com</a>
               </li>
@@ -221,25 +222,25 @@ export default function Footer() {
         </div>
 
         {/* Sister brand + partner network */}
-        <div className="border-t border-gray-800 pt-8 mb-8 text-center">
-          <p className="text-xs text-gray-500 mb-3">
-            Part of the <strong className="text-gray-400">Taj Guides &amp; Travel Services</strong> family
+        <div className="border-t border-white/10 pt-8 mb-8 text-center">
+          <p className="text-xs text-ink-500 mb-3">
+            Part of the <strong className="text-ink-400">Taj Guides &amp; Travel Services</strong> family
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
-            <span className="text-gray-600">Sister Brand:</span>
-            <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] text-gray-400 font-medium hover:text-white transition-colors">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-500">
+            <span className="text-ink-700">Sister Brand:</span>
+            <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] text-ink-400 font-medium hover:text-white transition-colors">
               TajMahalTouristGuide.com
             </a>
-            <span className="text-gray-700 hidden sm:inline">|</span>
-            <span className="text-gray-600">Featured On:</span>
+            <span className="text-ink-700 hidden sm:inline">|</span>
+            <span className="text-ink-700">Featured On:</span>
             <a href="https://guideindiatours.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">Guide India Tours</a>
             <a href="https://www.asiabylocals.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">Asia By Locals</a>
           </div>
         </div>
 
         {/* Languages — a visitor who searched in their own language can stay in it */}
-        <div className="border-t border-gray-800 pt-8 mb-8 text-center">
-          <p className="text-xs text-gray-500 mb-3">Also available in</p>
+        <div className="border-t border-white/10 pt-8 mb-8 text-center">
+          <p className="text-xs text-ink-500 mb-3">Also available in</p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs">
             {LOCALES.map((locale) => (
               <Link
@@ -247,7 +248,7 @@ export default function Footer() {
                 href={`/${locale.code}`}
                 hrefLang={locale.hreflang}
                 lang={locale.hreflang}
-                className="inline-flex min-w-[2.75rem] items-center justify-center px-1 min-h-[36px] text-gray-400 hover:text-white transition-colors"
+                className="inline-flex min-w-[2.75rem] items-center justify-center px-1 min-h-[36px] text-ink-400 hover:text-white transition-colors"
               >
                 {locale.endonym}
               </Link>
@@ -256,7 +257,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-ink-500">
           <p>
             &copy; {new Date().getFullYear()} Taj Mahal Photography. All rights
             reserved.

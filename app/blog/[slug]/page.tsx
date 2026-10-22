@@ -139,7 +139,7 @@ export default async function BlogPostPage({ params }: Params) {
       <main className="flex-grow bg-white">
         {/* Title block — the question, then the answer, nothing between them. */}
         <header className="bg-ink-900 text-white">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 section">
             <nav aria-label="Breadcrumb" className="mb-6 text-xs tracking-wide text-marble-300">
               <Link href="/" className="inline-block py-1 hover:text-gold-400">Home</Link>
               <span className="mx-2 text-ink-500">/</span>
@@ -231,7 +231,7 @@ export default async function BlogPostPage({ params }: Params) {
 
         {/* The point of the article: a package to book. */}
         {plans.length > 0 && (
-          <section className="border-t hairline bg-marble-50 py-14 md:py-20">
+          <section className="border-t hairline bg-marble-50 section">
             <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
               <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-2">
                 Ready to shoot it yourself?
@@ -282,7 +282,7 @@ export default async function BlogPostPage({ params }: Params) {
 
         {/* Keep them reading. */}
         {related.length > 0 && (
-          <section className="py-14 md:py-20">
+          <section className="section">
             <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
               <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-8">Read next</h2>
               <div className="reveal reveal-stagger collage-grid grid gap-6 sm:gap-7 sm:grid-cols-3">

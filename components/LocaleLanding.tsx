@@ -89,16 +89,16 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
           <h1 className="h1-fluid font-serif font-semibold mt-3 text-balance">{locale.headline}</h1>
           <p className="lead mt-5 max-w-2xl text-marble-200 text-pretty">{locale.subline}</p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={wa}
-              className="rounded-sm bg-gold-500 px-6 py-3 font-semibold text-ink-900 transition-colors hover:bg-gold-400"
+              className="btn btn-gold btn-lg"
             >
               {locale.whatsappLabel}
             </a>
             <Link
               href="/book"
-              className="rounded-sm border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+              className="btn btn-outline-light btn-lg"
             >
               {locale.bookLabel}
             </Link>
@@ -127,7 +127,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
       </section>
 
       {/* Proof */}
-      <section className="py-14 md:py-20">
+      <section className="section">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-8">{locale.trustTitle}</h2>
           <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2">
@@ -142,7 +142,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
       </section>
 
       {/* How it works */}
-      <section className="border-y hairline bg-marble-50 py-14 md:py-20">
+      <section className="border-y hairline bg-marble-50 section">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-8">{locale.stepsTitle}</h2>
           <ol className="reveal reveal-stagger grid gap-6 sm:grid-cols-3">
@@ -160,7 +160,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
       </section>
 
       {/* Prices — figures come from lib/plans.ts, never translated. */}
-      <section className="py-14 md:py-20">
+      <section className="section">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-2">
             {locale.packagesTitle}
@@ -219,7 +219,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
       </section>
 
       {/* FAQ */}
-      <section className="border-t hairline bg-marble-50 py-14 md:py-20">
+      <section className="border-t hairline bg-marble-50 section">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-6">{locale.faqTitle}</h2>
           <div className="divide-y hairline">
@@ -246,16 +246,16 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="h3-fluid font-serif font-semibold text-balance">{locale.ctaTitle}</h2>
           <p className="mt-4 text-marble-300 text-pretty">{locale.ctaBody}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <a
               href={wa}
-              className="rounded-sm bg-gold-500 px-6 py-3 font-semibold text-ink-900 transition-colors hover:bg-gold-400"
+              className="btn btn-gold btn-lg"
             >
               {locale.whatsappLabel}
             </a>
             <a
               href={`tel:${SITE.phone}`}
-              className="rounded-sm border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+              className="btn btn-outline-light btn-lg"
             >
               {SITE.phoneDisplay}
             </a>

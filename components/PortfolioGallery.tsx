@@ -185,7 +185,7 @@ export default function PortfolioGallery() {
                 {activePlan && (
                   <Link
                     href={`/book?plan=${activePlan.id}`}
-                    className="group flex-shrink-0 inline-flex items-center gap-3 px-5 py-3 bg-gold-500 text-ink-900 rounded-sm font-semibold text-sm hover:bg-gold-400 transition-colors"
+                    className="btn btn-gold group flex-shrink-0"
                   >
                     <span>
                       Book the {activePlan.name}

@@ -171,7 +171,7 @@ export default function LocaleServicePage({
       </section>
 
       {others.length > 0 && (
-        <section className="border-t hairline bg-marble-50 py-14 md:py-20">
+        <section className="border-t hairline bg-marble-50 section">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-8">
               {locale.serviceOtherTitle}

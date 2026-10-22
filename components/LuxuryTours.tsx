@@ -67,8 +67,8 @@ export default function LuxuryTours() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-16 md:py-24 bg-ink-900 text-white" id="luxury-tours">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
+    <section className="section bg-ink-900 text-white" id="luxury-tours">
+      <div className="shell" ref={sectionRef}>
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ export default function LuxuryTours() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl font-semibold mb-6"
+            className="h1-fluid font-serif font-semibold mb-6"
           >
             Sunrise Luxury Tours: Delhi to Agra
           </motion.h2>
@@ -90,7 +90,7 @@ export default function LuxuryTours() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-300 text-lg"
+            className="text-marble-300 text-lg"
           >
             Wake up in Delhi, watch the sun rise over the Taj Mahal, and return the same evening.
             Every tour is fully managed by our team: private vehicle, government-licensed guide and
@@ -123,28 +123,25 @@ export default function LuxuryTours() {
                     className="object-cover"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="flex items-center gap-2 mb-1 text-gold-400 text-xs font-bold uppercase tracking-widest">
-                      <Icon className="w-4 h-4" />
-                      <span>{tour.tagline}</span>
-                    </div>
-                    <h3 className="font-serif text-2xl md:text-3xl font-semibold">
-                      {tour.name}
-                    </h3>
-                  </div>
                 </div>
 
                 <div className="collage-body flex-grow flex flex-col md:px-3">
+                  <div className="flex items-center gap-2 text-gold-700 text-[11px] font-bold uppercase tracking-widest">
+                    <Icon className="w-4 h-4 flex-shrink-0" />
+                    <span>{tour.tagline}</span>
+                  </div>
+                  <h3 className="mt-2 mb-4 h3-fluid font-serif font-semibold leading-tight text-ink-900 text-pretty">
+                    {tour.name}
+                  </h3>
                   <div className="flex items-end gap-2 mb-1">
                     <span className="text-4xl font-light">
                       {tour.price}
                     </span>
-                    <span className="text-sm text-gray-500 mb-1.5">/ tour · starting price, confirmed on WhatsApp</span>
+                    <span className="text-sm text-ink-500 mb-1.5">/ tour · starting price, confirmed on WhatsApp</span>
                   </div>
-                  <p className="text-xs text-gray-500 mb-5">{tour.duration}</p>
+                  <p className="text-xs text-ink-500 mb-5">{tour.duration}</p>
 
-                  <p className="text-gray-600 text-sm mb-6">
+                  <p className="text-ink-700 text-sm mb-6">
                     {tour.description}
                   </p>
 
@@ -153,28 +150,28 @@ export default function LuxuryTours() {
                       <MapPin className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Route</p>
-                        <p className="text-gray-600">{tour.route}</p>
+                        <p className="text-ink-700">{tour.route}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
                       <Icon className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Vehicle</p>
-                        <p className="text-gray-600">{tour.vehicle}</p>
+                        <p className="text-ink-700">{tour.vehicle}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
                       <Sunrise className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Monuments</p>
-                        <p className="text-gray-600">{tour.monuments.join(' + ')}</p>
+                        <p className="text-ink-700">{tour.monuments.join(' + ')}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
                       <Ticket className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Tickets</p>
-                        <p className="text-gray-600">Included</p>
+                        <p className="text-ink-700">Included</p>
                       </div>
                     </div>
                   </div>
@@ -185,7 +182,7 @@ export default function LuxuryTours() {
                     </h4>
                     <ul className="space-y-2">
                       {tour.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start text-sm text-gray-700">
+                        <li key={idx} className="flex items-start text-sm text-ink-700">
                           <Check className="w-4 h-4 text-gold-500 mr-2 flex-shrink-0 mt-0.5" />
                           <span>{feature}</span>
                         </li>
@@ -194,7 +191,7 @@ export default function LuxuryTours() {
                   </div>
 
                   <div className="mt-auto pt-6 border-t border-marble-200">
-                    <div className="flex flex-wrap items-center gap-3 mb-4 text-xs text-gray-500">
+                    <div className="flex flex-wrap items-center gap-3 mb-4 text-xs text-ink-500">
                       <span className="inline-flex items-center gap-1">
                         <ShieldCheck className="w-3.5 h-3.5 text-gold-500" />
                         Govt. licensed guide
@@ -204,7 +201,7 @@ export default function LuxuryTours() {
                         Govt. licensed photographer
                       </span>
                     </div>
-                    <p className="text-xs text-gray-500 mb-4">
+                    <p className="text-xs text-ink-500 mb-4">
                       <strong>Best for:</strong> {tour.bestFor}
                     </p>
                     <Link
@@ -228,7 +225,7 @@ export default function LuxuryTours() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center text-xs text-gray-400 mt-10 max-w-2xl mx-auto"
+          className="text-center text-xs text-ink-400 mt-10 max-w-2xl mx-auto"
         >
           Both tours are operated by our team with a guide and photographer licensed by the
           Ministry of Tourism, Government of India. Pickup and drop available across Delhi, Noida,

@@ -18,14 +18,14 @@ export default function TermsPage() {
       <Header />
       <main className="flex-grow bg-white">
         <div className="bg-ink-900 text-white py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold">Terms of Service</h1>
+          <div className="shell-narrow max-w-4xl text-center">
+            <h1 className="h1-fluid font-serif font-semibold">Terms of Service</h1>
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="shell-narrow max-w-4xl py-16">
           <article className="prose prose-lg prose-slate max-w-none">
-            <p className="text-gray-500 text-sm">Last updated: January 1, 2025</p>
+            <p className="text-ink-500 text-sm">Last updated: January 1, 2025</p>
 
             <h2 className="font-serif text-2xl text-ink-900 mt-10 mb-4">1. Services</h2>
             <p>Taj Mahal Photography provides professional photography services at the Taj Mahal and other heritage sites in Agra, India. All photography is conducted by a government-licensed photographer holding valid authorization from the Ministry of Tourism, Government of India.</p>

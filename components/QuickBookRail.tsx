@@ -17,8 +17,8 @@ export default function QuickBookRail() {
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   return (
-    <section className="py-14 md:py-20 bg-marble-50 border-b border-marble-200" id="quick-book">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
+    <section className="section bg-marble-50 border-b border-marble-200" id="quick-book">
+      <div className="shell" ref={sectionRef}>
         <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export default function QuickBookRail() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-serif text-3xl md:text-4xl font-semibold text-ink-900"
+            className="h2-fluid font-serif font-semibold text-ink-900"
           >
             Pick a Plan, We Handle the Rest
           </motion.h2>
@@ -41,7 +41,7 @@ export default function QuickBookRail() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="text-gray-600 mt-3"
+            className="text-ink-700 mt-3"
           >
             Tap a card to open the booking form with it pre-selected — confirmation on
             WhatsApp within 10 minutes.
@@ -96,9 +96,9 @@ export default function QuickBookRail() {
                   <h3 className="font-serif text-xl font-semibold text-ink-900 leading-snug">
                     {plan.name}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1.5 line-clamp-2">{plan.tagline}</p>
+                  <p className="text-sm text-ink-500 mt-1.5 line-clamp-2">{plan.tagline}</p>
 
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-4 text-[11px] text-gray-500">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-4 text-[11px] text-ink-500">
                     <span className="inline-flex items-center gap-1">
                       <BadgeCheck className="w-3.5 h-3.5 text-gold-500" />
                       Instant WhatsApp confirmation
@@ -117,7 +117,7 @@ export default function QuickBookRail() {
                         usd={plan.price}
                         fromPrice={plan.fromPrice}
                         className="text-2xl font-light text-ink-900"
-                        codeClassName="text-xs text-gray-400 ml-1"
+                        codeClassName="text-xs text-ink-400 ml-1"
                       />
                     </div>
                     <span className="flex items-center justify-center w-10 h-10 rounded-full bg-marble-50 border border-marble-200 text-ink-900 transition-all duration-300 group-hover:bg-gold-500 group-hover:border-gold-500">
@@ -132,7 +132,7 @@ export default function QuickBookRail() {
 
         <InrRateNote className="text-center mt-8" />
 
-        <p className="text-center text-sm text-gray-500 mt-8">
+        <p className="text-center text-sm text-ink-500 mt-8">
           Looking for something else?{' '}
           <Link href="/services" className="text-gold-600 font-medium hover:underline">
             Compare all {PLANS.length} packages →

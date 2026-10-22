@@ -40,26 +40,26 @@ export default function AboutPage() {
       <Header />
       <main className="flex-grow">
         {/* Hero */}
-        <section className="relative bg-ink-900 text-white py-16 md:py-24">
+        <section className="relative bg-ink-900 text-white section">
           <div className="absolute inset-0 opacity-10 bg-[url('/photos/gallery/02.jpg')] bg-cover bg-center" />
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">About the Photographer</span>
-            <h1 className="font-serif text-4xl md:text-6xl font-semibold mb-6">Official Government Licensed Taj Mahal Photographer</h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <div className="shell-narrow max-w-4xl text-center relative z-10">
+            <span className="eyebrow text-gold-400 mb-4 block">About the Photographer</span>
+            <h1 className="h1-fluid font-serif font-semibold mb-6">Official Government Licensed Taj Mahal Photographer</h1>
+            <p className="text-lg text-marble-300 max-w-2xl mx-auto">
               Certified by the Ministry of Tourism, Government of India. Authorized to conduct professional photography inside the Taj Mahal premises with full legal clearance.
             </p>
           </div>
         </section>
 
         {/* Stats */}
-        <section className="py-16 bg-white border-b border-marble-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="section bg-white border-b border-marble-200">
+          <div className="shell">
             <div className="collage-grid grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {stats.map((stat) => (
                 <div key={stat.label} className="collage-card text-center">
                   <div className="collage-body pt-4">
-                    <p className="font-serif text-4xl md:text-5xl font-semibold text-ink-900">{stat.value}</p>
-                    <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+                    <p className="h1-fluid font-serif font-semibold text-ink-900">{stat.value}</p>
+                    <p className="text-sm text-ink-700 mt-2">{stat.label}</p>
                   </div>
                 </div>
               ))}
@@ -68,10 +68,10 @@ export default function AboutPage() {
         </section>
 
         {/* Story Section - AEO optimized with clear, direct answers */}
-        <section className="py-14 md:py-20 bg-marble-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink-900 mb-8">What Does a Licensed Taj Mahal Photographer Do?</h2>
-            <div className="prose prose-lg prose-slate max-w-none text-gray-600 space-y-6">
+        <section className="section bg-marble-50">
+          <div className="shell-narrow max-w-4xl">
+            <h2 className="h2-fluid font-serif font-semibold text-ink-900 mb-8">What Does a Licensed Taj Mahal Photographer Do?</h2>
+            <div className="prose prose-lg prose-slate max-w-none text-ink-700 space-y-6">
               <p>
                 A government-licensed Taj Mahal photographer is a professional who has been officially certified by the Ministry of Tourism, Government of India, after passing comprehensive examinations. This certification grants legal authorization to conduct professional photography sessions inside the Taj Mahal complex with professional equipment.
               </p>
@@ -99,9 +99,9 @@ export default function AboutPage() {
         </section>
 
         {/* Journey Timeline */}
-        <section className="py-14 md:py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink-900 mb-12 text-center">The Journey</h2>
+        <section className="section bg-white">
+          <div className="shell-narrow max-w-4xl">
+            <h2 className="h2-fluid font-serif font-semibold text-ink-900 mb-12 text-center">The Journey</h2>
             <div className="space-y-12">
               {timeline.map((item, i) => (
                 <div key={i} className="flex gap-8">
@@ -111,7 +111,7 @@ export default function AboutPage() {
                   <div className="relative pl-8 border-l-2 border-marble-200 pb-4">
                     <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gold-500" />
                     <h3 className="font-serif text-xl font-semibold text-ink-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                    <p className="text-ink-700">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -120,11 +120,11 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-14 md:py-20 bg-ink-900 text-white text-center">
+        <section className="section bg-ink-900 text-white text-center">
           <div className="max-w-3xl mx-auto px-4">
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">Ready to Capture Your Taj Mahal Moment?</h2>
-            <p className="text-gray-300 text-lg mb-10">Book an authorized photoshoot and experience the Taj Mahal through the lens of a certified professional.</p>
-            <Link href="/book" className="inline-flex items-center px-8 py-4 bg-white text-ink-900 font-medium text-sm tracking-wide uppercase hover:bg-marble-100 transition-colors rounded-sm">
+            <h2 className="h2-fluid font-serif font-semibold mb-6">Ready to Capture Your Taj Mahal Moment?</h2>
+            <p className="text-marble-300 text-lg mb-10">Book an authorized photoshoot and experience the Taj Mahal through the lens of a certified professional.</p>
+            <Link href="/book" className="btn btn-light btn-lg">
               Book Your Session
             </Link>
           </div>

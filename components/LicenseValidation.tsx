@@ -59,12 +59,12 @@ export default function LicenseValidation() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-ink-900 text-white overflow-hidden relative"
+      className="section bg-ink-900 text-white overflow-hidden relative"
     >
       {/* Background image with parallax */}
       <div className="absolute inset-0 opacity-10 bg-cover bg-center bg-[url('/photos/gallery/05.jpg')]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="shell relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left column - text content */}
           <div>
@@ -72,7 +72,7 @@ export default function LicenseValidation() {
               initial={{ opacity: 0, x: -40 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="font-serif text-3xl md:text-5xl font-semibold mb-6"
+              className="h1-fluid font-serif font-semibold mb-6"
             >
               The Importance of a Licensed Photographer
             </motion.h2>
@@ -84,7 +84,7 @@ export default function LicenseValidation() {
               className="w-20 h-1 bg-gold-500 mb-8"
             />
 
-            <div className="space-y-6 text-gray-300">
+            <div className="space-y-6 text-marble-300">
               <motion.p
                 initial={{ opacity: 0, x: -40 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
@@ -138,7 +138,7 @@ export default function LicenseValidation() {
                   <div className="text-3xl md:text-4xl font-bold text-gold-400">
                     <AnimatedCounter target={stat.target} suffix={stat.suffix} />
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                  <div className="text-sm text-ink-400 mt-1">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -151,7 +151,7 @@ export default function LicenseValidation() {
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
             className="relative"
           >
-            <div className="aspect-[4/5] relative rounded-lg overflow-hidden border-4 border-white/10 shadow-2xl">
+            <div className="aspect-[4/5] relative rounded-sm overflow-hidden border-4 border-white/10 shadow-2xl">
               <Image
                 src="/photos/gallery/02.jpg"
                 alt="Photographer in action at Taj Mahal"

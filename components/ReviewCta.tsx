@@ -13,7 +13,7 @@ import type { Rating } from '@/lib/reviews';
  */
 export default function ReviewCta({ rating }: { rating: Rating }) {
   return (
-    <section className="bg-ink-900 text-white py-14 md:py-20 grain relative" id="review">
+    <section className="bg-ink-900 text-white section grain relative" id="review">
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-center">
           <div>
@@ -31,7 +31,7 @@ export default function ReviewCta({ rating }: { rating: Rating }) {
                 href={SITE.googleBusiness}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold-500 text-ink-900 text-sm font-semibold rounded-sm hover:bg-gold-400 transition-colors"
+                className="btn btn-gold"
               >
                 <Star className="w-4 h-4 fill-ink-900" />
                 Review us on Google
@@ -41,7 +41,7 @@ export default function ReviewCta({ rating }: { rating: Rating }) {
                 href={SITE.googleBusiness}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 border border-white/25 text-white text-sm font-medium rounded-sm hover:bg-white/10 transition-colors"
+                className="btn btn-outline-light"
               >
                 See the profile
               </a>
@@ -56,7 +56,7 @@ export default function ReviewCta({ rating }: { rating: Rating }) {
 
           {/* Scannable from a phone held up to a laptop, or printed on a card. */}
           <figure className="justify-self-center">
-            <div className="bg-white p-4 sm:p-5 rounded-lg shadow-deep">
+            <div className="bg-white p-4 sm:p-5 rounded-sm shadow-deep">
               <Image
                 src="/review-qr.svg"
                 alt={`QR code linking to the Google Business profile for ${SITE.name}`}

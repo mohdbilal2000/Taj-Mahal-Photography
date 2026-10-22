@@ -1,104 +1,73 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useInView } from 'motion/react';
 import { ShieldCheck, Award, Camera, Clock } from 'lucide-react';
 
-const features = [
+const FEATURES = [
   {
     icon: ShieldCheck,
-    title: 'Government Licensed',
-    description:
-      'Officially certified by the Ministry of Tourism after passing rigorous examinations.',
+    title: 'Government licensed',
+    description: 'Certified by the Ministry of Tourism after the full examination, not a tout with a camera.',
   },
   {
     icon: Award,
-    title: 'Authorized Access',
-    description:
-      'Legal permit holder allowed to conduct professional photography inside the premises.',
+    title: 'Authorised access',
+    description: 'A permit holder may work inside the complex with professional equipment. Nobody else may.',
   },
   {
     icon: Camera,
-    title: 'Premium Equipment',
-    description:
-      'Shooting with top-tier full-frame cameras and professional prime lenses.',
+    title: 'Professional gear',
+    description: 'Full-frame bodies and prime lenses — the kit security turns back at the gate without a permit.',
   },
   {
     icon: Clock,
-    title: 'Fast Delivery',
-    description:
-      'High-resolution photos delivered within 48 hours via a private online gallery.',
+    title: '48-hour delivery',
+    description: 'Every frame in full resolution, edited, in a private gallery before your next stop.',
   },
 ];
 
+/**
+ * The licence, in four cards.
+ *
+ * It used to be a hairline grid two columns wide, which on a 360px phone put
+ * four words on a line and read like a spreadsheet. These are mounted the way
+ * the rest of the site is, and they go to one column where two would cramp.
+ */
 export default function AuthoritySection() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
-
   return (
-    <section ref={sectionRef} className="py-14 md:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="font-serif text-3xl md:text-4xl font-semibold text-ink-900 mb-4"
-          >
-            Why Choose a Licensed Photographer?
-          </motion.h2>
-
-          {/* Gold accent divider */}
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={
-              isInView
-                ? { opacity: 1, scaleX: 1 }
-                : { opacity: 0, scaleX: 0 }
-            }
-            transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-            className="section-divider mx-auto mb-6 h-0.5 w-16 bg-gold-500 rounded-full"
-          />
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-            className="text-gray-600 leading-relaxed"
-          >
-            Not everyone with a camera is allowed to shoot professionally inside
-            the Taj Mahal. As a government-approved photographer, I ensure a
-            seamless, legal, and premium experience without interruptions from
-            security.
-          </motion.p>
+    <section className="section bg-white">
+      <div className="shell">
+        <div className="section-head mx-auto max-w-2xl text-center">
+          <span className="collage-label text-xs font-bold uppercase tracking-widest text-gold-700">
+            Why it matters
+          </span>
+          <h2 className="h2-fluid font-serif font-semibold text-ink-900 text-balance">
+            Why choose a licensed photographer?
+          </h2>
+          <p className="text-ink-700 text-pretty">
+            Not everyone with a camera is allowed to work inside the Taj Mahal. The permit is the
+            difference between a session that runs to plan and one that ends at the security gate.
+          </p>
         </div>
 
-        {/* Feature Cards Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-marble-200 border border-marble-200 rounded-sm overflow-hidden"
-        >
-          {features.map((feature) => {
+        <div className="reveal reveal-stagger collage-grid grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-4">
+          {FEATURES.map((feature) => {
             const Icon = feature.icon;
 
             return (
-              <div
-                key={feature.title}
-                className="group bg-white p-6 md:p-8 h-full transition-colors duration-300 hover:bg-marble-50"
-              >
-                <Icon className="h-6 w-6 text-gold-500 mb-5" strokeWidth={1.5} />
-                <h3 className="font-serif text-lg md:text-xl font-semibold text-ink-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-ink-500 leading-relaxed">{feature.description}</p>
+              <div key={feature.title} className="collage-card h-full">
+                <div className="collage-body pt-4">
+                  <Icon className="mb-4 h-6 w-6 text-gold-600" strokeWidth={1.5} />
+                  <h3 className="font-serif text-lg font-semibold leading-snug text-ink-900">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-700 text-pretty">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

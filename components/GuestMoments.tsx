@@ -68,7 +68,7 @@ export default function GuestMoments() {
   const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-24 bg-marble-100 overflow-hidden">
+    <section ref={sectionRef} className="relative section bg-marble-100 overflow-hidden">
       {/* The faint repeated wordmark that sits behind the posts. */}
       <div
         className="absolute inset-0 flex flex-col justify-center gap-2 pointer-events-none"
@@ -81,7 +81,7 @@ export default function GuestMoments() {
         ))}
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative shell">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="collage-label eyebrow text-gold-700 mb-4">From our guests</span>
           <h2 className="h2-fluid font-serif font-semibold text-ink-900 mb-4 text-balance">
@@ -126,7 +126,7 @@ export default function GuestMoments() {
         <div className="text-center mt-14">
           <Link
             href="/portfolio"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 border border-ink-900 text-ink-900 text-sm font-medium rounded-sm hover:bg-ink-900 hover:text-white transition-colors"
+            className="btn btn-outline btn-lg group"
           >
             See the full portfolio
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

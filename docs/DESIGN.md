@@ -1,4 +1,46 @@
-# Design & UX notes
+# Marble & Paper
+
+The site has one theme and everything is built from it. If a new section does
+not use these pieces, it will look like it came from a different website —
+which is exactly what was wrong before this was written down.
+
+**The idea.** Marble, paper and ink. The ground is warm off-white, like the
+marble at first light. Photographs are never flush against the page: they are
+*prints*, mounted on cream paper, slightly askew, hand-captioned — the way the
+studio's own Instagram grid looks. Type is ink on that paper, serif for
+headings with exactly one italic gold line per heading, sans for everything
+read in paragraphs. Gold is reserved for the single action we want taken on a
+given screen; it is never decoration.
+
+**The parts.**
+
+| Piece | Class | Rule |
+|-------|-------|------|
+| Page ground | `bg-marble-50` / `bg-white` | Alternate; never two dark sections in a row |
+| The one dark room | `bg-ink-900 grain` | Only the film section. Contrast, not a pattern |
+| Print | `.collage-card` + `.collage-media` + `.collage-body` | Any photograph in a card |
+| Grid of prints | `.collage-grid` | Alternates the lean; never past 1.6deg |
+| Tape | `.taped` | Hero cluster and the moments wall only |
+| Hand caption | `.collage-caption` | Under the print, never over the photograph |
+| Section label | `.collage-label` | The eyebrow above a *section* heading, on light grounds |
+| Inline label | `.eyebrow` | Labels inside a card, and every eyebrow on a dark ground |
+| Action | `.btn` + `.btn-gold` | One per screen |
+| Secondary action | `.btn` + `.btn-outline` (`-light` on dark) | |
+| Serious secondary | `.btn` + `.btn-ink` | Sidebars, forms |
+| WhatsApp | `.btn` + `.btn-whatsapp` | Keeps its own green — people look for it |
+| Size | `.btn-lg`, `.btn-sm`, `.btn-block` | Default height is 3rem; nothing smaller than 2.5rem |
+| Section | `.section` | Vertical air, fluid from 3.25rem to 5.5rem |
+| Gutter | `.shell` / `.shell-narrow` | Fluid 1.25rem → 2rem; never a fixed `px-4` |
+| Heading block | `.section-head` | Label, heading, one paragraph — in that order |
+
+**Responsiveness contract.** The layout is checked at 320, 360, 414, 768,
+1024, 1280 and 1440 by `npm run audit`, which is the definition of "it works
+on phones" here. Two rules that come out of that: a grid of *text* collapses
+to one column below `sm`, because two columns of prose on a 360px phone give
+four words a line; and a video keeps its own aspect ratio in an ordinary
+block, never in a fixed-height viewport box, which is what made the film
+section read as broken on a phone.
+
 
 ## Photography
 
@@ -207,9 +249,18 @@ page you happen to be working on:
   that flow inline in a sentence, which the guideline exempts
 
 ```sh
-npm run build && npx next start -p 3000 &
+npm run build
+npx next start -p 3000 &                 # AFTER the build, never before
 node scripts/audit-pages.mjs 3000        # needs headless Chrome on :9231
 ```
+
+**Restart the server after every build.** `next start` serves the HTML with
+the stylesheet hash it had at boot; rebuild underneath it and that file 404s,
+so every page renders unstyled. Three audits in a row were thrown away this
+way, each reporting dozens of "tap targets" that were only small because no
+CSS was loading. If an audit suddenly finds faults everywhere, check
+`curl -o /dev/null -w '%{http_code}' <the css url from the page source>`
+before believing it.
 
 It exists because a floating button was covering body copy on phones for
 several commits while every individual page looked fine in isolation. Run it

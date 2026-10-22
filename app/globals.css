@@ -439,3 +439,146 @@ html[data-reveal='on'] .reveal-stagger.is-in > *:nth-child(n + 6) { transition-d
     translate: none;
   }
 }
+
+/* ───── Buttons ───── */
+/* One vocabulary for every action on the site. Before this there were
+   nineteen hand-rolled button class strings with four different heights,
+   three radii and two font weights, which is what made the pages feel like
+   they came from different places. Everything is now .btn plus a variant. */
+.btn {
+  display: inline-flex;
+  /* A squeezed button is an untappable one: let the label wrap and the
+     button grow taller rather than thinner. */
+  max-width: 100%;
+  white-space: normal;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding-inline: 1.5rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.005em;
+  text-align: center;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s var(--ease-out-expo);
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-lg {
+  min-height: 3.375rem;
+  padding-inline: 1.75rem;
+  font-size: 0.9375rem;
+}
+.btn-sm {
+  min-height: 2.5rem;
+  padding-inline: 1rem;
+  font-size: 0.8125rem;
+}
+.btn-block {
+  width: 100%;
+}
+
+/* The booking action. Gold is only ever used for the one thing we want
+   pressed on a given screen. */
+.btn-gold {
+  background: var(--color-gold-500);
+  color: var(--color-ink-900);
+}
+.btn-gold:hover {
+  background: var(--color-gold-400);
+}
+
+/* The serious, secondary action on paper. */
+.btn-ink {
+  background: var(--color-ink-900);
+  color: #fff;
+}
+.btn-ink:hover {
+  background: var(--color-ink-800);
+}
+
+/* Quiet alternative on paper. */
+.btn-outline {
+  border-color: color-mix(in srgb, var(--color-ink-900) 22%, transparent);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-ink-900);
+  font-weight: 500;
+}
+.btn-outline:hover {
+  border-color: color-mix(in srgb, var(--color-ink-900) 45%, transparent);
+  background: #fff;
+}
+
+/* The same, over a photograph or a dark ground. */
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: 500;
+}
+.btn-outline-light:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-light {
+  background: #fff;
+  color: var(--color-ink-900);
+}
+.btn-light:hover {
+  background: var(--color-marble-100);
+}
+
+/* WhatsApp keeps its own colour — people look for it. */
+.btn-whatsapp {
+  background: #25d366;
+  color: var(--color-ink-900);
+}
+.btn-whatsapp:hover {
+  background: #1fbf5b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn:hover {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    transform: none;
+  }
+}
+
+/* ───── Section rhythm ───── */
+/* Every section is the same shape: the same vertical air, the same gutter,
+   the same distance between a label, a heading and its first paragraph. */
+.section {
+  padding-block: clamp(3.25rem, 2.2rem + 3.4vw, 5.5rem);
+}
+.shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 0.9rem + 1.6vw, 2rem);
+}
+.shell-narrow {
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 0.9rem + 1.6vw, 2rem);
+}
+.section-head {
+  margin-bottom: clamp(2rem, 1.4rem + 2vw, 3.5rem);
+}
+.section-head > h2 {
+  margin-top: 0.75rem;
+}
+.section-head > p {
+  margin-top: 1rem;
+}

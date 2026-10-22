@@ -27,28 +27,28 @@ export default function PrivacyPage() {
 
         {/* Hero Banner */}
         <div className="bg-ink-900 text-white py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-amber-400 text-sm font-medium tracking-widest uppercase mb-3">
+          <div className="shell-narrow max-w-4xl text-center">
+            <p className="text-gold-400 text-sm font-medium tracking-widest uppercase mb-3">
               Politique de Confidentialité
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold">
+            <h1 className="h1-fluid font-serif font-semibold">
               Privacy Policy
             </h1>
-            <p className="mt-4 text-gray-300 text-lg">
+            <p className="mt-4 text-marble-300 text-lg">
               Taj Mahal Photography — Agra, Inde
             </p>
           </div>
         </div>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="shell-narrow max-w-4xl py-16">
           <article className="prose prose-lg prose-slate max-w-none">
 
-            <p className="text-gray-500 text-sm">
+            <p className="text-ink-500 text-sm">
               Dernière mise à jour : 1er janvier 2025 &nbsp;|&nbsp; Last updated: January 1, 2025
             </p>
 
-            <p className="mt-6 text-gray-700 leading-relaxed">
+            <p className="mt-6 text-ink-700 leading-relaxed">
               Taj Mahal Photography s&apos;engage à respecter et à protéger votre vie privée.
               La présente Politique de Confidentialité décrit comment nous collectons, utilisons
               et protégeons vos informations personnelles lorsque vous utilisez notre site web
@@ -282,7 +282,7 @@ export default function PrivacyPage() {
             <ul>
               <li>
                 <strong>E-mail :</strong>{' '}
-                <a href={`mailto:${SITE.email}`} className="text-amber-600 hover:underline">
+                <a href={`mailto:${SITE.email}`} className="text-gold-600 hover:underline">
                   {SITE.email}
                 </a>
               </li>
@@ -290,7 +290,7 @@ export default function PrivacyPage() {
                 <strong>WhatsApp :</strong>{' '}
                 <a
                   href={`https://wa.me/${SITE.whatsapp}`}
-                  className="text-amber-600 hover:underline"
+                  className="text-gold-600 hover:underline"
                 >
                   {SITE.phoneDisplay}
                 </a>
@@ -303,15 +303,15 @@ export default function PrivacyPage() {
                 <strong>Site web :</strong>{' '}
                 <a
                   href={SITE.url}
-                  className="text-amber-600 hover:underline"
+                  className="text-gold-600 hover:underline"
                 >
                   {SITE.domain}
                 </a>
               </li>
             </ul>
 
-            <div className="mt-10 p-5 bg-amber-50 border border-amber-200 rounded-lg">
-              <p className="text-sm text-amber-800 mb-0">
+            <div className="mt-10 p-5 bg-gold-500/10 border border-gold-500/30 rounded-sm">
+              <p className="text-sm text-gold-700 mb-0">
                 <strong>Support client 24h/24, 7j/7</strong> — Vous avez des questions sur
                 votre séance ou votre réservation ? Notre équipe est disponible à tout moment
                 via WhatsApp au{' '}

@@ -18,7 +18,7 @@ export default function InrRateNote({
   if (currency !== 'INR') return null;
 
   return (
-    <p className={`text-xs text-gray-500 leading-relaxed ${className}`}>
+    <p className={`text-xs text-ink-500 leading-relaxed ${className}`}>
       {full ? INR_NOTE : INR_NOTE_SHORT}
     </p>
   );

@@ -55,8 +55,8 @@ export default function GuidedPhotoTours() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-16 md:py-24 bg-marble-50" id="guided-photo-tours">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
+    <section className="section bg-marble-50" id="guided-photo-tours">
+      <div className="shell" ref={sectionRef}>
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -70,7 +70,7 @@ export default function GuidedPhotoTours() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl font-semibold text-ink-900 mb-6"
+            className="h1-fluid font-serif font-semibold text-ink-900 mb-6"
           >
             Guide + Photographer Combo
           </motion.h2>
@@ -78,7 +78,7 @@ export default function GuidedPhotoTours() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-600 text-lg"
+            className="text-ink-700 text-lg"
           >
             Pair a licensed local guide with a professional photographer for a single, simple
             price. Both packages cover the Taj Mahal and Agra Fort, deliver 30 natural digital
@@ -111,55 +111,52 @@ export default function GuidedPhotoTours() {
                     className="object-cover"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-ink-900/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="flex items-center gap-2 mb-1 text-gold-400 text-xs font-bold uppercase tracking-widest">
-                      <Icon className="w-4 h-4" />
-                      <span>{pkg.tagline}</span>
-                    </div>
-                    <h3 className="font-serif text-2xl md:text-3xl font-semibold">
-                      {pkg.name}
-                    </h3>
-                  </div>
                 </div>
 
                 <div className="collage-body flex-grow flex flex-col md:px-3">
+                  <div className="flex items-center gap-2 text-gold-700 text-[11px] font-bold uppercase tracking-widest">
+                    <Icon className="w-4 h-4 flex-shrink-0" />
+                    <span>{pkg.tagline}</span>
+                  </div>
+                  <h3 className="mt-2 mb-4 h3-fluid font-serif font-semibold leading-tight text-ink-900 text-pretty">
+                    {pkg.name}
+                  </h3>
                   <div className="flex items-end gap-2 mb-1">
                     <span className="text-4xl font-light text-ink-900">
                       <Price planId={pkg.id} usd={pkg.price} hideCode />
                     </span>
-                    <span className="text-sm text-gray-500 mb-1.5">/ from · {pkg.capacity}</span>
+                    <span className="text-sm text-ink-500 mb-1.5">/ from · {pkg.capacity}</span>
                   </div>
 
-                  <p className="text-gray-600 text-sm mt-4 mb-6">{pkg.description}</p>
+                  <p className="text-ink-700 text-sm mt-4 mb-6">{pkg.description}</p>
 
                   <div className="grid grid-cols-2 gap-3 mb-6 text-xs">
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
                       <MapPin className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Monuments</p>
-                        <p className="text-gray-600">Taj Mahal + Agra Fort</p>
+                        <p className="text-ink-700">Taj Mahal + Agra Fort</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
                       <Camera className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Photos</p>
-                        <p className="text-gray-600">30 digital + 30 printed</p>
+                        <p className="text-ink-700">30 digital + 30 printed</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
                       <ShieldCheck className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Guide</p>
-                        <p className="text-gray-600">Licensed local guide</p>
+                        <p className="text-ink-700">Licensed local guide</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
                       <Printer className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Prints</p>
-                        <p className="text-gray-600">Premium copies on the day</p>
+                        <p className="text-ink-700">Premium copies on the day</p>
                       </div>
                     </div>
                   </div>
@@ -170,7 +167,7 @@ export default function GuidedPhotoTours() {
                     </h4>
                     <ul className="space-y-2">
                       {pkg.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start text-sm text-gray-700">
+                        <li key={idx} className="flex items-start text-sm text-ink-700">
                           <Check className="w-4 h-4 text-gold-500 mr-2 flex-shrink-0 mt-0.5" />
                           <span>{feature}</span>
                         </li>
@@ -179,7 +176,7 @@ export default function GuidedPhotoTours() {
                   </div>
 
                   <div className="mt-auto pt-6 border-t border-marble-200">
-                    <p className="text-xs text-gray-500 mb-4">
+                    <p className="text-xs text-ink-500 mb-4">
                       <strong>Best for:</strong> {pkg.bestFor}
                     </p>
                     <Link
@@ -199,7 +196,7 @@ export default function GuidedPhotoTours() {
           })}
         </div>
 
-        <p className="text-center text-xs text-gray-500 mt-10 max-w-2xl mx-auto">
+        <p className="text-center text-xs text-ink-500 mt-10 max-w-2xl mx-auto">
           * Taj Mahal and Agra Fort monument entry tickets are not included and must be
           purchased separately. The Taj Mahal is closed every Friday.
         </p>

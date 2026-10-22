@@ -11,17 +11,17 @@ export default function FAQ() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-marble-50" id="faq">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="section bg-marble-50" id="faq">
+      <div className="shell-narrow">
         <motion.div
           className="text-center mb-10 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block">Common Questions</span>
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink-900 mb-4">Frequently Asked Questions</h2>
-          <p className="text-gray-600">Everything you need to know about photography at the Taj Mahal.</p>
+          <span className="collage-label text-xs font-bold uppercase tracking-widest text-gold-700 mb-3">Common Questions</span>
+          <h2 className="h2-fluid font-serif font-semibold text-ink-900 mb-4">Frequently Asked Questions</h2>
+          <p className="text-ink-700">Everything you need to know about photography at the Taj Mahal.</p>
         </motion.div>
 
         <div>
@@ -31,7 +31,7 @@ export default function FAQ() {
             return (
               <motion.div
                 key={index}
-                className="bg-white border border-marble-200 rounded-lg overflow-hidden mb-3"
+                className="bg-white border border-marble-200 rounded-sm overflow-hidden mb-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
@@ -47,7 +47,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="flex-shrink-0"
                   >
-                    <ChevronDown className="h-5 w-5 text-gray-500" />
+                    <ChevronDown className="h-5 w-5 text-ink-500" />
                   </motion.div>
                 </button>
 
@@ -59,7 +59,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-5 text-gray-600">
+                      <div className="px-6 pb-5 text-ink-700">
                         <p className="faq-answer">{faq.answer}</p>
                       </div>
                     </motion.div>

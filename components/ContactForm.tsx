@@ -150,11 +150,11 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    'w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors';
+    'w-full px-4 py-3 border border-marble-200 rounded-sm focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-colors';
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-ink-900 text-white" id="book">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="section bg-ink-900 text-white" id="book">
+      <div className="shell">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* LEFT COLUMN - Info Side */}
           <div>
@@ -169,7 +169,7 @@ export default function ContactForm() {
             </motion.span>
 
             <motion.h2
-              className="font-serif text-4xl md:text-5xl font-semibold mb-6"
+              className="h1-fluid font-serif font-semibold mb-6"
               variants={leftColumnVariants}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
@@ -179,7 +179,7 @@ export default function ContactForm() {
             </motion.h2>
 
             <motion.p
-              className="text-gray-300 mb-8 text-lg"
+              className="text-marble-300 mb-8 text-lg"
               variants={leftColumnVariants}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
@@ -191,7 +191,7 @@ export default function ContactForm() {
             </motion.p>
 
             <motion.div
-              className="bg-white/5 border border-white/10 backdrop-blur-sm p-6 rounded-lg mb-8"
+              className="bg-white/5 border border-white/10 backdrop-blur-sm p-6 rounded-sm mb-8"
               variants={leftColumnVariants}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
@@ -203,7 +203,7 @@ export default function ContactForm() {
                   Limited Daily Permits
                 </h3>
               </div>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-marble-300">
                 To maintain the quality of experience and adhere to monument
                 guidelines, I accept maximum 2 shoots per day (Sunrise and
                 Sunset).
@@ -211,7 +211,7 @@ export default function ContactForm() {
             </motion.div>
 
             <motion.div
-              className="bg-white/5 border border-white/10 backdrop-blur-sm p-6 rounded-lg mb-8"
+              className="bg-white/5 border border-white/10 backdrop-blur-sm p-6 rounded-sm mb-8"
               variants={leftColumnVariants}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
@@ -223,7 +223,7 @@ export default function ContactForm() {
                   Why No Exact Hours?
                 </h3>
               </div>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-marble-300">
                 Sunrise and sunset shift through the year, so you only pick a
                 part of the day — sunrise, forenoon, afternoon or sunset. We
                 confirm the exact meeting time on WhatsApp once your date is
@@ -232,7 +232,7 @@ export default function ContactForm() {
             </motion.div>
 
             <motion.div
-              className="flex items-center gap-2 text-sm text-gray-400 italic"
+              className="flex items-center gap-2 text-sm text-ink-400 italic"
               variants={leftColumnVariants}
               initial="hidden"
               animate={isInView ? 'visible' : 'hidden'}
@@ -248,7 +248,7 @@ export default function ContactForm() {
 
           {/* RIGHT COLUMN - Form */}
           <motion.div
-            className="bg-white text-ink-900 p-8 rounded-xl shadow-2xl"
+            className="bg-white text-ink-900 p-8 rounded-sm shadow-2xl"
             variants={rightColumnVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
@@ -276,7 +276,7 @@ export default function ContactForm() {
                 <h3 className="font-serif text-2xl font-semibold mb-2">
                   Inquiry Received!
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-ink-700">
                   Thank you for reaching out. I will contact you via WhatsApp
                   shortly to confirm availability.
                 </p>
@@ -293,7 +293,7 @@ export default function ContactForm() {
                 <div>
                   <label
                     htmlFor="service"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-ink-700 mb-1"
                   >
                     Package *
                   </label>
@@ -311,7 +311,7 @@ export default function ContactForm() {
                     ))}
                   </select>
                   {planById(selectedPlan) && (
-                    <p className="text-xs text-gray-500 mt-1.5">
+                    <p className="text-xs text-ink-500 mt-1.5">
                       {planById(selectedPlan)!.tagline} · {planById(selectedPlan)!.duration}
                     </p>
                   )}
@@ -322,7 +322,7 @@ export default function ContactForm() {
                   <div>
                     <label
                       htmlFor="date"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium text-ink-700 mb-1"
                     >
                       Preferred Date *
                     </label>
@@ -333,12 +333,12 @@ export default function ContactForm() {
                       required
                       className={inputClass}
                     />
-                    <p className="text-xs text-gray-400 mt-1">Taj Mahal is closed on Fridays</p>
+                    <p className="text-xs text-ink-400 mt-1">Taj Mahal is closed on Fridays</p>
                   </div>
                   <div>
                     <label
                       htmlFor="guests"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium text-ink-700 mb-1"
                     >
                       <span className="inline-flex items-center gap-1">
                         <Users className="w-3.5 h-3.5" /> Number of Guests *
@@ -356,7 +356,7 @@ export default function ContactForm() {
 
                 {/* Timing chips */}
                 <div>
-                  <span className="block text-sm font-medium text-gray-700 mb-2">
+                  <span className="block text-sm font-medium text-ink-700 mb-2">
                     Preferred Timing *
                   </span>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2" role="radiogroup" aria-label="Preferred timing">
@@ -370,19 +370,19 @@ export default function ContactForm() {
                           role="radio"
                           aria-checked={active}
                           onClick={() => setTiming(slot.id)}
-                          className={`flex flex-col items-center gap-1 px-2 py-3 rounded-lg border text-xs font-medium transition-all ${
+                          className={`flex flex-col items-center gap-1 px-2 py-3 rounded-sm border text-xs font-medium transition-all ${
                             active
                               ? 'border-gold-500 bg-gold-500/10 text-ink-900 ring-1 ring-gold-500'
-                              : 'border-gray-200 text-gray-600 hover:border-gold-400 hover:bg-marble-50'
+                              : 'border-marble-200 text-ink-700 hover:border-gold-400 hover:bg-marble-50'
                           }`}
                         >
-                          <Icon className={`w-5 h-5 ${active ? 'text-gold-600' : 'text-gray-400'}`} />
+                          <Icon className={`w-5 h-5 ${active ? 'text-gold-600' : 'text-ink-400'}`} />
                           {slot.label}
                         </button>
                       );
                     })}
                   </div>
-                  <p className="text-xs text-gray-400 mt-1.5">
+                  <p className="text-xs text-ink-400 mt-1.5">
                     {TIMING_SLOTS.find((t) => t.id === timing)?.hint} — exact hour confirmed on
                     WhatsApp, since sunrise/sunset times change with the season.
                   </p>
@@ -390,9 +390,9 @@ export default function ContactForm() {
 
                 {/* Route: cities + days (transport / multi-day plans only) */}
                 {planById(selectedPlan)?.needsRoute && (
-                  <div className="bg-marble-50 border border-marble-200 rounded-lg p-4 space-y-4">
+                  <div className="bg-marble-50 border border-marble-200 rounded-sm p-4 space-y-4">
                     <div>
-                      <span className="block text-sm font-medium text-gray-700 mb-2">
+                      <span className="block text-sm font-medium text-ink-700 mb-2">
                         <span className="inline-flex items-center gap-1">
                           <MapPin className="w-3.5 h-3.5" /> Cities of Travel *
                         </span>
@@ -409,7 +409,7 @@ export default function ContactForm() {
                               className={`px-3 py-2 rounded-full border text-xs font-medium transition-all ${
                                 active
                                   ? 'border-gold-500 bg-gold-500/10 text-ink-900 ring-1 ring-gold-500'
-                                  : 'border-gray-200 bg-white text-gray-600 hover:border-gold-400'
+                                  : 'border-marble-200 bg-white text-ink-700 hover:border-gold-400'
                               }`}
                             >
                               {city}
@@ -417,14 +417,14 @@ export default function ContactForm() {
                           );
                         })}
                       </div>
-                      <p className="text-xs text-gray-400 mt-1.5">
+                      <p className="text-xs text-ink-400 mt-1.5">
                         Tap all the cities you want covered — other cities can go in the details box.
                       </p>
                     </div>
                     <div>
                       <label
                         htmlFor="days"
-                        className="block text-sm font-medium text-gray-700 mb-1"
+                        className="block text-sm font-medium text-ink-700 mb-1"
                       >
                         <span className="inline-flex items-center gap-1">
                           <CalendarRange className="w-3.5 h-3.5" /> Number of Days *
@@ -437,7 +437,7 @@ export default function ContactForm() {
                           </option>
                         ))}
                       </select>
-                      <p className="text-xs text-gray-400 mt-1">
+                      <p className="text-xs text-ink-400 mt-1">
                         Starting from $99 for one day in Agra — we confirm the exact quote for
                         your cities and days on WhatsApp before you commit.
                       </p>
@@ -450,7 +450,7 @@ export default function ContactForm() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium text-ink-700 mb-1"
                     >
                       Full Name *
                     </label>
@@ -466,7 +466,7 @@ export default function ContactForm() {
                   <div>
                     <label
                       htmlFor="nationality"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium text-ink-700 mb-1"
                     >
                       Nationality *
                     </label>
@@ -487,7 +487,7 @@ export default function ContactForm() {
                   <div>
                     <label
                       htmlFor="whatsapp"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium text-ink-700 mb-1"
                     >
                       WhatsApp Number *
                     </label>
@@ -504,9 +504,9 @@ export default function ContactForm() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium text-ink-700 mb-1"
                     >
-                      Email <span className="text-gray-400">(optional)</span>
+                      Email <span className="text-ink-400">(optional)</span>
                     </label>
                     <input
                       type="email"
@@ -522,9 +522,9 @@ export default function ContactForm() {
                 <div>
                   <label
                     htmlFor="ages"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-ink-700 mb-1"
                   >
-                    Guest Ages <span className="text-gray-400">(optional)</span>
+                    Guest Ages <span className="text-ink-400">(optional)</span>
                   </label>
                   <input
                     type="text"
@@ -533,7 +533,7 @@ export default function ContactForm() {
                     placeholder="e.g. 2 adults, children aged 5 and 8"
                     className={inputClass}
                   />
-                  <p className="text-xs text-gray-400 mt-1">
+                  <p className="text-xs text-ink-400 mt-1">
                     Helps us pace the session — children under 15 enter the Taj Mahal free.
                   </p>
                 </div>
@@ -542,9 +542,9 @@ export default function ContactForm() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-ink-700 mb-1"
                   >
-                    Additional Details <span className="text-gray-400">(optional)</span>
+                    Additional Details <span className="text-ink-400">(optional)</span>
                   </label>
                   <textarea
                     id="message"
@@ -558,7 +558,7 @@ export default function ContactForm() {
                 <motion.button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="w-full bg-gold-500 text-ink-900 py-3.5 px-4 rounded-lg font-semibold hover:bg-gold-400 transition-colors disabled:opacity-70 flex justify-center items-center gap-2"
+                  className="btn btn-gold btn-lg btn-block disabled:opacity-70"
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -582,7 +582,7 @@ export default function ContactForm() {
                     </>
                   )}
                 </motion.button>
-                <p className="text-xs text-center text-gray-400">
+                <p className="text-xs text-center text-ink-400">
                   Submitting opens WhatsApp with your inquiry pre-filled and also emails a
                   copy to our booking desk, so nothing gets missed. No payment is taken on
                   this website.

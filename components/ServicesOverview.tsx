@@ -38,14 +38,14 @@ export default function ServicesOverview() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="bg-mughal-pattern bg-marble-50 py-16 md:py-24">
-      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-mughal-pattern bg-marble-50 section">
+      <div ref={sectionRef} className="shell">
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-16">
           <div className="max-w-2xl">
             <span className="collage-label text-gold-700 text-xs font-bold tracking-widest uppercase mb-3">
               Our Expertise
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl font-semibold text-ink-900">
+            <h2 className="h1-fluid font-serif font-semibold text-ink-900">
               Premium Photography Services
             </h2>
           </div>

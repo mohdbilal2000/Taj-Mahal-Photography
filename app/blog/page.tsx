@@ -143,7 +143,7 @@ export default function BlogPage() {
           </Link>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 section">
           <div className="reveal reveal-stagger collage-grid grid gap-6 sm:gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((post) => (
               <PostCard key={post.slug} post={post} />

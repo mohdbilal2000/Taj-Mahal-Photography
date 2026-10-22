@@ -45,7 +45,7 @@ export default function MobileActionBar() {
           href={whatsappUrl(WHATSAPP_MESSAGES.general)}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 flex-1 py-3 rounded-sm bg-[#25D366] text-ink-900 font-semibold text-sm"
+          className="btn btn-whatsapp flex-1"
         >
           <WhatsAppIcon className="w-4 h-4" />
           WhatsApp
@@ -53,7 +53,7 @@ export default function MobileActionBar() {
 
         <Link
           href="/book"
-          className="flex items-center justify-center gap-2 flex-1 py-3 rounded-sm bg-gold-500 text-ink-900 font-semibold text-sm"
+          className="btn btn-gold flex-1"
         >
           <CalendarCheck className="w-4 h-4" />
           Book

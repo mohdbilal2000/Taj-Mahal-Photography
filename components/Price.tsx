@@ -22,7 +22,7 @@ export default function Price({
   usd,
   fromPrice,
   className = '',
-  codeClassName = 'text-sm text-gray-500',
+  codeClassName = 'text-sm text-ink-500',
   hideCode,
 }: PriceProps) {
   const { currency } = useCurrency();
@@ -33,7 +33,7 @@ export default function Price({
   return (
     <>
       {fromPrice && (
-        <span className="block text-xs uppercase tracking-wide text-gray-400 font-normal">
+        <span className="block text-xs uppercase tracking-wide text-ink-400 font-normal">
           Starting from
         </span>
       )}

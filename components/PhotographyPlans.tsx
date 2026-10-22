@@ -89,8 +89,8 @@ export default function PhotographyPlans() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-16 md:py-24 bg-white" id="plans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
+    <section className="section bg-white" id="plans">
+      <div className="shell" ref={sectionRef}>
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -104,7 +104,7 @@ export default function PhotographyPlans() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-serif text-4xl md:text-5xl font-semibold text-ink-900 mb-6"
+            className="h1-fluid font-serif font-semibold text-ink-900 mb-6"
           >
             Authorized Photoshoot Plans
           </motion.h2>
@@ -112,7 +112,7 @@ export default function PhotographyPlans() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-600 text-lg"
+            className="text-ink-700 text-lg"
           >
             Transparent pricing for premium, government-licensed photography services.
             All plans include official permit authorization for professional equipment.
@@ -157,15 +157,15 @@ export default function PhotographyPlans() {
                     <span className="text-3xl font-light text-ink-900">
                       <Price planId={plan.id} usd={plan.price} hideCode />
                     </span>
-                    <span className="text-sm text-gray-500 mb-1">/ {plan.duration}</span>
+                    <span className="text-sm text-ink-500 mb-1">/ {plan.duration}</span>
                   </div>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-ink-700 text-sm">
                     {plan.description}
                   </p>
                 </div>
 
                 {/* AI Feeder Microcopy */}
-                <div className="bg-white p-3 rounded border border-marble-200 mb-6 text-xs text-gray-500 hidden md:block">
+                <div className="bg-white p-3 rounded border border-marble-200 mb-6 text-xs text-ink-500 hidden md:block">
                   <div className="flex items-start gap-2">
                     <Info className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                     <p>
@@ -180,7 +180,7 @@ export default function PhotographyPlans() {
                   </h4>
                   <ul className="space-y-2">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start text-sm text-gray-700">
+                      <li key={idx} className="flex items-start text-sm text-ink-700">
                         <Check className="w-4 h-4 text-gold-500 mr-2 flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>
@@ -189,7 +189,7 @@ export default function PhotographyPlans() {
                 </div>
 
                 <div className="mt-auto pt-6 border-t border-marble-200">
-                  <p className="text-xs text-gray-500 mb-4">
+                  <p className="text-xs text-ink-500 mb-4">
                     <strong>Best for:</strong> {plan.bestFor}
                   </p>
                   <Link

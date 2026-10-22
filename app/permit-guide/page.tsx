@@ -30,15 +30,15 @@ export default function PermitGuidePage() {
       <Header />
 
       <main className="flex-grow bg-white">
-        <div className="bg-ink-900 text-white py-14 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-gold-400 text-sm font-bold tracking-widest uppercase mb-4 block">Official Information</span>
-            <h1 className="font-serif text-4xl md:text-5xl font-semibold mb-6">Taj Mahal Photography Permit Guide</h1>
-            <p className="text-lg text-gray-300">Official rules, regulations, and why hiring a licensed photographer is essential for your visit.</p>
+        <div className="bg-ink-900 text-white section">
+          <div className="shell-narrow max-w-4xl text-center">
+            <span className="eyebrow text-gold-400 mb-4 block">Official Information</span>
+            <h1 className="h1-fluid font-serif font-semibold mb-6">Taj Mahal Photography Permit Guide</h1>
+            <p className="text-lg text-marble-300">Official rules, regulations, and why hiring a licensed photographer is essential for your visit.</p>
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="shell-narrow max-w-4xl py-16">
           <article className="prose prose-lg prose-slate max-w-none">
             <h2 className="font-serif text-3xl text-ink-900 mb-6">Understanding Taj Mahal Photography Rules</h2>
             <p>
@@ -67,7 +67,7 @@ export default function PermitGuidePage() {
 
             <div className="bg-marble-50 p-6 border-l-4 border-gold-500 my-8 not-prose">
               <h4 className="font-serif text-xl text-ink-900 mb-2">The Licensed Photographer Advantage</h4>
-              <p className="text-gray-600 mb-0">
+              <p className="text-ink-700 mb-0">
                 As an Official Government Licensed Photographer, I hold a valid permit issued by the Ministry of Tourism. This allows me to enter with professional-grade equipment and conduct photoshoots without interruption from security, ensuring a smooth and stress-free experience for you.
               </p>
             </div>
@@ -81,7 +81,7 @@ export default function PermitGuidePage() {
                     <th className="px-4 py-3 text-left font-semibold text-ink-900 border-b border-marble-200">Information</th>
                   </tr>
                 </thead>
-                <tbody className="text-gray-600">
+                <tbody className="text-ink-700">
                   <tr className="border-b border-marble-200"><td className="px-4 py-3 font-medium">Opening Hours</td><td className="px-4 py-3">Sunrise to Sunset (approx. 6:00 AM – 6:30 PM)</td></tr>
                   <tr className="border-b border-marble-200"><td className="px-4 py-3 font-medium">Closed On</td><td className="px-4 py-3">Every Friday (for prayers at the mosque)</td></tr>
                   <tr className="border-b border-marble-200"><td className="px-4 py-3 font-medium">Entry Fee (Foreign Tourists)</td><td className="px-4 py-3">INR 1,100 (~$13 USD) + INR 200 for mausoleum entry</td></tr>
@@ -96,7 +96,7 @@ export default function PermitGuidePage() {
               {['Tripods & Monopods', 'Drones & RC Devices', 'Food & Tobacco', 'Knives & Sharp Objects', 'Books & Large Bags', 'Wireless Speakers', 'Professional Lighting', 'Selfie Sticks (peak hours)'].map((item) => (
                 <div key={item} className="flex items-center bg-red-50 border border-red-100 rounded px-4 py-3">
                   <span className="text-red-500 mr-3 font-bold">✕</span>
-                  <span className="text-sm text-gray-700">{item}</span>
+                  <span className="text-sm text-ink-700">{item}</span>
                 </div>
               ))}
             </div>
@@ -118,7 +118,7 @@ export default function PermitGuidePage() {
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gold-500 text-white flex items-center justify-center font-bold text-sm">{item.step}</div>
                     <div>
                       <h5 className="font-semibold text-ink-900">{item.title}</h5>
-                      <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
+                      <p className="text-sm text-ink-700 mt-1">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -126,7 +126,7 @@ export default function PermitGuidePage() {
             </div>
 
             <div className="not-prose text-center mt-12">
-              <Link href="/book" className="inline-flex items-center px-8 py-4 bg-ink-900 text-white font-medium text-sm tracking-wide uppercase hover:bg-ink-800 transition-colors rounded-sm">
+              <Link href="/book" className="btn btn-ink btn-lg">
                 Book Your Licensed Photographer
               </Link>
             </div>
