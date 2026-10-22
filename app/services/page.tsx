@@ -94,14 +94,23 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <div key={service.id} className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-center`}>
                 <div className="w-full lg:w-1/2">
-                  <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-xl">
-                    <Image
-                      src={planImage(service.id)}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                      referrerPolicy="no-referrer"
-                    />
+                  {/* Mounted like a print, leaning the opposite way each time
+                      the layout flips sides. */}
+                  <div
+                    className="collage-card"
+                    style={{ ['--tilt' as string]: index % 2 ? '1.4deg' : '-1.4deg' }}
+                  >
+                    <div className="collage-media relative aspect-[4/3]">
+                      <Image
+                        src={planImage(service.id)}
+                        alt={service.title}
+                        fill
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        className="object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <p className="collage-caption collage-body text-2xl">{service.title}</p>
                   </div>
                 </div>
                 <div className="w-full lg:w-1/2">

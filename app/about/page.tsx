@@ -54,11 +54,13 @@ export default function AboutPage() {
         {/* Stats */}
         <section className="py-16 bg-white border-b border-marble-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="collage-grid grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <p className="font-serif text-4xl md:text-5xl font-semibold text-ink-900">{stat.value}</p>
-                  <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+                <div key={stat.label} className="collage-card text-center">
+                  <div className="collage-body pt-4">
+                    <p className="font-serif text-4xl md:text-5xl font-semibold text-ink-900">{stat.value}</p>
+                    <p className="text-sm text-gray-600 mt-2">{stat.label}</p>
+                  </div>
                 </div>
               ))}
             </div>
