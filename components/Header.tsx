@@ -6,9 +6,15 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import ScarcityBanner from './ScarcityBanner';
 
-export default function Header() {
+/**
+ * `onLight` is for pages whose banner is paper rather than a dark
+ * photograph — the home page since the collage hero. Without it the bar
+ * renders white type on cream and disappears.
+ */
+export default function Header({ onLight = false }: { onLight?: boolean } = {}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const dark = isScrolled || onLight;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,14 +45,14 @@ export default function Header() {
               <Link href="/" className="flex flex-col items-center">
                 <span
                   className={`font-serif text-2xl font-bold tracking-tight uppercase transition-colors duration-300 ${
-                    isScrolled ? 'text-ink-900' : 'text-white'
+                    dark ? 'text-ink-900' : 'text-white'
                   }`}
                 >
                   Taj Mahal
                 </span>
                 <span
                   className={`text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 ${
-                    isScrolled ? 'text-ink-800' : 'text-white'
+                    dark ? 'text-ink-800' : 'text-white'
                   }`}
                 >
                   Photography
@@ -62,7 +68,7 @@ export default function Header() {
                     key={item}
                     href={href}
                     className={`text-sm font-medium hover:text-gold-500 transition-colors duration-300 ${
-                      isScrolled ? 'text-ink-800' : 'text-white'
+                      dark ? 'text-ink-800' : 'text-white'
                     }`}
                   >
                     {item}
@@ -84,7 +90,7 @@ export default function Header() {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-colors duration-300 ${
-                  isScrolled ? 'text-ink-800 hover:text-ink-900' : 'text-white hover:text-gold-400'
+                  dark ? 'text-ink-800 hover:text-ink-900' : 'text-white hover:text-gold-400'
                 }`}
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

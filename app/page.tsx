@@ -149,7 +149,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header onLight />
 
       <main className="flex-grow">
         <Hero rating={rating} />
