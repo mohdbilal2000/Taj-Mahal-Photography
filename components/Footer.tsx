@@ -5,7 +5,7 @@ import { LOCALES } from '@/lib/i18n';
 
 export default function Footer() {
   return (
-    <footer className="bg-ink-900 text-white pt-20 pb-8 pb-action-bar md:pb-0">
+    <footer className="bg-ink-900 text-white pt-20 pb-8 pb-action-bar lg:pb-0">
       {/* Gold accent line */}
       <div className="h-1 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
 
