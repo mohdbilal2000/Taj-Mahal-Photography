@@ -429,12 +429,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {isLuxuryTour && (
                 <div className="mt-12 bg-ink-900 text-white p-6 rounded-sm">
                   <p className="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Compare</p>
-                  <p className="text-sm text-gray-200 mb-4">
+                  <p className="mb-4 text-sm text-marble-300">
                     Looking for a different group size? The {service.tourSlug === 'sunrise-luxury-innova' ? 'Sunrise Luxury Urbania (from $899)' : 'Sunrise Luxury Tour in a private Innova (from $650)'} covers the same itinerary {service.tourSlug === 'sunrise-luxury-innova' ? 'in a 13-seat Force Urbania luxury coach for larger groups' : 'in a 6-seat private Toyota Innova for couples and small families'}.
                   </p>
                   <Link
                     href={`/services/${service.tourSlug === 'sunrise-luxury-innova' ? 'sunrise-luxury-urbania' : 'sunrise-luxury-innova'}`}
-                    className="inline-block text-gold-400 underline hover:text-gold-300 text-sm"
+                    className="link-sweep inline-flex min-h-[32px] items-center text-sm font-semibold text-gold-400 hover:text-gold-300"
                   >
                     See the other tour →
                   </Link>
