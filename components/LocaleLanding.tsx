@@ -167,7 +167,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
           </h2>
           <p className="mb-8 max-w-2xl text-ink-700">{locale.packagesIntro}</p>
 
-          <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="reveal reveal-stagger collage-grid grid gap-6 sm:gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {plans.map((plan) => {
               const label = locale.planLabels[plan!.id];
               const image = plan!.image ?? planImage(plan!.id);
@@ -176,10 +176,10 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
                 <Link
                   key={plan!.id}
                   href={serviceHref.get(plan!.id) ?? `/services/${plan!.id}`}
-                  className="card-lift group flex flex-col overflow-hidden rounded-sm border hairline bg-white"
+                  className="collage-card group flex flex-col"
                 >
                   {image && (
-                    <div className="img-zoom relative aspect-[16/10]">
+                    <div className="collage-media img-zoom relative aspect-[16/10]">
                       <Image
                         src={image}
                         alt={label?.name ?? plan!.name}
@@ -190,7 +190,7 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
                       />
                     </div>
                   )}
-                  <div className="flex flex-1 flex-col p-5">
+                  <div className="collage-body flex flex-1 flex-col">
                     <h3 className="font-serif text-lg font-semibold text-ink-900 transition-colors group-hover:text-gold-600 text-pretty">
                       {label?.name ?? plan!.name}
                     </h3>

@@ -344,3 +344,98 @@ html[data-reveal='on'] .reveal-stagger.is-in > *:nth-child(n + 6) { transition-d
 @media (prefers-reduced-motion: reduce) {
   .card-lift::after { transition: none; }
 }
+
+/* ───── Collage ───── */
+/* The polaroid treatment from the guest-moments wall, generalised into a
+   design language: a warm paper mount, a slight tilt that alternates down a
+   grid, and a hover that straightens the print as if you picked it up. The
+   studio's own Instagram grid is where this comes from, so the site now
+   reads as the same body of work rather than a brochure about it. */
+.collage-card {
+  --tilt: 0deg;
+  background: #FBF5EA;
+  border: 0;
+  border-radius: 14px;
+  padding: 10px 10px 0;
+  box-shadow:
+    0 1px 2px rgba(20, 17, 15, 0.05),
+    0 18px 36px -22px rgba(20, 17, 15, 0.34);
+  transform: rotate(var(--tilt));
+  transition:
+    transform 0.55s var(--ease-out-expo),
+    box-shadow 0.55s var(--ease-out-expo);
+}
+
+/* The photograph sits in the mount, not against its edge. */
+.collage-card > .collage-media {
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.collage-card > .collage-body {
+  padding: 0.9rem 0.4rem 1.05rem;
+}
+
+/* Picked up and looked at: straightened, lifted, shadow deepened. */
+.collage-card:hover,
+.collage-card:focus-within {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: var(--shadow-deep);
+  z-index: 2;
+}
+
+/* A grid of prints dropped on a table — the tilt alternates so no two
+   neighbours lean the same way, and stays under 1.4deg so nothing in a
+   two-column phone layout can push past the viewport. */
+.collage-grid > *:nth-child(4n + 1) { --tilt: -1.6deg; }
+.collage-grid > *:nth-child(4n + 2) { --tilt: 1.2deg; }
+.collage-grid > *:nth-child(4n + 3) { --tilt: -0.9deg; }
+.collage-grid > *:nth-child(4n + 4) { --tilt: 1.5deg; }
+
+/* A strip of washi tape over the top edge. Used sparingly — on the hero
+   cluster and the moments wall, not on every card in a grid. */
+.taped::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 78px;
+  height: 20px;
+  transform: translateX(-50%) rotate(-2.2deg);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.62),
+    rgba(244, 241, 234, 0.52)
+  );
+  box-shadow: 0 1px 2px rgba(20, 17, 15, 0.12);
+  pointer-events: none;
+}
+
+/* Hand-written label, as on the studio's posts. */
+.collage-caption {
+  font-family: var(--font-hand), 'Segoe Script', cursive;
+  line-height: 1;
+  color: var(--color-ink-900);
+}
+
+/* A pinned paper label for section eyebrows. */
+.collage-label {
+  display: inline-block;
+  background: #FBF5EA;
+  border: 1px solid color-mix(in srgb, var(--color-ink-900) 8%, transparent);
+  box-shadow: 0 1px 2px rgba(20, 17, 15, 0.06);
+  padding: 0.3rem 0.85rem 0.35rem;
+  border-radius: 3px;
+  transform: rotate(-1.2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collage-card {
+    transition: none;
+  }
+  .collage-card:hover,
+  .collage-card:focus-within {
+    transform: rotate(var(--tilt));
+    translate: none;
+  }
+}

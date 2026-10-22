@@ -83,7 +83,7 @@ export default function GuestMoments() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="eyebrow text-gold-600 mb-3 block">From our guests</span>
+          <span className="collage-label eyebrow text-gold-700 mb-4">From our guests</span>
           <h2 className="h2-fluid font-serif font-semibold text-ink-900 mb-4 text-balance">
             Moments we sent home
           </h2>
@@ -101,7 +101,7 @@ export default function GuestMoments() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               style={{ rotate: m.tilt }}
-              className="moment-card"
+              className="moment-card taped relative"
             >
               <div className="relative aspect-[4/5] overflow-hidden rounded-md">
                 <Image

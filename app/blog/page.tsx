@@ -43,9 +43,9 @@ function PostCard({ post, priority }: { post: BlogPost; priority?: boolean }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="card-lift group flex flex-col overflow-hidden rounded-sm border hairline bg-white"
+      className="collage-card group flex flex-col"
     >
-      <div className="img-zoom relative aspect-[16/10]">
+      <div className="collage-media img-zoom relative aspect-[16/10]">
         <Image
           src={post.image}
           alt={post.imageAlt}
@@ -61,7 +61,7 @@ function PostCard({ post, priority }: { post: BlogPost; priority?: boolean }) {
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="collage-body flex flex-1 flex-col">
         <h2 className="font-serif text-lg font-semibold leading-snug text-ink-900 transition-colors group-hover:text-gold-600 text-pretty">
           {post.title}
         </h2>
@@ -116,9 +116,9 @@ export default function BlogPage() {
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-8 md:-mt-12">
           <Link
             href={`/blog/${featured.slug}`}
-            className="reveal card-lift group grid overflow-hidden rounded-sm border hairline bg-white md:grid-cols-2"
+            className="reveal collage-card group grid md:grid-cols-2"
           >
-            <div className="img-zoom relative aspect-[16/10] md:aspect-auto md:min-h-[320px]">
+            <div className="collage-media img-zoom relative aspect-[16/10] md:aspect-auto md:min-h-[320px]">
               <Image
                 src={featured.image}
                 alt={featured.imageAlt}
@@ -144,7 +144,7 @@ export default function BlogPage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-          <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="reveal reveal-stagger collage-grid grid gap-6 sm:gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {rest.map((post) => (
               <PostCard key={post.slug} post={post} />
             ))}

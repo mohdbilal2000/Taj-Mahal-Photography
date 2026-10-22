@@ -96,7 +96,7 @@ export default function PhotographyPlans() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block"
+            className="collage-label text-gold-700 text-xs font-bold tracking-widest uppercase mb-3"
           >
             Photography Packages
           </motion.span>
@@ -120,22 +120,12 @@ export default function PhotographyPlans() {
           <InrRateNote full className="mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="reveal reveal-stagger collage-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-7">
           {plans.map((plan, index) => (
-            <motion.div
+            <div
               key={plan.id}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: 0.15 * index,
-                ease: [0.21, 0.47, 0.32, 0.98]
-              }}
-              whileHover={{ y: -8 }}
-              className={`flex flex-col bg-marble-50 rounded-sm overflow-hidden transition-shadow duration-300 hover:shadow-xl ${
-                plan.popular
-                  ? 'border-2 border-gold-500 ring-2 ring-gold-500/20 relative shadow-lg'
-                  : 'border border-marble-200 shadow-sm'
+              className={`collage-card flex flex-col overflow-hidden ${
+                plan.popular ? 'ring-2 ring-gold-500/40' : ''
               }`}
             >
               {plan.popular && (
@@ -144,7 +134,7 @@ export default function PhotographyPlans() {
                 </div>
               )}
 
-              <div className="relative h-48 w-full overflow-hidden">
+              <div className="collage-media relative h-48 w-full">
                 <Image
                   src={planImage(plan.id)}
                   alt={plan.name}
@@ -161,7 +151,7 @@ export default function PhotographyPlans() {
                 </div>
               </div>
 
-              <div className="p-6 flex-grow flex flex-col">
+              <div className="collage-body flex-grow flex flex-col">
                 <div className="mb-6">
                   <div className="flex items-end gap-2 mb-2">
                     <span className="text-3xl font-light text-ink-900">
@@ -214,7 +204,7 @@ export default function PhotographyPlans() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

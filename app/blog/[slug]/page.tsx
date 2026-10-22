@@ -245,15 +245,15 @@ export default async function BlogPostPage({ params }: Params) {
                 className="mb-10"
               />
 
-              <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-2">
+              <div className="reveal reveal-stagger collage-grid grid gap-6 sm:gap-7 sm:grid-cols-2">
                 {plans.map((plan) => (
                   <Link
                     key={plan!.id}
                     href={`/services/${plan!.id}`}
-                    className="card-lift group flex flex-col overflow-hidden rounded-sm border hairline bg-white"
+                    className="collage-card group flex flex-col"
                   >
                     {plan!.image && (
-                      <div className="img-zoom relative aspect-[16/10]">
+                      <div className="collage-media img-zoom relative aspect-[16/10]">
                         <Image
                           src={plan!.image}
                           alt={plan!.name}
@@ -264,7 +264,7 @@ export default async function BlogPostPage({ params }: Params) {
                         />
                       </div>
                     )}
-                    <div className="flex flex-1 flex-col p-5">
+                    <div className="collage-body flex flex-1 flex-col">
                       <h3 className="font-serif text-lg font-semibold text-ink-900 group-hover:text-gold-600 transition-colors">
                         {plan!.name}
                       </h3>
@@ -285,14 +285,14 @@ export default async function BlogPostPage({ params }: Params) {
           <section className="py-14 md:py-20">
             <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
               <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-8">Read next</h2>
-              <div className="reveal reveal-stagger grid gap-6 sm:grid-cols-3">
+              <div className="reveal reveal-stagger collage-grid grid gap-6 sm:gap-7 sm:grid-cols-3">
                 {related.map((other) => (
                   <Link
                     key={other.slug}
                     href={`/blog/${other.slug}`}
-                    className="card-lift group overflow-hidden rounded-sm border hairline bg-white"
+                    className="collage-card group"
                   >
-                    <div className="img-zoom relative aspect-[4/3]">
+                    <div className="collage-media img-zoom relative aspect-[4/3]">
                       <Image
                         src={other.image}
                         alt={other.imageAlt}
@@ -302,7 +302,7 @@ export default async function BlogPostPage({ params }: Params) {
                         referrerPolicy="no-referrer"
                       />
                     </div>
-                    <div className="p-4">
+                    <div className="collage-body">
                       <span className="eyebrow text-gold-700">{other.category}</span>
                       <h3 className="mt-2 font-serif text-base font-semibold leading-snug text-ink-900 group-hover:text-gold-600 transition-colors text-pretty">
                         {other.title}

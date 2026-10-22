@@ -14,6 +14,19 @@ import type { Rating } from '@/lib/reviews';
 
 const LOWEST = PLANS.reduce((min, p) => (p.price < min.price ? p : min), PLANS[0]);
 
+/**
+ * The banner carries a few prints from the grid, taped on as if dropped over
+ * the photograph. The big sunrise frame stays the background — it is the
+ * strongest asset and the LCP element — but the page now opens the way the
+ * studio's Instagram does, with a handful of mounted prints rather than one
+ * stock-looking hero.
+ */
+const COLLAGE = [
+  { src: '/photos/gallery/16.jpg', alt: 'A guest in a red saree beside the reflecting pool at the Taj Mahal', caption: 'first light' },
+  { src: '/photos/gallery/08.jpg', alt: 'A couple sharing a moment on a bench with the Taj Mahal behind', caption: 'the quiet hour' },
+  { src: '/photos/gallery/11.jpg', alt: 'A couple silhouetted in the great gateway arch, reflected in the water below', caption: 'the great gate' },
+];
+
 /** The three objections a guest has before they scroll, answered up front. */
 const PROOF = [
   { label: 'Licensed', detail: 'Ministry of Tourism' },
@@ -38,6 +51,13 @@ export default function Hero({ rating }: { rating: Rating }) {
     offset: ['start start', 'end start'],
   });
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', reduceMotion ? '0%' : '18%']);
+  // Each print drifts at its own rate, so the cluster separates from the
+  // photograph behind it as the page moves.
+  const printY = [
+    useTransform(scrollYProgress, [0, 1], ['0px', reduceMotion ? '0px' : '-70px']),
+    useTransform(scrollYProgress, [0, 1], ['0px', reduceMotion ? '0px' : '-120px']),
+    useTransform(scrollYProgress, [0, 1], ['0px', reduceMotion ? '0px' : '-40px']),
+  ];
 
   return (
     <section
@@ -60,6 +80,38 @@ export default function Hero({ rating }: { rating: Rating }) {
       <div className="absolute inset-0 z-[1] scrim-hero" />
       {/* Copy sits left, so darken that side — the headline never lands on marble. */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-r from-ink-900/80 via-ink-900/25 to-transparent" />
+
+      {/* Desktop: the cluster sits in the empty right third, clear of the copy. */}
+      <div
+        className="pointer-events-none absolute inset-y-0 right-[2vw] z-[2] hidden w-[33vw] max-w-[430px] items-center justify-center lg:flex"
+        aria-hidden="true"
+      >
+        <div className="relative h-[520px] w-full">
+          {COLLAGE.map((print, i) => (
+            <motion.figure
+              key={print.src}
+              style={{ y: printY[i], ['--tilt' as string]: ['-4deg', '3.2deg', '-1.8deg'][i] }}
+              className={`collage-card taped absolute w-[42%] ${
+                ['left-0 top-12 z-[3]', 'right-0 top-0 z-[1]', 'left-[31%] bottom-0 z-[2]'][i]
+              }`}
+            >
+              <div className="collage-media relative aspect-[4/5]">
+                <Image
+                  src={print.src}
+                  alt=""
+                  fill
+                  sizes="220px"
+                  className="object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <figcaption className="collage-caption px-1 py-2.5 text-xl">
+                {print.caption}
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
+      </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-10 md:pb-16 pt-28 md:pt-32">
         <div className="max-w-3xl">
@@ -145,6 +197,33 @@ export default function Hero({ rating }: { rating: Rating }) {
                 <p className="text-white/60 text-[10px] sm:text-xs mt-0.5 leading-tight">
                   {item.detail}
                 </p>
+              </li>
+            ))}
+          </ul>
+
+          {/* Phone: the same prints as a taped strip, since there is no empty
+              column to put a cluster in. */}
+          <ul
+            {...rise(0.46)}
+            className="rise mt-8 grid max-w-[19rem] grid-cols-3 gap-3 lg:hidden"
+            aria-hidden="true"
+          >
+            {COLLAGE.map((print, i) => (
+              <li
+                key={print.src}
+                className="collage-card !p-[6px]"
+                style={{ ['--tilt' as string]: ['-2.4deg', '1.6deg', '-1.2deg'][i] }}
+              >
+                <div className="collage-media relative aspect-[4/5]">
+                  <Image
+                    src={print.src}
+                    alt=""
+                    fill
+                    sizes="100px"
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
               </li>
             ))}
           </ul>

@@ -99,24 +99,14 @@ export default function LuxuryTours() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="reveal reveal-stagger collage-grid grid grid-cols-1 lg:grid-cols-2 gap-8">
           {tours.map((tour, index) => {
             const Icon = tour.icon;
             return (
-              <motion.div
+              <div
                 key={tour.id}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.15 * index,
-                  ease: [0.21, 0.47, 0.32, 0.98],
-                }}
-                whileHover={{ y: -8 }}
-                className={`flex flex-col bg-white text-ink-900 rounded-sm overflow-hidden transition-shadow duration-300 hover:shadow-2xl relative ${
-                  tour.popular
-                    ? 'border-2 border-gold-500 ring-2 ring-gold-500/20 shadow-xl'
-                    : 'border border-marble-200 shadow-md'
+                className={`collage-card flex flex-col overflow-hidden text-ink-900 ${
+                  tour.popular ? 'ring-2 ring-gold-500/40' : ''
                 }`}
               >
                 {tour.popular && (
@@ -125,7 +115,7 @@ export default function LuxuryTours() {
                   </div>
                 )}
 
-                <div className="relative h-56 w-full overflow-hidden">
+                <div className="collage-media relative h-56 w-full">
                   <Image
                     src={tour.image}
                     alt={tour.name}
@@ -145,7 +135,7 @@ export default function LuxuryTours() {
                   </div>
                 </div>
 
-                <div className="p-6 md:p-8 flex-grow flex flex-col">
+                <div className="collage-body flex-grow flex flex-col md:px-3">
                   <div className="flex items-end gap-2 mb-1">
                     <span className="text-4xl font-light">
                       {tour.price}
@@ -229,7 +219,7 @@ export default function LuxuryTours() {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

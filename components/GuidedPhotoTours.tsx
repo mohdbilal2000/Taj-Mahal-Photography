@@ -62,7 +62,7 @@ export default function GuidedPhotoTours() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block"
+            className="collage-label text-gold-700 text-xs font-bold tracking-widest uppercase mb-3"
           >
             Guided Tour + Photography
           </motion.span>
@@ -87,24 +87,14 @@ export default function GuidedPhotoTours() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="reveal reveal-stagger collage-grid grid grid-cols-1 lg:grid-cols-2 gap-8">
           {packages.map((pkg, index) => {
             const Icon = pkg.icon;
             return (
-              <motion.div
+              <div
                 key={pkg.id}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.15 * index,
-                  ease: [0.21, 0.47, 0.32, 0.98],
-                }}
-                whileHover={{ y: -8 }}
-                className={`flex flex-col bg-white rounded-sm overflow-hidden transition-shadow duration-300 hover:shadow-2xl relative ${
-                  pkg.popular
-                    ? 'border-2 border-gold-500 ring-2 ring-gold-500/20 shadow-xl'
-                    : 'border border-marble-200 shadow-md'
+                className={`collage-card flex flex-col overflow-hidden ${
+                  pkg.popular ? 'ring-2 ring-gold-500/40' : ''
                 }`}
               >
                 {pkg.popular && (
@@ -113,7 +103,7 @@ export default function GuidedPhotoTours() {
                   </div>
                 )}
 
-                <div className="relative h-56 w-full overflow-hidden">
+                <div className="collage-media relative h-56 w-full">
                   <Image
                     src={planImage(pkg.id)}
                     alt={pkg.name}
@@ -133,7 +123,7 @@ export default function GuidedPhotoTours() {
                   </div>
                 </div>
 
-                <div className="p-6 md:p-8 flex-grow flex flex-col">
+                <div className="collage-body flex-grow flex flex-col md:px-3">
                   <div className="flex items-end gap-2 mb-1">
                     <span className="text-4xl font-light text-ink-900">
                       <Price planId={pkg.id} usd={pkg.price} hideCode />
@@ -204,7 +194,7 @@ export default function GuidedPhotoTours() {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

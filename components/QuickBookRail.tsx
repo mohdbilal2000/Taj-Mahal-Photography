@@ -24,7 +24,7 @@ export default function QuickBookRail() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-1.5 text-gold-600 text-sm font-bold tracking-widest uppercase mb-2"
+            className="collage-label inline-flex items-center gap-1.5 text-gold-700 text-xs font-bold tracking-widest uppercase mb-3"
           >
             <Zap className="w-4 h-4" />
             Book in under a minute
@@ -55,7 +55,7 @@ export default function QuickBookRail() {
         </div>
 
         {/* Mobile: horizontal snap rail (Klook-style). Desktop: 3-column grid. */}
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 md:mx-0 md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="collage-grid flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 pt-2 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-7 md:overflow-visible md:mx-0 md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {quickPlans.map((plan, index) => (
             <motion.div
               key={plan.id}
@@ -66,14 +66,12 @@ export default function QuickBookRail() {
             >
               <Link
                 href={`/book?plan=${plan.id}`}
-                className={`group flex flex-col h-full bg-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 ${
-                  plan.popular
-                    ? 'border-2 border-gold-500 ring-2 ring-gold-500/15 shadow-lg'
-                    : 'border border-marble-200 shadow-md hover:border-gold-400'
+                className={`collage-card group flex h-full flex-col ${
+                  plan.popular ? 'ring-2 ring-gold-500/40' : ''
                 }`}
               >
                 {/* Image header */}
-                <div className="relative h-40 w-full overflow-hidden">
+                <div className="collage-media relative h-40 w-full">
                   <Image
                     src={imageForPlan(plan)}
                     alt={plan.name}
@@ -94,7 +92,7 @@ export default function QuickBookRail() {
                 </div>
 
                 {/* Body */}
-                <div className="flex flex-col flex-grow p-5">
+                <div className="collage-body flex flex-grow flex-col">
                   <h3 className="font-serif text-xl font-semibold text-ink-900 leading-snug">
                     {plan.name}
                   </h3>

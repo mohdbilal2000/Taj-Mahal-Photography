@@ -42,7 +42,7 @@ export default function ServicesOverview() {
       <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-16">
           <div className="max-w-2xl">
-            <span className="text-gold-600 text-sm font-bold tracking-widest uppercase mb-2 block">
+            <span className="collage-label text-gold-700 text-xs font-bold tracking-widest uppercase mb-3">
               Our Expertise
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-semibold text-ink-900">
@@ -57,7 +57,7 @@ export default function ServicesOverview() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="collage-grid grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-9">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -69,21 +69,22 @@ export default function ServicesOverview() {
                 ease: 'easeOut',
               }}
             >
-              <Link href={service.link} className="group block">
-                <div className="relative h-96 overflow-hidden rounded-lg">
+              <Link href={service.link} className="collage-card group block">
+                <div className="collage-media relative h-80">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="font-serif text-2xl font-semibold text-white">
-                      {service.title}
-                    </h3>
-                  </div>
+                </div>
+                {/* The title is written under the print, as a caption, rather
+                    than laid over the photograph. */}
+                <div className="collage-body flex items-baseline justify-between gap-3">
+                  <h3 className="collage-caption text-2xl sm:text-[1.6rem]">{service.title}</h3>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-gold-600 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </Link>
             </motion.div>

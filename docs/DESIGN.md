@@ -109,6 +109,39 @@ off anything that matters for SEO.
 Apply `.reveal` only where `motion/react` is not already animating the same
 element, or it animates twice.
 
+## The collage language
+
+The guest-moments wall started as a one-off: two of the studio's photographs
+already carried a cream mount and a hand-written caption because they were made
+for Instagram. That treatment is now the site's visual language, in
+`app/globals.css`:
+
+- `.collage-card` — the paper mount. Warm `#FBF5EA`, 10px of margin around the
+  photograph, a print shadow, and a tilt from `--tilt` that straightens and
+  lifts on hover, as if you picked the print up.
+- `.collage-media` / `.collage-body` — the photograph and the caption area
+  inside the mount. A card needs both for the mount to read correctly.
+- `.collage-grid` — alternating tilts by `nth-child`, never past 1.6deg, so a
+  two-column phone layout cannot push a corner past the viewport.
+- `.taped` — a strip of washi tape over the top edge. Hero cluster and the
+  moments wall only; on every card it becomes noise.
+- `.collage-caption` / `.collage-label` — the hand-written caption, and the
+  pinned paper label used for section eyebrows.
+
+Two things to know before using it:
+
+**Do not set `position` in `.collage-card`.** This file is unlayered, so it
+beats Tailwind's utilities — an earlier version set `position: relative` and
+silently overrode `absolute` on the hero cluster, stacking the prints in a
+column. `.taped` needs only *a* positioning context, and every taped element
+already has one.
+
+**Never put `.collage-card` on a `motion.*` element.** motion writes an inline
+`transform`, which replaces `rotate(var(--tilt))` outright. The plan, tour and
+guided-tour cards were converted from motion entrances to `.reveal` for exactly
+this reason; a motion *wrapper* around a collage card is fine, because a parent
+transform does not overwrite the child's.
+
 ## Density
 
 Section rhythm is `py-14 md:py-20` (and `py-16 md:py-24` for the few feature
