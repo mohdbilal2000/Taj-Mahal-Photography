@@ -10,11 +10,19 @@ import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { breadcrumbSchema, serviceSchema, faqSchema, speakableSpec, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
+import { serviceAlternates } from '@/lib/i18n-services';
 
 export const metadata: Metadata = {
   title: 'Taj Mahal Sunrise Photoshoot | $120 | Best Morning Light',
   description: 'Book a premium sunrise photoshoot at the Taj Mahal for $120. 1.5–2 hour session, 120+ photos, 3–5 reels and the official permit included. Your photographer meets you at your hotel. The most magical light and fewest crowds.',
-  alternates: { canonical: `${SITE.url}/services/sunrise` },
+  alternates: {
+    canonical: `${SITE.url}/services/sunrise`,
+    languages: {
+      en: `${SITE.url}/services/sunrise`,
+      ...serviceAlternates('sunrise', SITE.url),
+      'x-default': `${SITE.url}/services/sunrise`,
+    },
+  },
   openGraph: {
     title: 'Taj Mahal Sunrise Photoshoot | Licensed Photographer',
     description: 'Capture the Taj Mahal in the most magical morning light with a licensed photographer.',

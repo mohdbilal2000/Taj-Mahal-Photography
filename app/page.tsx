@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+import { localeAlternates } from '@/lib/i18n';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
@@ -95,6 +97,19 @@ const homeWebPage = webPageSchema({
  * Next requires this to be a literal it can read statically, so it cannot be
  * the RATING_REVALIDATE constant — 86400 is that same one day in seconds.
  */
+export const metadata: Metadata = {
+  alternates: {
+    canonical: SITE.url,
+    languages: {
+      'en-US': SITE.url,
+      'en-GB': SITE.url,
+      'en-IN': SITE.url,
+      ...localeAlternates(SITE.url),
+      'x-default': SITE.url,
+    },
+  },
+};
+
 export const revalidate = 86400;
 
 export default async function Home() {

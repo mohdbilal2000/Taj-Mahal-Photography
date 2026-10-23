@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "clean": "next clean",
     "pdfs": "node scripts/generate-pdfs.mjs",
-    "audit": "node scripts/audit-pages.mjs"
+    "audit": "node scripts/audit-pages.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.17.0",

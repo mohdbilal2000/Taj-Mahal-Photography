@@ -2,7 +2,8 @@ import { MetadataRoute } from 'next';
 import { SITE } from '@/lib/seo';
 import { POSTS } from '@/lib/blog';
 import { LOCALES } from '@/lib/i18n';
-import { localeServices } from '@/lib/i18n-services';
+import { localeServices, serviceAlternates } from '@/lib/i18n-services';
+import { localeAlternates } from '@/lib/i18n';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
@@ -13,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1.0,
+      // hreflang in the sitemap as well as in the head: it is the signal
+      // Google treats as authoritative, and it costs nothing here.
+      alternates: { languages: { ...localeAlternates(SITE.url), 'x-default': SITE.url } },
     },
     {
       url: `${SITE.url}/services`,
@@ -25,60 +29,70 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
+      alternates: { languages: { ...serviceAlternates('sunrise', SITE.url), 'x-default': `${SITE.url}/services/sunrise` } },
     },
     {
       url: `${SITE.url}/services/couple`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
+      alternates: { languages: { ...serviceAlternates('couple', SITE.url), 'x-default': `${SITE.url}/services/couple` } },
     },
     {
       url: `${SITE.url}/services/pre-wedding`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
+      alternates: { languages: { ...serviceAlternates('pre-wedding', SITE.url), 'x-default': `${SITE.url}/services/pre-wedding` } },
     },
     {
       url: `${SITE.url}/services/taj-agra-fort`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
+      alternates: { languages: { ...serviceAlternates('taj-agra-fort', SITE.url), 'x-default': `${SITE.url}/services/taj-agra-fort` } },
     },
     {
       url: `${SITE.url}/services/full-day`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
+      alternates: { languages: { ...serviceAlternates('full-day', SITE.url), 'x-default': `${SITE.url}/services/full-day` } },
     },
     {
       url: `${SITE.url}/services/guided-photo-tour-small`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.85,
+      alternates: { languages: { ...serviceAlternates('guided-photo-tour-small', SITE.url), 'x-default': `${SITE.url}/services/guided-photo-tour-small` } },
     },
     {
       url: `${SITE.url}/services/guided-photo-tour-large`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.85,
+      alternates: { languages: { ...serviceAlternates('guided-photo-tour-large', SITE.url), 'x-default': `${SITE.url}/services/guided-photo-tour-large` } },
     },
     {
       url: `${SITE.url}/services/transport-guide`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.85,
+      alternates: { languages: { ...serviceAlternates('transport-guide', SITE.url), 'x-default': `${SITE.url}/services/transport-guide` } },
     },
     {
       url: `${SITE.url}/services/sunrise-luxury-innova`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
+      alternates: { languages: { ...serviceAlternates('sunrise-luxury-innova', SITE.url), 'x-default': `${SITE.url}/services/sunrise-luxury-innova` } },
     },
     {
       url: `${SITE.url}/services/sunrise-luxury-urbania`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
+      alternates: { languages: { ...serviceAlternates('sunrise-luxury-urbania', SITE.url), 'x-default': `${SITE.url}/services/sunrise-luxury-urbania` } },
     },
     {
       url: `${SITE.url}/book`,
@@ -122,6 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+      alternates: { languages: { ...localeAlternates(SITE.url), 'x-default': SITE.url } },
     })),
     // Every translated service page: /<locale>/<localized-slug>.
     ...LOCALES.flatMap((locale) =>
@@ -130,6 +145,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: now,
         changeFrequency: 'monthly' as const,
         priority: 0.75,
+        alternates: {
+          languages: {
+            ...serviceAlternates(service.planId, SITE.url),
+            'x-default': `${SITE.url}/services/${service.planId}`,
+          },
+        },
       })),
     ),
     // Every article, newest change first — the blog is a real surface now.

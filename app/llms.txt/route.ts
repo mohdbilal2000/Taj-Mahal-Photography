@@ -88,6 +88,12 @@ ${LOCALES.map((locale) => {
 - LinkedIn: ${SITE.linkedin}
 - Facebook: ${SITE.facebook}
 
+## Machine-readable
+
+- [Full text of every page](${SITE.url}/llms-full.txt): packages, prices, FAQs and all guides in one plain-text file.
+- [RSS feed](${SITE.url}/rss.xml): new and updated guides.
+- [Sitemap](${SITE.url}/sitemap.xml) · [Image sitemap](${SITE.url}/image-sitemap.xml)
+
 ## Optional
 
 - [Sister brand — Taj Guides & Travel Services](https://tajmahaltouristguide.com): Licensed guides for Taj Mahal and Agra Fort.

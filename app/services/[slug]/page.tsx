@@ -9,6 +9,7 @@ import TajGuideNotice from '@/components/TajGuideNotice';
 import InrRateNote from '@/components/InrRateNote';
 import packagesData from '@/lib/packages.json';
 import { planImage } from '@/lib/images';
+import { serviceAlternates } from '@/lib/i18n-services';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -305,7 +306,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${service.title} | From $${service.price}`,
     description: service.description,
-    alternates: { canonical: `${SITE.url}/services/${slug}` },
+    alternates: {
+      canonical: `${SITE.url}/services/${slug}`,
+      languages: {
+        en: `${SITE.url}/services/${slug}`,
+        ...serviceAlternates(slug, SITE.url),
+        'x-default': `${SITE.url}/services/${slug}`,
+      },
+    },
     openGraph: {
       title: `${service.title} | Taj Mahal Photography`,
       description: service.description,

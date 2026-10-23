@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Cormorant_Garamond, Caveat } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import ScrollReveal from '@/components/ScrollReveal';
-import { localeAlternates } from '@/lib/i18n';
 import { SITE } from '@/lib/seo';
 import { CurrencyProvider } from '@/lib/currency';
 import './globals.css';
@@ -73,15 +72,11 @@ export const metadata: Metadata = {
   creator: SITE.name,
   publisher: SITE.name,
   formatDetection: { telephone: true, email: true, address: true },
+  // Only the canonical is inherited. Language alternates are declared per
+  // page, by the page that actually has translations — see app/page.tsx and
+  // the service pages.
   alternates: {
     canonical: SITE.url,
-    languages: {
-      'en-US': SITE.url,
-      'en-GB': SITE.url,
-      'en-IN': SITE.url,
-      ...localeAlternates(SITE.url),
-      'x-default': SITE.url,
-    },
   },
   openGraph: {
     type: 'website',
@@ -154,6 +149,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable} ${caveat.variable}`}>
       <head>
+        {/* Machine-readable entry points: a feed for anything that polls for
+            changes, and the two plain-text files AI crawlers look for. */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${SITE.name} — Guides`}
+          href={`${SITE.url}/rss.xml`}
+        />
+        <link rel="alternate" type="text/plain" title="llms.txt" href={`${SITE.url}/llms.txt`} />
+        <link
+          rel="alternate"
+          type="text/plain"
+          title="llms-full.txt"
+          href={`${SITE.url}/llms-full.txt`}
+        />
+
         <meta name="geo.region" content="IN-UP" />
         <meta name="geo.placename" content="Agra, Uttar Pradesh, India" />
         <meta name="geo.position" content={`${SITE.geo.lat};${SITE.geo.lng}`} />
