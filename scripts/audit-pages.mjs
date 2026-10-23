@@ -17,7 +17,7 @@ const ROUTES = [
   '/', '/services', '/services/sunrise', '/services/pre-wedding',
   '/services/guided-photo-tour-small', '/services/transport-guide',
   '/services/sunrise-luxury-innova', '/portfolio', '/book', '/faq',
-  '/about', '/fr', '/de', '/ar', '/ja', '/hi', '/blog', '/blog/taj-mahal-photographer-cost', '/blog/best-photo-spots-taj-mahal', '/fr/photographe-taj-mahal-lever-du-soleil', '/ar/musawwir-taj-mahal-shuruq', '/ja/taj-mahal-sunrise-satsuei', '/permit-guide', '/payment', '/terms', '/privacy',
+  '/about', '/fr', '/de', '/ar', '/ja', '/hi', '/blog', '/blog/taj-mahal-photographer-cost', '/blog/pre-wedding-shoot-taj-mahal-permission', '/blog/jaipur-to-agra-taj-mahal-photo-trip', '/blog/best-photo-spots-taj-mahal', '/fr/photographe-taj-mahal-lever-du-soleil', '/ar/musawwir-taj-mahal-shuruq', '/ja/taj-mahal-sunrise-satsuei', '/permit-guide', '/payment', '/terms', '/privacy',
 ];
 // Every width a real visitor arrives at: the smallest phone still in use,
 // the common Android, the large phone, the tablet in both orientations, the

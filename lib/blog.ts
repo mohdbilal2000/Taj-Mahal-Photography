@@ -1163,6 +1163,502 @@ export const POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'jaipur-to-agra-taj-mahal-photo-trip',
+    title: 'Jaipur to Agra: Planning the Drive Around the Light',
+    excerpt:
+      'The 240km drive, what time you actually have to leave for a sunrise shoot, the two stops worth breaking the journey for, and when to stay the night instead.',
+    answer:
+      'Jaipur to Agra is about 240 kilometres and takes four to five hours by road on the Jaipur–Agra highway (NH21), or roughly two hours by train on the Gatimaan Express. To photograph the Taj Mahal at sunrise you cannot do it as a same-day drive from Jaipur: the gates open around 6 a.m. and leaving Jaipur at 1 a.m. buys you a sleepless shoot. Either drive in the afternoon before and stay one night in Agra, or take the morning train and shoot the following dawn.',
+    published: '2026-06-02',
+    updated: '2026-10-23',
+    readingMinutes: 7,
+    image: '/photos/gallery/04.jpg',
+    imageAlt: 'A couple photographed in the red sandstone colonnade at Agra Fort',
+    category: 'Planning',
+    keywords: [
+      'jaipur to agra',
+      'jaipur to agra distance by road',
+      'jaipur agra taj mahal trip',
+      'golden triangle jaipur agra leg',
+      'jaipur to agra photo tour',
+    ],
+    planIds: ['sunrise', 'transport-guide', 'taj-agra-fort'],
+    sections: [
+      {
+        heading: 'The three ways to cover the distance',
+        table: {
+          head: ['Option', 'What it costs you'],
+          rows: [
+            ['Private car, 4–5 hours', 'Most flexible. You can stop at Abhaneri and Fatehpur Sikri on the way and arrive in Agra by evening'],
+            ['Gatimaan Express, ~2 hours', 'Fastest and cheapest, but it runs Agra-bound in the morning, which puts you in Agra after the good light'],
+            ['Bus, 5–6 hours', 'Cheapest. No stops you would want, and no control over arrival time'],
+          ],
+        },
+        body: [
+          'Most people reach for the train because it is quick, and then discover that the quick train arrives at the wrong end of the day. If you want the monument at first light, the drive the afternoon before is the plan that works.',
+        ],
+      },
+      {
+        heading: 'Two stops that earn the drive',
+        list: [
+          'Abhaneri — the Chand Baori stepwell, about 95km from Jaipur and a 20-minute detour. Thirteen storeys of geometry; mid-morning light rakes across the steps and gives them depth',
+          'Fatehpur Sikri — Akbar’s abandoned capital, 40km before Agra. Red sandstone at late-afternoon takes colour the way white marble never does, and the Buland Darwaza is the widest frame on the route',
+        ],
+        body: [
+          'Both are on the highway rather than off it, and together they add about two hours. Leaving Jaipur at 11 a.m. gets you to Fatehpur Sikri for the good afternoon light and into your Agra hotel by eight.',
+        ],
+      },
+      {
+        heading: 'What the next morning looks like',
+        body: [
+          'Your photographer meets you at your hotel reception before the gates open — Taj Ganj hotels are minutes from the East Gate. The session runs about two hours, finishing as the first tour groups arrive, and you are back at the hotel for breakfast by half past eight.',
+          'If you are driving on to Delhi the same day, that still leaves the whole afternoon: Agra Fort at eleven, lunch, and on the road by two.',
+        ],
+      },
+      {
+        heading: 'When to stay a second night',
+        body: [
+          'One night is enough for a sunrise. A second night is worth it for one reason: Mehtab Bagh at sunset, across the river, which is the only place to photograph the monument with the Yamuna in front of it — and the only frame that cannot be taken from inside the complex.',
+          'From December to January, a second morning also insures you against fog, which can hide the building entirely until nine.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I do Jaipur to Agra and back in one day?',
+        answer:
+          'You can, but not with a sunrise shoot in it. A same-day return means arriving around midday, photographing in flat white light and driving back tired. If the photographs matter, stay the night.',
+      },
+      {
+        question: 'Is the Jaipur–Agra highway safe to drive at night?',
+        answer:
+          'It is a good road, but night driving in this region means unlit trucks and stray cattle. We schedule arrivals before dark, and the same-day Delhi tours exist precisely so nobody has to drive at 2 a.m.',
+      },
+      {
+        question: 'Do you cover Jaipur as well?',
+        answer:
+          'Our licence and permit are for Agra, so the photography packages are Agra-based. We arrange the car and a licensed guide for the Jaipur leg when you want the whole route handled.',
+      },
+    ],
+  },
+  {
+    slug: 'golden-triangle-photography-itinerary',
+    title: 'The Golden Triangle, Planned Around Light Instead of Distance',
+    excerpt:
+      'Delhi, Agra and Jaipur in five days, scheduled so each monument gets the hour it was built for — and the two days most itineraries waste.',
+    answer:
+      'A five-day Golden Triangle works best as: two nights in Delhi, the drive to Agra on day three with Fatehpur Sikri on the way, sunrise at the Taj Mahal on day four, then Jaipur by evening for two nights. The usual itinerary reverses Agra and Jaipur and puts the Taj Mahal in the middle of the afternoon, which is the one hour of the day white marble photographs worst.',
+    published: '2026-06-20',
+    updated: '2026-10-23',
+    readingMinutes: 8,
+    image: '/photos/gallery/13.jpg',
+    imageAlt: 'International guests with their licensed guide in the Taj Mahal gardens',
+    category: 'Planning',
+    keywords: [
+      'golden triangle itinerary',
+      'delhi agra jaipur itinerary 5 days',
+      'golden triangle photography tour',
+      'india golden triangle plan',
+      'best golden triangle route',
+    ],
+    planIds: ['sunrise', 'transport-guide', 'sunrise-luxury-innova'],
+    sections: [
+      {
+        heading: 'The schedule',
+        table: {
+          head: ['Day', 'Where, and why then'],
+          rows: [
+            ['1 — Delhi', 'Humayun’s Tomb at opening, Lodhi Gardens late afternoon. Both are soft-light buildings'],
+            ['2 — Delhi', 'Old Delhi in the morning while the lanes are still cool, Qutub Minar at golden hour'],
+            ['3 — Delhi → Agra', 'Leave at ten, Fatehpur Sikri at three when the sandstone is warm, Agra by seven'],
+            ['4 — Agra', 'Taj Mahal at gate opening, Agra Fort at eleven, Mehtab Bagh at sunset. Drive to Jaipur after, or the next morning'],
+            ['5 — Jaipur', 'Amber Fort at opening, Panna Meena ka Kund mid-morning, Hawa Mahal from the café opposite at first light if you have a sixth day'],
+          ],
+        },
+      },
+      {
+        heading: 'Why most itineraries put the Taj Mahal in the wrong hour',
+        body: [
+          'Tour operators route the Golden Triangle by driving distance, which makes Agra a lunch stop between two cities. That lands you at the monument between noon and three, when the marble is a flat blown-out white, the queues are longest and the temperature from March onwards makes standing on that platform genuinely unpleasant.',
+          'Moving Agra to a morning costs you nothing but a hotel booking, and it is the single change that improves the photographs from the whole trip.',
+        ],
+      },
+      {
+        heading: 'What to cut',
+        list: [
+          'The marble inlay "factory" visits added to cheap tours — they are commission stops, not sights',
+          'Akshardham, unless you specifically want it: no cameras are allowed inside at all',
+          'A second Delhi monument on day three; the drive is four hours and arriving in daylight matters more',
+          'Elephant rides at Amber Fort, on welfare grounds alone — the jeep goes to the same gate',
+        ],
+      },
+      {
+        heading: 'Where the photographer fits',
+        body: [
+          'A photographer is worth it where the permit matters and the light is short — which on this route means Agra. Inside the Taj Mahal complex, professional equipment only passes security with a Ministry of Tourism permit, and the usable light lasts about forty minutes.',
+          'Delhi and Jaipur are different: the monuments there allow ordinary cameras without special permission, so most travellers shoot those themselves and book the photographer for the Agra morning.',
+        ],
+      },
+      {
+        heading: 'If you only have three days',
+        body: [
+          'Delhi evening, Agra at sunrise on day two, Jaipur on day three. It is tight but it keeps the one fixed point — the monument at first light — and gives up the parts of Delhi and Jaipur that photograph well in any light anyway.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which direction should I travel, Delhi → Agra → Jaipur or the reverse?',
+        answer:
+          'Delhi → Agra → Jaipur. It puts the drive from Delhi in the middle of the day and the Taj Mahal on a morning you have slept before, and it leaves you in Jaipur for the flight home.',
+      },
+      {
+        question: 'Can I do the Golden Triangle by train?',
+        answer:
+          'Delhi–Agra and Agra–Jaipur both have good trains, but the timetable decides your day rather than the light. A car costs more and buys the schedule back.',
+      },
+      {
+        question: 'How many days is enough?',
+        answer:
+          'Five is comfortable, four works, three is the minimum that still gives you a sunrise in Agra. Anything less and Agra becomes a lunch stop again.',
+      },
+    ],
+  },
+  {
+    slug: 'flying-to-agra-for-a-weekend-shoot',
+    title: 'Flying In for the Weekend: Mumbai, Bengaluru or Hyderabad to the Taj Mahal',
+    excerpt:
+      'A 36-hour plan that gets you from a Friday evening flight to a sunrise session and home by Sunday night, with the connection times that actually work.',
+    answer:
+      'From Mumbai, Bengaluru or Hyderabad, a weekend at the Taj Mahal works as a Friday evening flight to Delhi, a three-hour transfer to Agra that night, a sunrise session on Saturday, and a Sunday flight home from Delhi. Agra has its own airport with limited flights, so most travellers fly into Delhi and drive. Do not plan the shoot for Friday: the Taj Mahal is closed every Friday.',
+    published: '2026-07-08',
+    updated: '2026-10-23',
+    readingMinutes: 6,
+    image: '/photos/gallery/15.jpg',
+    imageAlt: 'A couple standing together at the end of the reflecting pool at the Taj Mahal',
+    category: 'Planning',
+    keywords: [
+      'mumbai to agra trip',
+      'bangalore to taj mahal weekend',
+      'hyderabad to agra flight',
+      'weekend trip taj mahal from mumbai',
+      'agra airport flights',
+    ],
+    planIds: ['sunrise', 'pre-wedding', 'transport-guide'],
+    sections: [
+      {
+        heading: 'The 36 hours',
+        table: {
+          head: ['When', 'What happens'],
+          rows: [
+            ['Friday, 18:00–20:30', 'Flight from Mumbai, Bengaluru or Hyderabad into Delhi'],
+            ['Friday, 21:30', 'Private car from the airport; Agra by half past midnight on the Yamuna Expressway'],
+            ['Saturday, 05:45', 'Photographer meets you at the hotel; session at gate opening'],
+            ['Saturday, 08:30', 'Breakfast, sleep, then Agra Fort or Mehtab Bagh in the afternoon'],
+            ['Sunday, 10:00', 'Drive back to Delhi, afternoon or evening flight home'],
+          ],
+        },
+        body: [
+          'The late-night transfer is the part people hesitate over, and it is the part that makes the weekend work: the Yamuna Expressway is a good road and it is empty at that hour.',
+        ],
+      },
+      {
+        heading: 'Why not fly into Agra',
+        body: [
+          'Agra does have a civil terminal, with a handful of flights that change by season and get suspended without much notice. It can be excellent when the schedule lines up with yours — and it strands you when a single daily flight is cancelled. Delhi has fifty alternatives on the same evening.',
+          'Check Agra flights by all means; plan the trip so it still works from Delhi.',
+        ],
+      },
+      {
+        heading: 'The Friday problem',
+        body: [
+          'The complex closes every Friday for prayers at the mosque inside. A Friday-night arrival and a Saturday-morning shoot is the natural shape of this trip anyway, but it does mean a Thursday-night arrival gives you a wasted Friday unless you spend it at Agra Fort, Fatehpur Sikri or Mehtab Bagh.',
+        ],
+      },
+      {
+        heading: 'What to carry for one night',
+        list: [
+          'The outfit you want to be photographed in, ready to wear — there is nowhere to change at the monument',
+          'Something with sleeves and covered shoulders if you want the mosque interior as a backdrop',
+          'Shoes you can slip off: they come off to step onto the marble plinth, and covers are given with the foreign-national ticket',
+          'A warm layer from November to February — the gardens at 6 a.m. are colder than the forecast suggests',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is one night in Agra really enough?',
+        answer:
+          'For a sunrise session, yes. The shoot finishes by half past eight and the rest of the day is yours. A second night only becomes worth it if you want Mehtab Bagh at sunset as well, or insurance against December fog.',
+      },
+      {
+        question: 'Can you arrange the airport transfer?',
+        answer:
+          'Yes — the transport-and-guide package covers the Delhi airport pickup and the drive both ways, with the exact quote confirmed on WhatsApp before you book.',
+      },
+      {
+        question: 'Is the night drive from Delhi safe?',
+        answer:
+          'The Yamuna Expressway is a modern toll road and the drivers we use do it several times a week. We will not put you on a 2 a.m. departure for a 6 a.m. shoot, though — that is how people end up photographed exhausted.',
+      },
+    ],
+  },
+  {
+    slug: 'pre-wedding-shoot-taj-mahal-permission',
+    title: 'Can You Really Do a Pre-Wedding Shoot at the Taj Mahal? The Honest Answer',
+    excerpt:
+      'Half the internet says yes, half says it is banned. Both are describing different things. Here is where the line actually falls, and which side of it a normal couple session sits on.',
+    answer:
+      'A couple can be photographed together at the Taj Mahal by a photographer holding the Ministry of Tourism permit, dressed as they like, as ordinary visitors — that is what most people mean by a pre-wedding shoot and it happens every morning. What is not allowed without separate written permission from the Archaeological Survey of India is a commercial production: lighting rigs, props, sets, crews, drones, or an outfit change on site. The two are confused constantly, which is why you will read that it is both freely allowed and completely banned.',
+    published: '2026-07-26',
+    updated: '2026-10-23',
+    readingMinutes: 7,
+    image: '/photos/gallery/07.jpg',
+    imageAlt: 'A couple in traditional dress photographed in front of the Taj Mahal',
+    category: 'Rules & permits',
+    keywords: [
+      'pre wedding shoot taj mahal allowed',
+      'taj mahal pre wedding permission',
+      'is pre wedding shoot banned taj mahal',
+      'asi permission taj mahal shoot',
+      'couple photoshoot taj mahal rules',
+    ],
+    planIds: ['pre-wedding', 'sunrise'],
+    sections: [
+      {
+        heading: 'Why the internet contradicts itself',
+        body: [
+          'Search this question and you will find photography studios promising full pre-wedding productions at the monument, travel blogs insisting pre-wedding shoots are banned outright, and guides calling it "yes and no". They are all describing something real; they are just describing different activities under the same words.',
+          'The monument treats photography as two separate things. One is a visitor being photographed. The other is a production using the monument as a location. The first needs a permit only for the equipment; the second needs written permission from the Archaeological Survey of India, applied for in advance, with fees.',
+        ],
+      },
+      {
+        heading: 'Where the line falls in practice',
+        table: {
+          head: ['This is a visitor being photographed', 'This is a production'],
+          rows: [
+            ['A couple in their own clothes, arriving dressed', 'Changing outfits on site, or a wardrobe assistant'],
+            ['A photographer with a permit, handheld camera and tripod', 'Lighting rigs, reflector stands, a crew'],
+            ['Posing on the paths, the plinth, the benches', 'Props, furniture, staged sets, confetti'],
+            ['Handheld video alongside the stills', 'A video production with its own equipment'],
+            ['Staying within the visitor areas and the three-hour ticket', 'Closing an area, or shooting outside visiting hours'],
+          ],
+        },
+        body: [
+          'A normal couple session is firmly in the left column. Everything we deliver — the 200+ photographs, the edited selection, the short cinematic cut — is made inside those limits, with a permit that covers the equipment and nothing that needs an area closed.',
+        ],
+      },
+      {
+        heading: 'What this means for your plan',
+        list: [
+          'Arrive dressed. There is no changing room, and attempting one is the fastest way to be stopped',
+          'A second outfit means a second location — the fort, Mehtab Bagh, a hotel terrace — not a change inside the complex',
+          'Heavy lehengas and long trains are fine to wear; they are not fine to have assistants arranging on the marble',
+          'No drones, under any arrangement. The airspace is restricted and that is an offence rather than a refusal',
+          'No photography inside the burial chamber, whatever permit anyone holds',
+        ],
+      },
+      {
+        heading: 'If you do want the full production',
+        body: [
+          'It exists, and it is a different undertaking: a written application to the ASI, a fee schedule that depends on what you are bringing, lead time measured in weeks rather than days, and no guarantee. If that is what you are planning, tell us at the enquiry stage and we will give you the real cost and timeline rather than take a deposit and find out later.',
+          'Most couples, once they see what a permitted session produces in the quiet hour, do not need it.',
+        ],
+      },
+      {
+        heading: 'The rule that surprises everyone',
+        body: [
+          'Inside the Taj Mahal, a guide is not allowed to accompany a working photographer. If you have booked both, the photographer is with you in the complex and the guide meets you at the exit or at the other monuments. We say this before you book, because finding out at the gate has ruined more than one morning for people who booked elsewhere.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I need to apply for permission myself?',
+        answer:
+          'Not for an ordinary couple session. The permit that matters is the photographer’s, and it is held year-round. You buy the normal entry tickets, and the ₹200 ticket if you want photographs on the marble plinth.',
+      },
+      {
+        question: 'Can we wear a lehenga and sherwani?',
+        answer:
+          'Yes. Wear what you like and arrive in it. The only practical limits are stairs, marble that gets hot from March, and the fact that nobody can help you carry a train through a security queue.',
+      },
+      {
+        question: 'Is a cinematic video allowed?',
+        answer:
+          'Handheld video alongside the stills is part of the couple session and is shot within the same permit. A separate video production with its own crew and equipment is the commercial route and needs ASI permission.',
+      },
+      {
+        question: 'What happens if we are stopped?',
+        answer:
+          'With a permitted photographer, you are not — that is the point of the permit. The sessions that get stopped are the ones where someone brought a tripod on a visitor ticket, or tried to change clothes in the gardens.',
+      },
+    ],
+  },
+  {
+    slug: 'maternity-photoshoot-taj-mahal',
+    title: 'A Maternity Shoot at the Taj Mahal: What to Plan For',
+    excerpt:
+      'The walk is longer than it looks, the marble gets hot, and the best light is at an hour nobody wants to wake for. How to make it comfortable and still get the photographs.',
+    answer:
+      'A maternity shoot at the Taj Mahal is best done at sunrise, when the temperature is lowest and the complex is empty. Plan for about 1.5 kilometres of walking on flat paths from the gate to the plinth and back, with benches throughout and a wheelchair available free at the gate. Photography follows the ordinary visitor rules: arrive dressed, no props or lighting, and no photography inside the burial chamber.',
+    published: '2026-08-14',
+    updated: '2026-10-23',
+    readingMinutes: 5,
+    image: '/photos/gallery/03.jpg',
+    imageAlt: 'A solo guest photographed beside the reflecting pool at the Taj Mahal',
+    category: 'Planning',
+    keywords: [
+      'maternity photoshoot taj mahal',
+      'babymoon agra photoshoot',
+      'pregnancy photos taj mahal',
+      'maternity shoot agra',
+      'babymoon india taj mahal',
+    ],
+    planIds: ['sunrise', 'pre-wedding'],
+    sections: [
+      {
+        heading: 'Why sunrise is not negotiable here',
+        body: [
+          'From March to October the marble plinth is genuinely hot by nine in the morning, and shoes come off to stand on it. At the gate opening it is cool, the paths are empty, and you are not queuing anywhere.',
+          'The session is about two hours, and the part that involves standing is maybe twenty minutes of it. The rest is walking slowly between four or five positions and sitting while the light moves.',
+        ],
+      },
+      {
+        heading: 'The walking, honestly',
+        table: {
+          head: ['Leg', 'Distance and surface'],
+          rows: [
+            ['East Gate to the forecourt', '~400m, paved, flat, slight incline at the gate'],
+            ['Great Gate to the reflecting pool', '~250m, flat marble and sandstone paths'],
+            ['Pool to the plinth steps', '~300m, flat, then a short flight of steps'],
+            ['Return', 'The same, or a golf cart for the outer stretch'],
+          ],
+        },
+        list: [
+          'Benches along the central path and in the side gardens, all in shade by seven',
+          'Golf carts run the outer stretch between the ticket area and the Great Gate for a small fee',
+          'A wheelchair is available free at the gate and the paths take it comfortably',
+          'Toilets are at the gate complex, not inside — worth knowing before you walk in',
+        ],
+      },
+      {
+        heading: 'What photographs well at this stage',
+        list: [
+          'Flowing fabric: a saree pallu, a long dress, a dupatta held out — movement reads better than a fixed pose',
+          'Side light in the first thirty minutes, which shapes a bump without flattening it',
+          'The side arcades rather than the central axis: softer background, no crowd behind you',
+          'Hands, and the two of you together — the frames people keep are rarely the wide ones',
+        ],
+      },
+      {
+        heading: 'Pace and timing',
+        body: [
+          'Tell us at booking and we build in stops rather than improvising them. We also shorten the route: the same photographs come from the pool, the bench, the side arcades and the plinth, and skipping the far corners costs nothing visually.',
+          'October to March is the comfortable window. April to June, a sunrise session is the only part of the day worth being outside for, and even then bring water — it is allowed through security.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is the Taj Mahal wheelchair accessible?',
+        answer:
+          'Largely, yes. The paths and gardens are flat and a wheelchair is available free at the gate. The raised plinth is reached by steps, so that part of the complex is not accessible — we photograph from the garden level instead, which is where the full building fits in frame anyway.',
+      },
+      {
+        question: 'Can I bring a chair or a prop?',
+        answer:
+          'No. Props and furniture put the shoot into the commercial-permission category. Benches in the gardens are available and we use them.',
+      },
+      {
+        question: 'How far in advance should we book?',
+        answer:
+          'Two to three weeks in high season. If you are travelling late in a pregnancy, tell us the week and we will keep the date flexible rather than hold you to it.',
+      },
+    ],
+  },
+  {
+    slug: 'taj-mahal-family-photos-kids-grandparents',
+    title: 'Family Photographs at the Taj Mahal, Three Generations at Once',
+    excerpt:
+      'Where twelve people actually fit in frame, how to keep grandparents comfortable and children interested, and the twenty minutes that decide whether you get the group shot.',
+    answer:
+      'For a family group at the Taj Mahal, book the gate opening and take the group photograph in the first twenty minutes — there are only two or three positions where a group of eight to twelve fits with the whole monument behind, and they fill with visitors by seven. Golf carts cover the outer stretch, wheelchairs are free at the gate, and children under fifteen enter free. Individual and couple portraits are made afterwards, while a guide takes the rest of the family through the site.',
+    published: '2026-09-04',
+    updated: '2026-10-23',
+    readingMinutes: 6,
+    image: '/photos/gallery/01.jpg',
+    imageAlt: 'A group of guests in saris walking together at the monument',
+    category: 'Planning',
+    keywords: [
+      'family photoshoot taj mahal',
+      'group photo taj mahal',
+      'taj mahal with kids',
+      'taj mahal with elderly parents',
+      'multigenerational family trip india',
+    ],
+    planIds: ['guided-photo-tour-large', 'guided-photo-tour-small', 'full-day'],
+    sections: [
+      {
+        heading: 'The group photograph is a twenty-minute window',
+        body: [
+          'A group of ten needs width, and the monument needs height — there are only a few places in the complex where both work at once. All of them are on the central axis, which is the first part to fill.',
+          'So the order is: through security, straight to the position, group photographs while the paths are still empty, and only then the wandering, the individual portraits and the history.',
+        ],
+      },
+      {
+        heading: 'Grandparents',
+        list: [
+          'Golf carts run between the ticket area and the Great Gate — worth taking in both directions',
+          'Wheelchairs are free at the gate; the garden paths are flat and take them easily',
+          'The plinth is reached by steps. We photograph the family at garden level, which frames the whole building better anyway',
+          'Shoes come off for the plinth; shoe covers come with the foreign-national ticket',
+          'Benches in shade along the central path and in the side gardens',
+        ],
+      },
+      {
+        heading: 'Children',
+        list: [
+          'Under fifteen enter free, though ID may be asked for',
+          'Food is not allowed through security — feed them before, and carry water, which is',
+          'The first hour is the cool hour; by ten, a child on hot marble is a short visit',
+          'The photographs families keep are the running, the pointing and the being carried — not the posed line-up, which we take first precisely so the rest of the morning can be loose',
+        ],
+      },
+      {
+        heading: 'How the morning is usually arranged',
+        body: [
+          'For six to twelve guests, a licensed guide and a photographer together works best: group portraits first, then the guide walks everyone through the inscriptions and the inlay while the photographer picks off individual and couple portraits in the side arcades.',
+          'Inside the Taj Mahal itself a guide cannot accompany a working photographer, so the guide joins you at Agra Fort and the other monuments. It is a site rule, and we say it in advance.',
+        ],
+      },
+      {
+        heading: 'What it costs',
+        body: [
+          'The guide-and-photographer package starts at $89 for up to five guests and $119 for six to twelve, covering the Taj Mahal, Agra Fort and Mehtab Bagh or Itimad-ud-Daulah, with 60 photographs and seven reels for the larger group. Monument tickets are separate and are much cheaper for Indian nationals.',
+          'Above twelve, we add a second photographer rather than stretch one across the group.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How many people can be in one photograph with the whole monument?',
+        answer:
+          'Comfortably eight to ten; twelve is possible at the widest position on the central path. Beyond that the monument shrinks behind the group, and two photographs read better than one.',
+      },
+      {
+        question: 'Can we do this with a baby or a toddler?',
+        answer:
+          'Yes, and the sunrise slot is the one that works — cool, quiet and over before a nap is due. Prams are allowed through security.',
+      },
+      {
+        question: 'Can we add a hotel or heritage-site session afterwards?',
+        answer:
+          'Yes. The full-day package covers the Taj Mahal, Agra Fort and the back-side sunset view, which gives the family three settings in one day without rushing any of them.',
+      },
+    ],
+  },
 ];
 
 export function postBySlug(slug: string): BlogPost | undefined {

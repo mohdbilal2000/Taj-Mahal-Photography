@@ -4,6 +4,59 @@
 export type Faq = { question: string; answer: string };
 
 export const faqs: Faq[] = [
+  // The questions guests actually ask on WhatsApp before they book, which
+  // are not the questions SEO lists suggest. Each one has cost somebody a
+  // morning at some point.
+  {
+    question: 'Can I change clothes at the Taj Mahal?',
+    answer:
+      'No. There are no changing rooms inside the complex and changing anywhere in the gardens will be stopped. Arrive in what you want to be photographed in. If you want a second outfit, we plan a second location — Agra Fort, Mehtab Bagh or your hotel terrace — rather than a change on site.',
+  },
+  {
+    question: 'Can a guide come inside the Taj Mahal with the photographer?',
+    answer:
+      'No, and this surprises almost everyone. Inside the Taj Mahal a guide is not permitted alongside a working photographer. On the combined guide-and-photographer packages the photographer accompanies you inside the complex, and the guide is with you at Agra Fort, Mehtab Bagh and Itimad-ud-Daulah. It is a monument rule, not ours, and we say it before you book.',
+  },
+  {
+    question: 'How early should I arrive for a sunrise session?',
+    answer:
+      'Be at the gate as it opens, roughly forty minutes before sunrise — between 5:15 and 6:15 depending on the month. We confirm the exact time the day before. The light that is worth being there for lasts about forty minutes, so arriving at the published sunrise time means queueing through it.',
+  },
+  {
+    question: 'Do I need the extra ₹200 ticket?',
+    answer:
+      'Only if you want photographs on the raised marble plinth, which is where a good part of the classic frames are taken. The main entry ticket covers the gardens, the reflecting pool and the whole exterior. Photography inside the burial chamber is not allowed under any ticket.',
+  },
+  {
+    question: 'What happens if it is foggy, raining or the monument is closed?',
+    answer:
+      'December and January fog can hide the building until mid-morning. We do not cancel on a forecast — fog here lifts unpredictably and a blank start often ends in the clearest light of the week — but if the morning is genuinely unusable and you are still in Agra, we reshoot at no extra cost. If you are not, we refund the advance.',
+  },
+  {
+    question: 'Do you photograph solo travellers?',
+    answer:
+      'Often. The sunrise session is the same price whether you are one person or a family, and a solo traveller gets the most out of it: there is nobody to hand your phone to at 6 a.m., and the photographs people actually frame are the ones where they are not holding the camera.',
+  },
+  {
+    question: 'Can I pay in Indian rupees, by UPI or bank transfer?',
+    answer:
+      'Yes to all three. Prices are quoted in US dollars and shown in rupees at the current rate. A 20% advance by UPI, bank transfer or payment link confirms the date; the balance is paid after the shoot, in cash or by transfer, in either currency.',
+  },
+  {
+    question: 'Are drones allowed at the Taj Mahal?',
+    answer:
+      'No. The airspace over and around the complex is restricted, and flying a drone there is an offence rather than a refused item — the aircraft is seized. This applies outside the walls too, including Mehtab Bagh. Every aerial view you have seen is archive footage or was made under a specific government authorisation.',
+  },
+  {
+    question: 'Is the price different for Indian and foreign guests?',
+    answer:
+      'The photography packages cost the same for everyone. Monument entry tickets are set by the Archaeological Survey of India and are much cheaper for Indian nationals — ₹50 against ₹1,100 — which is one reason tickets are quoted separately rather than bundled into a single flat price.',
+  },
+  {
+    question: 'Can we be photographed at other monuments in Agra?',
+    answer:
+      'Yes. Agra Fort, Mehtab Bagh across the river and Itimad-ud-Daulah all photograph beautifully and are far quieter than the Taj Mahal. The Heritage Trail and Full Day packages cover them, and the guide can stay with you at these sites, unlike inside the Taj Mahal.',
+  },
   {
     question: 'Do photographers need a permit inside the Taj Mahal?',
     answer:
