@@ -38,6 +38,10 @@
 /* ───── Base ───── */
 html {
   scroll-behavior: smooth;
+  /* The header is fixed and 116px tall with the notice strip above it, so
+     every anchor jump has to stop that far short or it lands under the bar.
+     This covers hash links, shared #links and in-page contents lists at once. */
+  scroll-padding-top: 8rem;
 }
 
 body {

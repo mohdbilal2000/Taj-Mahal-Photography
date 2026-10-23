@@ -136,6 +136,23 @@ export default function Footer() {
               Information
             </h3>
             <ul className="space-y-3 text-sm">
+              {/* The two pages people actually buy from were missing here. */}
+              <li>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
+                >
+                  Services &amp; prices
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/portfolio"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
+                >
+                  Portfolio
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/permit-guide"

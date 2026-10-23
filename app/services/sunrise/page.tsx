@@ -117,7 +117,7 @@ export default function SunriseServicePage() {
                   <li className="flex items-center"><span className="text-gold-500 mr-3">✓</span> Photographer meets you at your hotel</li>
                 </ul>
 
-                <a href="#book" className="btn btn-ink btn-block">
+                <a href="/book?plan=sunrise" className="btn btn-ink btn-block">
                   Check Availability
                 </a>
                 <p className="text-xs text-center text-ink-500 mt-4">
