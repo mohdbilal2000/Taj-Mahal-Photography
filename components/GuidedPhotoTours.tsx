@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, Users, Camera, ShieldCheck, MapPin, Printer } from 'lucide-react';
+import { Check, Users, Camera, ShieldCheck, MapPin, Film } from 'lucide-react';
 import Price from './Price';
 import { planImage } from '@/lib/images';
 
@@ -27,6 +27,8 @@ const packages = [
       'Up to 5 guests · customisable to your plans',
     ],
     bestFor: 'Couples, solo travellers, small families (1–5 guests)',
+    photos: '40 natural digital photos',
+    reels: '5 reels, cut for social',
   },
   {
     id: 'guided-photo-tour-large',
@@ -46,6 +48,8 @@ const packages = [
       'Best photo locations & pose assistance',
     ],
     bestFor: 'Families and groups travelling together (6–12 guests)',
+    photos: '60 natural digital photos',
+    reels: '7 reels, cut for social',
     popular: true,
   },
 ];
@@ -142,7 +146,7 @@ export default function GuidedPhotoTours() {
                       <Camera className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Photos</p>
-                        <p className="text-ink-700">30 digital + 30 printed</p>
+                        <p className="text-ink-700">{pkg.photos}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
@@ -153,10 +157,10 @@ export default function GuidedPhotoTours() {
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-marble-50 border border-marble-200 p-3 rounded">
-                      <Printer className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
+                      <Film className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Prints</p>
-                        <p className="text-ink-700">Premium copies on the day</p>
+                        <p className="font-bold text-ink-900 uppercase tracking-wider mb-0.5">Reels</p>
+                        <p className="text-ink-700">{pkg.reels}</p>
                       </div>
                     </div>
                   </div>

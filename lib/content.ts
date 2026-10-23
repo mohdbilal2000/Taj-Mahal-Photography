@@ -85,7 +85,7 @@ export const faqs: Faq[] = [
   {
     question: 'When will we receive our photos?',
     answer:
-      'A private online gallery with your high-resolution photos is delivered within 48 to 72 hours after the session. Pre-Wedding packages also include 50 printed photographs and a 30-second cinematic video.',
+      'A private online gallery with your high-resolution photos is delivered within 48 to 72 hours after the session. Couple and Pre-Wedding packages also include 30 edited photographs of your choice and a 30-second cinematic video.',
   },
   {
     question: 'What should I wear for a Taj Mahal photoshoot?',

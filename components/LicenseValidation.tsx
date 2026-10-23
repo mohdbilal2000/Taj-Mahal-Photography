@@ -1,39 +1,50 @@
 'use client';
 
-import { motion, useInView, useMotionValue, useTransform, animate } from 'motion/react';
+import { motion, useInView, useReducedMotion } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 
+/**
+ * Counts up to the number — but *starts* at it.
+ *
+ * Starting at zero put "0+ Years, 0+ Clients, 0+ Countries" into the server
+ * HTML, which is what every crawler reads and what a visitor sees until the
+ * section scrolls into view. A site that says it has zero clients is a site
+ * that looks broken or fake, and no amount of animation fixes the copy a
+ * crawler already took.
+ */
 function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || reduceMotion) return;
 
-    const duration = 2000;
-    const startTime = Date.now();
+    const duration = 1600;
+    const startTime = performance.now();
+    let frame = 0;
 
-    const step = () => {
-      const elapsed = Date.now() - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+    const step = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
 
       if (progress < 1) {
-        requestAnimationFrame(step);
+        frame = requestAnimationFrame(step);
       } else {
         setCount(target);
       }
     };
 
-    requestAnimationFrame(step);
-  }, [isInView, target]);
+    frame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frame);
+  }, [isInView, target, reduceMotion]);
 
   return (
     <span ref={ref}>
-      {count}
+      {count.toLocaleString('en-US')}
       {suffix}
     </span>
   );

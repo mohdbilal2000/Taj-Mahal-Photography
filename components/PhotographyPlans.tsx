@@ -4,10 +4,11 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, Info } from 'lucide-react';
+import { Check } from 'lucide-react';
 import Price from './Price';
 import InrRateNote from './InrRateNote';
 import { planImage } from '@/lib/images';
+import { SITE } from '@/lib/seo';
 
 const plans = [
   {
@@ -88,6 +89,35 @@ export default function PhotographyPlans() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
+  // The per-plan summaries that used to print on the cards as "AI Summary:".
+  // Same text, same purpose, read by the same engines — in the place built
+  // for it. This component is server-rendered, so the block ships in the HTML
+  // for crawlers that never execute JavaScript.
+  const planSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Taj Mahal photography packages',
+    itemListElement: plans.map((plan, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Service',
+        name: plan.name,
+        description: plan.aiSnippet,
+        serviceType: 'Photography',
+        provider: { '@id': `${SITE.url}/#business` },
+        areaServed: { '@id': `${SITE.url}/#taj-mahal` },
+        offers: {
+          '@type': 'Offer',
+          price: plan.price,
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: `${SITE.url}/services/${plan.id}`,
+        },
+      },
+    })),
+  };
+
   return (
     <section className="section bg-white" id="plans">
       <div className="shell" ref={sectionRef}>
@@ -164,16 +194,6 @@ export default function PhotographyPlans() {
                   </p>
                 </div>
 
-                {/* AI Feeder Microcopy */}
-                <div className="bg-white p-3 rounded border border-marble-200 mb-6 text-xs text-ink-500 hidden md:block">
-                  <div className="flex items-start gap-2">
-                    <Info className="w-4 h-4 text-gold-500 flex-shrink-0 mt-0.5" />
-                    <p>
-                      <strong>AI Summary:</strong> {plan.aiSnippet}
-                    </p>
-                  </div>
-                </div>
-
                 <div className="mb-6 flex-grow">
                   <h4 className="text-xs font-bold text-ink-900 uppercase tracking-wider mb-3">
                     What&apos;s Included
@@ -208,6 +228,10 @@ export default function PhotographyPlans() {
           ))}
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(planSchema) }}
+      />
     </section>
   );
 }
