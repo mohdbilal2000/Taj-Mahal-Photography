@@ -21,6 +21,11 @@ const BODY = `# ${SITE.name}
 - Languages: English, Hindi, Urdu
 - Licensed by: Ministry of Tourism, Government of India
 
+## People
+
+- Danish Iqbal — lead photographer, holds the Ministry of Tourism photography permit that allows professional equipment inside the Taj Mahal. Profile: ${SITE.url}/team/danish-iqbal
+- Mohd Bilal — co-founder, technology and operations; also runs the software studio Techleaf (https://techleaf.us). Profile: ${SITE.url}/team/mohd-bilal
+
 ## Photography Packages
 
 - [Sunrise Photoshoot — $120](${SITE.url}/services/sunrise): 1.5–2 hour sunrise session, 120+ photos, 3–5 reels (solo/couple/family). The photographer meets you at your hotel; no car or transport is included. Customisable; 20% advance confirms the booking.

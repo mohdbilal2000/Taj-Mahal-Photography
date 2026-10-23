@@ -8,7 +8,7 @@ import { breadcrumbSchema, faqSchema, speakableSpec, webPageSchema, graphSchema,
 import { faqs as faqData } from '@/lib/content';
 
 export const metadata: Metadata = {
-  title: 'FAQ | Taj Mahal Photography & Sunrise Luxury Tours from Delhi',
+  title: { absolute: 'Taj Mahal Photography FAQ: Permits, Prices & Timing' },
   description: 'Frequently asked questions about Taj Mahal photography permits, prices, sunrise timing, and same-day Sunrise Luxury Tours from Delhi/NCR. Answers from a government-licensed photographer.',
   alternates: { canonical: `${SITE.url}/faq` },
   openGraph: {

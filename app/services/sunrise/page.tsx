@@ -13,7 +13,7 @@ import { breadcrumbSchema, serviceSchema, faqSchema, speakableSpec, webPageSchem
 import { serviceAlternates } from '@/lib/i18n-services';
 
 export const metadata: Metadata = {
-  title: 'Taj Mahal Sunrise Photoshoot | $120 | Best Morning Light',
+  title: { absolute: 'Taj Mahal Sunrise Photoshoot — $120, Licensed' },
   description: 'Book a premium sunrise photoshoot at the Taj Mahal for $120. 1.5–2 hour session, 120+ photos, 3–5 reels and the official permit included. Your photographer meets you at your hotel. The most magical light and fewest crowds.',
   alternates: {
     canonical: `${SITE.url}/services/sunrise`,

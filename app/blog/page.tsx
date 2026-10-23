@@ -16,7 +16,7 @@ import {
 } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Taj Mahal Photography Blog | Permits, Timing, Outfits & Locations',
+  title: { absolute: 'Taj Mahal Photography Guides: Permits, Timing & Costs' },
   description:
     'Practical guides from a government-licensed Taj Mahal photographer in Agra: permit rules, the best light by month, what to wear against white marble, camera settings and a Delhi day-trip plan.',
   alternates: { canonical: `${SITE.url}/blog` },

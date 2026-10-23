@@ -23,7 +23,7 @@ export function localeServiceMetadata(locale: LocaleContent, service: LocaleServ
   const url = `${SITE.url}/${locale.code}/${service.slug}`;
 
   return {
-    title: service.title,
+    title: { absolute: service.title },
     description: service.description,
     keywords: service.keywords,
     alternates: {

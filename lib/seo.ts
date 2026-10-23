@@ -39,19 +39,27 @@ export const SITE = {
    * Deliberately NOT emitted as AggregateRating schema: Google does not allow
    * a business to mark up reviews of itself on its own site.
    */
-  googleRating: 4.7,
-  googleReviewCount: 13,
-  googleRatingChecked: '21 September 2026',
+  googleRating: 4.8,
+  googleReviewCount: 19,
+  googleRatingChecked: '23 October 2026',
   instagram: 'https://www.instagram.com/taj.mahal.photography',
   linkedin: 'https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/',
   facebook: 'https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr',
+  /**
+   * The registered address, exactly as the Google Business Profile has it.
+   * Everything — footers, contact blocks, LocalBusiness schema — reads from
+   * here, because one page disagreeing with the profile is enough to make
+   * Google distrust the whole set.
+   */
   address: {
-    street: 'Taj Mahal East Gate Road',
+    street: '2/23 A, South Gate Taj Mahal',
     city: 'Agra',
     state: 'Uttar Pradesh',
     zip: '282001',
     country: 'IN',
   },
+  /** Where guests actually meet us, which is not the registered office. */
+  meetingPoint: 'Taj Mahal East Gate Road, Agra — or your hotel reception',
   geo: { lat: 27.1751, lng: 78.0421 },
   locale: 'en_US',
   currency: 'USD',
@@ -299,15 +307,20 @@ export function articleSchema(
 }
 
 export function personSchema() {
+  // The #photographer entity is referenced as the author of every guide and
+  // as the reviewer on every page, so it has to be a person who exists. It
+  // used to carry the company name, which told an answer engine that the
+  // author of "what to wear at the Taj Mahal" was a limited company.
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': `${SITE.url}/#photographer`,
-    name: 'Taj Mahal Photography',
-    jobTitle: 'Government-Licensed Taj Mahal Photographer',
-    description: 'Official Ministry of Tourism certified photographer specializing in Taj Mahal photoshoots, pre-wedding photography, and heritage monument photography in Agra, India.',
-    url: SITE.url,
-    image: SITE.image,
+    name: 'Danish Iqbal',
+    jobTitle: 'Lead photographer, Ministry of Tourism licensed',
+    description:
+      'Lead photographer at Taj Mahal Photography in Agra. Holds the Ministry of Tourism permit that allows professional camera equipment inside the Taj Mahal, and photographs the sunrise, couple, pre-wedding and group sessions personally.',
+    url: `${SITE.url}/team/danish-iqbal`,
+    image: `${SITE.url}/photos/gallery/13.jpg`,
     telephone: SITE.phone,
     email: SITE.email,
     knowsLanguage: ['en', 'hi', 'ur'],
@@ -334,8 +347,6 @@ export function personSchema() {
       'Government Photography Permits India',
       'Agra Fort Photography',
       'Couple Portrait Photography',
-      'Destination Wedding Photography',
-      'Travel Photography India',
     ],
     hasCredential: {
       '@type': 'EducationalOccupationalCredential',
@@ -348,7 +359,7 @@ export function personSchema() {
       },
     },
     worksFor: { '@id': `${SITE.url}/#business` },
-    sameAs: [SITE.googleBusiness, SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
+    sameAs: [SITE.googleBusiness, SITE.instagram],
   };
 }
 

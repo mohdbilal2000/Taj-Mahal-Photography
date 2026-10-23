@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const url = `${SITE.url}/blog/${post.slug}`;
 
   return {
-    title: `${post.title} | Taj Mahal Photography`,
+    title: { absolute: post.title },
     description: post.excerpt,
     keywords: post.keywords,
     alternates: { canonical: url },
@@ -154,7 +154,9 @@ export default async function BlogPostPage({ params }: Params) {
               <span aria-hidden="true">·</span>
               <span>{post.readingMinutes} min read</span>
               <span aria-hidden="true">·</span>
-              <span>Mohd Bilal, licensed Taj Mahal photographer</span>
+              <Link href="/team/danish-iqbal" className="link-sweep inline-block py-1 hover:text-gold-400">
+                Danish Iqbal, Ministry of Tourism licensed photographer
+              </Link>
             </div>
           </div>
         </header>

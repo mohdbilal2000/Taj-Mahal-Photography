@@ -212,10 +212,13 @@ export default function Footer() {
               <li className="flex items-start text-ink-400">
                 <MapPin className="h-4 w-4 mr-3 mt-0.5 flex-shrink-0 text-gold-400" />
                 <span>
-                  Taj Mahal East Gate Road,
+                  {SITE.address.street},
                   <br />
-                  Agra, Uttar Pradesh, India
+                  {SITE.address.city}, {SITE.address.state} {SITE.address.zip}, India
                   <br />
+                  <span className="mt-2 block text-xs text-ink-500">
+                    Guests meet us at {SITE.meetingPoint}
+                  </span>
                   <a
                     href={SITE.googleBusiness}
                     target="_blank"

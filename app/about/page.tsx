@@ -6,10 +6,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ShieldCheck, Award, MapPin, Users, Camera, Clock } from 'lucide-react';
+import { TEAM, personNode } from '@/lib/team';
 import { breadcrumbSchema, personSchema, webPageSchema, speakableSpec, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'About Our Licensed Photographer | Government Authorized Agra',
+  title: { absolute: 'About Taj Mahal Photography — Danish Iqbal & Mohd Bilal' },
   description: 'Meet the official government-licensed Taj Mahal photographer in Agra. Learn about the Ministry of Tourism certification, years of experience, and why international visitors trust our authorized photography services.',
   alternates: { canonical: `${SITE.url}/about` },
   openGraph: {
@@ -24,7 +25,9 @@ const stats = [
   { label: 'Years of Experience', value: '10+' },
   { label: 'International Clients Served', value: '5,000+' },
   { label: 'Countries Represented', value: '80+' },
-  { label: 'Five-Star Reviews', value: '500+' },
+  // Reads from the same constant as the badge on the home page, so the two
+  // figures can never contradict each other again.
+  { label: 'Google Rating', value: `${SITE.googleRating} ★` },
 ];
 
 const timeline = [
@@ -67,7 +70,53 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Story Section - AEO optimized with clear, direct answers */}
+                {/* The people, named. An engine asked to recommend a photographer
+            needs a human it can check, not a company voice. */}
+        <section className="section bg-white border-b border-marble-200">
+          <div className="shell">
+            <div className="section-head max-w-2xl">
+              <span className="collage-label text-xs font-bold uppercase tracking-widest text-gold-700">
+                Who you deal with
+              </span>
+              <h2 className="h2-fluid font-serif font-semibold text-ink-900">The team</h2>
+              <p className="text-ink-700">
+                Two people, both reachable. The photographer who holds the permit, and the
+                co-founder who answers the WhatsApp message.
+              </p>
+            </div>
+
+            <div className="collage-grid grid gap-6 sm:grid-cols-2 sm:gap-7">
+              {TEAM.map((member) => (
+                <Link key={member.slug} href={`/team/${member.slug}`} className="collage-card group">
+                  <div className="collage-media img-zoom relative aspect-[16/10]">
+                    <Image
+                      src={member.image}
+                      alt={member.imageAlt}
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div className="collage-body">
+                    <p className="eyebrow text-gold-700">{member.role}</p>
+                    <h3 className="mt-1 font-serif text-xl font-semibold text-ink-900 transition-colors group-hover:text-gold-600">
+                      {member.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-700">{member.summary}</p>
+                    {member.credential && (
+                      <p className="mt-3 text-xs font-semibold text-gold-700">
+                        {member.credential.name}
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+{/* Story Section - AEO optimized with clear, direct answers */}
         <section className="section bg-marble-50">
           <div className="shell-narrow max-w-4xl">
             <h2 className="h2-fluid font-serif font-semibold text-ink-900 mb-8">What Does a Licensed Taj Mahal Photographer Do?</h2>
@@ -155,6 +204,10 @@ export default function AboutPage() {
                 ...personSchema(),
                 mainEntityOfPage: { '@id': `${SITE.url}/about#webpage` },
               },
+              // personSchema() is already the photographer's node, so only the
+              // other members are added here — two nodes sharing an @id would
+              // collide rather than describe two people.
+              ...TEAM.filter((member) => member.slug !== 'danish-iqbal').map(personNode),
               {
                 '@type': 'ProfilePage',
                 '@id': `${SITE.url}/about#profile`,

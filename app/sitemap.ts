@@ -4,6 +4,7 @@ import { POSTS } from '@/lib/blog';
 import { LOCALES } from '@/lib/i18n';
 import { localeServices, serviceAlternates } from '@/lib/i18n-services';
 import { localeAlternates } from '@/lib/i18n';
+import { TEAM } from '@/lib/team';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
@@ -153,6 +154,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       })),
     ),
+    // The people behind the business — the pages an answer engine needs in
+    // order to name a human rather than a company.
+    ...TEAM.map((member) => ({
+      url: `${SITE.url}/team/${member.slug}`,
+      lastModified: now,
+      changeFrequency: 'yearly' as const,
+      priority: 0.6,
+    })),
     // Every article, newest change first — the blog is a real surface now.
     ...POSTS.map((post) => ({
       url: `${SITE.url}/blog/${post.slug}`,
