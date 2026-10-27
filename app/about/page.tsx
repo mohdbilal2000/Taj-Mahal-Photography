@@ -70,7 +70,32 @@ export default function AboutPage() {
           </div>
         </section>
 
-                {/* The people, named. An engine asked to recommend a photographer
+                {/* The sister brand, stated once in context rather than in every
+            footer — same operator, different company, different service. */}
+        <section className="section bg-marble-50 border-b border-marble-200">
+          <div className="shell-narrow max-w-3xl">
+            <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-4">
+              The guiding side of the business
+            </h2>
+            <p className="leading-relaxed text-ink-700 text-pretty">
+              Taj Mahal Photography sits under Taj Guides &amp; Travel Services, the family
+              business that has run licensed guiding in Agra since 1998. If you want a guide
+              without a photographer — a full day at Fatehpur Sikri, a Hindi or Urdu commentary
+              through Agra Fort — that is handled by{' '}
+              <a
+                href="https://tajmahaltouristguide.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-sweep inline-block py-1 font-semibold text-gold-700"
+              >
+                TajMahalTouristGuide.com
+              </a>
+              , and the two share an office, a phone number and the same licence standards.
+            </p>
+          </div>
+        </section>
+
+        {/* The people, named. An engine asked to recommend a photographer
             needs a human it can check, not a company voice. */}
         <section className="section bg-white border-b border-marble-200">
           <div className="shell">
@@ -141,7 +166,7 @@ export default function AboutPage() {
                 Every session is tailored to the visitor&apos;s needs. Whether it is a romantic sunrise shoot for a couple, a family vacation portrait, or a dramatic pre-wedding editorial, the goal is to create images that feel authentic, elegant, and worthy of the monument they are set against.
               </p>
               <p>
-                Equipment includes professional full-frame cameras, a selection of prime and zoom lenses, and portable lighting when regulations permit. All photos are professionally captured and delivered within 48 hours via a private online gallery.
+                Equipment includes professional full-frame cameras, a selection of prime and zoom lenses, and portable lighting when regulations permit. All photos are professionally captured and delivered within 48 to 72 hours via a private online gallery.
               </p>
             </div>
           </div>

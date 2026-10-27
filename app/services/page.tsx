@@ -150,7 +150,7 @@ export default function ServicesPage() {
             <div className="space-y-8">
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">What is included in a Taj Mahal photography package?</h3>
-                <p className="text-ink-700">All packages include an official photography permit, a professional photographer with full-frame camera equipment, posing guidance, and high-resolution photos delivered within 48 hours via a private online gallery. Monument entry tickets are not included.</p>
+                <p className="text-ink-700">All packages include an official photography permit, a professional photographer with full-frame camera equipment, posing guidance, and high-resolution photos delivered within 48 to 72 hours via a private online gallery. Monument entry tickets are not included.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Which Taj Mahal photography package is most popular?</h3>

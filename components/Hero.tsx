@@ -17,7 +17,7 @@ const LOWEST = PLANS.reduce((min, p) => (p.price < min.price ? p : min), PLANS[0
 const PROOF = [
   { label: 'Licensed', detail: 'Ministry of Tourism' },
   { label: 'Permit included', detail: 'Pro gear inside' },
-  { label: '48-hour delivery', detail: 'Private gallery' },
+  { label: '48–72 hour delivery', detail: 'Private gallery' },
 ];
 
 /**

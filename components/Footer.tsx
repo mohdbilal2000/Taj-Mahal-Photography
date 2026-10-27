@@ -241,23 +241,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Sister brand + partner network */}
-        <div className="border-t border-white/10 pt-8 mb-8 text-center">
-          <p className="text-xs text-ink-500 mb-3">
-            Part of the <strong className="text-ink-400">Taj Guides &amp; Travel Services</strong> family
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-ink-500">
-            <span className="text-ink-700">Sister Brand:</span>
-            <a href="https://tajmahaltouristguide.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] text-ink-400 font-medium hover:text-white transition-colors">
-              TajMahalTouristGuide.com
-            </a>
-            <span className="text-ink-700 hidden sm:inline">|</span>
-            <span className="text-ink-700">Featured On:</span>
-            <a href="https://guideindiatours.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">Guide India Tours</a>
-            <a href="https://www.asiabylocals.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">Asia By Locals</a>
-          </div>
-        </div>
-
         {/* Languages — a visitor who searched in their own language can stay in it */}
         <div className="border-t border-white/10 pt-8 mb-8 text-center">
           <p className="text-xs text-ink-500 mb-3">Also available in</p>

@@ -20,7 +20,7 @@ const FEATURES = [
   },
   {
     icon: Clock,
-    title: '48-hour delivery',
+    title: '48–72 hour delivery',
     description: 'Every frame in full resolution, edited, in a private gallery before your next stop.',
   },
 ];

@@ -13,7 +13,7 @@ import CurrencyToggle from './CurrencyToggle';
 const FACTS = [
   { Icon: ShieldCheck, short: 'Govt. licensed photographer', text: 'Ministry of Tourism licensed photographer' },
   { Icon: CalendarClock, short: 'Only 2 permits per day', text: 'Only 2 photography permits issued per day' },
-  { Icon: Star, short: 'Photos in 48 hours', text: 'Photos delivered in 48 hours' },
+  { Icon: Star, short: 'Photos in 48–72h', text: 'Photos delivered in 48–72 hours' },
 ];
 
 export default function ScarcityBanner() {

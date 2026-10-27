@@ -95,7 +95,7 @@ export default function FilmShowcase() {
           </h2>
           <p className="text-marble-300 text-pretty">
             A 30-second cinematic edit, and 3–5 reels cut for the way you post — delivered with
-            your gallery inside 48 hours, sound on, ready to share.
+            your gallery inside 48 to 72 hours, sound on, ready to share.
           </p>
         </div>
 

@@ -364,7 +364,7 @@ export const POSTS: BlogPost[] = [
           '200+ high-resolution photographs from the morning',
           '30 edited photographs, the ones you choose',
           'A 30-second cinematic edit and reels for the way you post',
-          'Delivery inside 48 hours, to a private gallery',
+          'Delivery inside 48 to 72 hours, to a private gallery',
         ],
       },
     ],
@@ -660,7 +660,7 @@ export const POSTS: BlogPost[] = [
         list: [
           'The photographer’s time for the stated duration',
           'The official photography permit and the equipment that comes with it',
-          'Editing, and delivery of the full set within 48 hours',
+          'Editing, and delivery of the full set within 48 to 72 hours',
           'Vertical crops for reels, because that is what most guests post first',
           'Posing direction throughout — nobody is left to work out what to do with their hands',
         ],

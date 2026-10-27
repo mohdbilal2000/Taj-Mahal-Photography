@@ -10,6 +10,23 @@ export const DEFAULT_PRICE_VALID_UNTIL = new Date(
   .toISOString()
   .slice(0, 10);
 
+/**
+ * How long delivery takes, in one place.
+ *
+ * This was written out by hand in eleven places and had drifted into two
+ * different promises: "48 hours" in the banner, hero, film section and the
+ * package pages, "48 to 72 hours" in the FAQ and in the Terms. The Terms is
+ * the one a guest can hold us to, so that is the promise the rest of the site
+ * now makes. If delivery really is always inside 48 hours, change it here and
+ * every page follows.
+ */
+export const DELIVERY = {
+  /** For badges and chips, where space is short. */
+  short: '48–72 hour delivery',
+  /** For sentences. */
+  phrase: 'within 48 to 72 hours',
+} as const;
+
 export const SITE = {
   name: 'Taj Mahal Photography',
   // The served host. Vercel 308-redirects the apex to www, so every
@@ -170,13 +187,16 @@ export function localBusinessSchema() {
     // AggregateRating intentionally omitted — Google policy requires the
     // aggregate to reflect Review nodes actually accessible on the page.
     // Re-enable once verifiable Google/TripAdvisor reviews are wired in.
+    // Where the sister-brand relationship belongs: a parent organisation,
+    // not an entry in sameAs (which means "another profile of this same
+    // business") and not a link in all 105 footers.
     parentOrganization: {
       '@type': 'Organization',
       name: 'Taj Guides & Travel Services',
       url: 'https://tajmahaltouristguide.com',
       sameAs: ['https://tajmahaltouristguide.com'],
     },
-    sameAs: [SITE.googleBusiness, SITE.instagram, SITE.linkedin, SITE.facebook, 'https://tajmahaltouristguide.com', 'https://guideindiatours.com', 'https://www.asiabylocals.com'],
+    sameAs: [SITE.googleBusiness, SITE.instagram, SITE.linkedin, SITE.facebook],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Taj Mahal Photography & Tour Packages',
@@ -486,7 +506,7 @@ export function luxuryTourSchema(opts: {
       itemListElement: [
         { '@type': 'ListItem', position: 1, item: { '@type': 'Place', name: 'Hotel pickup in Delhi/NCR (02:30 AM)' } },
         { '@type': 'ListItem', position: 2, item: { '@type': 'TouristAttraction', '@id': `${SITE.url}/#taj-mahal`, name: ENTITIES.tajMahal.name, sameAs: [ENTITIES.tajMahal.wikipedia, ENTITIES.tajMahal.wikidata] } },
-        { '@type': 'ListItem', position: 3, item: { '@type': 'FoodEstablishment', name: 'Breakfast at heritage hotel in Agra' } },
+        { '@type': 'ListItem', position: 3, item: { '@type': 'Place', name: 'Heritage hotel in Agra', description: 'Breakfast stop between the Taj Mahal and Agra Fort' } },
         { '@type': 'ListItem', position: 4, item: { '@type': 'TouristAttraction', '@id': `${SITE.url}/#agra-fort`, name: ENTITIES.agraFort.name, sameAs: [ENTITIES.agraFort.wikipedia, ENTITIES.agraFort.wikidata] } },
         { '@type': 'ListItem', position: 5, item: { '@type': 'Place', name: 'Return drop in Delhi/NCR (~7-8 PM)' } },
       ],

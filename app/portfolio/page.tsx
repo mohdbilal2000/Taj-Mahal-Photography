@@ -85,7 +85,7 @@ export default function PortfolioPage() {
                   <dd className="mt-2 text-sm leading-relaxed text-ink-700">
                     120 or more from a sunrise session, 200 or more from a couple session with 30
                     edited to your choice, 40 to 60 on the guide-and-photographer packages. All of
-                    them in full resolution, inside 48 hours.
+                    them in full resolution, inside 48 to 72 hours.
                   </dd>
                 </div>
                 <div className="rounded-sm border hairline bg-marble-50 p-5">

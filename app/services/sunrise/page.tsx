@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 const sunriseFaqs = [
   { question: 'What time does the Taj Mahal sunrise photoshoot start?', answer: 'The session starts at gate opening, which varies by season. Typically around 5:30 AM in summer and 6:30 AM in winter. We will confirm exact timing when you book.' },
-  { question: 'How many photos will I receive from the sunrise session?', answer: 'You will receive more than 120 photographs plus 3 to 5 reels, delivered via a private online gallery within 48 hours.' },
+  { question: 'How many photos will I receive from the sunrise session?', answer: 'You will receive more than 120 photographs plus 3 to 5 reels, delivered via a private online gallery within 48 to 72 hours.' },
   { question: 'Is the sunrise session worth the early wake-up?', answer: 'Absolutely. Sunrise offers the best natural lighting with warm golden tones, the fewest crowds for clean compositions, and the iconic sight of the marble changing colors as the sun rises. It is our most popular and highest-rated session.' },
 ];
 
@@ -85,7 +85,7 @@ export default function SunriseServicePage() {
                   <li><strong>Official Photography Permit:</strong> Full authorization for professional equipment entry.</li>
                   <li><strong>Skip-the-Line Guidance:</strong> We know exactly which gate to use and how to navigate security quickly.</li>
                   <li><strong>Posing Direction:</strong> Gentle guidance to ensure you look natural and elegant.</li>
-                  <li><strong>Private Online Gallery:</strong> Delivered within 48 hours for easy downloading and sharing.</li>
+                  <li><strong>Private Online Gallery:</strong> Delivered within 48 to 72 hours for easy downloading and sharing.</li>
                   <li><strong>Fully Customisable:</strong> A 20% advance confirms the booking.</li>
                 </ul>
 
