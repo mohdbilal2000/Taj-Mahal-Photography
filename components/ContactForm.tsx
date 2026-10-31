@@ -32,6 +32,7 @@ export default function ContactForm() {
       prev.includes(city) ? prev.filter((c) => c !== city) : [...prev, city],
     );
   };
+  const [waLink, setWaLink] = useState('');
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -90,10 +91,14 @@ export default function ContactForm() {
 
     const waUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${encodeURIComponent(text)}`;
 
-    // Email a copy of the inquiry in the background (fire-and-forget so the
-    // WhatsApp redirect is never delayed or blocked by email problems).
+    setWaLink(waUrl);
+
+    // Email a copy of the inquiry in the background. `keepalive` lets the
+    // request finish even after the browser switches to the WhatsApp app and
+    // backgrounds this tab, which used to cancel it.
     fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
       method: 'POST',
+      keepalive: true,
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
         _subject: `New Booking Inquiry — ${plan ? plan.name : selectedPlan} — ${name}`,
@@ -117,10 +122,11 @@ export default function ContactForm() {
       // Email copy is best-effort; WhatsApp remains the primary channel.
     });
 
-    setTimeout(() => {
-      setStatus('success');
-      window.open(waUrl, '_blank');
-    }, 800);
+    // Open WhatsApp inside the click itself. From a timer it counts as a popup,
+    // which iOS Safari and most in-app browsers block silently — so the guest
+    // saw a success screen while nothing had been sent anywhere.
+    window.open(waUrl, '_blank');
+    setStatus('success');
   };
 
   const leftColumnVariants = {
@@ -274,11 +280,29 @@ export default function ContactForm() {
                   <CheckCircle className="w-8 h-8" />
                 </motion.div>
                 <h3 className="font-serif text-2xl font-semibold mb-2">
-                  Inquiry Received!
+                  One last step: press Send
                 </h3>
-                <p className="text-ink-700">
-                  Thank you for reaching out. I will contact you via WhatsApp
-                  shortly to confirm availability.
+                <p className="text-ink-700 max-w-sm">
+                  WhatsApp should have opened with your details already filled in.
+                  Tap <strong>Send</strong> there and I will reply within about ten
+                  minutes to confirm the date.
+                </p>
+                {/* The message is only a draft until it is sent, and a blocked
+                    popup or a missing app leaves nothing at all — so the way
+                    back into it stays on screen. */}
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-whatsapp btn-lg mt-6"
+                >
+                  Open WhatsApp again
+                </a>
+                <p className="mt-4 text-xs text-ink-500">
+                  Prefer email? Write to{' '}
+                  <a className="link-sweep font-semibold text-gold-700" href="mailto:booking@tajmahalphotography.com">
+                    booking@tajmahalphotography.com
+                  </a>
                 </p>
                 <button
                   onClick={() => setStatus('idle')}

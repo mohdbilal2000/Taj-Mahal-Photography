@@ -43,7 +43,10 @@ const AI_ALLOWED = [
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: '*', allow: '/', disallow: ['/api/', '/_next/'] },
+      // /_next/ must stay crawlable: it serves the site's CSS, JavaScript and every
+      // optimised image. Blocking it stops Google rendering the page the way a
+      // visitor sees it, which is how a good page gets judged as a broken one.
+      { userAgent: '*', allow: '/', disallow: ['/api/'] },
       ...AI_ALLOWED.map((ua) => ({ userAgent: ua, allow: '/' })),
     ],
     sitemap: [`${SITE.url}/sitemap.xml`, `${SITE.url}/image-sitemap.xml`],
