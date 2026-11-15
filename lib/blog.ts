@@ -1,5 +1,6 @@
 import { planById } from './plans';
 import { WORLD_POSTS } from './blog-world';
+import { SOURCES, type Source } from './blog-sources';
 
 /**
  * The blog.
@@ -48,6 +49,8 @@ export type BlogPost = {
     | 'Collaborations';
   /** Set when the article is not by the Agra photographer himself (planning guides for other countries). */
   byline?: string;
+  /** Official sources, merged in from lib/blog-sources.ts. */
+  sources?: Source[];
   /** Closing block that introduces the studio — shown after the FAQ, before the packages. */
   pitch?: { heading: string; body: string[]; whatsappText: string };
   keywords: string[];
@@ -1675,7 +1678,19 @@ const CORE_POSTS: BlogPost[] = [
 ];
 
 /** Agra articles first (the featured slot), then the world guides. */
-export const POSTS: BlogPost[] = [...CORE_POSTS, ...WORLD_POSTS];
+export const POSTS: BlogPost[] = [...CORE_POSTS, ...WORLD_POSTS].map((post) => ({
+  ...post,
+  sources: SOURCES[post.slug] ?? post.sources,
+}));
+
+/** Guides where a reader planning a whole trip, not just the photographs, would use the sister company. */
+export function sisterRelevant(post: BlogPost): boolean {
+  return (
+    post.category === 'India from abroad' ||
+    post.category === 'Collaborations' ||
+    /delhi|jaipur|golden|flying|itinerary|agra-beyond|tickets/.test(post.slug)
+  );
+}
 
 export function postBySlug(slug: string): BlogPost | undefined {
   return POSTS.find((p) => p.slug === slug);
