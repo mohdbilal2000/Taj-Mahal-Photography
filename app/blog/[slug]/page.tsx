@@ -154,9 +154,13 @@ export default async function BlogPostPage({ params }: Params) {
               <span aria-hidden="true">·</span>
               <span>{post.readingMinutes} min read</span>
               <span aria-hidden="true">·</span>
-              <Link href="/team/danish-iqbal" className="link-sweep inline-block py-1 hover:text-gold-400">
-                Danish Iqbal, Ministry of Tourism licensed photographer
-              </Link>
+              {post.byline ? (
+                <span>{post.byline}</span>
+              ) : (
+                <Link href="/team/danish-iqbal" className="link-sweep inline-block py-1 hover:text-gold-400">
+                  Danish Iqbal, Ministry of Tourism licensed photographer
+                </Link>
+              )}
             </div>
           </div>
         </header>
@@ -228,6 +232,28 @@ export default async function BlogPostPage({ params }: Params) {
                 ))}
               </div>
             </section>
+          )}
+
+          {/* Where the studio introduces itself — last thing on the page, after the reader has what they came for. */}
+          {post.pitch && (
+            <aside className="mt-16 rounded-sm border border-gold-500/40 bg-marble-50 p-6 sm:p-8" aria-label="About the studio">
+              <p className="eyebrow text-gold-700 mb-2">From the studio</p>
+              <h2 className="h3-fluid font-serif font-semibold text-ink-900 mb-4 text-balance">{post.pitch.heading}</h2>
+              {post.pitch.body.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)} className="text-ink-700 leading-relaxed mb-3 text-pretty">{paragraph}</p>
+              ))}
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  className="btn btn-whatsapp"
+                  href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(post.pitch.whatsappText)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Message us on WhatsApp
+                </a>
+                <Link className="btn btn-outline" href="/services">See packages and prices</Link>
+              </div>
+            </aside>
           )}
         </article>
 
@@ -354,7 +380,7 @@ export default async function BlogPostPage({ params }: Params) {
                   url: `${SITE.url}${post.image}`,
                   caption: post.imageAlt,
                 },
-                author: { '@id': `${SITE.url}/#photographer` },
+                author: { '@id': post.byline ? `${SITE.url}/#business` : `${SITE.url}/#photographer` },
                 publisher: { '@id': `${SITE.url}/#business` },
                 about: { '@id': `${SITE.url}/#taj-mahal` },
                 isPartOf: { '@id': `${SITE.url}/blog#blog` },

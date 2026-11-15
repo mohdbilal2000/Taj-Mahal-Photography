@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
 };
 
-const CATEGORIES = ['Rules & permits', 'Planning', 'Locations', 'Technique'] as const;
+const CATEGORIES = ['Rules & permits', 'Planning', 'Locations', 'Technique', 'Photographer mindset', 'World locations', 'India from abroad', 'Collaborations'] as const;
 
 function longDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-GB', {

@@ -1,4 +1,5 @@
 import { planById } from './plans';
+import { WORLD_POSTS } from './blog-world';
 
 /**
  * The blog.
@@ -36,7 +37,19 @@ export type BlogPost = {
   readingMinutes: number;
   image: string;
   imageAlt: string;
-  category: 'Planning' | 'Rules & permits' | 'Technique' | 'Locations';
+  category:
+    | 'Planning'
+    | 'Rules & permits'
+    | 'Technique'
+    | 'Locations'
+    | 'Photographer mindset'
+    | 'World locations'
+    | 'India from abroad'
+    | 'Collaborations';
+  /** Set when the article is not by the Agra photographer himself (planning guides for other countries). */
+  byline?: string;
+  /** Closing block that introduces the studio — shown after the FAQ, before the packages. */
+  pitch?: { heading: string; body: string[]; whatsappText: string };
   keywords: string[];
   /** Packages this article should send a reader to. */
   planIds: string[];
@@ -44,7 +57,7 @@ export type BlogPost = {
   faqs: { question: string; answer: string }[];
 };
 
-export const POSTS: BlogPost[] = [
+const CORE_POSTS: BlogPost[] = [
   {
     slug: 'taj-mahal-photography-permit',
     title: 'Taj Mahal Photography Permit: What You Actually Need in 2026',
@@ -1660,6 +1673,9 @@ export const POSTS: BlogPost[] = [
     ],
   },
 ];
+
+/** Agra articles first (the featured slot), then the world guides. */
+export const POSTS: BlogPost[] = [...CORE_POSTS, ...WORLD_POSTS];
 
 export function postBySlug(slug: string): BlogPost | undefined {
   return POSTS.find((p) => p.slug === slug);
