@@ -11,6 +11,8 @@ import { useEffect, useMemo, useState } from 'react';
 import packagesData from '@/lib/packages.json';
 import { INR_RATE } from '@/lib/currency';
 import { SITE, DELIVERY } from '@/lib/seo';
+import { GuidePolicyPaper } from '@/components/GuidePolicy';
+import { GUIDE_POLICY_PATH } from '@/lib/guide-policy';
 
 type Item = { key: string; name: string; detail: string; includes: string; usd: number; qty: number };
 type Mode = 'USD' | 'INR' | 'BOTH';
@@ -30,6 +32,7 @@ type Quote = {
   advancePct: number;
   items: Item[];
   notes: string;
+  includePolicy: boolean;
   preparedBy: string;
 };
 
@@ -56,6 +59,7 @@ function itemFromPackage(p: Pkg): Item {
 
 const DEFAULT_NOTES = [
   ...(packagesData.terms as string[]),
+  'Guide policy: the guide on your day is our licensed guide only; we cannot accept a booking where a guide arranged by someone else will join (see the guide policy sent with this quote).',
   `Edited photos are delivered ${DELIVERY.phrase} by private online gallery.`,
   String(packagesData.tickets),
 ].join('\n');
@@ -79,6 +83,7 @@ function freshQuote(): Quote {
     advancePct: 20,
     items: [itemFromPackage(PACKAGES[0])],
     notes: DEFAULT_NOTES,
+    includePolicy: true,
     preparedBy: 'Danish Iqbal',
   };
 }
@@ -143,6 +148,8 @@ export default function QuoteMaker() {
   const money = (usd: number) => (q.mode === 'USD' ? usdStr(usd) : q.mode === 'INR' ? inr(usd) : usdStr(usd));
   const sub2 = (usd: number) => (q.mode === 'BOTH' ? inr(usd) : null);
 
+  const policyUrl = `${SITE.url}${GUIDE_POLICY_PATH}`;
+  const policyText = `Hi${q.client ? ` ${q.client}` : ''}, before I send your quote, please read this short page about how we run the day (our licensed guide only): ${policyUrl}\nReply AGREED once you have read it and I will send the quote.`;
   const waText = [
     `*${SITE.name} — Quote ${q.number}*`,
     q.client && `For: ${q.client}`,
@@ -154,6 +161,7 @@ export default function QuoteMaker() {
     `*Total: ${money(totals.total)}${q.mode === 'BOTH' ? ` (${inr(totals.total)})` : ''}*`,
     q.advancePct > 0 && `Advance to confirm (${q.advancePct}%): ${money(totals.advance)} · Balance after the tour: ${money(totals.balance)}`,
     `Valid until ${prettyDate(q.validUntil)}. Monument tickets are not included.`,
+    q.includePolicy && `Please read our guide policy before confirming: ${policyUrl}`,
   ]
     .filter((l) => l !== false && l !== undefined && l !== null)
     .join('\n');
@@ -176,12 +184,14 @@ export default function QuoteMaker() {
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-700">Private · owner tool</p>
             <h1 className="font-serif text-3xl italic text-ink-900 sm:text-4xl">Quote maker</h1>
             <p className="mt-1 max-w-xl text-sm text-ink-700">
-              Fill in the left side, check the page on the right, then press <b>Save as PDF</b> and choose
-              “Save as PDF” as the printer. Your draft is kept on this device.
+              <b>Step 1:</b> send the client the guide policy. <b>Step 2:</b> fill in the left side, check the page
+              on the right, then press <b>Save as PDF</b> and choose “Save as PDF” as the printer. The policy can also
+              be the first page of the PDF. Your draft is kept on this device.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button type="button" className="btn btn-gold" onClick={() => window.print()}>Save as PDF</button>
+            <a className="btn btn-outline" href={`https://wa.me/?text=${encodeURIComponent(policyText)}`} target="_blank" rel="noopener noreferrer">Step 1 · Send guide policy</a>
+            <button type="button" className="btn btn-gold" onClick={() => window.print()}>Step 2 · Save as PDF</button>
             <a className="btn btn-whatsapp" href={`https://wa.me/?text=${encodeURIComponent(waText)}`} target="_blank" rel="noopener noreferrer">Send summary on WhatsApp</a>
             <button
               type="button"
@@ -198,6 +208,17 @@ export default function QuoteMaker() {
         <div className="grid gap-8 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] print:block">
           {/* ───────────── Form ───────────── */}
           <section className="space-y-5 print:hidden" aria-label="Quote details">
+            <div className="rounded-2xl border border-gold-500/40 bg-[#FBF5EA] p-4 sm:p-5">
+              <h2 className="mb-1 font-serif text-xl text-ink-900">Guide policy</h2>
+              <p className="mb-3 text-sm text-ink-700">
+                The client page is <b>{SITE.domain}{GUIDE_POLICY_PATH}</b>. Send it first with the button above.
+              </p>
+              <label className="flex min-h-[2.75rem] cursor-pointer items-center gap-3 text-sm text-ink-900">
+                <input type="checkbox" className="h-5 w-5 accent-[#C9A227]" checked={q.includePolicy} onChange={(e) => set('includePolicy', e.target.checked)} />
+                Print the policy as page 1 of the PDF
+              </label>
+            </div>
+
             <div className="rounded-2xl border border-ink-900/10 bg-white p-4 sm:p-5">
               <h2 className="mb-3 font-serif text-xl text-ink-900">Client</h2>
               <div className="grid grid-cols-2 gap-3">
@@ -305,6 +326,11 @@ export default function QuoteMaker() {
           <section aria-label="Quote preview" className="lg:sticky lg:top-6 lg:self-start">
             <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-ink-500 print:hidden">Preview — this is the PDF</p>
             <div className="overflow-x-auto print:overflow-visible">
+            {q.includePolicy && (
+              <div className="mb-8 print:mb-0">
+                <GuidePolicyPaper quoteNumber={q.number} client={q.client} />
+              </div>
+            )}
             <article className="quote-paper mx-auto w-full max-w-[820px] min-w-0 bg-white px-5 py-7 text-ink-900 shadow-[0_20px_60px_-25px_rgba(20,17,15,0.45)] ring-1 ring-ink-900/10 sm:px-10 sm:py-10 print:max-w-none print:p-0 print:shadow-none print:ring-0">
               <div className="flex flex-wrap items-start justify-between gap-4 border-b-2 border-gold-500 pb-5">
                 <div>
