@@ -371,7 +371,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   ]);
 
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow bg-white">
         <div className="relative h-[60vh] min-h-[500px]">
@@ -384,7 +384,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <div className="absolute inset-0 flex items-center justify-center text-center px-4 pt-24">
             <div className="max-w-3xl">
               <span className="text-gold-400 font-bold tracking-widest uppercase mb-4 block">{isLuxuryTour ? 'Same-Day Luxury Tour' : 'Premium Service'}</span>
               <h1 className="display font-serif font-semibold text-white mb-6">{service.title}</h1>
