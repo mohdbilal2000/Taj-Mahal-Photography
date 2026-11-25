@@ -178,6 +178,41 @@ const servicesData: Record<string, ServiceData> = {
       { question: 'How is this different from the Heritage Trail ($399)?', answer: 'This from-$119 combo focuses on a guided walk plus 60 photos and 7 reels. The Heritage Trail is a 5-hour dedicated photography session with 250+ high-resolution photos and a fully managed schedule — more output, no group cap.' },
     ],
   },
+  'solo-photoshoot': {
+    title: 'Solo Portrait Photoshoot at the Taj Mahal | From $99',
+    description: 'A private 1-hour portrait session for one person at the Taj Mahal with a government-licensed photographer, from $99 USD. 60+ edited photos and 2 reels. Photography only; monument tickets are not included.',
+    quickAnswer:
+      'A 1-hour private portrait session for one person at the Taj Mahal, starting from $99 USD. A Ministry of Tourism licensed photographer meets you at your hotel, handles the official photography permit, guides your pose and the light, and delivers 60+ edited photos and 2 reels within 48 to 72 hours. It is photography only: no guide is included and monument entry tickets are separate.',
+    longDescription:
+      'Travelling on your own does not have to mean a camera roll of selfies and favours asked of strangers. The Solo Portrait Photoshoot is a shorter, lighter session built for one person: a licensed photographer who knows where the light falls on the marble, who tells you where to stand and what to do with your hands, and who keeps the shoot moving so it feels like a walk rather than a pose. You keep the permit, the timing and the logistics off your mind. The photographer meets you at your hotel, takes you through the security queue with the professional equipment already cleared, and shoots for about an hour at the spots that work best for a single person: the central walkway, the reflecting pool, the gardens and the quiet corners. You receive 60+ edited photos and 2 reels. Prefer more time, more outfits or more of Agra? The Sunrise Photoshoot adds length and more frames, and the Guide + Photo tours add a licensed guide at Agra Fort and Mehtab Bagh.',
+    features: [
+      'Starting from $99 USD — exact quote confirmed on WhatsApp',
+      '1-hour private session for one person',
+      '60+ edited photos',
+      '2 reels',
+      'Photographer meets you at your hotel (no transport)',
+      'Official photography permit included',
+      'Pose and location guidance for solo portraits',
+    ],
+    price: 99,
+    fromPrice: true,
+    duration: '1 Hour',
+    bestFor: 'Solo travellers, creators and anyone who wants portraits of just themselves at the Taj Mahal',
+    itinerary: [
+      { time: 'Step 1', title: 'Pick your date', detail: 'Send us your date and hotel on WhatsApp. We reply within minutes with a time and a fixed price.' },
+      { time: 'Step 2', title: 'Meet at your hotel', detail: 'Your licensed photographer meets you at your hotel, usually around first light, and we go in together with the permit sorted.' },
+      { time: 'Step 3', title: 'Your hour at the Taj Mahal', detail: 'About an hour at the best single-person spots, with direction on pose, expression and light.' },
+      { time: 'Step 4', title: 'Your photos', detail: 'Edited photos and reels arrive by private gallery within 48 to 72 hours.' },
+    ],
+    faqs: [
+      { question: 'How much is a solo photoshoot at the Taj Mahal?', answer: 'It starts from $99 USD for a 1-hour private session for one person, with 60+ edited photos and 2 reels. We confirm one all-in quote on WhatsApp before you book. Monument entry tickets are not included.' },
+      { question: 'What is the difference between the Solo Portrait and Sunrise photoshoots?', answer: 'The Solo Portrait is a shorter, one-person session from $99. The Sunrise Photoshoot is $120, runs 1.5 to 2 hours, includes 120+ photos and 3 to 5 reels, and suits solo travellers, couples and families.' },
+      { question: 'Is a guide included?', answer: 'No. This is a photography-only session. Inside the Taj Mahal a guide is not permitted alongside a photographer. If you want a guide for Agra Fort and the rest of the day, choose a Guide + Photo tour.' },
+      { question: 'Do I need a permit for a professional photographer?', answer: 'The official photography permit is included. Professional equipment needs a permit that only a licensed photographer can hold, so we arrange it.' },
+      { question: 'Are monument entry tickets included?', answer: 'No. Taj Mahal entry tickets are purchased separately and are set by the Archaeological Survey of India.' },
+      { question: 'How do I confirm the booking?', answer: 'A 20% advance confirms the date; the balance is paid after the shoot.' },
+    ],
+  },
   'transport-guide': {
     title: 'Transport + Guide | Same Day Agra Tour with Private Car & Licensed Guide',
     description: 'A same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from $99 USD. The exact quote is confirmed on WhatsApp. No photographer included.',
@@ -333,6 +368,10 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   const pageUrl = `${SITE.url}/services/${slug}`;
   const heroImage = planImage(slug);
+  /** The solo photographs are portrait frames: text goes top (desktop) or bottom (phone), clear of the face. */
+  const portraitHero = slug === 'solo-photoshoot';
+  const heroTitle = portraitHero ? 'Solo Portrait Photoshoot' : service.title;
+  const heroSub = portraitHero ? 'Just you, a licensed photographer and the best hour of light at the Taj Mahal. From $99.' : service.description;
   const isLuxuryTour = Boolean(service.tourSlug);
   /** Only sessions that include no guide carry the notice — see PACKAGES_WITHOUT_GUIDE. */
   const showsGuideNotice = PACKAGES_WITHOUT_GUIDE.has(slug);
@@ -374,21 +413,21 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow bg-white">
-        <div className="relative h-[60vh] min-h-[500px]">
+        <div className={`relative h-[60vh] min-h-[500px] ${portraitHero ? 'md:h-[80vh]' : ''}`}>
           <Image
             src={heroImage}
             alt={service.title}
             fill
-            className="object-cover"
+            className={`object-cover ${portraitHero ? 'object-[50%_36%]' : ''}`}
             priority
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 flex items-center justify-center text-center px-4 pt-24">
+          <div className={`absolute inset-0 flex justify-center text-center px-4 ${portraitHero ? 'items-end pb-10 md:items-start md:pb-0 md:pt-32' : 'items-center pt-24'}`}>
             <div className="max-w-3xl">
               <span className="text-gold-400 font-bold tracking-widest uppercase mb-4 block">{isLuxuryTour ? 'Same-Day Luxury Tour' : 'Premium Service'}</span>
-              <h1 className="display font-serif font-semibold text-white mb-6">{service.title}</h1>
-              <p className="text-xl text-white/90">{service.description}</p>
+              <h1 className="display font-serif font-semibold text-white mb-6">{heroTitle}</h1>
+              <p className="text-xl text-white/90">{heroSub}</p>
             </div>
           </div>
         </div>

@@ -13,6 +13,7 @@ export const HERO_IMAGE = '/photos/hero.jpg';
 export const PLAN_IMAGES: Record<string, string> = {
   sunrise: '/photos/sunrise.jpg',
   'pre-wedding': '/photos/pre-wedding.jpg',
+  'solo-photoshoot': '/photos/solo-photoshoot.jpg',
   'guided-photo-tour-small': '/photos/guided-photo-tour-small.jpg',
   'guided-photo-tour-large': '/photos/guided-photo-tour-large.jpg',
   'transport-guide': '/photos/transport-guide.jpg',

@@ -38,6 +38,13 @@ const services = [
     price: 199,
   },
   {
+    id: 'solo-photoshoot',
+    title: 'Solo Portrait Photoshoot',
+    description: 'Portraits of just you at the Taj Mahal, by a licensed photographer who guides the pose and the light. A shorter, lighter session for solo travellers and creators.',
+    features: ['1 Hour Private Session', '60+ Edited Photos', '2 Reels', 'Photographer meets you at your hotel (no transport)', 'Customisable — 20% advance confirms booking'],
+    price: 99,
+  },
+  {
     id: 'guided-photo-tour-small',
     title: 'Guided Tour + Photo · Small Group (1–5 Guests)',
     description: 'A licensed local guide included across Agra, plus a professional photographer at every monument. 40 natural digital photos and 5 reels for up to 5 guests. Inside the Taj Mahal itself guides are not permitted alongside a photographer, so there your photographer takes you through. Monument tickets not included.',

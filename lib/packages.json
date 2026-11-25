@@ -98,8 +98,39 @@
       "guideNotice": "This is a photography-only session, so no guide is included. Inside the Taj Mahal a guide is not permitted alongside a photographer — your licensed photographer is with you throughout."
     },
     {
-      "id": "guided-photo-tour-small",
+      "id": "solo-photoshoot",
       "num": "03",
+      "category": "photography",
+      "name": "Solo Portrait Photoshoot",
+      "short": "Solo Portrait Session",
+      "subtitle": "Just you · Solo travellers",
+      "usd": 99,
+      "fromPrice": true,
+      "duration": "1 hour",
+      "guide": "Not included — this is a photography-only session",
+      "guideShort": "Not included — photography only",
+      "photographer": "Government-licensed photographer with you throughout",
+      "includes": [
+        "1-hour private portrait session for one person",
+        "60+ edited photos",
+        "2 reels",
+        "Photographer meets you at your hotel",
+        "Pose and location guidance for solo portraits",
+        "Official photography permit included"
+      ],
+      "excludes": [
+        "Tour guide — this is a photography-only session",
+        "Transport — no car service on this package",
+        "Monument entry tickets"
+      ],
+      "bestFor": "Solo travellers, creators and anyone who wants portraits of just themselves at the Taj Mahal.",
+      "photographerShort": "Licensed photographer, with you throughout",
+      "guideIncluded": false,
+      "guideNotice": "This is a photography-only session, so no guide is included. Inside the Taj Mahal a guide is not permitted alongside a photographer — your licensed photographer is with you throughout."
+    },
+    {
+      "id": "guided-photo-tour-small",
+      "num": "04",
       "category": "guide-photo",
       "name": "Guide Tour + Photo · Small Group",
       "short": "Guide + Photo · Small Group",
@@ -131,7 +162,7 @@
     },
     {
       "id": "guided-photo-tour-large",
-      "num": "04",
+      "num": "05",
       "category": "guide-photo",
       "name": "Guide Tour + Photo · Large Group",
       "short": "Guide + Photo · Large Group",
@@ -163,7 +194,7 @@
     },
     {
       "id": "transport-guide",
-      "num": "05",
+      "num": "06",
       "category": "transport",
       "name": "Transport + Guide",
       "short": "Transport + Guide",

@@ -43,6 +43,15 @@ export const PLANS: Plan[] = [
     badge: 'Couples\u2019 Favourite',
   },
   {
+    id: 'solo-photoshoot',
+    name: 'Solo Portrait Photoshoot',
+    price: 99,
+    fromPrice: true,
+    tagline: 'Just you and a licensed photographer — 60+ edited photos and 2 reels',
+    duration: '1 Hour',
+    badge: 'Solo Travellers',
+  },
+  {
     id: 'guided-photo-tour-small',
     name: 'Guide + Photo · Small Group (1–5)',
     price: 89,
