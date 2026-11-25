@@ -35,6 +35,7 @@ export const GALLERY: GalleryImage[] = [
   { src: '/photos/gallery/15.jpg', alt: 'A couple standing together at the end of the reflecting pool', planId: 'pre-wedding', place: 'The reflecting pool', portrait: true },
   { src: '/photos/gallery/17.jpg', alt: 'A couple posed hand in hand on the marble walkway', planId: 'pre-wedding', place: 'Central walkway', portrait: true },
   { src: '/photos/gallery/03.jpg', alt: 'A solo guest photographed beside the reflecting pool', planId: 'sunrise', place: 'The reflecting pool', portrait: true },
+  { src: '/photos/gallery/19.jpg', alt: 'A young boy smiling on the red sandstone terrace with the Taj Mahal behind him', planId: 'guided-photo-tour-small', place: 'The marble terrace' },
   { src: '/photos/gallery/18.jpg', alt: 'A couple photographed on the lawns with the Taj Mahal behind them', planId: 'sunrise', place: 'Taj Mahal gardens' },
   { src: '/photos/gallery/06.jpg', alt: 'A couple close together with the dome of the Taj Mahal behind them', planId: 'pre-wedding', place: 'The west lawn' },
   { src: '/photos/gallery/09.jpg', alt: 'A couple posed at the reflecting pool, the Taj Mahal centred behind', planId: 'pre-wedding', place: 'The reflecting pool', portrait: true },

@@ -1604,8 +1604,8 @@ const CORE_POSTS: BlogPost[] = [
     published: '2026-09-04',
     updated: '2026-10-23',
     readingMinutes: 6,
-    image: '/photos/gallery/01.jpg',
-    imageAlt: 'A group of guests in saris walking together at the monument',
+    image: '/photos/gallery/19.jpg',
+    imageAlt: 'A young boy smiling on the red sandstone terrace with the Taj Mahal and its minarets behind him',
     category: 'Planning',
     keywords: [
       'family photoshoot taj mahal',
