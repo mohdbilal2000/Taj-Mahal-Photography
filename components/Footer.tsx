@@ -105,6 +105,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/plans"
+                  className="inline-flex items-center min-h-[40px] text-gold-400 hover:text-white transition-colors"
+                >
+                  All plans &amp; prices
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/services/romantic-couple-shoot"
                   className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >

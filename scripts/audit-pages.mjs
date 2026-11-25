@@ -14,7 +14,7 @@ const PORT = process.argv[2] || '3000';
 const CDP = 'http://127.0.0.1:9231';
 
 const ROUTES = [
-  '/', '/services', '/services/sunrise', '/services/pre-wedding', '/services/romantic-couple-shoot', '/services/solo-photoshoot',
+  '/', '/services', '/services/sunrise', '/services/pre-wedding', '/plans', '/services/romantic-couple-shoot', '/services/solo-photoshoot',
   '/services/guided-photo-tour-small', '/services/transport-guide',
   '/services/sunrise-luxury-innova', '/portfolio', '/book', '/faq',
   '/about', '/fr', '/de', '/ar', '/ja', '/hi', '/blog', '/blog/taj-mahal-photographer-cost', '/blog/pre-wedding-shoot-taj-mahal-permission', '/team/danish-iqbal', '/about', '/blog/jaipur-to-agra-taj-mahal-photo-trip', '/blog/best-photo-spots-taj-mahal', '/fr/photographe-taj-mahal-lever-du-soleil', '/ar/musawwir-taj-mahal-shuruq', '/ja/taj-mahal-sunrise-satsuei', '/permit-guide', '/payment', '/terms', '/privacy',

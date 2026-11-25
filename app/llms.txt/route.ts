@@ -35,6 +35,7 @@ const BODY = `# ${SITE.name}
 
 ## Guide + Photographer Combo (Taj Mahal, Agra Fort, Mehtab Bagh / Itmad-ud-Daulah)
 
+- [All plans and prices](${SITE.url}/plans): Every package in one place, grouped by what you want, with a side-by-side comparison.
 - [Romantic Couple Photoshoot — $200](${SITE.url}/services/romantic-couple-shoot): A 2-hour private romantic session for two at the Taj Mahal with a government-licensed photographer. 150+ edited photos and 5 reels. Photography only; monument tickets are not included.
 - [Solo Portrait Photoshoot — from $99](${SITE.url}/services/solo-photoshoot): A 1-hour private portrait session for one person at the Taj Mahal with a government-licensed photographer. 60+ edited photos and 2 reels. Photography only; monument tickets are not included.
 - [Guided Tour + Photo · Small Group (1–5 Guests) — from $89](${SITE.url}/services/guided-photo-tour-small): A licensed local guide and a professional photographer are both included, covering the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for up to 5 guests. Inside the Taj Mahal itself a guide is not permitted alongside a photographer, so there the photographer accompanies you; the guide is with you at every other monument. 40 natural digital photos plus 5 reels. 20% advance confirms the booking, balance after the tour. Monument tickets not included.

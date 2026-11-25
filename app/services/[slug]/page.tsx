@@ -7,6 +7,7 @@ import Price from '@/components/Price';
 import QuickBook from '@/components/QuickBook';
 import TajGuideNotice from '@/components/TajGuideNotice';
 import InrRateNote from '@/components/InrRateNote';
+import PackagePhotos from '@/components/PackagePhotos';
 import packagesData from '@/lib/packages.json';
 import { planImage } from '@/lib/images';
 import { serviceAlternates } from '@/lib/i18n-services';
@@ -476,6 +477,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <p className="text-xs uppercase tracking-widest text-gold-600 font-bold mb-2">Quick Answer</p>
             <p className="quick-answer text-ink-900 text-lg leading-relaxed">{service.quickAnswer}</p>
           </div>
+
+          <PackagePhotos planId={slug} />
 
           {showsGuideNotice && <TajGuideNotice planId={slug} className="mb-12" />}
 

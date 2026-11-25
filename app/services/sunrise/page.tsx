@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import PackagePhotos from '@/components/PackagePhotos';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
 import MobileActionBar from '@/components/MobileActionBar';
@@ -63,6 +64,7 @@ export default function SunriseServicePage() {
         </div>
 
         <div className="shell section">
+          <PackagePhotos planId="sunrise" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">
               <h2 className="font-serif text-3xl font-semibold text-ink-900 mb-6">Why Choose the Sunrise Session?</h2>

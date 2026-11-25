@@ -17,6 +17,7 @@ import { whatsappUrl, WHATSAPP_MESSAGES } from '@/lib/contact';
  */
 const NAV = [
   { label: 'Services', href: '/services' },
+  { label: 'Plans', href: '/plans' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Guides', href: '/blog' },
   { label: 'FAQ', href: '/faq' },
