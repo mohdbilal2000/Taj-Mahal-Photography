@@ -178,6 +178,40 @@ const servicesData: Record<string, ServiceData> = {
       { question: 'How is this different from the Heritage Trail ($399)?', answer: 'This from-$119 combo focuses on a guided walk plus 60 photos and 7 reels. The Heritage Trail is a 5-hour dedicated photography session with 250+ high-resolution photos and a fully managed schedule — more output, no group cap.' },
     ],
   },
+  'romantic-couple-shoot': {
+    title: 'Romantic Couple Photoshoot at the Taj Mahal | $200',
+    description: 'A 2-hour private romantic photoshoot for two at the Taj Mahal with a government-licensed photographer, $200 USD. 150+ edited photos and 5 reels. Photography only; monument tickets are not included.',
+    quickAnswer:
+      'A 2-hour private romantic photoshoot for two at the Taj Mahal, $200 USD. A Ministry of Tourism licensed photographer meets you at your hotel, handles the official photography permit, directs the pose and the light so it feels natural, and delivers 150+ edited photos and 5 reels within 48 to 72 hours. It is photography only: no guide is included and monument entry tickets are separate.',
+    longDescription:
+      'The Taj Mahal was built by an emperor for the woman he loved, and couples tend to feel it the moment they walk in. The Romantic Couple Photoshoot is built around that feeling rather than around a shot list. Your licensed photographer meets you at your hotel, takes you through security with the professional equipment already cleared, and spends two hours with the two of you: the reflecting pool, the red sandstone gateways, the quiet steps and corners that most visitors walk past. There is no stiff posing. You are given small, human directions, such as walk, whisper something, look at each other, and the camera keeps moving so you forget it. The result is 150+ edited photos and 5 reels that look like the best day of the trip. Planning a wedding shoot with a cinematic video and 200+ photos? The Couple and Pre-Wedding package is the bigger production. Want the history of the monument as well? Add a licensed guide through the Guide + Photo tours.',
+    features: [
+      '$200 USD — exact quote confirmed on WhatsApp',
+      '2-hour private session for two',
+      '150+ edited photos',
+      '5 reels',
+      'Pose and expression direction, never stiff',
+      'Photographer meets you at your hotel (no transport)',
+      'Official photography permit included',
+    ],
+    price: 200,
+    duration: '2 Hours',
+    bestFor: 'Honeymooners, anniversary trips and couples who want soft, romantic portraits without a full pre-wedding production',
+    itinerary: [
+      { time: 'Step 1', title: 'Tell us your date', detail: 'Send your date and hotel on WhatsApp. We reply within minutes with a time and a fixed price.' },
+      { time: 'Step 2', title: 'Meet at your hotel', detail: 'Your licensed photographer meets you at your hotel, usually around first light, and we go in together with the permit sorted.' },
+      { time: 'Step 3', title: 'Two hours, just the two of you', detail: 'The reflecting pool, the sandstone gateways and the quiet corners, with gentle direction rather than rigid poses.' },
+      { time: 'Step 4', title: 'Your photos', detail: 'Edited photos and reels arrive by private gallery within 48 to 72 hours.' },
+    ],
+    faqs: [
+      { question: 'How much is the Romantic Couple Photoshoot?', answer: 'It is $200 USD for a 2-hour private session for two, with 150+ edited photos and 5 reels. We confirm the exact quote on WhatsApp before you book. Monument entry tickets are not included.' },
+      { question: 'How is this different from the Couple and Pre-Wedding package?', answer: 'The Romantic Couple Photoshoot is a focused 2-hour session for honeymoons, anniversaries and date-day trips. The Couple and Pre-Wedding package is the bigger production for engaged couples: 2+ hours, 200+ photos, 30 edited photos of your choice and a cinematic video.' },
+      { question: 'Can we bring more than one outfit?', answer: 'Yes, tell us before the day and we will plan the time and the locations around your outfits.' },
+      { question: 'Is a guide included?', answer: 'No. This is a photography-only session, and inside the Taj Mahal a guide is not permitted alongside a photographer. If you want a guide for Agra Fort and the rest of the day, choose a Guide + Photo tour.' },
+      { question: 'Do I need a permit for a professional photographer?', answer: 'The official photography permit is included. Professional equipment needs a permit that only a licensed photographer can hold, so we arrange it.' },
+      { question: 'How do I confirm the booking?', answer: 'A 20% advance confirms the date; the balance is paid after the shoot.' },
+    ],
+  },
   'solo-photoshoot': {
     title: 'Solo Portrait Photoshoot at the Taj Mahal | From $99',
     description: 'A private 1-hour portrait session for one person at the Taj Mahal with a government-licensed photographer, from $99 USD. 60+ edited photos and 2 reels. Photography only; monument tickets are not included.',
@@ -369,9 +403,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const pageUrl = `${SITE.url}/services/${slug}`;
   const heroImage = planImage(slug);
   /** The solo photographs are portrait frames: text goes top (desktop) or bottom (phone), clear of the face. */
-  const portraitHero = slug === 'solo-photoshoot';
-  const heroTitle = portraitHero ? 'Solo Portrait Photoshoot' : service.title;
-  const heroSub = portraitHero ? 'Just you, a licensed photographer and the best hour of light at the Taj Mahal. From $99.' : service.description;
+  const PORTRAIT_HEROES: Record<string, { title: string; sub: string }> = {
+    'solo-photoshoot': { title: 'Solo Portrait Photoshoot', sub: 'Just you, a licensed photographer and the best hour of light at the Taj Mahal. From $99.' },
+    'romantic-couple-shoot': { title: 'Romantic Couple Photoshoot', sub: 'Two of you, one licensed photographer and the Taj Mahal at its softest. $200.' },
+  };
+  const portraitHero = slug in PORTRAIT_HEROES;
+  const heroTitle = PORTRAIT_HEROES[slug]?.title ?? service.title;
+  const heroSub = PORTRAIT_HEROES[slug]?.sub ?? service.description;
   const isLuxuryTour = Boolean(service.tourSlug);
   /** Only sessions that include no guide carry the notice — see PACKAGES_WITHOUT_GUIDE. */
   const showsGuideNotice = PACKAGES_WITHOUT_GUIDE.has(slug);

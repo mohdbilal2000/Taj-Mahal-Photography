@@ -38,6 +38,13 @@ const services = [
     price: 199,
   },
   {
+    id: 'romantic-couple-shoot',
+    title: 'Romantic Couple Photoshoot',
+    description: 'A softer, shorter alternative to a full pre-wedding shoot: two hours for the two of you, with a licensed photographer directing the pose, the light and the moment. Made for honeymoons, anniversaries and date-day trips.',
+    features: ['2 Hour Private Session', '150+ Edited Photos', '5 Reels', 'Pose and expression direction', 'Photographer meets you at your hotel (no transport)', 'Customisable — 20% advance confirms booking'],
+    price: 200,
+  },
+  {
     id: 'solo-photoshoot',
     title: 'Solo Portrait Photoshoot',
     description: 'Portraits of just you at the Taj Mahal, by a licensed photographer who guides the pose and the light. A shorter, lighter session for solo travellers and creators.',
@@ -83,7 +90,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="min-h-screen flex flex-col pt-20 bg-ink-900">
       <Header />
 
       <main className="flex-grow bg-marble-50">

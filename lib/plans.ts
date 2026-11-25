@@ -43,6 +43,14 @@ export const PLANS: Plan[] = [
     badge: 'Couples\u2019 Favourite',
   },
   {
+    id: 'romantic-couple-shoot',
+    name: 'Romantic Couple Photoshoot',
+    price: 200,
+    tagline: 'Two hours for the two of you — 150+ edited photos and 5 reels',
+    duration: '2 Hours',
+    badge: 'Honeymoon Favourite',
+  },
+  {
     id: 'solo-photoshoot',
     name: 'Solo Portrait Photoshoot',
     price: 99,

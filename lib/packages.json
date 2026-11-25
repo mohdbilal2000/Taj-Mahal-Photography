@@ -98,8 +98,39 @@
       "guideNotice": "This is a photography-only session, so no guide is included. Inside the Taj Mahal a guide is not permitted alongside a photographer — your licensed photographer is with you throughout."
     },
     {
-      "id": "solo-photoshoot",
+      "id": "romantic-couple-shoot",
       "num": "03",
+      "category": "photography",
+      "name": "Romantic Couple Photoshoot",
+      "short": "Romantic Couple Shoot",
+      "subtitle": "Honeymoons · Anniversaries · Date-day",
+      "usd": 200,
+      "fromPrice": false,
+      "duration": "2 hours",
+      "guide": "Not included — this is a photography-only session",
+      "guideShort": "Not included — photography only",
+      "photographer": "Government-licensed photographer with you throughout",
+      "includes": [
+        "2-hour private romantic session for two",
+        "150+ edited photos",
+        "5 reels",
+        "Pose and expression direction so it feels natural, not stiff",
+        "Photographer meets you at your hotel",
+        "Official photography permit included"
+      ],
+      "excludes": [
+        "Tour guide — this is a photography-only session",
+        "Transport — no car service on this package",
+        "Monument entry tickets"
+      ],
+      "bestFor": "Honeymooners, anniversary trips and couples who want soft, romantic portraits rather than a full pre-wedding production.",
+      "photographerShort": "Licensed photographer, with you throughout",
+      "guideIncluded": false,
+      "guideNotice": "This is a photography-only session, so no guide is included. Inside the Taj Mahal a guide is not permitted alongside a photographer — your licensed photographer is with you throughout."
+    },
+    {
+      "id": "solo-photoshoot",
+      "num": "04",
       "category": "photography",
       "name": "Solo Portrait Photoshoot",
       "short": "Solo Portrait Session",
@@ -130,7 +161,7 @@
     },
     {
       "id": "guided-photo-tour-small",
-      "num": "04",
+      "num": "05",
       "category": "guide-photo",
       "name": "Guide Tour + Photo · Small Group",
       "short": "Guide + Photo · Small Group",
@@ -162,7 +193,7 @@
     },
     {
       "id": "guided-photo-tour-large",
-      "num": "05",
+      "num": "06",
       "category": "guide-photo",
       "name": "Guide Tour + Photo · Large Group",
       "short": "Guide + Photo · Large Group",
@@ -194,7 +225,7 @@
     },
     {
       "id": "transport-guide",
-      "num": "06",
+      "num": "07",
       "category": "transport",
       "name": "Transport + Guide",
       "short": "Transport + Guide",

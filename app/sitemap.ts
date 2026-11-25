@@ -68,6 +68,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: { ...serviceAlternates('guided-photo-tour-small', SITE.url), 'x-default': `${SITE.url}/services/guided-photo-tour-small` } },
     },
     {
+      url: `${SITE.url}/services/romantic-couple-shoot`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${SITE.url}/services/solo-photoshoot`,
       lastModified: now,
       changeFrequency: 'monthly',

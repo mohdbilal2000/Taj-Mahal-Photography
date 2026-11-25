@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-20">
+    <div className="min-h-screen flex flex-col pt-20 bg-ink-900">
       <Header />
       <main className="flex-grow">
         <div className="bg-ink-900 text-white section">

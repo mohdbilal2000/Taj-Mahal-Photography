@@ -105,6 +105,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/services/romantic-couple-shoot"
+                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
+                >
+                  Romantic Couple Shoot ($200)
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/services/solo-photoshoot"
                   className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
