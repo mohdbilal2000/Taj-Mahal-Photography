@@ -27,24 +27,24 @@ const PROOF = [
  * it buried the photograph it was built on. This lays the work out the way
  * the studio's own Instagram does — mounted, taped, slightly askew, on paper
  * — and lets the type sit in ink on cream where it is actually readable.
- * The lead print is the gateway silhouette, the strongest frame in the set.
+ * The lead print is a portrait; the two beside it are landscape frames.
  */
 const LEAD = {
-  src: '/photos/gallery/11.jpg',
-  alt: 'A couple silhouetted in the great gateway of the Taj Mahal, reflected in rainwater on the marble',
-  caption: 'the great gate',
+  src: '/photos/hero-reflecting-pool.jpg',
+  alt: 'A couple in white standing in front of the Taj Mahal and its reflecting pool',
+  caption: 'the reflecting pool',
 };
 
 const SIDE = [
   {
-    src: '/photos/gallery/16.jpg',
-    alt: 'A guest in a red saree beside the reflecting pool at the Taj Mahal',
-    caption: 'first light',
+    src: '/photos/hero-golden-hour.jpg',
+    alt: 'A couple under a red sandstone pavilion at golden hour, the Taj Mahal in the distance',
+    caption: 'golden hour',
   },
   {
-    src: '/photos/gallery/13.jpg',
-    alt: 'International guests with their licensed guide in the Taj Mahal gardens',
-    caption: 'guided all morning',
+    src: '/photos/hero-arches.jpg',
+    alt: 'A woman in white seated beneath red sandstone arches, the sun setting behind the Taj Mahal',
+    caption: 'framed by the arches',
   },
 ];
 
@@ -122,7 +122,7 @@ export default function Hero({ rating }: { rating: Rating }) {
               style={{ y: leadY, ['--tilt' as string]: '-2.2deg' }}
               className="collage-card taped w-[58%] shrink-0"
             >
-              <div className="collage-media relative aspect-[4/5]">
+              <div className="collage-media relative aspect-[2/3]">
                 <Image
                   src={LEAD.src}
                   alt={LEAD.alt}
@@ -148,7 +148,7 @@ export default function Hero({ rating }: { rating: Rating }) {
                   // screen, so it joins from the small breakpoint up.
                   className={`collage-card ${i === 1 ? 'hidden sm:block' : ''}`}
                 >
-                  <div className="collage-media relative aspect-[4/5]">
+                  <div className="collage-media relative aspect-[3/2]">
                     <Image
                       src={print.src}
                       alt={print.alt}

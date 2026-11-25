@@ -80,7 +80,7 @@ export default function Header({ onLight = false }: { onLight?: boolean } = {}) 
 
       <div
         className={`transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+          isScrolled ? 'bg-white shadow-sm' : 'bg-transparent'
         }`}
       >
         <div className="shell">
