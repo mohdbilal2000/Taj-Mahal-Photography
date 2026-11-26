@@ -12,7 +12,15 @@ export type TocItem = { id: string; label: string };
  * piece is without it pushing the first paragraph off the screen. Both lists
  * are real anchor links, so it works with scripting off.
  */
-export default function BlogToc({ items }: { items: TocItem[] }) {
+export default function BlogToc({
+  items,
+  title = 'In this guide',
+  sectionsLabel = 'sections',
+}: {
+  items: TocItem[];
+  title?: string;
+  sectionsLabel?: string;
+}) {
   const [active, setActive] = useState(items[0]?.id ?? '');
 
   useEffect(() => {
@@ -66,7 +74,7 @@ export default function BlogToc({ items }: { items: TocItem[] }) {
         <details className="group rounded-xl border hairline bg-white">
           <summary className="flex min-h-[3rem] cursor-pointer list-none items-center justify-between gap-4 px-4 text-sm font-semibold text-ink-900">
             <span>
-              In this guide <span className="font-normal text-ink-500">· {items.length} sections</span>
+              {title} <span className="font-normal text-ink-500">· {items.length} {sectionsLabel}</span>
             </span>
             <span aria-hidden="true" className="text-gold-600 transition-transform duration-300 group-open:rotate-45">+</span>
           </summary>
@@ -75,7 +83,7 @@ export default function BlogToc({ items }: { items: TocItem[] }) {
       </nav>
 
       <nav aria-label="Contents" className="sticky top-28 hidden lg:block">
-        <p className="eyebrow mb-3 text-ink-400">In this guide</p>
+        <p className="eyebrow mb-3 text-ink-400">{title}</p>
         {list}
       </nav>
     </>

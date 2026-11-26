@@ -1,5 +1,6 @@
 import { SITE } from '@/lib/seo';
 import { POSTS } from '@/lib/blog';
+import { ES_GUIDES } from '@/lib/blog-es';
 import { LOCALES } from '@/lib/i18n';
 import { localeServices } from '@/lib/i18n-services';
 
@@ -64,6 +65,10 @@ const BODY = `# ${SITE.name}
 ## Guides (full articles, each answering one question directly)
 
 ${POSTS.map((post) => `- [${post.title}](${SITE.url}/blog/${post.slug}): ${post.answer}`).join('\n')}
+
+## Guías en español (Spanish guides)
+
+${ES_GUIDES.map((g) => `- [${g.title}](${SITE.url}/es/guias/${g.slug}): ${g.answer}`).join('\n')}
 
 ## Pages in other languages
 

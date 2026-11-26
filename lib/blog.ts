@@ -662,7 +662,9 @@ const CORE_POSTS: BlogPost[] = [
         table: {
           head: ['Package', 'Price and what you get'],
           rows: [
+            ['Solo portrait · 1 hour', 'From $99 — 60+ edited photos, 2 reels, photographer meets you at your hotel'],
             ['Sunrise session · 1.5–2 hours', '$120 — 120+ high-resolution photos, 3–5 reels, photographer meets you at your hotel'],
+            ['Romantic couple · 2 hours', '$200 — 150+ edited photos, 5 reels, photographer meets you at your hotel'],
             ['Couple / pre-wedding · 2+ hours', 'From $199 — 200+ photos, 30 edited to your choice, a cinematic video'],
             ['Guide + photographer · 1–5 guests', 'From $89 — licensed guide and photographer, 40 photos, 5 reels, half day'],
             ['Guide + photographer · 6–12 guests', 'From $119 — 60 photos, 7 reels, group and individual portraits'],

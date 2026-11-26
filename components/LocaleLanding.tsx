@@ -55,7 +55,7 @@ function whatsappHref(locale: LocaleContent) {
  * Deliberately shorter than the English home page — a visitor reading a
  * second language wants the facts, not the full tour.
  */
-export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
+export default function LocaleLanding({ locale, after }: { locale: LocaleContent; after?: React.ReactNode }) {
   const url = `${SITE.url}/${locale.code}`;
   const plans = LOCALE_PLAN_IDS.map(planById).filter(Boolean);
   const wa = whatsappHref(locale);
@@ -240,6 +240,8 @@ export default function LocaleLanding({ locale }: { locale: LocaleContent }) {
           </div>
         </div>
       </section>
+
+      {after}
 
       {/* Closing CTA */}
       <section className="bg-ink-900 py-16 text-white md:py-20">
