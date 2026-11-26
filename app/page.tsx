@@ -16,6 +16,7 @@ import FilmShowcase from '@/components/FilmShowcase';
 import ReviewCta from '@/components/ReviewCta';
 import { getRating } from '@/lib/reviews';
 import FAQ from '@/components/FAQ';
+import LatestGuides from '@/components/LatestGuides';
 import { faqs as siteFaqs, testimonials } from '@/lib/content';
 import ContactForm from '@/components/ContactForm';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
@@ -199,6 +200,7 @@ export default async function Home() {
         <GuestMoments />
         <Testimonials rating={rating} />
         <ReviewCta rating={rating} />
+        <LatestGuides />
         <FAQ />
         <ContactForm />
       </main>
