@@ -9,7 +9,7 @@
   "notices": {
     "tajGuide": "Inside the Taj Mahal, a guide is not permitted alongside a photographer. On the guide + photo tours your guide is included and covers Agra Fort, Mehtab Bagh and Itmad-ud-Daulah, and your photographer takes you through the Taj Mahal itself. The photography-only sessions include no guide."
   },
-  "tickets": "Monument entry tickets are not included in any package. Taj Mahal entry is about ₹50 for Indian nationals and about ₹1,300 for foreign nationals, plus ₹200 to enter the main mausoleum. Rates are set by the ASI and can change.",
+  "tickets": "Monument entry tickets are not included in any package. Taj Mahal entry is ₹50 for Indian nationals, ₹540 for SAARC and BIMSTEC nationals and ₹1,100 for other foreign nationals, plus ₹200 to enter the main mausoleum. Rates are set by the ASI and can change.",
   "terms": [
     "All prices are per package — not per person.",
     "20% advance confirms the booking; the balance is paid after the tour.",
@@ -289,5 +289,5 @@
       "summary": "Delhi ↔ Agra for up to 13 guests, tickets and golf cart included."
     }
   ],
-  "ticketsShort": "Monument tickets not included — about ₹50 (Indian) or ₹1,300 (foreign national), plus ₹200 for the mausoleum."
+  "ticketsShort": "Monument tickets not included — ₹50 (Indian) or ₹1,100 (foreign national), plus ₹200 for the mausoleum."
 }

@@ -1,6 +1,7 @@
 import { SITE } from '@/lib/seo';
 import { POSTS } from '@/lib/blog';
-import { ES_GUIDES } from '@/lib/blog-es';
+import { GUIDES } from '@/lib/guides';
+import { GUIDE_UI } from '@/lib/guide-ui';
 import { LOCALES } from '@/lib/i18n';
 import { localeServices } from '@/lib/i18n-services';
 
@@ -68,7 +69,11 @@ ${POSTS.map((post) => `- [${post.title}](${SITE.url}/blog/${post.slug}): ${post.
 
 ## Guías en español (Spanish guides)
 
-${ES_GUIDES.map((g) => `- [${g.title}](${SITE.url}/es/guias/${g.slug}): ${g.answer}`).join('\n')}
+${GUIDES.es.map((g) => `- [${g.title}](${SITE.url}${GUIDE_UI.es.base}/${g.slug}): ${g.answer}`).join('\n')}
+
+## हिंदी गाइड (Hindi guides)
+
+${GUIDES.hi.map((g) => `- [${g.title}](${SITE.url}${GUIDE_UI.hi.base}/${g.slug}): ${g.answer}`).join('\n')}
 
 ## Pages in other languages
 

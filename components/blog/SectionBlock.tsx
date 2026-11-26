@@ -9,7 +9,7 @@ export function sectionId(heading: string) {
     .replace(/^-|-$/g, '');
 }
 
-export function SectionBlock({ section, index }: { section: Section; index: number }) {
+export function SectionBlock({ section, index, dropCap = true }: { section: Section; index: number; dropCap?: boolean }) {
   return (
     <section id={sectionId(section.heading)} className="reveal scroll-mt-28">
       <div className="mb-5 flex items-baseline gap-4">
@@ -23,7 +23,7 @@ export function SectionBlock({ section, index }: { section: Section; index: numb
         <p
           key={paragraph.slice(0, 40)}
           className={`mb-5 text-[1.0625rem] leading-[1.85] text-ink-700 text-pretty sm:text-lg ${
-            index === 0 && i === 0
+            dropCap && index === 0 && i === 0
               ? 'first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:font-serif first-letter:text-6xl first-letter:italic first-letter:leading-[0.8] first-letter:text-gold-600'
               : ''
           }`}

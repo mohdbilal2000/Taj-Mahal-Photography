@@ -586,3 +586,14 @@ html[data-reveal='on'] .reveal-stagger.is-in > *:nth-child(n + 6) { transition-d
 .section-head > p {
   margin-top: 1rem;
 }
+
+/* Devanagari joins its letters; the wide tracking used on Latin small caps
+   pulls conjuncts apart ("प्ला निं ग"), so it is switched off in Hindi. */
+[lang='hi'] .eyebrow,
+[lang='hi'] .collage-label,
+[lang='hi'] .tracking-wide,
+[lang='hi'] .tracking-wider,
+[lang='hi'] .tracking-widest {
+  letter-spacing: normal;
+  text-transform: none;
+}

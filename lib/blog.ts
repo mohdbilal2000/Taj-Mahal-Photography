@@ -128,7 +128,7 @@ const CORE_POSTS: BlogPost[] = [
           head: ['Ticket', 'Approximate cost'],
           rows: [
             ['Indian national', '₹50'],
-            ['Foreign national', '₹1,300'],
+            ['Foreign national', '₹1,100'],
             ['Main mausoleum entry (anyone)', '₹200'],
             ['Agra Fort, foreign national', '₹650'],
           ],
@@ -748,7 +748,7 @@ const CORE_POSTS: BlogPost[] = [
     excerpt:
       'Ticket prices by nationality, the real opening time at sunrise, which of the three gates to use, and the extra ticket most visitors do not know about.',
     answer:
-      'The Taj Mahal opens about 40 minutes before sunrise and closes at sunset, and is closed every Friday. Tickets are ₹50 for Indian nationals, ₹540 for SAARC and BIMSTEC nationals and ₹1,100 for other foreign nationals, plus ₹200 for the separate ticket that allows you onto the main mausoleum plinth. The East Gate has the shortest sunrise queue; the South Gate does not open until 8 a.m.',
+      'The Taj Mahal opens about 30 minutes before sunrise and closes about 30 minutes before sunset, and is closed every Friday. Tickets are ₹50 for Indian nationals, ₹540 for SAARC and BIMSTEC nationals and ₹1,100 for other foreign nationals, plus ₹200 for the separate ticket that allows you onto the main mausoleum plinth. The East Gate has the shortest sunrise queue; the South Gate does not open until 8 a.m.',
     published: '2026-02-20',
     updated: '2026-10-22',
     readingMinutes: 6,
@@ -783,7 +783,7 @@ const CORE_POSTS: BlogPost[] = [
       {
         heading: 'What time it really opens',
         body: [
-          'Published hours are "sunrise to sunset", which in practice means the gates open roughly 40 minutes before sunrise — between 5:15 and 6:15 depending on the month — and close at sunset. There is no fixed clock time, and it moves through the year.',
+          'Published hours are "sunrise to sunset", which in practice means the gates open roughly 30 minutes before sunrise — between 5:15 and 6:15 depending on the month — and close about 30 minutes before sunset. There is no fixed clock time, and it moves through the year.',
           'The gate opening is not the moment to arrive. Security, the bag check and the walk through the forecourt take time, and the light that is worth being there for lasts about forty minutes. Arriving as the gate opens means you are inside for it; arriving at the published sunrise time means you are queuing through it.',
         ],
       },
@@ -1191,7 +1191,7 @@ const CORE_POSTS: BlogPost[] = [
     excerpt:
       'The 240km drive, what time you actually have to leave for a sunrise shoot, the two stops worth breaking the journey for, and when to stay the night instead.',
     answer:
-      'Jaipur to Agra is about 240 kilometres and takes four to five hours by road on the Jaipur–Agra highway (NH21), or roughly two hours by train on the Gatimaan Express. To photograph the Taj Mahal at sunrise you cannot do it as a same-day drive from Jaipur: the gates open around 6 a.m. and leaving Jaipur at 1 a.m. buys you a sleepless shoot. Either drive in the afternoon before and stay one night in Agra, or take the morning train and shoot the following dawn.',
+      'Jaipur to Agra is about 240 kilometres and takes four to five hours by road on the Jaipur–Agra highway (NH21), or about three and a half to four and a half hours by train, depending on the service. To photograph the Taj Mahal at sunrise you cannot do it as a same-day drive from Jaipur: the gates open around 6 a.m. and leaving Jaipur at 1 a.m. buys you a sleepless shoot. Either drive in the afternoon before and stay one night in Agra, or take the morning train and shoot the following dawn.',
     published: '2026-06-02',
     updated: '2026-10-23',
     readingMinutes: 7,
@@ -1213,12 +1213,12 @@ const CORE_POSTS: BlogPost[] = [
           head: ['Option', 'What it costs you'],
           rows: [
             ['Private car, 4–5 hours', 'Most flexible. You can stop at Abhaneri and Fatehpur Sikri on the way and arrive in Agra by evening'],
-            ['Gatimaan Express, ~2 hours', 'Fastest and cheapest, but it runs Agra-bound in the morning, which puts you in Agra after the good light'],
+            ['Train, about 3.5–4.5 hours', 'Cheapest fast option, but there are only a few services and their timings decide your day: check current times on IRCTC before you plan a sunrise around one'],
             ['Bus, 5–6 hours', 'Cheapest. No stops you would want, and no control over arrival time'],
           ],
         },
         body: [
-          'Most people reach for the train because it is quick, and then discover that the quick train arrives at the wrong end of the day. If you want the monument at first light, the drive the afternoon before is the plan that works.',
+          'Many people reach for the train because it is quick, but there are only a few services and their timings can land you in Agra at an awkward hour. If you want the monument at first light, the drive the afternoon before is the plan with the fewest ways to go wrong.',
         ],
       },
       {

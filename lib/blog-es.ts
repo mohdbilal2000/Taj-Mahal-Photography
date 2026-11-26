@@ -11,7 +11,8 @@ import type { BlogPost } from './blog';
  * translated line by line.
  */
 
-export type EsGuide = BlogPost & { enSlug: string };
+export type LocaleGuide = BlogPost & { enSlug: string };
+export type EsGuide = LocaleGuide;
 
 const FECHA = '2026-11-27';
 const EQUIPO = 'Equipo editorial de Taj Mahal Photography';
@@ -25,7 +26,7 @@ const pitch = (heading: string, intro: string, whatsappText: string) => ({
   whatsappText,
 });
 
-export const ES_GUIDES: EsGuide[] = [
+export const ES_GUIDES: LocaleGuide[] = [
   {
     enSlug: 'india-photography-trip-from-mexico',
     slug: 'viaje-fotografico-a-la-india-desde-mexico',

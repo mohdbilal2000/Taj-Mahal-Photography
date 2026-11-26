@@ -20,7 +20,7 @@ export const faqs: Faq[] = [
   {
     question: 'How early should I arrive for a sunrise session?',
     answer:
-      'Be at the gate as it opens, roughly forty minutes before sunrise — between 5:15 and 6:15 depending on the month. We confirm the exact time the day before. The light that is worth being there for lasts about forty minutes, so arriving at the published sunrise time means queueing through it.',
+      'Be at the gate as it opens, roughly thirty minutes before sunrise — between 5:15 and 6:15 depending on the month. We confirm the exact time the day before. The light that is worth being there for lasts about forty minutes, so arriving at the published sunrise time means queueing through it.',
   },
   {
     question: 'Do I need the extra ₹200 ticket?',
@@ -130,7 +130,7 @@ export const faqs: Faq[] = [
   {
     question: 'Are monument entry tickets included in the photography packages?',
     answer:
-      'Monument entry tickets are not included in the standalone photography packages ($89 to $499). They ARE included in both Sunrise Luxury Tours from Delhi (from $650 and from $899). Foreign-national tickets to the Taj Mahal currently cost ₹1,300 plus ₹200 for the main mausoleum.',
+      'Monument entry tickets are not included in the standalone photography packages ($89 to $499). They ARE included in both Sunrise Luxury Tours from Delhi (from $650 and from $899). Foreign-national tickets to the Taj Mahal currently cost ₹1,100 plus ₹200 for the main mausoleum.',
   },
   {
     question: 'Do you offer pre-wedding photography at the Taj Mahal?',

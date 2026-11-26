@@ -24,7 +24,7 @@ export const SEO: Record<string, { seoTitle: string; seoDescription: string }> =
   'jaipur-to-agra-taj-mahal-photo-trip': {
     seoTitle: 'Jaipur to Taj Mahal Distance: 240 km, 4–5 Hours by Road',
     seoDescription:
-      'Jaipur to Agra is about 240 km: 4–5 hours by road or roughly 2 by train. When to leave, where to stop on the way, and how to reach the Taj Mahal for sunrise.',
+      'Jaipur to Agra is about 240 km: 4–5 hours by road, roughly 4 by the fastest train. When to leave, where to stop, and how to reach the Taj for sunrise.',
   },
   'taj-mahal-tickets-timings-gates': {
     seoTitle: 'Taj Mahal Ticket Price 2026: Timings, Gates & Entry Fee',

@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
 import { SITE } from '@/lib/seo';
 import { POSTS } from '@/lib/blog';
-import { ES_GUIDES } from '@/lib/blog-es';
+import { GUIDES } from '@/lib/guides';
+import { GUIDE_UI, type GuideLang } from '@/lib/guide-ui';
 import { LOCALES } from '@/lib/i18n';
 import { localeServices, serviceAlternates } from '@/lib/i18n-services';
 import { localeAlternates } from '@/lib/i18n';
@@ -68,21 +69,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
       alternates: { languages: { ...serviceAlternates('guided-photo-tour-small', SITE.url), 'x-default': `${SITE.url}/services/guided-photo-tour-small` } },
     },
-    {
-      url: `${SITE.url}/es/guias`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    ...ES_GUIDES.map((g) => ({
-      url: `${SITE.url}/es/guias/${g.slug}`,
-      lastModified: new Date(g.updated),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-      alternates: {
-        languages: { es: `${SITE.url}/es/guias/${g.slug}`, en: `${SITE.url}/blog/${g.enSlug}` },
+    ...(Object.keys(GUIDES) as GuideLang[]).flatMap((lang) => [
+      {
+        url: `${SITE.url}${GUIDE_UI[lang].base}`,
+        lastModified: now,
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
       },
-    })),
+      ...GUIDES[lang].map((g) => ({
+        url: `${SITE.url}${GUIDE_UI[lang].base}/${g.slug}`,
+        lastModified: new Date(g.updated),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+        alternates: {
+          languages: { [lang]: `${SITE.url}${GUIDE_UI[lang].base}/${g.slug}`, en: `${SITE.url}/blog/${g.enSlug}` },
+        },
+      })),
+    ]),
     {
       url: `${SITE.url}/plans`,
       lastModified: now,

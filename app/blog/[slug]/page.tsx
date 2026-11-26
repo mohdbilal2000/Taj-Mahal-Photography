@@ -21,7 +21,8 @@ import { notFound } from 'next/navigation';
 import { POSTS, postBySlug, postPlans, relatedPosts, sisterRelevant } from '@/lib/blog';
 import { SectionBlock, sectionId } from '@/components/blog/SectionBlock';
 import { planById, imageForPlan } from '@/lib/plans';
-import { esTwinOf } from '@/lib/blog-es';
+import { translationsOf } from '@/lib/guides';
+import { GUIDE_UI } from '@/lib/guide-ui';
 import {
   SITE,
   jsonLd,
@@ -50,8 +51,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     keywords: post.keywords,
     alternates: {
       canonical: url,
-      ...(esTwinOf(post.slug)
-        ? { languages: { en: url, es: `${SITE.url}/es/guias/${esTwinOf(post.slug)!.slug}`, 'x-default': url } }
+      ...(translationsOf(post.slug).length
+        ? {
+            languages: {
+              en: url,
+              ...Object.fromEntries(
+                translationsOf(post.slug).map((t) => [t.lang, `${SITE.url}${GUIDE_UI[t.lang].base}/${t.slug}`]),
+              ),
+              'x-default': url,
+            },
+          }
         : {}),
     },
     openGraph: {
