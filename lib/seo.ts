@@ -35,9 +35,9 @@ export const SITE = {
   // site ends up with "Page with redirect" filling Search Console.
   url: 'https://www.tajmahalphotography.com',
   domain: 'www.tajmahalphotography.com',
-  title: 'Official Government Licensed Taj Mahal Photographer | Agra, India',
+  title: 'Taj Mahal Photographer & Photoshoot in Agra | From $99',
   description:
-    'Book an official government-licensed Taj Mahal photographer in Agra, India. Authorized permit holder for professional photography inside the Taj Mahal. Sunrise, couple, pre-wedding and guided photo tours with 48-hour delivery.',
+    'Government-licensed Taj Mahal photographer in Agra. Sunrise, couple and pre-wedding shoots from $99 (about ₹9,400), permit included, photos in 48–72 hours.',
   phone: '+918393010125',
   phoneDisplay: '+91 83930 10125',
   email: 'booking@tajmahalphotography.com',

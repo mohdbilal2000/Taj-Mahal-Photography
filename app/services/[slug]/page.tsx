@@ -43,6 +43,8 @@ type ServiceData = {
   itinerary?: { time: string; title: string; detail: string }[];
   faqs: { question: string; answer: string }[];
   audience?: string;
+  /** Search-result description, when the on-page one is a short tagline. */
+  metaDescription?: string;
 };
 
 /**
@@ -62,6 +64,7 @@ const servicesData: Record<string, ServiceData> = {
   couple: {
     title: 'Couple & Pre-Wedding Photography',
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
+    metaDescription: 'Couple and pre-wedding photoshoot at the Taj Mahal from $199 (about ₹18,900): 2+ hours, 200+ photos, 30 edited photos and a cinematic video. Permit included.',
     quickAnswer:
       'A 2+ hour editorial couple or pre-wedding photoshoot at the Taj Mahal in Agra. From $199 USD, includes 200+ high-resolution photos, 30 professionally edited photos of your choice, a 30-second cinematic video, posing direction, and an official government photography permit. Government-licensed photographer authorized to bring professional equipment inside the monument.',
     longDescription:
@@ -80,6 +83,7 @@ const servicesData: Record<string, ServiceData> = {
   'pre-wedding': {
     title: 'Pre-Wedding Photography at the Taj Mahal',
     description: 'Editorial-style romantic portraits celebrating your upcoming wedding at the monument of love.',
+    metaDescription: 'Pre-wedding photoshoot at the Taj Mahal from $199 (about ₹18,900) with a licensed photographer: 200+ photos, 30 edited, cinematic video. Permit included.',
     quickAnswer:
       'A pre-wedding photoshoot at the Taj Mahal in Agra by a government-licensed photographer. From $199 USD for a 2+ hour session, 200+ high-resolution photos, 30 edited photos of your choice, and a 30-second cinematic video. Authorized to bring professional photo equipment inside the complex.',
     longDescription:
@@ -375,7 +379,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!service) return {};
   return {
     title: `${service.title} | From $${service.price}`,
-    description: service.description,
+    description: service.metaDescription ?? service.description,
     alternates: {
       canonical: `${SITE.url}/services/${slug}`,
       languages: {

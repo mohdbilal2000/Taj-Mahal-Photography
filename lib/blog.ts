@@ -1,6 +1,7 @@
 import { planById } from './plans';
 import { WORLD_POSTS } from './blog-world';
 import { SOURCES, type Source } from './blog-sources';
+import { SEO } from './blog-seo';
 
 /**
  * The blog.
@@ -49,6 +50,9 @@ export type BlogPost = {
     | 'Collaborations';
   /** Set when the article is not by the Agra photographer himself (planning guides for other countries). */
   byline?: string;
+  /** Wording Google shows in results, when it should differ from the page headline. */
+  seoTitle?: string;
+  seoDescription?: string;
   /** Official sources, merged in from lib/blog-sources.ts. */
   sources?: Source[];
   /** Closing block that introduces the studio — shown after the FAQ, before the packages. */
@@ -1681,6 +1685,7 @@ const CORE_POSTS: BlogPost[] = [
 export const POSTS: BlogPost[] = [...CORE_POSTS, ...WORLD_POSTS].map((post) => ({
   ...post,
   sources: SOURCES[post.slug] ?? post.sources,
+  ...SEO[post.slug],
 }));
 
 /** Guides where a reader planning a whole trip, not just the photographs, would use the sister company. */

@@ -43,14 +43,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const url = `${SITE.url}/blog/${post.slug}`;
 
   return {
-    title: { absolute: post.title },
-    description: post.excerpt,
+    title: { absolute: post.seoTitle ?? post.title },
+    description: post.seoDescription ?? post.excerpt,
     keywords: post.keywords,
     alternates: { canonical: url },
     openGraph: {
       type: 'article',
-      title: post.title,
-      description: post.excerpt,
+      title: post.seoTitle ?? post.title,
+      description: post.seoDescription ?? post.excerpt,
       url,
       images: [{ url: `${SITE.url}${post.image}`, alt: post.imageAlt }],
       publishedTime: post.published,
