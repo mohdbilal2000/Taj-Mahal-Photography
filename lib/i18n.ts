@@ -1,4 +1,5 @@
 import { QUICK_BOOK_IDS } from './plans';
+import { fillRatesDeep } from './rates';
 
 /**
  * Translated landing pages.
@@ -100,7 +101,7 @@ export type LocaleContent = {
 
 const PLAN_IDS = [...QUICK_BOOK_IDS];
 
-export const LOCALES: LocaleContent[] = [
+const RAW_LOCALES: LocaleContent[] = [
   {
     code: 'fr',
     hreflang: 'fr',
@@ -241,7 +242,7 @@ export const LOCALES: LocaleContent[] = [
     dir: 'ltr',
     title: 'Fotógrafo en el Taj Mahal | Sesión de fotos en Agra con permiso oficial',
     description:
-      'Fotógrafo con licencia del Ministerio de Turismo en el Taj Mahal, Agra. Sesión al amanecer desde 120 USD, fotos de pareja, guía y coche privado. Respondemos por WhatsApp en minutos.',
+      'Fotógrafo con licencia del Ministerio de Turismo en el Taj Mahal, Agra. Sesión al amanecer desde {usdc:sunrise}, fotos de pareja, guía y coche privado. Respondemos por WhatsApp en minutos.',
     keywords: [
       'fotógrafo taj mahal',
       'sesión de fotos taj mahal',
@@ -255,7 +256,7 @@ export const LOCALES: LocaleContent[] = [
     subline:
       'Diez años trabajando frente al monumento, licencia oficial del Ministerio de Turismo y la certeza de dónde colocarse a las seis de la mañana.',
     answer:
-      'Una sesión de fotos profesional en el Taj Mahal cuesta desde 120 USD y dura unas dos horas, al amanecer. Solo un fotógrafo con permiso oficial puede entrar equipo profesional al recinto: el trípode y el flash se rechazan en el control de seguridad. No se permite fotografiar dentro de la cámara funeraria, y un guía no puede acompañar al fotógrafo dentro del Taj Mahal — es norma del monumento, no nuestra.',
+      'Una sesión de fotos profesional en el Taj Mahal cuesta desde {usdc:sunrise} y dura unas dos horas, al amanecer. Solo un fotógrafo con permiso oficial puede entrar equipo profesional al recinto: el trípode y el flash se rechazan en el control de seguridad. No se permite fotografiar dentro de la cámara funeraria, y un guía no puede acompañar al fotógrafo dentro del Taj Mahal — es norma del monumento, no nuestra.',
     trustTitle: 'Por qué con nosotros',
     trust: [
       {
@@ -372,7 +373,7 @@ export const LOCALES: LocaleContent[] = [
     dir: 'ltr',
     title: 'Fotograf am Taj Mahal | Fotoshooting in Agra mit offizieller Lizenz',
     description:
-      'Vom indischen Tourismusministerium lizenzierter Fotograf am Taj Mahal in Agra. Sonnenaufgang-Shooting ab 120 USD, Paarfotos, Guide und Privatwagen. Antwort per WhatsApp in Minuten.',
+      'Vom indischen Tourismusministerium lizenzierter Fotograf am Taj Mahal in Agra. Sonnenaufgang-Shooting ab {usdc:sunrise}, Paarfotos, Guide und Privatwagen. Antwort per WhatsApp in Minuten.',
     keywords: [
       'fotograf taj mahal',
       'fotoshooting taj mahal',
@@ -386,7 +387,7 @@ export const LOCALES: LocaleContent[] = [
     subline:
       'Zehn Jahre direkt vor dem Monument, eine offizielle Lizenz des Tourismusministeriums und das Wissen, wo man um sechs Uhr morgens stehen muss.',
     answer:
-      'Ein professionelles Fotoshooting am Taj Mahal kostet ab 120 USD und dauert rund zwei Stunden, zum Sonnenaufgang. Nur ein Fotograf mit offizieller Lizenz darf Profiausrüstung in die Anlage bringen — Stativ und Blitz werden an der Sicherheitskontrolle abgewiesen. Im Grabraum ist Fotografieren verboten, und ein Guide darf den Fotografen im Inneren des Taj Mahal nicht begleiten. Das ist eine Vorschrift des Monuments, nicht unsere.',
+      'Ein professionelles Fotoshooting am Taj Mahal kostet ab {usdc:sunrise} und dauert rund zwei Stunden, zum Sonnenaufgang. Nur ein Fotograf mit offizieller Lizenz darf Profiausrüstung in die Anlage bringen — Stativ und Blitz werden an der Sicherheitskontrolle abgewiesen. Im Grabraum ist Fotografieren verboten, und ein Guide darf den Fotografen im Inneren des Taj Mahal nicht begleiten. Das ist eine Vorschrift des Monuments, nicht unsere.',
     trustTitle: 'Warum wir',
     trust: [
       {
@@ -503,7 +504,7 @@ export const LOCALES: LocaleContent[] = [
     dir: 'ltr',
     title: 'Fotografo al Taj Mahal | Servizio fotografico ad Agra con permesso',
     description:
-      'Fotografo autorizzato dal Ministero del Turismo indiano al Taj Mahal, ad Agra. Servizio all’alba da 120 USD, foto di coppia, guida e auto privata. Rispondiamo su WhatsApp in pochi minuti.',
+      'Fotografo autorizzato dal Ministero del Turismo indiano al Taj Mahal, ad Agra. Servizio all’alba da {usdc:sunrise}, foto di coppia, guida e auto privata. Rispondiamo su WhatsApp in pochi minuti.',
     keywords: [
       'fotografo taj mahal',
       'servizio fotografico taj mahal',
@@ -517,7 +518,7 @@ export const LOCALES: LocaleContent[] = [
     subline:
       'Dieci anni davanti al monumento, una licenza ufficiale del Ministero del Turismo e la certezza di dove mettersi alle sei del mattino.',
     answer:
-      'Un servizio fotografico professionale al Taj Mahal costa a partire da 120 USD e dura circa due ore, all’alba. Solo un fotografo con permesso ufficiale può portare attrezzatura professionale dentro il complesso: cavalletto e flash vengono respinti ai controlli. È vietato fotografare all’interno della camera funeraria e una guida non può accompagnare il fotografo dentro il Taj Mahal: è una regola del monumento, non nostra.',
+      'Un servizio fotografico professionale al Taj Mahal costa a partire da {usdc:sunrise} e dura circa due ore, all’alba. Solo un fotografo con permesso ufficiale può portare attrezzatura professionale dentro il complesso: cavalletto e flash vengono respinti ai controlli. È vietato fotografare all’interno della camera funeraria e una guida non può accompagnare il fotografo dentro il Taj Mahal: è una regola del monumento, non nostra.',
     trustTitle: 'Perché noi',
     trust: [
       {
@@ -634,7 +635,7 @@ export const LOCALES: LocaleContent[] = [
     dir: 'ltr',
     title: 'Fotógrafo no Taj Mahal | Ensaio fotográfico em Agra com licença oficial',
     description:
-      'Fotógrafo licenciado pelo Ministério do Turismo da Índia no Taj Mahal, em Agra. Ensaio ao amanhecer a partir de 120 USD, fotos de casal, guia e carro privativo. Resposta no WhatsApp em minutos.',
+      'Fotógrafo licenciado pelo Ministério do Turismo da Índia no Taj Mahal, em Agra. Ensaio ao amanhecer a partir de {usdc:sunrise}, fotos de casal, guia e carro privativo. Resposta no WhatsApp em minutos.',
     keywords: [
       'fotógrafo taj mahal',
       'ensaio fotográfico taj mahal',
@@ -648,7 +649,7 @@ export const LOCALES: LocaleContent[] = [
     subline:
       'Dez anos em frente ao monumento, licença oficial do Ministério do Turismo e a certeza de onde ficar às seis da manhã.',
     answer:
-      'Um ensaio fotográfico profissional no Taj Mahal custa a partir de 120 USD e dura cerca de duas horas, ao amanhecer. Só um fotógrafo com licença oficial pode levar equipamento profissional para dentro do complexo — tripé e flash são barrados na segurança. É proibido fotografar dentro da câmara funerária, e um guia não pode acompanhar o fotógrafo dentro do Taj Mahal: é regra do monumento, não nossa.',
+      'Um ensaio fotográfico profissional no Taj Mahal custa a partir de {usdc:sunrise} e dura cerca de duas horas, ao amanhecer. Só um fotógrafo com licença oficial pode levar equipamento profissional para dentro do complexo — tripé e flash são barrados na segurança. É proibido fotografar dentro da câmara funerária, e um guia não pode acompanhar o fotógrafo dentro do Taj Mahal: é regra do monumento, não nossa.',
     trustTitle: 'Por que com a gente',
     trust: [
       {
@@ -765,7 +766,7 @@ export const LOCALES: LocaleContent[] = [
     dir: 'ltr',
     title: 'Фотограф у Тадж-Махала | Фотосессия в Агре с официальным разрешением',
     description:
-      'Фотограф с лицензией Министерства туризма Индии у Тадж-Махала в Агре. Съёмка на рассвете от 120 USD, парные фото, гид и личный автомобиль. Ответ в WhatsApp за минуты.',
+      'Фотограф с лицензией Министерства туризма Индии у Тадж-Махала в Агре. Съёмка на рассвете от {usdc:sunrise}, парные фото, гид и личный автомобиль. Ответ в WhatsApp за минуты.',
     keywords: [
       'фотограф тадж махал',
       'фотосессия тадж махал',
@@ -779,7 +780,7 @@ export const LOCALES: LocaleContent[] = [
     subline:
       'Десять лет работы у самого монумента, официальная лицензия Министерства туризма и точное знание, где стоять в шесть утра.',
     answer:
-      'Профессиональная фотосессия у Тадж-Махала стоит от 120 USD и занимает около двух часов — на рассвете. Пронести профессиональную технику на территорию может только фотограф с официальным разрешением: штатив и вспышку на досмотре не пропускают. Съёмка внутри усыпальницы запрещена, а гид не имеет права сопровождать фотографа внутри комплекса — это правило монумента, а не наше.',
+      'Профессиональная фотосессия у Тадж-Махала стоит от {usdc:sunrise} и занимает около двух часов — на рассвете. Пронести профессиональную технику на территорию может только фотограф с официальным разрешением: штатив и вспышку на досмотре не пропускают. Съёмка внутри усыпальницы запрещена, а гид не имеет права сопровождать фотографа внутри комплекса — это правило монумента, а не наше.',
     trustTitle: 'Почему мы',
     trust: [
       {
@@ -1286,7 +1287,7 @@ export const LOCALES: LocaleContent[] = [
     dir: 'ltr',
     title: 'ताजमहल फोटोग्राफर | आगरा में लाइसेंसी फोटो शूट',
     description:
-      'आगरा के ताजमहल पर पर्यटन मंत्रालय से लाइसेंस प्राप्त फोटोग्राफर। सनराइज़ शूट $120 से, कपल और प्री-वेडिंग शूट, गाइड और प्राइवेट कार। WhatsApp पर कुछ मिनटों में जवाब।',
+      'आगरा के ताजमहल पर पर्यटन मंत्रालय से लाइसेंस प्राप्त फोटोग्राफर। सनराइज़ शूट {usd:sunrise} से, कपल और प्री-वेडिंग शूट, गाइड और प्राइवेट कार। WhatsApp पर कुछ मिनटों में जवाब।',
     keywords: [
       'ताजमहल फोटोग्राफर',
       'ताजमहल फोटो शूट',
@@ -1300,7 +1301,7 @@ export const LOCALES: LocaleContent[] = [
     subline:
       'स्मारक के सामने दस साल का काम, पर्यटन मंत्रालय का आधिकारिक लाइसेंस, और सुबह छह बजे कहाँ खड़ा होना है इसकी पक्की जानकारी।',
     answer:
-      'ताजमहल पर प्रोफेशनल फोटो शूट $120 (लगभग) से शुरू होता है और सूर्योदय के समय करीब दो घंटे चलता है। परिसर में प्रोफेशनल कैमरा उपकरण केवल आधिकारिक परमिट वाला फोटोग्राफर ले जा सकता है — ट्राइपॉड और फ्लैश सुरक्षा जाँच पर रोक दिए जाते हैं। मुख्य मक़बरे के अंदर फोटोग्राफी मना है, और ताजमहल के भीतर गाइड फोटोग्राफर के साथ नहीं जा सकता — यह नियम स्मारक का है, हमारा नहीं।',
+      'ताजमहल पर प्रोफेशनल फोटो शूट {usd:sunrise} (लगभग) से शुरू होता है और सूर्योदय के समय करीब दो घंटे चलता है। परिसर में प्रोफेशनल कैमरा उपकरण केवल आधिकारिक परमिट वाला फोटोग्राफर ले जा सकता है — ट्राइपॉड और फ्लैश सुरक्षा जाँच पर रोक दिए जाते हैं। मुख्य मक़बरे के अंदर फोटोग्राफी मना है, और ताजमहल के भीतर गाइड फोटोग्राफर के साथ नहीं जा सकता — यह नियम स्मारक का है, हमारा नहीं।',
     trustTitle: 'हमारे साथ क्यों',
     trust: [
       {
@@ -1410,6 +1411,8 @@ export const LOCALES: LocaleContent[] = [
     serviceBackLabel: 'सारे पैकेज',
   },
 ];
+
+export const LOCALES: LocaleContent[] = fillRatesDeep(RAW_LOCALES);
 
 export const LOCALE_CODES = LOCALES.map((l) => l.code);
 

@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import { fillRates, usdOf } from '@/lib/rates';
 import PackagePhotos from '@/components/PackagePhotos';
 import Footer from '@/components/Footer';
 import StickyWhatsApp from '@/components/StickyWhatsApp';
@@ -14,8 +15,8 @@ import { breadcrumbSchema, serviceSchema, faqSchema, speakableSpec, webPageSchem
 import { serviceAlternates } from '@/lib/i18n-services';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Taj Mahal Sunrise Photoshoot — $120, Licensed' },
-  description: 'Taj Mahal sunrise photoshoot, $120 (about ₹11,400): 1.5–2 hours, 120+ photos, 3–5 reels, official permit included. Your photographer meets you at your hotel.',
+  title: { absolute: fillRates('Taj Mahal Sunrise Photoshoot — {usd:sunrise}, Licensed') },
+  description: fillRates('Taj Mahal sunrise photoshoot, {usd:sunrise} (about {inr:sunrise}): 1.5–2 hours, 120+ photos, 3–5 reels, official permit included. Your photographer meets you at your hotel.'),
   alternates: {
     canonical: `${SITE.url}/services/sunrise`,
     languages: {
@@ -106,7 +107,7 @@ export default function SunriseServicePage() {
               <div className="bg-marble-50 p-8 border border-marble-200 rounded-sm sticky top-32">
                 <h3 className="font-serif text-2xl font-semibold text-ink-900 mb-2">Package Details</h3>
                 <div className="text-3xl font-light text-ink-900 mb-6">
-                  <Price planId="sunrise" usd={120} />
+                  <Price planId="sunrise" usd={usdOf('sunrise')} />
                 </div>
                 <InrRateNote className="-mt-4 mb-6" />
 

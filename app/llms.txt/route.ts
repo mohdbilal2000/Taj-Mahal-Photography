@@ -4,6 +4,7 @@ import { GUIDES } from '@/lib/guides';
 import { GUIDE_UI } from '@/lib/guide-ui';
 import { LOCALES } from '@/lib/i18n';
 import { localeServices } from '@/lib/i18n-services';
+import { fillRates } from '@/lib/rates';
 
 export const dynamic = 'force-static';
 
@@ -30,27 +31,27 @@ const BODY = `# ${SITE.name}
 
 ## Photography Packages
 
-- [Sunrise Photoshoot — $120](${SITE.url}/services/sunrise): 1.5–2 hour sunrise session, 120+ photos, 3–5 reels (solo/couple/family). The photographer meets you at your hotel; no car or transport is included. Customisable; 20% advance confirms the booking.
-- [Pre-Wedding & Couple — from $199](${SITE.url}/services/couple): 2+ hour editorial session, 200+ high-resolution photos, 30 edited photos of your choice, 30-second cinematic video, posing direction. Customisable; 20% advance confirms the booking.
-- [Taj Mahal + Agra Fort Heritage Trail — $399](${SITE.url}/services/taj-agra-fort): 5 hours, both UNESCO sites, 250+ photos.
-- [Full Day Agra Experience — $499](${SITE.url}/services/full-day): 8–10 hours, Taj Mahal + Agra Fort + Back Side of Taj, 350+ photos.
+- [Sunrise Photoshoot — {usd:sunrise}](${SITE.url}/services/sunrise): 1.5–2 hour sunrise session, 120+ photos, 3–5 reels (solo/couple/family). The photographer meets you at your hotel; no car or transport is included. Customisable; 20% advance confirms the booking.
+- [Pre-Wedding & Couple — from {usd:pre-wedding}](${SITE.url}/services/couple): 2+ hour editorial session, 200+ high-resolution photos, 30 edited photos of your choice, 30-second cinematic video, posing direction. Customisable; 20% advance confirms the booking.
+- [Taj Mahal + Agra Fort Heritage Trail — {usd:taj-agra-fort}](${SITE.url}/services/taj-agra-fort): 5 hours, both UNESCO sites, 250+ photos.
+- [Full Day Agra Experience — {usd:full-day}](${SITE.url}/services/full-day): 8–10 hours, Taj Mahal + Agra Fort + Back Side of Taj, 350+ photos.
 
 ## Guide + Photographer Combo (Taj Mahal, Agra Fort, Mehtab Bagh / Itmad-ud-Daulah)
 
 - [All plans and prices](${SITE.url}/plans): Every package in one place, grouped by what you want, with a side-by-side comparison.
-- [Romantic Couple Photoshoot — $200](${SITE.url}/services/romantic-couple-shoot): A 2-hour private romantic session for two at the Taj Mahal with a government-licensed photographer. 150+ edited photos and 5 reels. Photography only; monument tickets are not included.
-- [Solo Portrait Photoshoot — from $99](${SITE.url}/services/solo-photoshoot): A 1-hour private portrait session for one person at the Taj Mahal with a government-licensed photographer. 60+ edited photos and 2 reels. Photography only; monument tickets are not included.
-- [Guided Tour + Photo · Small Group (1–5 Guests) — from $89](${SITE.url}/services/guided-photo-tour-small): A licensed local guide and a professional photographer are both included, covering the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for up to 5 guests. Inside the Taj Mahal itself a guide is not permitted alongside a photographer, so there the photographer accompanies you; the guide is with you at every other monument. 40 natural digital photos plus 5 reels. 20% advance confirms the booking, balance after the tour. Monument tickets not included.
-- [Guided Tour + Photo · Large Group (6–12 Guests) — from $119](${SITE.url}/services/guided-photo-tour-large): Same combo for larger groups of 6 to 12 guests. Group portraits plus individual portraits. 60 natural digital photos plus 7 reels. 20% advance confirms the booking, balance after the tour. Monument tickets not included.
+- [Romantic Couple Photoshoot — {usd:romantic-couple-shoot}](${SITE.url}/services/romantic-couple-shoot): A 2-hour private romantic session for two at the Taj Mahal with a government-licensed photographer. 150+ edited photos and 5 reels. Photography only; monument tickets are not included.
+- [Solo Portrait Photoshoot — from {usd:solo-photoshoot}](${SITE.url}/services/solo-photoshoot): A 1-hour private portrait session for one person at the Taj Mahal with a government-licensed photographer. 60+ edited photos and 2 reels. Photography only; monument tickets are not included.
+- [Guided Tour + Photo · Small Group (1–5 Guests) — from {usd:guided-photo-tour-small}](${SITE.url}/services/guided-photo-tour-small): A licensed local guide and a professional photographer are both included, covering the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for up to 5 guests. Inside the Taj Mahal itself a guide is not permitted alongside a photographer, so there the photographer accompanies you; the guide is with you at every other monument. 40 natural digital photos plus 5 reels. 20% advance confirms the booking, balance after the tour. Monument tickets not included.
+- [Guided Tour + Photo · Large Group (6–12 Guests) — from {usd:guided-photo-tour-large}](${SITE.url}/services/guided-photo-tour-large): Same combo for larger groups of 6 to 12 guests. Group portraits plus individual portraits. 60 natural digital photos plus 7 reels. 20% advance confirms the booking, balance after the tour. Monument tickets not included.
 
 ## Transport + Guide (Private Car, Same Day Agra)
 
-- [Transport + Guide (No Photography) — from $99](${SITE.url}/services/transport-guide): Same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from $99 USD. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh, with hotel, railway station or Agra airport pickup; the exact all-in quote is confirmed on WhatsApp before booking. No photographer — ideal for travellers who shoot their own photos. Monument tickets not included.
+- [Transport + Guide (No Photography) — from {usd:transport-guide}](${SITE.url}/services/transport-guide): Same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from {usd:transport-guide} USD. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh, with hotel, railway station or Agra airport pickup; the exact all-in quote is confirmed on WhatsApp before booking. No photographer — ideal for travellers who shoot their own photos. Monument tickets not included.
 
 ## Same-Day Sunrise Luxury Tours from Delhi/NCR
 
-- [Sunrise Luxury Tour (Private Innova) — from $650](${SITE.url}/services/sunrise-luxury-innova): Same-day Delhi/NCR ↔ Agra in a private Toyota Innova (up to 6 guests), starting price with the exact quote confirmed on WhatsApp. Covers Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort that skips the entry line. Ideal for couples and small families.
-- [Sunrise Luxury Urbania Tour — from $899](${SITE.url}/services/sunrise-luxury-urbania): Same-day Delhi/NCR ↔ Agra in a private Force Urbania luxury coach (up to 13 guests) with reclining seats, A/C and Wi-Fi. Same inclusions as the Innova tour — guide, photographer, tickets, golf cart, security escort — sized for larger families and groups.
+- [Sunrise Luxury Tour (Private Innova) — from {usd:sunrise-luxury-innova}](${SITE.url}/services/sunrise-luxury-innova): Same-day Delhi/NCR ↔ Agra in a private Toyota Innova (up to 6 guests), starting price with the exact quote confirmed on WhatsApp. Covers Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort that skips the entry line. Ideal for couples and small families.
+- [Sunrise Luxury Urbania Tour — from {usd:sunrise-luxury-urbania}](${SITE.url}/services/sunrise-luxury-urbania): Same-day Delhi/NCR ↔ Agra in a private Force Urbania luxury coach (up to 13 guests) with reclining seats, A/C and Wi-Fi. Same inclusions as the Innova tour — guide, photographer, tickets, golf cart, security escort — sized for larger families and groups.
 
 ## Key Site Pages
 
@@ -118,7 +119,7 @@ ${LOCALES.map((locale) => {
 `;
 
 export function GET() {
-  return new Response(BODY, {
+  return new Response(fillRates(BODY), {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400',

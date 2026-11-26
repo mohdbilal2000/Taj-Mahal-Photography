@@ -2,6 +2,7 @@ import { planById } from './plans';
 import { WORLD_POSTS } from './blog-world';
 import { SOURCES, type Source } from './blog-sources';
 import { SEO } from './blog-seo';
+import { fillRatesDeep } from './rates';
 
 /**
  * The blog.
@@ -392,7 +393,7 @@ const CORE_POSTS: BlogPost[] = [
       {
         question: 'How much does a pre-wedding shoot at the Taj Mahal cost?',
         answer:
-          'Our Couple & Pre-Wedding package starts from $199 USD for a 2+ hour session with 200+ photographs, 30 edited images and a 30-second cinematic video. The photography permit is included; monument tickets are separate.',
+          'Our Couple & Pre-Wedding package starts from {usd:pre-wedding} USD for a 2+ hour session with 200+ photographs, 30 edited images and a 30-second cinematic video. The photography permit is included; monument tickets are separate.',
       },
       {
         question: 'How far in advance should I book a pre-wedding shoot?',
@@ -628,7 +629,7 @@ const CORE_POSTS: BlogPost[] = [
       {
         question: 'How much does a Delhi to Agra day tour cost?',
         answer:
-          'Our same-day Sunrise Luxury Tour starts from $650 USD in a private Innova for up to 6 guests, including vehicle, guide, photographer, monument tickets, golf cart and skip-the-line escort.',
+          'Our same-day Sunrise Luxury Tour starts from {usd:sunrise-luxury-innova} USD in a private Innova for up to 6 guests, including vehicle, guide, photographer, monument tickets, golf cart and skip-the-line escort.',
       },
     ],
   },
@@ -638,7 +639,7 @@ const CORE_POSTS: BlogPost[] = [
     excerpt:
       'Real numbers for every kind of shoot, what is bundled into them, what is charged separately, and the three ways a cheap quote gets expensive at the gate.',
     answer:
-      'A professional photographer at the Taj Mahal costs between $89 and $499 USD depending on the package. A two-hour sunrise session is $120 and includes 120+ edited photos; a couple or pre-wedding session starts at $199; a guide and photographer together start at $89 for up to five guests; a full day covering the Taj Mahal, Agra Fort and the sunset view is $499. Monument entry tickets are always separate and are set by the Archaeological Survey of India, not by the photographer.',
+      'A professional photographer at the Taj Mahal costs between {usd:min} and {usd:max} USD depending on the package (about {inr:min} to {inr:max}). A two-hour sunrise session is {usd:sunrise} and includes 120+ edited photos; a couple or pre-wedding session starts at {usd:pre-wedding}; a guide and photographer together start at {usd:guided-photo-tour-small} for up to five guests; a full day covering the Taj Mahal, Agra Fort and the sunset view is {usd:full-day}. Monument entry tickets are always separate and are set by the Archaeological Survey of India, not by the photographer.',
     published: '2026-02-02',
     updated: '2026-10-22',
     readingMinutes: 7,
@@ -662,15 +663,15 @@ const CORE_POSTS: BlogPost[] = [
         table: {
           head: ['Package', 'Price and what you get'],
           rows: [
-            ['Solo portrait · 1 hour', 'From $99 — 60+ edited photos, 2 reels, photographer meets you at your hotel'],
-            ['Sunrise session · 1.5–2 hours', '$120 — 120+ high-resolution photos, 3–5 reels, photographer meets you at your hotel'],
-            ['Romantic couple · 2 hours', '$200 — 150+ edited photos, 5 reels, photographer meets you at your hotel'],
-            ['Couple / pre-wedding · 2+ hours', 'From $199 — 200+ photos, 30 edited to your choice, a cinematic video'],
-            ['Guide + photographer · 1–5 guests', 'From $89 — licensed guide and photographer, 40 photos, 5 reels, half day'],
-            ['Guide + photographer · 6–12 guests', 'From $119 — 60 photos, 7 reels, group and individual portraits'],
-            ['Transport + guide, no photography', 'From $99 — private A/C car, driver and licensed guide for the day'],
-            ['Taj Mahal + Agra Fort · 5 hours', '$399 — both UNESCO sites, 250+ photos, transport included'],
-            ['Full day Agra · 8–10 hours', '$499 — Taj Mahal, Agra Fort and the back-side sunset, 350+ photos'],
+            ['Solo portrait · 1 hour', 'From {both:solo-photoshoot} — 60+ edited photos, 2 reels, photographer meets you at your hotel'],
+            ['Sunrise session · 1.5–2 hours', '{both:sunrise} — 120+ high-resolution photos, 3–5 reels, photographer meets you at your hotel'],
+            ['Romantic couple · 2 hours', '{both:romantic-couple-shoot} — 150+ edited photos, 5 reels, photographer meets you at your hotel'],
+            ['Couple / pre-wedding · 2+ hours', 'From {both:pre-wedding} — 200+ photos, 30 edited to your choice, a cinematic video'],
+            ['Guide + photographer · 1–5 guests', 'From {both:guided-photo-tour-small} — licensed guide and photographer, 40 photos, 5 reels, half day'],
+            ['Guide + photographer · 6–12 guests', 'From {both:guided-photo-tour-large} — 60 photos, 7 reels, group and individual portraits'],
+            ['Transport + guide, no photography', 'From {both:transport-guide} — private A/C car, driver and licensed guide for the day'],
+            ['Taj Mahal + Agra Fort · 5 hours', '{both:taj-agra-fort} — both UNESCO sites, 250+ photos, transport included'],
+            ['Full day Agra · 8–10 hours', '{both:full-day} — Taj Mahal, Agra Fort and the back-side sunset, 350+ photos'],
           ],
         },
       },
@@ -723,7 +724,7 @@ const CORE_POSTS: BlogPost[] = [
       {
         question: 'Is the price per person or for the whole group?',
         answer:
-          'For the whole booking, not per person. A sunrise session at $120 covers a solo traveller, a couple or a family at the same price. The guide-and-photographer packages change at six guests because group portraits need more time and more coverage.',
+          'For the whole booking, not per person. A sunrise session at {usd:sunrise} covers a solo traveller, a couple or a family at the same price. The guide-and-photographer packages change at six guests because group portraits need more time and more coverage.',
       },
       {
         question: 'Do you charge more for a pre-wedding shoot than a regular one?',
@@ -738,7 +739,7 @@ const CORE_POSTS: BlogPost[] = [
       {
         question: 'Is there a cheaper option if I only want a few photos?',
         answer:
-          'The sunrise session at $120 is the entry point, and it is already the lowest-cost way to get permitted professional coverage inside the complex. Below that, the honest answer is a phone and good light — which is what the timing guide on this site is for.',
+          'The solo portrait from {usd:solo-photoshoot} is the entry point, and it is already the lowest-cost way to get permitted professional coverage inside the complex. Below that, the honest answer is a phone and good light — which is what the timing guide on this site is for.',
       },
     ],
   },
@@ -1067,7 +1068,7 @@ const CORE_POSTS: BlogPost[] = [
       {
         heading: 'Getting between the sites',
         body: [
-          'Everything above is within twenty minutes of everything else, but an auto-rickshaw negotiated fresh at each stop costs more in time than in money, especially at midday. A private car with a driver for the day is around $99 with a licensed guide included, and the difference it makes is not the comfort — it is that the car waits, so a plan built around light survives contact with the day.',
+          'Everything above is within twenty minutes of everything else, but an auto-rickshaw negotiated fresh at each stop costs more in time than in money, especially at midday. A private car with a driver for the day is around {usd:transport-guide} with a licensed guide included, and the difference it makes is not the comfort — it is that the car waits, so a plan built around light survives contact with the day.',
         ],
       },
       {
@@ -1658,7 +1659,7 @@ const CORE_POSTS: BlogPost[] = [
       {
         heading: 'What it costs',
         body: [
-          'The guide-and-photographer package starts at $89 for up to five guests and $119 for six to twelve, covering the Taj Mahal, Agra Fort and Mehtab Bagh or Itimad-ud-Daulah, with 60 photographs and seven reels for the larger group. Monument tickets are separate and are much cheaper for Indian nationals.',
+          'The guide-and-photographer package starts at {usd:guided-photo-tour-small} for up to five guests and {usd:guided-photo-tour-large} for six to twelve, covering the Taj Mahal, Agra Fort and Mehtab Bagh or Itimad-ud-Daulah, with 60 photographs and seven reels for the larger group. Monument tickets are separate and are much cheaper for Indian nationals.',
           'Above twelve, we add a second photographer rather than stretch one across the group.',
         ],
       },
@@ -1684,11 +1685,13 @@ const CORE_POSTS: BlogPost[] = [
 ];
 
 /** Agra articles first (the featured slot), then the world guides. */
-export const POSTS: BlogPost[] = [...CORE_POSTS, ...WORLD_POSTS].map((post) => ({
-  ...post,
-  sources: SOURCES[post.slug] ?? post.sources,
-  ...SEO[post.slug],
-}));
+export const POSTS: BlogPost[] = [...CORE_POSTS, ...WORLD_POSTS].map((post) =>
+  fillRatesDeep({
+    ...post,
+    sources: SOURCES[post.slug] ?? post.sources,
+    ...SEO[post.slug],
+  }),
+);
 
 /** Guides where a reader planning a whole trip, not just the photographs, would use the sister company. */
 export function sisterRelevant(post: BlogPost): boolean {

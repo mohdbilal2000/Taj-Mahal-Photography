@@ -10,7 +10,8 @@
     "clean": "next clean",
     "pdfs": "node scripts/generate-pdfs.mjs",
     "audit": "node scripts/audit-pages.mjs",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "check:rates": "node scripts/check-rates.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.17.0",

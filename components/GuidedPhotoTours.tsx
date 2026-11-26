@@ -7,13 +7,14 @@ import Link from 'next/link';
 import { Check, Users, Camera, ShieldCheck, MapPin, Film } from 'lucide-react';
 import Price from './Price';
 import { planImage } from '@/lib/images';
+import { usdOf } from '@/lib/rates';
 
 const packages = [
   {
     id: 'guided-photo-tour-small',
     name: 'Guided Tour + Photo · Small Group',
     tagline: '1–5 Guests · Taj Mahal, Agra Fort & more',
-    price: 89,
+    price: usdOf('guided-photo-tour-small'),
     capacity: 'Up to 5 guests',
     icon: Users,
     description:
@@ -34,7 +35,7 @@ const packages = [
     id: 'guided-photo-tour-large',
     name: 'Guided Tour + Photo · Large Group',
     tagline: '6–12 Guests · Taj Mahal, Agra Fort & more',
-    price: 119,
+    price: usdOf('guided-photo-tour-large'),
     capacity: 'Up to 12 guests',
     icon: Users,
     description:

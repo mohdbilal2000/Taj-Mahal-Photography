@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Instagram, Mail, Phone, MapPin, Camera, Linkedin, Facebook } from 'lucide-react';
 import { SITE } from '@/lib/seo';
 import { LOCALES } from '@/lib/i18n';
+import { usdOf } from '@/lib/rates';
 
 export default function Footer() {
   return (
@@ -92,7 +93,7 @@ export default function Footer() {
                   href="/services/guided-photo-tour-small"
                   className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
-                  Guide + Photo · Small Group (from $89)
+                  Guide + Photo · Small Group (from ${usdOf('guided-photo-tour-small')})
                 </Link>
               </li>
               <li>
@@ -100,7 +101,7 @@ export default function Footer() {
                   href="/services/guided-photo-tour-large"
                   className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
-                  Guide + Photo · Large Group (from $119)
+                  Guide + Photo · Large Group (from ${usdOf('guided-photo-tour-large')})
                 </Link>
               </li>
               <li>
@@ -116,7 +117,7 @@ export default function Footer() {
                   href="/services/romantic-couple-shoot"
                   className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
-                  Romantic Couple Shoot ($200)
+                  Romantic Couple Shoot (${usdOf('romantic-couple-shoot')})
                 </Link>
               </li>
               <li>
@@ -124,7 +125,7 @@ export default function Footer() {
                   href="/services/solo-photoshoot"
                   className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
-                  Solo Portrait Photoshoot (from $99)
+                  Solo Portrait Photoshoot (from ${usdOf('solo-photoshoot')})
                 </Link>
               </li>
               <li>
@@ -132,7 +133,7 @@ export default function Footer() {
                   href="/services/transport-guide"
                   className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
                 >
-                  Transport + Guide (from $99)
+                  Transport + Guide (from ${usdOf('transport-guide')})
                 </Link>
               </li>
               <li>

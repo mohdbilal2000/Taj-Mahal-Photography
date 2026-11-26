@@ -1,4 +1,5 @@
 import { planImage } from './images';
+import { usdOf } from './rates';
 
 // Single source of truth for bookable plans — consumed by the QuickBookRail,
 // the booking form (plan preselection via /book?plan=<id>) and anywhere else
@@ -27,7 +28,7 @@ export const PLANS: Plan[] = [
   {
     id: 'sunrise',
     name: 'Taj Mahal Sunrise Photoshoot',
-    price: 120,
+    price: usdOf('sunrise'),
     tagline: '120+ photos and 3–5 reels — your photographer meets you at your hotel',
     duration: '1.5–2 Hours',
     badge: 'Bestseller',
@@ -36,7 +37,7 @@ export const PLANS: Plan[] = [
   {
     id: 'pre-wedding',
     name: 'Couple & Pre-Wedding',
-    price: 199,
+    price: usdOf('pre-wedding'),
     fromPrice: true,
     tagline: '200+ high-resolution photos, 30 edited photos and a cinematic video',
     duration: '2+ Hours',
@@ -45,7 +46,7 @@ export const PLANS: Plan[] = [
   {
     id: 'romantic-couple-shoot',
     name: 'Romantic Couple Photoshoot',
-    price: 200,
+    price: usdOf('romantic-couple-shoot'),
     tagline: 'Two hours for the two of you — 150+ edited photos and 5 reels',
     duration: '2 Hours',
     badge: 'Honeymoon Favourite',
@@ -53,7 +54,7 @@ export const PLANS: Plan[] = [
   {
     id: 'solo-photoshoot',
     name: 'Solo Portrait Photoshoot',
-    price: 99,
+    price: usdOf('solo-photoshoot'),
     fromPrice: true,
     tagline: 'Just you and a licensed photographer — 60+ edited photos and 2 reels',
     duration: '1 Hour',
@@ -62,7 +63,7 @@ export const PLANS: Plan[] = [
   {
     id: 'guided-photo-tour-small',
     name: 'Guide + Photo · Small Group (1–5)',
-    price: 89,
+    price: usdOf('guided-photo-tour-small'),
     fromPrice: true,
     tagline: 'Licensed guide + photographer, 40 natural digital photos and 5 reels',
     duration: 'Half Day',
@@ -71,7 +72,7 @@ export const PLANS: Plan[] = [
   {
     id: 'guided-photo-tour-large',
     name: 'Guide + Photo · Large Group (6–12)',
-    price: 119,
+    price: usdOf('guided-photo-tour-large'),
     fromPrice: true,
     tagline: 'Same combo for bigger groups — 60 natural digital photos and 7 reels',
     duration: 'Half Day',
@@ -79,7 +80,7 @@ export const PLANS: Plan[] = [
   {
     id: 'transport-guide',
     name: 'Transport + Guide (No Photography)',
-    price: 99,
+    price: usdOf('transport-guide'),
     fromPrice: true,
     tagline: 'Same-day Agra tour — private A/C car + licensed guide, bring your own camera',
     duration: 'Same Day · Agra',
@@ -88,21 +89,21 @@ export const PLANS: Plan[] = [
   {
     id: 'taj-agra-fort',
     name: 'Heritage Trail (Taj + Agra Fort)',
-    price: 399,
+    price: usdOf('taj-agra-fort'),
     tagline: 'Both UNESCO sites, 250+ photos, transport included',
     duration: '5 Hours',
   },
   {
     id: 'full-day',
     name: 'Full Day Agra Experience',
-    price: 499,
+    price: usdOf('full-day'),
     tagline: 'Taj Mahal, Agra Fort and the back-side sunset — 350+ photos',
     duration: '8–10 Hours',
   },
   {
     id: 'sunrise-luxury-innova',
     name: 'Sunrise Luxury Tour · Private Innova',
-    price: 650,
+    price: usdOf('sunrise-luxury-innova'),
     fromPrice: true,
     tagline: 'Same-day Delhi ↔ Agra, all-inclusive, up to 6 guests',
     duration: 'Same Day · 14–16 Hours',
@@ -111,7 +112,7 @@ export const PLANS: Plan[] = [
   {
     id: 'sunrise-luxury-urbania',
     name: 'Sunrise Luxury Tour · Urbania Coach',
-    price: 899,
+    price: usdOf('sunrise-luxury-urbania'),
     fromPrice: true,
     tagline: 'Same-day Delhi ↔ Agra for groups up to 13, all-inclusive',
     duration: 'Same Day · 14–16 Hours',

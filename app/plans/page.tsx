@@ -11,11 +11,12 @@ import { Metadata } from 'next';
 import packagesData from '@/lib/packages.json';
 import { PLANS, planById, DEPOSIT_NOTE, imageForPlan } from '@/lib/plans';
 import { DELIVERY, SITE, LAST_UPDATED, breadcrumbSchema, webPageSchema, graphSchema, jsonLd } from '@/lib/seo';
+import { fillRates } from '@/lib/rates';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Plans & Prices: Taj Mahal Photography Packages from $99' },
+  title: { absolute: fillRates('Plans & Prices: Taj Mahal Photography Packages from {usd:min}') },
   description:
-    'Every Taj Mahal photography plan in one place: solo from $99, sunrise $120, romantic couple $200, pre-wedding, guide + photo tours and same-day luxury tours, with what is included and how to choose.',
+    fillRates('Every Taj Mahal photography plan in one place: solo from {usd:solo-photoshoot}, sunrise {usd:sunrise}, romantic couple {usd:romantic-couple-shoot}, pre-wedding, guide + photo tours and same-day luxury tours, with what is included and how to choose.'),
   alternates: { canonical: `${SITE.url}/plans` },
   openGraph: {
     title: 'Plans & Prices | Taj Mahal Photography',

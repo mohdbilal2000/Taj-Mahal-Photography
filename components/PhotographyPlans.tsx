@@ -9,16 +9,17 @@ import Price from './Price';
 import InrRateNote from './InrRateNote';
 import { planImage } from '@/lib/images';
 import { SITE } from '@/lib/seo';
+import { fillRates, usdOf } from '@/lib/rates';
 
 const plans = [
   {
     id: 'sunrise',
     name: 'Taj Mahal Sunrise',
     tagline: 'The Essential Experience',
-    price: 120,
+    price: usdOf('sunrise'),
     duration: '1.5–2 Hours',
     description: 'Avoid the crowds and capture the Taj Mahal bathed in soft morning light. Your photographer meets you at your hotel and walks the morning with you.',
-    aiSnippet: 'The Taj Mahal sunrise photoshoot is a 1.5 to 2 hour session priced at $120 USD with more than 120 photos and 3 to 5 reels. The photographer meets you at your hotel; no car or transport is included. A government-licensed photographer is required for professional equipment entry.',
+    aiSnippet: fillRates('The Taj Mahal sunrise photoshoot is a 1.5 to 2 hour session priced at {usd:sunrise} USD with more than 120 photos and 3 to 5 reels. The photographer meets you at your hotel; no car or transport is included. A government-licensed photographer is required for professional equipment entry.'),
     features: [
       'Official Photography Permit Included',
       '120+ Photos',
@@ -32,11 +33,11 @@ const plans = [
     id: 'pre-wedding',
     name: 'Pre-Wedding & Couple',
     tagline: 'Editorial Romance',
-    price: 199,
+    price: usdOf('pre-wedding'),
     fromPrice: true,
     duration: '2+ Hours',
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
-    aiSnippet: 'Pre-wedding photography at the Taj Mahal starts from $199 USD for a 2+ hour session with more than 200 high-resolution photos, 30 professionally edited photos of your choice, and a 30-second cinematic video. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.',
+    aiSnippet: fillRates('Pre-wedding photography at the Taj Mahal starts from {usd:pre-wedding} USD for a 2+ hour session with more than 200 high-resolution photos, 30 professionally edited photos of your choice, and a 30-second cinematic video. Our licensed service includes authorized access to exclusive vantage points for uninterrupted romantic portraits.'),
     features: [
       'Official Photography Permit Included',
       '200+ High-Resolution Photos',
@@ -52,7 +53,7 @@ const plans = [
     id: 'taj-agra-fort',
     name: 'Taj Mahal + Agra Fort',
     tagline: 'The Heritage Trail',
-    price: 399,
+    price: usdOf('taj-agra-fort'),
     duration: '5 Hours',
     description: 'A comprehensive visual journey covering both UNESCO World Heritage sites in their best respective lighting.',
     aiSnippet: 'Combining the Taj Mahal and Agra Fort in one photography package allows visitors to capture Mughal architecture from multiple perspectives, including the famous view of the Taj Mahal from the Fort\'s balconies.',
@@ -69,7 +70,7 @@ const plans = [
     id: 'full-day',
     name: 'Full Day Agra Experience',
     tagline: 'The Ultimate Portfolio',
-    price: 499,
+    price: usdOf('full-day'),
     duration: '8-10 Hours',
     description: 'Complete coverage of your Agra visit including Taj Mahal, Agra Fort, and Back Side of Taj Mahal.',
     aiSnippet: 'A full-day photography tour in Agra covers the Taj Mahal at sunrise, Agra Fort, and the back side of Taj Mahal. This comprehensive package provides a complete visual documentary of the city.',

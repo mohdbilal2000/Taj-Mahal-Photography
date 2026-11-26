@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Send, CheckCircle, MessageCircle, Clock, Users, Sunrise, Sun, CloudSun, Sunset, MapPin, CalendarRange } from 'lucide-react';
 import { PLANS, TIMING_SLOTS, TRAVEL_CITIES, TRAVEL_DAYS, planById } from '@/lib/plans';
+import { usdOf } from '@/lib/rates';
 
 const TIMING_ICONS: Record<string, typeof Sun> = {
   sunrise: Sunrise,
@@ -462,7 +463,7 @@ export default function ContactForm() {
                         ))}
                       </select>
                       <p className="text-xs text-ink-400 mt-1">
-                        Starting from $99 for one day in Agra — we confirm the exact quote for
+                        Starting from ${usdOf('transport-guide')} for one day in Agra — we confirm the exact quote for
                         your cities and days on WhatsApp before you commit.
                       </p>
                     </div>

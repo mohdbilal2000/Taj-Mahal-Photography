@@ -1,4 +1,5 @@
 // ─── Site-wide SEO / AEO / GEO constants ───
+import { fillRates, usdOf } from './rates';
 
 /** Dynamic freshness signal. Updated on every build. */
 export const LAST_UPDATED = new Date().toISOString().slice(0, 10);
@@ -35,9 +36,11 @@ export const SITE = {
   // site ends up with "Page with redirect" filling Search Console.
   url: 'https://www.tajmahalphotography.com',
   domain: 'www.tajmahalphotography.com',
-  title: 'Taj Mahal Photographer & Photoshoot in Agra | From $99',
+  title: fillRates('Taj Mahal Photographer & Photoshoot in Agra | From {usd:solo-photoshoot}'),
   description:
-    'Government-licensed Taj Mahal photographer in Agra. Sunrise, couple and pre-wedding shoots from $99 (about ₹9,400), permit included, photos in 48–72 hours.',
+    fillRates(
+      'Government-licensed Taj Mahal photographer in Agra. Sunrise, couple and pre-wedding shoots from {usd:solo-photoshoot} (about {inr:solo-photoshoot}), permit included, photos in 48–72 hours.',
+    ),
   phone: '+918393010125',
   phoneDisplay: '+91 83930 10125',
   email: 'booking@tajmahalphotography.com',
@@ -201,17 +204,17 @@ export function localBusinessSchema() {
       '@type': 'OfferCatalog',
       name: 'Taj Mahal Photography & Tour Packages',
       itemListElement: [
-        offerSchema('Taj Mahal Sunrise Photoshoot', 120, 'Avoid crowds, best light. 1.5–2 hour session, 120+ photos, 3–5 reels. Photographer meets you at your hotel; no transport included.', `${SITE.url}/services/sunrise`),
-        offerSchema('Pre-Wedding & Couple Photography', 199, 'Editorial romance at the monument of love. 2+ hours, 200+ high-resolution photos, 30 edited photos of your choice, 30-second cinematic video.', `${SITE.url}/services/couple`),
-        offerSchema('Taj Mahal + Agra Fort Heritage Trail', 399, 'Both UNESCO sites in one day. 5 hours, 250+ natural high-resolution photos, transport included.', `${SITE.url}/services/taj-agra-fort`),
-        offerSchema('Full Day Agra Experience', 499, 'Taj Mahal, Agra Fort & back side coverage. 8-10 hours, 350+ natural high-resolution photos, 48-hour delivery.', `${SITE.url}/services/full-day`),
-        offerSchema('Romantic Couple Photoshoot', 200, 'A 2-hour private romantic session for two at the Taj Mahal with a government-licensed photographer. 150+ edited photos and 5 reels, $200 USD. Photography only; monument tickets not included.', `${SITE.url}/services/romantic-couple-shoot`),
-        offerSchema('Solo Portrait Photoshoot', 99, 'A 1-hour private portrait session for one person at the Taj Mahal with a government-licensed photographer. 60+ edited photos and 2 reels, from $99 USD. Photography only; monument tickets not included.', `${SITE.url}/services/solo-photoshoot`),
-        offerSchema('Guided Tour + Photo Combo (Small Group, 1–5 Guests)', 89, 'Licensed local guide and professional photographer both included, covering Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah for up to 5 guests. 40 natural digital photos + 5 reels. Inside the Taj Mahal the photographer accompanies you, as guides are not permitted alongside one. Monument tickets not included.', `${SITE.url}/services/guided-photo-tour-small`),
-        offerSchema('Guided Tour + Photo Combo (Large Group, 6–12 Guests)', 119, 'Licensed local guide and professional photographer both included, covering Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah for groups of 6 to 12. Group + individual portraits, 60 digital photos + 7 reels. Inside the Taj Mahal the photographer accompanies you, as guides are not permitted alongside one. Monument tickets not included.', `${SITE.url}/services/guided-photo-tour-large`),
-        offerSchema('Transport + Guide (Private Car, No Photography)', 99, 'Same-day Agra tour: private A/C car with chauffeur plus a Ministry of Tourism licensed guide, starting from $99 USD. Covers Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh with hotel, railway station or airport pickup; exact quote confirmed on WhatsApp. No photographer. Monument tickets not included.', `${SITE.url}/services/transport-guide`),
-        offerSchema('Taj Mahal Sunrise Luxury Tour (Private Innova)', 650, 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Includes Ministry of Tourism licensed guide and photographer, Taj Mahal & Agra Fort tickets, private golf cart inside the complex, and skip-the-line security escort.', `${SITE.url}/services/sunrise-luxury-innova`),
-        offerSchema('Taj Mahal Sunrise Luxury Urbania Tour', 899, 'Same-day sunrise tour from Delhi/NCR to Agra in a private Force Urbania luxury coach for families and groups (up to 13 guests). Includes guide, photographer, Taj Mahal & Agra Fort tickets, golf cart, and skip-the-line security escort.', `${SITE.url}/services/sunrise-luxury-urbania`),
+        offerSchema('Taj Mahal Sunrise Photoshoot', usdOf('sunrise'), 'Avoid crowds, best light. 1.5–2 hour session, 120+ photos, 3–5 reels. Photographer meets you at your hotel; no transport included.', `${SITE.url}/services/sunrise`),
+        offerSchema('Pre-Wedding & Couple Photography', usdOf('pre-wedding'), 'Editorial romance at the monument of love. 2+ hours, 200+ high-resolution photos, 30 edited photos of your choice, 30-second cinematic video.', `${SITE.url}/services/couple`),
+        offerSchema('Taj Mahal + Agra Fort Heritage Trail', usdOf('taj-agra-fort'), 'Both UNESCO sites in one day. 5 hours, 250+ natural high-resolution photos, transport included.', `${SITE.url}/services/taj-agra-fort`),
+        offerSchema('Full Day Agra Experience', usdOf('full-day'), 'Taj Mahal, Agra Fort & back side coverage. 8-10 hours, 350+ natural high-resolution photos, 48-hour delivery.', `${SITE.url}/services/full-day`),
+        offerSchema('Romantic Couple Photoshoot', usdOf('romantic-couple-shoot'), fillRates('A 2-hour private romantic session for two at the Taj Mahal with a government-licensed photographer. 150+ edited photos and 5 reels, {usd:romantic-couple-shoot} USD. Photography only; monument tickets not included.'), `${SITE.url}/services/romantic-couple-shoot`),
+        offerSchema('Solo Portrait Photoshoot', usdOf('solo-photoshoot'), fillRates('A 1-hour private portrait session for one person at the Taj Mahal with a government-licensed photographer. 60+ edited photos and 2 reels, from {usd:solo-photoshoot} USD. Photography only; monument tickets not included.'), `${SITE.url}/services/solo-photoshoot`),
+        offerSchema('Guided Tour + Photo Combo (Small Group, 1–5 Guests)', usdOf('guided-photo-tour-small'), 'Licensed local guide and professional photographer both included, covering Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah for up to 5 guests. 40 natural digital photos + 5 reels. Inside the Taj Mahal the photographer accompanies you, as guides are not permitted alongside one. Monument tickets not included.', `${SITE.url}/services/guided-photo-tour-small`),
+        offerSchema('Guided Tour + Photo Combo (Large Group, 6–12 Guests)', usdOf('guided-photo-tour-large'), 'Licensed local guide and professional photographer both included, covering Taj Mahal, Agra Fort & Mehtab Bagh / Itmad-ud-Daulah for groups of 6 to 12. Group + individual portraits, 60 digital photos + 7 reels. Inside the Taj Mahal the photographer accompanies you, as guides are not permitted alongside one. Monument tickets not included.', `${SITE.url}/services/guided-photo-tour-large`),
+        offerSchema('Transport + Guide (Private Car, No Photography)', usdOf('transport-guide'), fillRates('Same-day Agra tour: private A/C car with chauffeur plus a Ministry of Tourism licensed guide, starting from {usd:transport-guide} USD. Covers Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh with hotel, railway station or airport pickup; exact quote confirmed on WhatsApp. No photographer. Monument tickets not included.'), `${SITE.url}/services/transport-guide`),
+        offerSchema('Taj Mahal Sunrise Luxury Tour (Private Innova)', usdOf('sunrise-luxury-innova'), 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Includes Ministry of Tourism licensed guide and photographer, Taj Mahal & Agra Fort tickets, private golf cart inside the complex, and skip-the-line security escort.', `${SITE.url}/services/sunrise-luxury-innova`),
+        offerSchema('Taj Mahal Sunrise Luxury Urbania Tour', usdOf('sunrise-luxury-urbania'), 'Same-day sunrise tour from Delhi/NCR to Agra in a private Force Urbania luxury coach for families and groups (up to 13 guests). Includes guide, photographer, Taj Mahal & Agra Fort tickets, golf cart, and skip-the-line security escort.', `${SITE.url}/services/sunrise-luxury-urbania`),
       ],
     },
   };

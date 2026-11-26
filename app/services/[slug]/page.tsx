@@ -27,6 +27,7 @@ import {
   SITE,
   LAST_UPDATED,
 } from '@/lib/seo';
+import { fillRates, fillRatesDeep, usdOf } from '@/lib/rates';
 
 type ServiceData = {
   title: string;
@@ -60,21 +61,21 @@ const PACKAGES_WITHOUT_GUIDE = new Set([
   'full-day',
 ]);
 
-const servicesData: Record<string, ServiceData> = {
+const RAW_SERVICES_DATA: Record<string, ServiceData> = {
   couple: {
     title: 'Couple & Pre-Wedding Photography',
     description: 'Editorial-style romantic portraits celebrating your love story against the ultimate monument of love.',
-    metaDescription: 'Couple and pre-wedding photoshoot at the Taj Mahal from $199 (about ₹18,900): 2+ hours, 200+ photos, 30 edited photos and a cinematic video. Permit included.',
+    metaDescription: fillRates('Couple and pre-wedding photoshoot at the Taj Mahal from {usd:pre-wedding} (about {inr:pre-wedding}): 2+ hours, 200+ photos, 30 edited photos and a cinematic video. Permit included.'),
     quickAnswer:
-      'A 2+ hour editorial couple or pre-wedding photoshoot at the Taj Mahal in Agra. From $199 USD, includes 200+ high-resolution photos, 30 professionally edited photos of your choice, a 30-second cinematic video, posing direction, and an official government photography permit. Government-licensed photographer authorized to bring professional equipment inside the monument.',
+      'A 2+ hour editorial couple or pre-wedding photoshoot at the Taj Mahal in Agra. From {usd:pre-wedding} USD, includes 200+ high-resolution photos, 30 professionally edited photos of your choice, a 30-second cinematic video, posing direction, and an official government photography permit. Government-licensed photographer authorized to bring professional equipment inside the monument.',
     longDescription:
       'The Taj Mahal is the greatest monument to love ever built, making it the perfect backdrop for couple and pre-wedding photography. Our editorial-style sessions combine natural posing with creative direction to capture authentic emotion. We guide couples through the best angles, manage crowd movement for clean backgrounds, and utilize the changing light to create a diverse, magazine-worthy gallery.',
     features: ['2+ Hour Session', '200+ High-Resolution Photos', '30 Edited Photos (You Choose Which)', '30 Second Cinematic Video', 'Posing Direction & Creative Styling', 'Customisable — 20% advance confirms the booking'],
-    price: 199,
+    price: usdOf('pre-wedding'),
     duration: '2+ Hours',
     bestFor: 'Engagements, Pre-Weddings, Anniversaries',
     faqs: [
-      { question: 'How much does a couple photoshoot at the Taj Mahal cost?', answer: 'The Couple & Pre-Wedding package starts from $199 USD for a 2+ hour editorial session including 200+ high-resolution photos, 30 edited photos of your choice, and a 30-second cinematic video. A 20% advance confirms the booking.' },
+      { question: 'How much does a couple photoshoot at the Taj Mahal cost?', answer: 'The Couple & Pre-Wedding package starts from {usd:pre-wedding} USD for a 2+ hour editorial session including 200+ high-resolution photos, 30 edited photos of your choice, and a 30-second cinematic video. A 20% advance confirms the booking.' },
       { question: 'Can we change outfits during the shoot?', answer: 'Yes. Outfit changes are allowed outside the monument gates. We plan the outfit sequence in advance so you maximise the session time inside the Taj Mahal complex.' },
       { question: 'Which photos get edited?', answer: 'You choose. After the gallery is delivered you pick any 30 photos and we professionally edit those.' },
       { question: 'When will we receive our photos?', answer: 'A private online gallery with your high-resolution photos is delivered within 48 to 72 hours. Your 30 chosen photos are professionally edited and delivered alongside the gallery.' },
@@ -83,13 +84,13 @@ const servicesData: Record<string, ServiceData> = {
   'pre-wedding': {
     title: 'Pre-Wedding Photography at the Taj Mahal',
     description: 'Editorial-style romantic portraits celebrating your upcoming wedding at the monument of love.',
-    metaDescription: 'Pre-wedding photoshoot at the Taj Mahal from $199 (about ₹18,900) with a licensed photographer: 200+ photos, 30 edited, cinematic video. Permit included.',
+    metaDescription: fillRates('Pre-wedding photoshoot at the Taj Mahal from {usd:pre-wedding} (about {inr:pre-wedding}) with a licensed photographer: 200+ photos, 30 edited, cinematic video. Permit included.'),
     quickAnswer:
-      'A pre-wedding photoshoot at the Taj Mahal in Agra by a government-licensed photographer. From $199 USD for a 2+ hour session, 200+ high-resolution photos, 30 edited photos of your choice, and a 30-second cinematic video. Authorized to bring professional photo equipment inside the complex.',
+      'A pre-wedding photoshoot at the Taj Mahal in Agra by a government-licensed photographer. From {usd:pre-wedding} USD for a 2+ hour session, 200+ high-resolution photos, 30 edited photos of your choice, and a 30-second cinematic video. Authorized to bring professional photo equipment inside the complex.',
     longDescription:
       'A pre-wedding photoshoot at the Taj Mahal creates timeless images for your wedding invitations, save-the-dates, and personal collection. We specialize in creating diverse looks within a single session, guiding you through formal portraits, candid interactions, and creative compositions that tell your unique story. Our knowledge of the monument ensures we capture every iconic angle while avoiding crowds.',
     features: ['2+ Hour Session', '200+ High-Resolution Photos', '30 Edited Photos (You Choose Which)', '30 Second Cinematic Video', 'Posing Direction & Creative Styling', 'Customisable — 20% advance confirms the booking'],
-    price: 199,
+    price: usdOf('pre-wedding'),
     duration: '2+ Hours',
     bestFor: 'Couples planning their wedding',
     faqs: [
@@ -101,41 +102,41 @@ const servicesData: Record<string, ServiceData> = {
     title: 'Taj Mahal + Agra Fort Heritage Trail Photography',
     description: 'A 5-hour photography trail covering both UNESCO World Heritage sites — Taj Mahal at sunrise and Agra Fort in morning light.',
     quickAnswer:
-      'A 5-hour Heritage Trail photography session covering the Taj Mahal at sunrise and Agra Fort in morning light. $399 USD, includes 250+ high-resolution photos, photography permits for both monuments, transport between them, historical context during the shoot, and 48-hour gallery delivery. Monument entry tickets not included.',
+      'A 5-hour Heritage Trail photography session covering the Taj Mahal at sunrise and Agra Fort in morning light. {usd:taj-agra-fort} USD, includes 250+ high-resolution photos, photography permits for both monuments, transport between them, historical context during the shoot, and 48-hour gallery delivery. Monument entry tickets not included.',
     longDescription:
       'The Heritage Trail combines the two most iconic Mughal monuments in Agra into one visual story. We start at the Taj Mahal east gate for sunrise, capturing the changing colours on the marble for about two hours, then move to Agra Fort while the morning light is still soft. The licensed photographer is authorised at both monuments and knows the angles that frame the Taj Mahal from the fort balconies — the same view from which Shah Jahan reportedly gazed at the mausoleum during his imprisonment. 250+ high-resolution photos delivered within 48 to 72 hours.',
     features: ['5 Hour Session', '250+ High-Resolution Photos', 'Permits for Taj Mahal AND Agra Fort', 'Sunrise at Taj, Morning at Fort', 'Transport between monuments', 'Historical context during the shoot', '48-Hour Gallery Delivery'],
-    price: 399,
+    price: usdOf('taj-agra-fort'),
     duration: '5 Hours',
     bestFor: 'History enthusiasts, architecture lovers, couples wanting more than just the Taj',
     faqs: [
       { question: 'Are tickets to both monuments included?', answer: 'Monument entry tickets are not included in the Heritage Trail package; only the photography permits for both Taj Mahal and Agra Fort are included. Tickets can be purchased on the day, or upgrade to a Sunrise Luxury Tour from Delhi which bundles tickets.' },
       { question: 'How long is the gap between Taj Mahal and Agra Fort?', answer: 'Roughly 15 minutes by car. We aim to finish the Taj Mahal session by 8:30 AM and begin Agra Fort by 9:00 AM so the light is still soft.' },
-      { question: 'Can we add Mehtab Bagh (back side of the Taj)?', answer: 'Mehtab Bagh is included in the Full Day Agra Experience ($499). For the Heritage Trail, focus is on the two UNESCO sites.' },
+      { question: 'Can we add Mehtab Bagh (back side of the Taj)?', answer: 'Mehtab Bagh is included in the Full Day Agra Experience ({usd:full-day}). For the Heritage Trail, focus is on the two UNESCO sites.' },
     ],
   },
   'full-day': {
     title: 'Full Day Agra Photography Experience',
     description: 'Complete photographic coverage of Agra — Taj Mahal, Agra Fort, and Mehtab Bagh (back side of Taj) — in a single 8–10 hour day.',
     quickAnswer:
-      'A full-day Agra photography experience covering the Taj Mahal at sunrise, Agra Fort in the morning, and Mehtab Bagh (back side of the Taj Mahal) at sunset. $499 USD for 8–10 hours, 350+ high-resolution photos, monument permits, multiple outfit changes, dedicated A/C transport, and 48-hour gallery delivery.',
+      'A full-day Agra photography experience covering the Taj Mahal at sunrise, Agra Fort in the morning, and Mehtab Bagh (back side of the Taj Mahal) at sunset. {usd:full-day} USD for 8–10 hours, 350+ high-resolution photos, monument permits, multiple outfit changes, dedicated A/C transport, and 48-hour gallery delivery.',
     longDescription:
       'The Full Day Agra Experience is our most comprehensive photography package for visitors based in Agra. Beginning at the Taj Mahal east gate for sunrise, the day moves through Agra Fort in the morning, an optional lunch break, and ends at Mehtab Bagh across the Yamuna river for the famous back-side sunset shot. The licensed photographer brings professional equipment to all three monuments. Multiple outfit changes are accommodated between locations, dedicated A/C transport handles the logistics, and 350+ high-resolution photos are delivered within 48 to 72 hours.',
     features: ['8–10 Hour Session', '350+ High-Resolution Photos', 'All Monument Photography Permits', 'Taj Mahal + Agra Fort + Mehtab Bagh', 'Multiple Outfit Changes', 'Dedicated A/C Transport', '48-Hour Gallery Delivery'],
-    price: 499,
+    price: usdOf('full-day'),
     duration: '8–10 Hours',
     bestFor: 'Influencers, content creators, VIPs, full-portfolio visits',
     faqs: [
       { question: 'What is Mehtab Bagh and why is it included?', answer: 'Mehtab Bagh is the garden complex directly opposite the Taj Mahal across the Yamuna river, originally part of the same Mughal landscape design. It is the best sunset vantage point for the Taj Mahal and provides the famous "back side" view.' },
-      { question: 'Can we add a pre-wedding component to the full day?', answer: 'Yes. The Pre-Wedding & Couple package ($199) can be combined with the Full Day Experience for a customised quote. Contact us on WhatsApp to discuss.' },
+      { question: 'Can we add a pre-wedding component to the full day?', answer: 'Yes. The Pre-Wedding & Couple package ({usd:pre-wedding}) can be combined with the Full Day Experience for a customised quote. Contact us on WhatsApp to discuss.' },
       { question: 'Is transport included between locations?', answer: 'Yes. Dedicated A/C transport with a driver is included for the day, covering the three monuments and any lunch/refreshment stops.' },
     ],
   },
   'guided-photo-tour-small': {
     title: 'Guided Tour + Photo Combo · Small Group (1–5 Guests)',
-    description: 'A licensed local guide across Agra plus a professional photographer at the Taj Mahal, with 40 natural digital photos and 5 reels. From $89 for up to 5 guests.',
+    description: 'A licensed local guide across Agra plus a professional photographer at the Taj Mahal, with 40 natural digital photos and 5 reels. From {usd:guided-photo-tour-small} for up to 5 guests.',
     quickAnswer:
-      'A budget-friendly guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for 1 to 5 guests, from $89 USD. Includes a licensed local guide, a professional photographer, 40 natural digital photos and 5 reels. Inside the Taj Mahal itself a guide is not permitted alongside a photographer, so there your photographer takes you through; the guide is with you at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
+      'A budget-friendly guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for 1 to 5 guests, from {usd:guided-photo-tour-small} USD. Includes a licensed local guide, a professional photographer, 40 natural digital photos and 5 reels. Inside the Taj Mahal itself a guide is not permitted alongside a photographer, so there your photographer takes you through; the guide is with you at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
     longDescription:
       'This combo package pairs a licensed local guide with a professional photographer for a single fixed price across the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. A licensed local guide is included throughout and narrates the Mughal history at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah, while the photographer captures you at every iconic vantage point — the reflecting pool, the elevated platform, the gardens at the Taj, the Diwan-i-Khas, Sheesh Mahal and the famous balcony view of the Taj from Agra Fort. You receive 40 natural digital photos and 5 reels (couple, solo or family). Best for couples, solo travellers and small families up to 5 guests, and the itinerary is customisable. A 20% advance confirms the booking; the balance is paid after the tour. Monument entry tickets are separate.',
     features: [
@@ -147,11 +148,11 @@ const servicesData: Record<string, ServiceData> = {
       'Up to 5 guests — customisable to your plans',
       '20% advance confirms the booking, balance after the tour',
     ],
-    price: 89,
+    price: usdOf('guided-photo-tour-small'),
     duration: 'Half day',
     bestFor: 'Couples, solo travellers, small families (1–5 guests)',
     faqs: [
-      { question: 'How many people does the small-group package cover?', answer: 'The from-$89 USD price is for up to 5 guests in total. For groups of 6 or more, the from-$119 large-group package is the right choice.' },
+      { question: 'How many people does the small-group package cover?', answer: 'The from-{usd:guided-photo-tour-small} USD price is for up to 5 guests in total. For groups of 6 or more, the from-{usd:guided-photo-tour-large} large-group package is the right choice.' },
       { question: 'Are monument entry tickets included?', answer: 'No. Taj Mahal and Agra Fort entry tickets are not included and must be purchased separately. Photography permits ARE included.' },
       { question: 'What do I receive?', answer: '40 natural digital photos delivered to a private gallery, plus 5 reels you can post straight to social media.' },
       { question: 'Which monuments does it cover?', answer: 'The Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. The photographer is with you at every monument; the guide joins you everywhere except inside the Taj Mahal, where guides are not allowed alongside a photographer. The itinerary can be customised to your plans.' },
@@ -159,11 +160,11 @@ const servicesData: Record<string, ServiceData> = {
   },
   'guided-photo-tour-large': {
     title: 'Guided Tour + Photo Combo · Large Group (6–12 Guests)',
-    description: 'The same guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, scaled up for groups of 6 to 12 guests. Group portraits plus individual portraits. From $119.',
+    description: 'The same guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, scaled up for groups of 6 to 12 guests. Group portraits plus individual portraits. From {usd:guided-photo-tour-large}.',
     quickAnswer:
-      'A guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for groups of 6 to 12 guests, from $119 USD. Includes a licensed local guide, a professional photographer, group portraits and individual portraits, 60 natural digital photos and 7 reels. Inside the Taj Mahal itself a guide is not permitted alongside a photographer, so there your photographer takes you through; the guide is with you at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
+      'A guide + photographer combo at the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah for groups of 6 to 12 guests, from {usd:guided-photo-tour-large} USD. Includes a licensed local guide, a professional photographer, group portraits and individual portraits, 60 natural digital photos and 7 reels. Inside the Taj Mahal itself a guide is not permitted alongside a photographer, so there your photographer takes you through; the guide is with you at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. A 20% advance confirms the booking and the balance is paid after the tour. Monument entry tickets are not included.',
     longDescription:
-      'Built for larger families and friend groups visiting Agra together, this package covers up to 12 guests for a single fixed price. A licensed local guide is included throughout and narrates the Mughal history at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah, while the photographer captures group portraits alongside individual portraits at every iconic spot. You receive 60 natural digital photos and 7 reels (group, solo, couple, kids or family) for the group. A 20% advance confirms the booking; the balance is paid after the tour. Monument entry tickets are separate. For groups of 5 or fewer, the from-$89 small-group package is the right pick.',
+      'Built for larger families and friend groups visiting Agra together, this package covers up to 12 guests for a single fixed price. A licensed local guide is included throughout and narrates the Mughal history at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah, while the photographer captures group portraits alongside individual portraits at every iconic spot. You receive 60 natural digital photos and 7 reels (group, solo, couple, kids or family) for the group. A 20% advance confirms the booking; the balance is paid after the tour. Monument entry tickets are separate. For groups of 5 or fewer, the from-{usd:guided-photo-tour-small} small-group package is the right pick.',
     features: [
       'Licensed local guide included — Agra Fort, Mehtab Bagh & Itmad-ud-Daulah',
       'Professional photographer alongside',
@@ -173,25 +174,25 @@ const servicesData: Record<string, ServiceData> = {
       'Up to 12 guests — customisable to your plans',
       '20% advance confirms the booking, balance after the tour',
     ],
-    price: 119,
+    price: usdOf('guided-photo-tour-large'),
     duration: 'Half day',
     bestFor: 'Families and groups travelling together (6–12 guests)',
     faqs: [
       { question: 'How many people does the large-group package cover?', answer: 'Up to 12 guests in total. Larger groups can be split into multiple packages — message us on WhatsApp for a tailored quote.' },
       { question: 'Do we get group portraits and individual portraits?', answer: 'Yes. The photographer captures group portraits of everyone together AND individual portraits during the walk through the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah. The guide is with you at every monument except inside the Taj Mahal, where guides cannot accompany a photographer.' },
       { question: 'Are monument tickets included?', answer: 'No. Taj Mahal and Agra Fort entry tickets are purchased separately. The photography permits and the guide are included.' },
-      { question: 'How is this different from the Heritage Trail ($399)?', answer: 'This from-$119 combo focuses on a guided walk plus 60 photos and 7 reels. The Heritage Trail is a 5-hour dedicated photography session with 250+ high-resolution photos and a fully managed schedule — more output, no group cap.' },
+      { question: 'How is this different from the Heritage Trail ({usd:taj-agra-fort})?', answer: 'This from-{usd:guided-photo-tour-large} combo focuses on a guided walk plus 60 photos and 7 reels. The Heritage Trail is a 5-hour dedicated photography session with 250+ high-resolution photos and a fully managed schedule — more output, no group cap.' },
     ],
   },
   'romantic-couple-shoot': {
-    title: 'Romantic Couple Photoshoot at the Taj Mahal | $200',
-    description: 'A 2-hour private romantic photoshoot for two at the Taj Mahal with a government-licensed photographer, $200 USD. 150+ edited photos and 5 reels. Photography only; monument tickets are not included.',
+    title: 'Romantic Couple Photoshoot at the Taj Mahal | {usd:romantic-couple-shoot}',
+    description: 'A 2-hour private romantic photoshoot for two at the Taj Mahal with a government-licensed photographer, {usd:romantic-couple-shoot} USD. 150+ edited photos and 5 reels. Photography only; monument tickets are not included.',
     quickAnswer:
-      'A 2-hour private romantic photoshoot for two at the Taj Mahal, $200 USD. A Ministry of Tourism licensed photographer meets you at your hotel, handles the official photography permit, directs the pose and the light so it feels natural, and delivers 150+ edited photos and 5 reels within 48 to 72 hours. It is photography only: no guide is included and monument entry tickets are separate.',
+      'A 2-hour private romantic photoshoot for two at the Taj Mahal, {usd:romantic-couple-shoot} USD. A Ministry of Tourism licensed photographer meets you at your hotel, handles the official photography permit, directs the pose and the light so it feels natural, and delivers 150+ edited photos and 5 reels within 48 to 72 hours. It is photography only: no guide is included and monument entry tickets are separate.',
     longDescription:
       'The Taj Mahal was built by an emperor for the woman he loved, and couples tend to feel it the moment they walk in. The Romantic Couple Photoshoot is built around that feeling rather than around a shot list. Your licensed photographer meets you at your hotel, takes you through security with the professional equipment already cleared, and spends two hours with the two of you: the reflecting pool, the red sandstone gateways, the quiet steps and corners that most visitors walk past. There is no stiff posing. You are given small, human directions, such as walk, whisper something, look at each other, and the camera keeps moving so you forget it. The result is 150+ edited photos and 5 reels that look like the best day of the trip. Planning a wedding shoot with a cinematic video and 200+ photos? The Couple and Pre-Wedding package is the bigger production. Want the history of the monument as well? Add a licensed guide through the Guide + Photo tours.',
     features: [
-      '$200 USD — exact quote confirmed on WhatsApp',
+      '{usd:romantic-couple-shoot} USD — exact quote confirmed on WhatsApp',
       '2-hour private session for two',
       '150+ edited photos',
       '5 reels',
@@ -199,7 +200,7 @@ const servicesData: Record<string, ServiceData> = {
       'Photographer meets you at your hotel (no transport)',
       'Official photography permit included',
     ],
-    price: 200,
+    price: usdOf('romantic-couple-shoot'),
     duration: '2 Hours',
     bestFor: 'Honeymooners, anniversary trips and couples who want soft, romantic portraits without a full pre-wedding production',
     itinerary: [
@@ -209,7 +210,7 @@ const servicesData: Record<string, ServiceData> = {
       { time: 'Step 4', title: 'Your photos', detail: 'Edited photos and reels arrive by private gallery within 48 to 72 hours.' },
     ],
     faqs: [
-      { question: 'How much is the Romantic Couple Photoshoot?', answer: 'It is $200 USD for a 2-hour private session for two, with 150+ edited photos and 5 reels. We confirm the exact quote on WhatsApp before you book. Monument entry tickets are not included.' },
+      { question: 'How much is the Romantic Couple Photoshoot?', answer: 'It is {usd:romantic-couple-shoot} USD for a 2-hour private session for two, with 150+ edited photos and 5 reels. We confirm the exact quote on WhatsApp before you book. Monument entry tickets are not included.' },
       { question: 'How is this different from the Couple and Pre-Wedding package?', answer: 'The Romantic Couple Photoshoot is a focused 2-hour session for honeymoons, anniversaries and date-day trips. The Couple and Pre-Wedding package is the bigger production for engaged couples: 2+ hours, 200+ photos, 30 edited photos of your choice and a cinematic video.' },
       { question: 'Can we bring more than one outfit?', answer: 'Yes, tell us before the day and we will plan the time and the locations around your outfits.' },
       { question: 'Is a guide included?', answer: 'No. This is a photography-only session, and inside the Taj Mahal a guide is not permitted alongside a photographer. If you want a guide for Agra Fort and the rest of the day, choose a Guide + Photo tour.' },
@@ -218,14 +219,14 @@ const servicesData: Record<string, ServiceData> = {
     ],
   },
   'solo-photoshoot': {
-    title: 'Solo Portrait Photoshoot at the Taj Mahal | From $99',
-    description: 'A private 1-hour portrait session for one person at the Taj Mahal with a government-licensed photographer, from $99 USD. 60+ edited photos and 2 reels. Photography only; monument tickets are not included.',
+    title: 'Solo Portrait Photoshoot at the Taj Mahal | From {usd:solo-photoshoot}',
+    description: 'A private 1-hour portrait session for one person at the Taj Mahal with a government-licensed photographer, from {usd:solo-photoshoot} USD. 60+ edited photos and 2 reels. Photography only; monument tickets are not included.',
     quickAnswer:
-      'A 1-hour private portrait session for one person at the Taj Mahal, starting from $99 USD. A Ministry of Tourism licensed photographer meets you at your hotel, handles the official photography permit, guides your pose and the light, and delivers 60+ edited photos and 2 reels within 48 to 72 hours. It is photography only: no guide is included and monument entry tickets are separate.',
+      'A 1-hour private portrait session for one person at the Taj Mahal, starting from {usd:solo-photoshoot} USD. A Ministry of Tourism licensed photographer meets you at your hotel, handles the official photography permit, guides your pose and the light, and delivers 60+ edited photos and 2 reels within 48 to 72 hours. It is photography only: no guide is included and monument entry tickets are separate.',
     longDescription:
       'Travelling on your own does not have to mean a camera roll of selfies and favours asked of strangers. The Solo Portrait Photoshoot is a shorter, lighter session built for one person: a licensed photographer who knows where the light falls on the marble, who tells you where to stand and what to do with your hands, and who keeps the shoot moving so it feels like a walk rather than a pose. You keep the permit, the timing and the logistics off your mind. The photographer meets you at your hotel, takes you through the security queue with the professional equipment already cleared, and shoots for about an hour at the spots that work best for a single person: the central walkway, the reflecting pool, the gardens and the quiet corners. You receive 60+ edited photos and 2 reels. Prefer more time, more outfits or more of Agra? The Sunrise Photoshoot adds length and more frames, and the Guide + Photo tours add a licensed guide at Agra Fort and Mehtab Bagh.',
     features: [
-      'Starting from $99 USD — exact quote confirmed on WhatsApp',
+      'Starting from {usd:solo-photoshoot} USD — exact quote confirmed on WhatsApp',
       '1-hour private session for one person',
       '60+ edited photos',
       '2 reels',
@@ -233,7 +234,7 @@ const servicesData: Record<string, ServiceData> = {
       'Official photography permit included',
       'Pose and location guidance for solo portraits',
     ],
-    price: 99,
+    price: usdOf('solo-photoshoot'),
     fromPrice: true,
     duration: '1 Hour',
     bestFor: 'Solo travellers, creators and anyone who wants portraits of just themselves at the Taj Mahal',
@@ -244,8 +245,8 @@ const servicesData: Record<string, ServiceData> = {
       { time: 'Step 4', title: 'Your photos', detail: 'Edited photos and reels arrive by private gallery within 48 to 72 hours.' },
     ],
     faqs: [
-      { question: 'How much is a solo photoshoot at the Taj Mahal?', answer: 'It starts from $99 USD for a 1-hour private session for one person, with 60+ edited photos and 2 reels. We confirm one all-in quote on WhatsApp before you book. Monument entry tickets are not included.' },
-      { question: 'What is the difference between the Solo Portrait and Sunrise photoshoots?', answer: 'The Solo Portrait is a shorter, one-person session from $99. The Sunrise Photoshoot is $120, runs 1.5 to 2 hours, includes 120+ photos and 3 to 5 reels, and suits solo travellers, couples and families.' },
+      { question: 'How much is a solo photoshoot at the Taj Mahal?', answer: 'It starts from {usd:solo-photoshoot} USD for a 1-hour private session for one person, with 60+ edited photos and 2 reels. We confirm one all-in quote on WhatsApp before you book. Monument entry tickets are not included.' },
+      { question: 'What is the difference between the Solo Portrait and Sunrise photoshoots?', answer: 'The Solo Portrait is a shorter, one-person session from {usd:solo-photoshoot}. The Sunrise Photoshoot is {usd:sunrise}, runs 1.5 to 2 hours, includes 120+ photos and 3 to 5 reels, and suits solo travellers, couples and families.' },
       { question: 'Is a guide included?', answer: 'No. This is a photography-only session. Inside the Taj Mahal a guide is not permitted alongside a photographer. If you want a guide for Agra Fort and the rest of the day, choose a Guide + Photo tour.' },
       { question: 'Do I need a permit for a professional photographer?', answer: 'The official photography permit is included. Professional equipment needs a permit that only a licensed photographer can hold, so we arrange it.' },
       { question: 'Are monument entry tickets included?', answer: 'No. Taj Mahal entry tickets are purchased separately and are set by the Archaeological Survey of India.' },
@@ -254,13 +255,13 @@ const servicesData: Record<string, ServiceData> = {
   },
   'transport-guide': {
     title: 'Transport + Guide | Same Day Agra Tour with Private Car & Licensed Guide',
-    description: 'A same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from $99 USD. The exact quote is confirmed on WhatsApp. No photographer included.',
+    description: 'A same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from {usd:transport-guide} USD. The exact quote is confirmed on WhatsApp. No photographer included.',
     quickAnswer:
-      'A same-day Agra tour combo: an air-conditioned car with a professional chauffeur plus a Ministry of Tourism licensed guide, starting from $99 USD. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh with pickup from your Agra hotel, the railway station or the airport. No photographer is included, so it is ideal if you shoot on your own phone or camera. Monument entry tickets are not included.',
+      'A same-day Agra tour combo: an air-conditioned car with a professional chauffeur plus a Ministry of Tourism licensed guide, starting from {usd:transport-guide} USD. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh with pickup from your Agra hotel, the railway station or the airport. No photographer is included, so it is ideal if you shoot on your own phone or camera. Monument entry tickets are not included.',
     longDescription:
-      'Transport + Guide keeps the money side simple: one same-day Agra itinerary, one clear quote on WhatsApp, starting from $99 USD. No inflated bundles, no vague inclusions, no surprises at the car door. A private air-conditioned car with a professional chauffeur handles every transfer from your Agra hotel, the railway station or the airport, and a Ministry of Tourism licensed guide brings the history to life across the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh. The guide knows every good phone-photo and selfie spot and will happily take shots of you on your own device; there is simply no professional photographer in this package, which is what keeps it lean. Monument entry tickets stay separate and are always listed in your quote so you can see exactly where every dollar goes. Longer multi-city routes can be quoted on request.',
+      'Transport + Guide keeps the money side simple: one same-day Agra itinerary, one clear quote on WhatsApp, starting from {usd:transport-guide} USD. No inflated bundles, no vague inclusions, no surprises at the car door. A private air-conditioned car with a professional chauffeur handles every transfer from your Agra hotel, the railway station or the airport, and a Ministry of Tourism licensed guide brings the history to life across the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh. The guide knows every good phone-photo and selfie spot and will happily take shots of you on your own device; there is simply no professional photographer in this package, which is what keeps it lean. Monument entry tickets stay separate and are always listed in your quote so you can see exactly where every dollar goes. Longer multi-city routes can be quoted on request.',
     features: [
-      'Starting from $99 USD — exact quote confirmed on WhatsApp before you book',
+      'Starting from {usd:transport-guide} USD — exact quote confirmed on WhatsApp before you book',
       'Same day tour · Agra only',
       'Private A/C car with professional chauffeur',
       'Ministry of Tourism licensed local guide',
@@ -268,20 +269,20 @@ const servicesData: Record<string, ServiceData> = {
       'Taj Mahal, Agra Fort, Itmad-ud-Daulah & Mehtab Bagh',
       'No photographer included — bring your own camera',
     ],
-    price: 99,
+    price: usdOf('transport-guide'),
     fromPrice: true,
     duration: 'Same Day · Agra',
     bestFor: 'Independent travellers who want a private car and a licensed guide in Agra with simple, transparent pricing',
     itinerary: [
       { time: 'Step 1', title: 'Tell us your date', detail: 'Send us your Agra date and pickup point — hotel, railway station or airport — in the booking form.' },
-      { time: 'Step 2', title: 'Get one clear quote', detail: 'We reply on WhatsApp within 10 minutes with a single all-in price for the day — starting from $99.' },
+      { time: 'Step 2', title: 'Get one clear quote', detail: 'We reply on WhatsApp within 10 minutes with a single all-in price for the day — starting from {usd:transport-guide}.' },
       { time: 'Step 3', title: 'Your guided day in Agra', detail: 'The private A/C car and licensed guide cover the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh at your pace.' },
       { time: 'Step 4', title: 'Drop wherever suits you', detail: 'End at your hotel, the railway station or the airport — whatever fits your onward plans.' },
     ],
     faqs: [
-      { question: 'How much does the Transport + Guide package cost?', answer: 'It starts from $99 USD for a same-day Agra itinerary with a private A/C car and a Ministry of Tourism licensed guide. Tell us your date and pickup point and we confirm one all-in quote on WhatsApp before you book. Monument entry tickets are not included.' },
+      { question: 'How much does the Transport + Guide package cost?', answer: 'It starts from {usd:transport-guide} USD for a same-day Agra itinerary with a private A/C car and a Ministry of Tourism licensed guide. Tell us your date and pickup point and we confirm one all-in quote on WhatsApp before you book. Monument entry tickets are not included.' },
       { question: 'What does the day cover?', answer: 'The Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh, with pickup from your Agra hotel, the railway station or the airport. Longer multi-city routes can be quoted on request.' },
-      { question: 'Is a photographer included?', answer: 'No — this package deliberately excludes the photographer, which keeps the price lean. If you want professional photos, choose a Guided Tour + Photo combo (from $89 / from $119) or a photography package.' },
+      { question: 'Is a photographer included?', answer: 'No — this package deliberately excludes the photographer, which keeps the price lean. If you want professional photos, choose a Guided Tour + Photo combo (from {usd:guided-photo-tour-small} / from {usd:guided-photo-tour-large}) or a photography package.' },
       { question: 'Can the guide take photos of us?', answer: 'The guide will happily take casual photos of you on your own phone or camera at the best spots, but professional photography with pro equipment requires a licensed photographer package.' },
       { question: 'Are monument entry tickets included?', answer: 'No. Entry tickets for the monuments on your route are purchased separately, and every quote lists them so the total cost is transparent.' },
       { question: 'How do I confirm the booking?', answer: 'A 20% advance confirms the date; the balance is paid after the tour.' },
@@ -291,7 +292,7 @@ const servicesData: Record<string, ServiceData> = {
     title: 'Taj Mahal Sunrise Luxury Tour (Private Innova) | Delhi to Agra Same Day',
     description: 'A same-day private sunrise tour from Delhi/NCR to Agra in a Toyota Innova — guide, photographer, monument tickets and golf cart all included.',
     quickAnswer:
-      'A same-day private sunrise tour from Delhi/NCR to Agra in a Toyota Innova for couples and small families (up to 6 guests). Starting from $650 USD — exact quote confirmed on WhatsApp. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort monument tickets, a private golf cart inside the Taj Mahal complex, and a security escort that skips the entry line. Pickup at ~2:30 AM, drop in Delhi by ~7-8 PM.',
+      'A same-day private sunrise tour from Delhi/NCR to Agra in a Toyota Innova for couples and small families (up to 6 guests). Starting from {usd:sunrise-luxury-innova} USD — exact quote confirmed on WhatsApp. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort monument tickets, a private golf cart inside the Taj Mahal complex, and a security escort that skips the entry line. Pickup at ~2:30 AM, drop in Delhi by ~7-8 PM.',
     longDescription:
       'Leave your Delhi/NCR hotel before dawn and watch the first light hit the Taj Mahal a few hours later — all from the comfort of a private Toyota Innova driven by a professional chauffeur. Our team handles every detail of the day: a Ministry of Tourism licensed guide narrates the history of Shah Jahan and Mumtaz Mahal, a licensed photographer captures your family at the iconic sunrise vantage points, and a private golf cart whisks you from the gate to the mausoleum inside the Taj Mahal complex. A security escort moves you past the queue at both the Taj Mahal and Agra Fort. Monument tickets are included, so the price you see is the price you pay. Pickup and drop are available across Delhi, Noida, Gurugram, Ghaziabad and Faridabad.',
     features: [
@@ -303,7 +304,7 @@ const servicesData: Record<string, ServiceData> = {
       'Taj Mahal & Agra Fort monument tickets included',
       'Sunrise arrival, full-day same-day return',
     ],
-    price: 650,
+    price: usdOf('sunrise-luxury-innova'),
     fromPrice: true,
     duration: 'Same Day · 14–16 Hours',
     bestFor: 'Couples and families (up to 6 guests)',
@@ -319,10 +320,10 @@ const servicesData: Record<string, ServiceData> = {
       { time: '07:00–08:00 PM', title: 'Hotel drop in Delhi/NCR', detail: 'Comfortable evening drop at your starting hotel.' },
     ],
     faqs: [
-      { question: 'How much does the Sunrise Luxury Tour from Delhi cost?', answer: 'The Sunrise Luxury Tour in a private Toyota Innova starts from $650 USD for up to 6 guests; the exact quote is confirmed on WhatsApp before you book. Includes vehicle, guide, photographer, Taj Mahal and Agra Fort tickets, golf cart inside the Taj complex, and security escort to skip the line.' },
+      { question: 'How much does the Sunrise Luxury Tour from Delhi cost?', answer: 'The Sunrise Luxury Tour in a private Toyota Innova starts from {usd:sunrise-luxury-innova} USD for up to 6 guests; the exact quote is confirmed on WhatsApp before you book. Includes vehicle, guide, photographer, Taj Mahal and Agra Fort tickets, golf cart inside the Taj complex, and security escort to skip the line.' },
       { question: 'What time does the tour pick up from Delhi?', answer: 'Pickup is around 2:30 AM from your hotel in Delhi/NCR (Delhi, Noida, Gurugram, Ghaziabad or Faridabad). The drive to Agra on the Yamuna Expressway takes about 3 to 3.5 hours, so you arrive in time for sunrise at the Taj Mahal.' },
-      { question: 'Are Taj Mahal entry tickets included?', answer: 'Yes. The price includes monument tickets for both the Taj Mahal and Agra Fort, and the confirmed WhatsApp quote (starting from $650) is the all-in price for up to 6 guests.' },
-      { question: 'How many people fit in the Innova?', answer: 'The Toyota Innova seats up to 6 guests comfortably. For larger families or groups, choose the Sunrise Luxury Urbania (from $899) which carries up to 13 guests.' },
+      { question: 'Are Taj Mahal entry tickets included?', answer: 'Yes. The price includes monument tickets for both the Taj Mahal and Agra Fort, and the confirmed WhatsApp quote (starting from {usd:sunrise-luxury-innova}) is the all-in price for up to 6 guests.' },
+      { question: 'How many people fit in the Innova?', answer: 'The Toyota Innova seats up to 6 guests comfortably. For larger families or groups, choose the Sunrise Luxury Urbania (from {usd:sunrise-luxury-urbania}) which carries up to 13 guests.' },
       { question: 'Is there a security escort?', answer: 'Yes. We are accompanied by a security escort who allows our group to bypass the regular ticket queue at both the Taj Mahal east gate and Agra Fort.' },
       { question: 'Is the Taj Mahal open on Fridays?', answer: 'No — the Taj Mahal is closed every Friday for prayers. We schedule the sunrise tour for any other day of the week.' },
     ],
@@ -331,7 +332,7 @@ const servicesData: Record<string, ServiceData> = {
     title: 'Taj Mahal Sunrise Luxury Urbania Tour | Delhi to Agra for Groups',
     description: 'Our flagship same-day sunrise tour from Delhi/NCR to Agra in a private Force Urbania luxury coach for larger families and groups.',
     quickAnswer:
-      'A same-day private sunrise tour from Delhi/NCR to Agra in a Force Urbania luxury coach for larger families and groups (up to 13 guests). Starting from $899 USD — exact quote confirmed on WhatsApp. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj Mahal complex, and a security escort to skip the entry line. Reclining seats, A/C and Wi-Fi onboard.',
+      'A same-day private sunrise tour from Delhi/NCR to Agra in a Force Urbania luxury coach for larger families and groups (up to 13 guests). Starting from {usd:sunrise-luxury-urbania} USD — exact quote confirmed on WhatsApp. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj Mahal complex, and a security escort to skip the entry line. Reclining seats, A/C and Wi-Fi onboard.',
     longDescription:
       'Built for larger families and travel groups, the Sunrise Luxury Urbania tour takes up to 13 guests from Delhi/NCR to Agra and back in a single day in a private Force Urbania — a premium luxury coach with reclining seats, climate control and Wi-Fi. The structure of the day mirrors our private Innova tour: a sunrise arrival at the Taj Mahal east gate, a private golf cart inside the complex, a Ministry of Tourism licensed guide for the historical narration, a licensed photographer to document the visit, monument tickets to both the Taj Mahal and Agra Fort, and a security escort that lets everyone skip the queue. Because the coach has the capacity, families travelling together no longer need to split across multiple vehicles. Pickup and drop are available across Delhi, Noida, Gurugram, Ghaziabad and Faridabad.',
     features: [
@@ -344,7 +345,7 @@ const servicesData: Record<string, ServiceData> = {
       'Taj Mahal & Agra Fort monument tickets included',
       'Reclining seats, A/C and Wi-Fi onboard',
     ],
-    price: 899,
+    price: usdOf('sunrise-luxury-urbania'),
     fromPrice: true,
     duration: 'Same Day · 14–16 Hours',
     bestFor: 'Families and groups travelling together (up to 13 guests)',
@@ -360,14 +361,16 @@ const servicesData: Record<string, ServiceData> = {
       { time: '07:00–08:00 PM', title: 'Hotel drop in Delhi/NCR', detail: 'Group drop at your starting hotel.' },
     ],
     faqs: [
-      { question: 'How much does the Sunrise Luxury Urbania tour cost?', answer: 'The Sunrise Luxury Urbania tour from Delhi/NCR to Agra starts from $899 USD for up to 13 guests in a private Force Urbania luxury coach; the exact quote is confirmed on WhatsApp before you book.' },
+      { question: 'How much does the Sunrise Luxury Urbania tour cost?', answer: 'The Sunrise Luxury Urbania tour from Delhi/NCR to Agra starts from {usd:sunrise-luxury-urbania} USD for up to 13 guests in a private Force Urbania luxury coach; the exact quote is confirmed on WhatsApp before you book.' },
       { question: 'Why choose the Urbania over the Innova?', answer: 'The Force Urbania seats up to 13 guests in reclining seats with A/C and Wi-Fi, so larger families and friend groups stay together in one vehicle instead of splitting across multiple Innovas. The inclusions (guide, photographer, golf cart, tickets, security escort) are identical.' },
-      { question: 'How many people can the Urbania carry?', answer: 'Up to 13 guests. For couples or families under 6 guests, the Sunrise Luxury Tour in a private Toyota Innova (from $650) is the better fit.' },
-      { question: 'Are tickets included in the price?', answer: 'Yes. Taj Mahal and Agra Fort monument tickets are included in the confirmed quote, which starts from $899 USD.' },
+      { question: 'How many people can the Urbania carry?', answer: 'Up to 13 guests. For couples or families under 6 guests, the Sunrise Luxury Tour in a private Toyota Innova (from {usd:sunrise-luxury-innova}) is the better fit.' },
+      { question: 'Are tickets included in the price?', answer: 'Yes. Taj Mahal and Agra Fort monument tickets are included in the confirmed quote, which starts from {usd:sunrise-luxury-urbania} USD.' },
       { question: 'Where does the tour pick up from?', answer: 'We pick up from any hotel in Delhi, Noida, Gurugram, Ghaziabad or Faridabad. Pickup is around 2:30 AM to reach the Taj Mahal for sunrise.' },
     ],
   },
 };
+
+const servicesData: Record<string, ServiceData> = fillRatesDeep(RAW_SERVICES_DATA);
 
 export async function generateStaticParams() {
   return Object.keys(servicesData).map((slug) => ({ slug }));
@@ -409,12 +412,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const heroImage = planImage(slug);
   /** The solo photographs are portrait frames: text goes top (desktop) or bottom (phone), clear of the face. */
   const PORTRAIT_HEROES: Record<string, { title: string; sub: string }> = {
-    'solo-photoshoot': { title: 'Solo Portrait Photoshoot', sub: 'Just you, a licensed photographer and the best hour of light at the Taj Mahal. From $99.' },
-    'romantic-couple-shoot': { title: 'Romantic Couple Photoshoot', sub: 'Two of you, one licensed photographer and the Taj Mahal at its softest. $200.' },
+    'solo-photoshoot': { title: 'Solo Portrait Photoshoot', sub: 'Just you, a licensed photographer and the best hour of light at the Taj Mahal. From {usd:solo-photoshoot}.' },
+    'romantic-couple-shoot': { title: 'Romantic Couple Photoshoot', sub: 'Two of you, one licensed photographer and the Taj Mahal at its softest. {usd:romantic-couple-shoot}.' },
   };
   const portraitHero = slug in PORTRAIT_HEROES;
   const heroTitle = PORTRAIT_HEROES[slug]?.title ?? service.title;
-  const heroSub = PORTRAIT_HEROES[slug]?.sub ?? service.description;
+  const heroSub = fillRates(PORTRAIT_HEROES[slug]?.sub ?? service.description);
   const isLuxuryTour = Boolean(service.tourSlug);
   /** Only sessions that include no guide carry the notice — see PACKAGES_WITHOUT_GUIDE. */
   const showsGuideNotice = PACKAGES_WITHOUT_GUIDE.has(slug);
@@ -522,7 +525,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <div className="mt-12 bg-ink-900 text-white p-6 rounded-sm">
                   <p className="text-xs uppercase tracking-widest text-gold-400 font-bold mb-2">Compare</p>
                   <p className="mb-4 text-sm text-marble-300">
-                    Looking for a different group size? The {service.tourSlug === 'sunrise-luxury-innova' ? 'Sunrise Luxury Urbania (from $899)' : 'Sunrise Luxury Tour in a private Innova (from $650)'} covers the same itinerary {service.tourSlug === 'sunrise-luxury-innova' ? 'in a 13-seat Force Urbania luxury coach for larger groups' : 'in a 6-seat private Toyota Innova for couples and small families'}.
+                    Looking for a different group size? The {service.tourSlug === 'sunrise-luxury-innova' ? fillRates('Sunrise Luxury Urbania (from {usd:sunrise-luxury-urbania})') : fillRates('Sunrise Luxury Tour in a private Innova (from {usd:sunrise-luxury-innova})')} covers the same itinerary {service.tourSlug === 'sunrise-luxury-innova' ? 'in a 13-seat Force Urbania luxury coach for larger groups' : 'in a 6-seat private Toyota Innova for couples and small families'}.
                   </p>
                   <Link
                     href={`/services/${service.tourSlug === 'sunrise-luxury-innova' ? 'sunrise-luxury-urbania' : 'sunrise-luxury-innova'}`}

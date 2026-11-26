@@ -35,7 +35,7 @@ export const GUIDE_POLICY = {
   ],
   forYou: [
     'Your hotel driver or taxi is fine for the photography-only packages. The rule is about the guide, not your car.',
-    'If you want a guide for Agra Fort or the wider day, we provide one: the Guide + Photo packages start from $89 for 1–5 guests.',
+    fillRates('If you want a guide for Agra Fort or the wider day, we provide one: the Guide + Photo packages start from {usd:guided-photo-tour-small} for 1–5 guests.'),
     'If you only want a guide and a car, with no photographer, the Transport + Guide day covers it.',
   ],
   alreadyArranged:
@@ -63,5 +63,6 @@ export const GUIDE_POLICY = {
     },
   ],
 } as const;
+import { fillRates } from './rates';
 
 export const GUIDE_POLICY_PATH = '/guide-policy';

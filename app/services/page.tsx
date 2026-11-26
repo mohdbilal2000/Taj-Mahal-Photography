@@ -9,10 +9,11 @@ import Price from '@/components/Price';
 import InrRateNote from '@/components/InrRateNote';
 import { breadcrumbSchema, offerSchema, webPageSchema, graphSchema, jsonLd, SITE, LAST_UPDATED } from '@/lib/seo';
 import { planImage } from '@/lib/images';
+import { fillRates, usdOf } from '@/lib/rates';
 
 export const metadata: Metadata = {
   title: 'Services & Prices',
-  description: 'Taj Mahal photography from $120, Agra transport and a licensed guide from $99, and same-day Sunrise Luxury Tours from Delhi from $650.',
+  description: fillRates('Taj Mahal photography from {usd:sunrise}, Agra transport and a licensed guide from {usd:transport-guide}, and same-day Sunrise Luxury Tours from Delhi from {usd:sunrise-luxury-innova}.'),
   alternates: { canonical: `${SITE.url}/services` },
   openGraph: {
     title: 'Taj Mahal Photography Services | Licensed Photographer',
@@ -28,63 +29,63 @@ const services = [
     title: 'Taj Mahal Sunrise Photoshoot',
     description: 'Experience the magic of the Taj Mahal at dawn. This is our most popular package, offering the best lighting and fewest crowds. Your photographer meets you at your hotel — no car or transport is included — and the session is fully customisable to your plans.',
     features: ['1.5–2 Hour Session', '120+ Photos', '3–5 Reels (Solo / Couple / Family)', 'Photographer meets you at your hotel (no transport)', 'Customisable — 20% advance confirms booking'],
-    price: 120,
+    price: usdOf('sunrise'),
   },
   {
     id: 'couple',
     title: 'Couple & Pre-Wedding Photography',
     description: 'Celebrate your love story at the ultimate monument of love. We provide editorial-style posing guidance while capturing candid, romantic moments.',
     features: ['2+ Hour Session', '200+ High-Resolution Photos', '30 Edited Photos (you choose which)', '30 Second Cinematic Video', 'Posing direction', 'Customisable — 20% advance confirms booking'],
-    price: 199,
+    price: usdOf('pre-wedding'),
   },
   {
     id: 'romantic-couple-shoot',
     title: 'Romantic Couple Photoshoot',
     description: 'A softer, shorter alternative to a full pre-wedding shoot: two hours for the two of you, with a licensed photographer directing the pose, the light and the moment. Made for honeymoons, anniversaries and date-day trips.',
     features: ['2 Hour Private Session', '150+ Edited Photos', '5 Reels', 'Pose and expression direction', 'Photographer meets you at your hotel (no transport)', 'Customisable — 20% advance confirms booking'],
-    price: 200,
+    price: usdOf('romantic-couple-shoot'),
   },
   {
     id: 'solo-photoshoot',
     title: 'Solo Portrait Photoshoot',
     description: 'Portraits of just you at the Taj Mahal, by a licensed photographer who guides the pose and the light. A shorter, lighter session for solo travellers and creators.',
     features: ['1 Hour Private Session', '60+ Edited Photos', '2 Reels', 'Photographer meets you at your hotel (no transport)', 'Customisable — 20% advance confirms booking'],
-    price: 99,
+    price: usdOf('solo-photoshoot'),
   },
   {
     id: 'guided-photo-tour-small',
     title: 'Guided Tour + Photo · Small Group (1–5 Guests)',
     description: 'A licensed local guide included across Agra, plus a professional photographer at every monument. 40 natural digital photos and 5 reels for up to 5 guests. Inside the Taj Mahal itself guides are not permitted alongside a photographer, so there your photographer takes you through. Monument tickets not included.',
     features: ['Licensed local guide included — Agra Fort, Mehtab Bagh & Itmad-ud-Daulah', 'Professional photographer alongside', '40 natural digital photos', '5 reels (couple / solo / family)', 'Best photo locations & pose assistance', 'Up to 5 guests — customisable', '20% advance confirms booking, balance after the tour'],
-    price: 89,
+    price: usdOf('guided-photo-tour-small'),
   },
   {
     id: 'guided-photo-tour-large',
     title: 'Guided Tour + Photo · Large Group (6–12 Guests)',
     description: 'The same guide + photographer combo covering the Taj Mahal, Agra Fort and Mehtab Bagh / Itmad-ud-Daulah, scaled up for groups of 6 to 12 guests. A licensed guide is included throughout; inside the Taj Mahal your photographer takes you through. 60 natural digital photos and 7 reels. Monument tickets not included.',
     features: ['Licensed local guide included — Agra Fort, Mehtab Bagh & Itmad-ud-Daulah', 'Professional photographer alongside', '60 natural digital photos', '7 reels (group / solo / couple / kids / family)', 'Group portraits + individual portraits', 'Up to 12 guests — customisable', '20% advance confirms booking, balance after the tour'],
-    price: 119,
+    price: usdOf('guided-photo-tour-large'),
   },
   {
     id: 'transport-guide',
     title: 'Transport + Guide (No Photography)',
-    description: 'A same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from $99. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh. No photographer — shoot on your own camera. Monument tickets not included.',
-    features: ['Starting from $99 — exact quote on WhatsApp', 'Same day tour · Agra only', 'Private A/C car + chauffeur', 'Ministry of Tourism licensed guide', 'Hotel / railway station / Agra airport pickup', 'Taj Mahal, Agra Fort, Itmad-ud-Daulah & Mehtab Bagh', 'No photographer — bring your own camera'],
-    price: 99,
+    description: fillRates('A same-day Agra tour with a private A/C car and chauffeur plus a Ministry of Tourism licensed guide, starting from {usd:transport-guide}. Covers the Taj Mahal, Agra Fort, Itmad-ud-Daulah and Mehtab Bagh. No photographer — shoot on your own camera. Monument tickets not included.'),
+    features: [fillRates('Starting from {usd:transport-guide} — exact quote on WhatsApp'), 'Same day tour · Agra only', 'Private A/C car + chauffeur', 'Ministry of Tourism licensed guide', 'Hotel / railway station / Agra airport pickup', 'Taj Mahal, Agra Fort, Itmad-ud-Daulah & Mehtab Bagh', 'No photographer — bring your own camera'],
+    price: usdOf('transport-guide'),
   },
   {
     id: 'sunrise-luxury-innova',
     title: 'Taj Mahal Sunrise Luxury Tour (Innova)',
     description: 'Same-day sunrise tour from Delhi/NCR to Agra in a private Toyota Innova. Covers the Taj Mahal and Agra Fort with a Ministry of Tourism licensed guide and photographer, monument tickets, a private golf cart inside the Taj complex, and a security escort to skip the line. Ideal for couples and small families.',
     features: ['Same Day · 14–16 Hours', 'Private Toyota Innova (Delhi/NCR ↔ Agra)', 'Govt. licensed guide & photographer', 'Taj Mahal + Agra Fort tickets included', 'Private golf cart inside Taj complex', 'Skip-the-line with security escort'],
-    price: 650,
+    price: usdOf('sunrise-luxury-innova'),
   },
   {
     id: 'sunrise-luxury-urbania',
     title: 'Taj Mahal Sunrise Luxury Urbania',
     description: 'The flagship same-day sunrise tour from Delhi/NCR for larger families and groups. Travel in a private Force Urbania luxury coach with reclining seats, A/C and Wi-Fi. Includes a Ministry of Tourism licensed guide and photographer, Taj Mahal and Agra Fort tickets, a private golf cart inside the Taj complex, and a security escort to skip the line.',
     features: ['Same Day · 14–16 Hours', 'Private Force Urbania luxury coach', 'Up to 13 guests', 'Govt. licensed guide & photographer', 'Taj Mahal + Agra Fort tickets included', 'Private golf cart inside Taj complex', 'Skip-the-line with security escort'],
-    price: 899,
+    price: usdOf('sunrise-luxury-urbania'),
   },
 ];
 
@@ -168,11 +169,11 @@ export default function ServicesPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Which Taj Mahal photography package is most popular?</h3>
-                <p className="text-ink-700">The Sunrise Photoshoot ($120, 1.5–2 hours) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
+                <p className="text-ink-700">The Sunrise Photoshoot (${usdOf('sunrise')}, 1.5–2 hours) is the most popular package. It offers the best natural lighting, fewest crowds, and captures the iconic color changes on the marble as the sun rises. Ideal for couples and solo travelers visiting for the first time.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-ink-900 mb-2">Can I combine multiple photography services?</h3>
-                <p className="text-ink-700">Yes. The Taj Mahal + Agra Fort Heritage Trail ($399, 5 hours) and Full Day Agra Experience ($499, 8-10 hours) combine multiple locations. Custom combinations can also be arranged upon request.</p>
+                <p className="text-ink-700">Yes. The Taj Mahal + Agra Fort Heritage Trail (${usdOf('taj-agra-fort')}, 5 hours) and Full Day Agra Experience (${usdOf('full-day')}, 8-10 hours) combine multiple locations. Custom combinations can also be arranged upon request.</p>
               </div>
             </div>
           </div>

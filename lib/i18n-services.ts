@@ -1,4 +1,5 @@
 import type { LocaleCode, LocaleService } from './i18n';
+import { fillRatesDeep } from './rates';
 
 /**
  * Translated service pages, keyed by locale.
@@ -12,7 +13,7 @@ import type { LocaleCode, LocaleService } from './i18n';
  * Prices are never written here. They come from lib/plans.ts through planId,
  * so a rate change moves every language at once.
  */
-export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
+const RAW_LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
   fr: [
     {
       planId: 'sunrise',
@@ -214,7 +215,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'sunrise',
       slug: 'fotografo-taj-mahal-amanecer',
-      title: 'Fotógrafo en el Taj Mahal al amanecer | Sesión desde 120 USD',
+      title: 'Fotógrafo en el Taj Mahal al amanecer | Sesión desde {usdc:sunrise}',
       description:
         'Sesión de fotos al amanecer en el Taj Mahal con fotógrafo con licencia: más de 120 fotos, 3–5 reels y entrega en 48 horas. El fotógrafo te recoge en tu hotel.',
       keywords: [
@@ -253,7 +254,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'pre-wedding',
       slug: 'sesion-fotos-pareja-taj-mahal',
-      title: 'Sesión de pareja y preboda en el Taj Mahal | desde 199 USD',
+      title: 'Sesión de pareja y preboda en el Taj Mahal | desde {usdc:pre-wedding}',
       description:
         'Sesión de pareja o preboda en el Taj Mahal: 200 fotos en alta resolución, 30 editadas y un vídeo cinematográfico. Fotógrafo con licencia y dirección de poses incluida.',
       keywords: [
@@ -264,7 +265,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Sesión de pareja y preboda en el Taj Mahal',
       answer:
-        'La sesión de pareja dura dos horas o más y entrega más de 200 fotos en alta resolución, 30 editadas a tu elección y un vídeo cinematográfico corto. Se hace al amanecer, con dirección de poses de principio a fin, y empieza en 199 USD según la duración y los lugares elegidos.',
+        'La sesión de pareja dura dos horas o más y entrega más de 200 fotos en alta resolución, 30 editadas a tu elección y un vídeo cinematográfico corto. Se hace al amanecer, con dirección de poses de principio a fin, y empieza en {usdc:pre-wedding} según la duración y los lugares elegidos.',
       intro: [
         'Una pareja que nunca ha posado necesita que alguien la guíe, no que la fotografíen de lejos. Por eso la sesión es dirigida: dónde mirar, dónde poner la mano, cuándo caminar. Las fotos que más os gustarán casi siempre son las de entre pose y pose.',
         'Si traéis un cambio de ropa —un sari, un vestido largo, una sherwani— organizamos la sesión en dos partes: primero el estanque y después las arcadas laterales, donde la luz se mantiene suave más tiempo.',
@@ -292,7 +293,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-small',
       slug: 'tour-guiado-fotos-taj-mahal-grupo-pequeno',
-      title: 'Tour guiado + fotos en el Taj Mahal · 1 a 5 personas | desde 89 USD',
+      title: 'Tour guiado + fotos en el Taj Mahal · 1 a 5 personas | desde {usdc:guided-photo-tour-small}',
       description:
         'Guía autorizado y fotógrafo juntos: Taj Mahal, Agra Fort y Mehtab Bagh para 1 a 5 personas, 40 fotos naturales y 5 reels. Dentro del Taj Mahal el guía no puede acompañar al fotógrafo.',
       keywords: [
@@ -303,7 +304,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Tour guiado con fotógrafo · 1 a 5 personas',
       answer:
-        'Este paquete reúne a un guía autorizado y a un fotógrafo profesional durante media jornada, desde 89 USD para una a cinco personas, y cubre el Taj Mahal, Agra Fort y Mehtab Bagh o Itimad-ud-Daulah. Dentro del Taj Mahal el reglamento no permite que un guía acompañe a un fotógrafo, así que allí te acompaña el fotógrafo y el guía se reúne contigo en los demás monumentos.',
+        'Este paquete reúne a un guía autorizado y a un fotógrafo profesional durante media jornada, desde {usdc:guided-photo-tour-small} para una a cinco personas, y cubre el Taj Mahal, Agra Fort y Mehtab Bagh o Itimad-ud-Daulah. Dentro del Taj Mahal el reglamento no permite que un guía acompañe a un fotógrafo, así que allí te acompaña el fotógrafo y el guía se reúne contigo en los demás monumentos.',
       intro: [
         'La mayoría de los visitantes sale de Agra con explicaciones o con fotos, pero no con las dos cosas. Aquí tienes ambas por lo que costaría contratarlas por separado, y sin coordinar dos reservas.',
         'Son cuarenta fotos naturales —nada de posados rígidos— y cinco reels. El guía cuenta la construcción, las inscripciones y los detalles que no se ven solo; el fotógrafo sigue al grupo mientras tanto.',
@@ -331,7 +332,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-large',
       slug: 'tour-guiado-fotos-taj-mahal-grupo-grande',
-      title: 'Tour guiado + fotos en el Taj Mahal · 6 a 12 personas | desde 119 USD',
+      title: 'Tour guiado + fotos en el Taj Mahal · 6 a 12 personas | desde {usdc:guided-photo-tour-large}',
       description:
         'Guía autorizado y fotógrafo para grupos de 6 a 12 personas: 60 fotos naturales, 7 reels, retratos de grupo e individuales. Taj Mahal, Agra Fort y Mehtab Bagh.',
       keywords: [
@@ -342,7 +343,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Tour guiado con fotógrafo · 6 a 12 personas',
       answer:
-        'El mismo paquete de guía y fotógrafo, dimensionado para seis a doce personas, desde 119 USD por media jornada. Incluye 60 fotos digitales naturales y 7 reels, con retratos de grupo y retratos individuales de cada persona, en el Taj Mahal, Agra Fort y Mehtab Bagh o Itimad-ud-Daulah.',
+        'El mismo paquete de guía y fotógrafo, dimensionado para seis a doce personas, desde {usdc:guided-photo-tour-large} por media jornada. Incluye 60 fotos digitales naturales y 7 reels, con retratos de grupo y retratos individuales de cada persona, en el Taj Mahal, Agra Fort y Mehtab Bagh o Itimad-ud-Daulah.',
       intro: [
         'Fotografiar a doce personas delante del Taj Mahal no es cuestión de disparar: hay dos o tres sitios donde el grupo entero cabe en el encuadre con el monumento completo detrás, y hay que llegar antes de que se llenen.',
         'Empezamos por los retratos de grupo, mientras la luz sigue baja y los caminos están vacíos, y después hacemos los individuales y de pareja mientras el guía explica el sitio.',
@@ -370,9 +371,9 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'transport-guide',
       slug: 'coche-privado-guia-agra',
-      title: 'Coche privado y guía autorizado en Agra, sin fotógrafo | desde 99 USD',
+      title: 'Coche privado y guía autorizado en Agra, sin fotógrafo | desde {usdc:transport-guide}',
       description:
-        'Día en Agra con coche privado con aire acondicionado, chófer y guía autorizado por el Ministerio de Turismo, desde 99 USD. Taj Mahal, Agra Fort, Itimad-ud-Daulah y Mehtab Bagh. Las fotos las haces tú.',
+        'Día en Agra con coche privado con aire acondicionado, chófer y guía autorizado por el Ministerio de Turismo, desde {usdc:transport-guide}. Taj Mahal, Agra Fort, Itimad-ud-Daulah y Mehtab Bagh. Las fotos las haces tú.',
       keywords: [
         'coche privado agra',
         'guía en español agra',
@@ -381,7 +382,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Coche privado y guía en Agra, sin fotógrafo',
       answer:
-        'Un día completo en Agra con coche privado con aire acondicionado y chófer más un guía autorizado por el Ministerio de Turismo, desde 99 USD. Cubre el Taj Mahal, Agra Fort, Itimad-ud-Daulah y Mehtab Bagh, con recogida en tu hotel, en la estación o en el aeropuerto de Agra. Sin fotógrafo: las fotos las haces tú.',
+        'Un día completo en Agra con coche privado con aire acondicionado y chófer más un guía autorizado por el Ministerio de Turismo, desde {usdc:transport-guide}. Cubre el Taj Mahal, Agra Fort, Itimad-ud-Daulah y Mehtab Bagh, con recogida en tu hotel, en la estación o en el aeropuerto de Agra. Sin fotógrafo: las fotos las haces tú.',
       intro: [
         'Mucha gente fotografía muy bien por su cuenta y solo necesita dos cosas: alguien que conduzca y alguien que explique. Este paquete es exactamente eso, sin la parte de fotografía.',
         'El guía conoce los horarios, las colas y los ángulos que vas a querer fotografiar; el chófer espera en cada monumento, así que un día en Agra no se te va buscando un rickshaw al sol.',
@@ -411,7 +412,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'sunrise',
       slug: 'taj-mahal-fotograf-sonnenaufgang',
-      title: 'Taj Mahal Fotograf zum Sonnenaufgang | Shooting ab 120 USD',
+      title: 'Taj Mahal Fotograf zum Sonnenaufgang | Shooting ab {usdc:sunrise}',
       description:
         'Fotoshooting zum Sonnenaufgang am Taj Mahal mit lizenziertem Fotografen: über 120 Fotos, 3–5 Reels, Lieferung in 48 Stunden. Der Fotograf holt Sie am Hotel ab.',
       keywords: [
@@ -450,7 +451,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'pre-wedding',
       slug: 'paar-fotoshooting-taj-mahal',
-      title: 'Paar- und Pre-Wedding-Shooting am Taj Mahal | ab 199 USD',
+      title: 'Paar- und Pre-Wedding-Shooting am Taj Mahal | ab {usdc:pre-wedding}',
       description:
         'Paar- oder Pre-Wedding-Shooting am Taj Mahal: 200 Fotos in voller Auflösung, 30 bearbeitet und ein cineastisches Video. Lizenzierter Fotograf, Posenführung inklusive.',
       keywords: [
@@ -461,7 +462,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Paar- und Pre-Wedding-Shooting am Taj Mahal',
       answer:
-        'Das Paar-Shooting dauert zwei Stunden oder länger und liefert über 200 Fotos in voller Auflösung, 30 bearbeitete Aufnahmen nach Ihrer Wahl und ein kurzes cineastisches Video. Es findet zum Sonnenaufgang statt, mit durchgehender Posenführung, und beginnt bei 199 USD je nach Dauer und gewählten Orten.',
+        'Das Paar-Shooting dauert zwei Stunden oder länger und liefert über 200 Fotos in voller Auflösung, 30 bearbeitete Aufnahmen nach Ihrer Wahl und ein kurzes cineastisches Video. Es findet zum Sonnenaufgang statt, mit durchgehender Posenführung, und beginnt bei {usdc:pre-wedding} je nach Dauer und gewählten Orten.',
       intro: [
         'Ein Paar, das noch nie vor einer Kamera gestanden hat, braucht Anleitung und nicht jemanden, der aus der Ferne fotografiert. Deshalb wird geführt: wohin schauen, wohin die Hand, wann losgehen. Die Bilder, die Ihnen am Ende am liebsten sind, entstehen fast immer zwischen zwei Posen.',
         'Wenn Sie ein zweites Outfit mitbringen — einen Sari, ein langes Kleid, eine Sherwani — teilen wir das Shooting: erst das Wasserbecken, dann die Seitenarkaden, wo das Licht länger weich bleibt.',
@@ -489,7 +490,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-small',
       slug: 'gefuehrte-fototour-taj-mahal-kleine-gruppe',
-      title: 'Geführte Tour + Fotos am Taj Mahal · 1 bis 5 Personen | ab 89 USD',
+      title: 'Geführte Tour + Fotos am Taj Mahal · 1 bis 5 Personen | ab {usdc:guided-photo-tour-small}',
       description:
         'Lizenzierter Guide und Fotograf zusammen: Taj Mahal, Agra Fort und Mehtab Bagh für 1 bis 5 Personen, 40 natürliche Fotos und 5 Reels. Im Taj Mahal darf der Guide den Fotografen nicht begleiten.',
       keywords: [
@@ -500,7 +501,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Geführte Tour mit Fotograf · 1 bis 5 Personen',
       answer:
-        'Dieses Paket bringt einen lizenzierten Guide und einen professionellen Fotografen für einen halben Tag zusammen, ab 89 USD für eine bis fünf Personen, und umfasst Taj Mahal, Agra Fort sowie Mehtab Bagh oder Itimad-ud-Daulah. Im Taj Mahal selbst darf ein Guide einen Fotografen nicht begleiten — dort sind Sie mit dem Fotografen unterwegs, der Guide kommt an allen anderen Monumenten dazu.',
+        'Dieses Paket bringt einen lizenzierten Guide und einen professionellen Fotografen für einen halben Tag zusammen, ab {usdc:guided-photo-tour-small} für eine bis fünf Personen, und umfasst Taj Mahal, Agra Fort sowie Mehtab Bagh oder Itimad-ud-Daulah. Im Taj Mahal selbst darf ein Guide einen Fotografen nicht begleiten — dort sind Sie mit dem Fotografen unterwegs, der Guide kommt an allen anderen Monumenten dazu.',
       intro: [
         'Die meisten Besucher verlassen Agra entweder mit Erklärungen oder mit Fotos. Hier bekommen Sie beides, für etwa den Preis beider Leistungen einzeln, und ohne zwei Buchungen zu koordinieren.',
         'Es werden vierzig natürliche Aufnahmen — keine steifen Posen — und fünf Reels. Der Guide erzählt von Bau, Inschriften und Details, die man allein übersieht; der Fotograf begleitet die Gruppe dabei.',
@@ -528,7 +529,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-large',
       slug: 'gefuehrte-fototour-taj-mahal-gruppe',
-      title: 'Geführte Tour + Fotos am Taj Mahal · 6 bis 12 Personen | ab 119 USD',
+      title: 'Geführte Tour + Fotos am Taj Mahal · 6 bis 12 Personen | ab {usdc:guided-photo-tour-large}',
       description:
         'Lizenzierter Guide und Fotograf für Gruppen von 6 bis 12 Personen: 60 natürliche Fotos, 7 Reels, Gruppen- und Einzelporträts. Taj Mahal, Agra Fort und Mehtab Bagh.',
       keywords: [
@@ -539,7 +540,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Geführte Tour mit Fotograf · 6 bis 12 Personen',
       answer:
-        'Dasselbe Paket aus Guide und Fotograf, ausgelegt für sechs bis zwölf Personen, ab 119 USD für einen halben Tag. Enthalten sind 60 natürliche digitale Fotos und 7 Reels, mit Gruppenporträts und Einzelporträts jeder Person, am Taj Mahal, Agra Fort und Mehtab Bagh oder Itimad-ud-Daulah.',
+        'Dasselbe Paket aus Guide und Fotograf, ausgelegt für sechs bis zwölf Personen, ab {usdc:guided-photo-tour-large} für einen halben Tag. Enthalten sind 60 natürliche digitale Fotos und 7 Reels, mit Gruppenporträts und Einzelporträts jeder Person, am Taj Mahal, Agra Fort und Mehtab Bagh oder Itimad-ud-Daulah.',
       intro: [
         'Zwölf Menschen vor dem Taj Mahal zu fotografieren ist keine Frage des Auslösers: Es gibt zwei oder drei Stellen, an denen die ganze Gruppe mit dem vollständigen Monument dahinter ins Bild passt — und dort muss man vor der Menge sein.',
         'Wir beginnen mit den Gruppenporträts, solange das Licht tief steht und die Wege leer sind, und machen danach Einzel- und Paarporträts, während der Guide erzählt.',
@@ -567,9 +568,9 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'transport-guide',
       slug: 'privatwagen-guide-agra',
-      title: 'Privatwagen und lizenzierter Guide in Agra, ohne Fotograf | ab 99 USD',
+      title: 'Privatwagen und lizenzierter Guide in Agra, ohne Fotograf | ab {usdc:transport-guide}',
       description:
-        'Tag in Agra mit privatem Klimawagen, Fahrer und einem vom Tourismusministerium lizenzierten Guide, ab 99 USD. Taj Mahal, Agra Fort, Itimad-ud-Daulah und Mehtab Bagh. Fotografieren Sie selbst.',
+        'Tag in Agra mit privatem Klimawagen, Fahrer und einem vom Tourismusministerium lizenzierten Guide, ab {usdc:transport-guide}. Taj Mahal, Agra Fort, Itimad-ud-Daulah und Mehtab Bagh. Fotografieren Sie selbst.',
       keywords: [
         'privatwagen agra',
         'deutschsprachiger guide agra',
@@ -578,7 +579,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Privatwagen und Guide in Agra, ohne Fotograf',
       answer:
-        'Ein ganzer Tag in Agra mit privatem Klimawagen samt Fahrer und einem vom Tourismusministerium lizenzierten Guide, ab 99 USD. Enthalten sind Taj Mahal, Agra Fort, Itimad-ud-Daulah und Mehtab Bagh, mit Abholung am Hotel, am Bahnhof oder am Flughafen Agra. Kein Fotograf — Sie fotografieren selbst.',
+        'Ein ganzer Tag in Agra mit privatem Klimawagen samt Fahrer und einem vom Tourismusministerium lizenzierten Guide, ab {usdc:transport-guide}. Enthalten sind Taj Mahal, Agra Fort, Itimad-ud-Daulah und Mehtab Bagh, mit Abholung am Hotel, am Bahnhof oder am Flughafen Agra. Kein Fotograf — Sie fotografieren selbst.',
       intro: [
         'Viele Reisende fotografieren selbst sehr gut und brauchen nur zwei Dinge: jemanden, der fährt, und jemanden, der erklärt. Genau das ist dieses Paket, ohne den Posten Fotografie.',
         'Der Guide kennt Öffnungszeiten, Warteschlangen und die Blickwinkel, die Sie fotografieren wollen; der Fahrer wartet an jedem Monument, damit ein Tag in Agra nicht mit der Suche nach einer Rikscha in der Sonne vergeht.',
@@ -608,7 +609,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'sunrise',
       slug: 'fotografo-taj-mahal-alba',
-      title: 'Fotografo al Taj Mahal all’alba | Servizio da 120 USD',
+      title: 'Fotografo al Taj Mahal all’alba | Servizio da {usdc:sunrise}',
       description:
         'Servizio fotografico all’alba al Taj Mahal con fotografo autorizzato: oltre 120 foto, 3–5 reel, consegna in 48 ore. Il fotografo vi aspetta in hotel.',
       keywords: [
@@ -647,7 +648,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'pre-wedding',
       slug: 'servizio-fotografico-coppia-taj-mahal',
-      title: 'Servizio di coppia e pre-matrimonio al Taj Mahal | da 199 USD',
+      title: 'Servizio di coppia e pre-matrimonio al Taj Mahal | da {usdc:pre-wedding}',
       description:
         'Servizio di coppia o pre-matrimonio al Taj Mahal: 200 foto in alta risoluzione, 30 ritoccate e un video cinematografico. Fotografo autorizzato, guida alle pose inclusa.',
       keywords: [
@@ -658,7 +659,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Servizio di coppia e pre-matrimonio al Taj Mahal',
       answer:
-        'Il servizio di coppia dura due ore o più e consegna oltre 200 foto in alta risoluzione, 30 scatti ritoccati a vostra scelta e un breve video cinematografico. Si svolge all’alba, con guida alle pose dall’inizio alla fine, e parte da 199 USD secondo durata e luoghi scelti.',
+        'Il servizio di coppia dura due ore o più e consegna oltre 200 foto in alta risoluzione, 30 scatti ritoccati a vostra scelta e un breve video cinematografico. Si svolge all’alba, con guida alle pose dall’inizio alla fine, e parte da {usdc:pre-wedding} secondo durata e luoghi scelti.',
       intro: [
         'Una coppia che non ha mai posato davanti a un obiettivo va guidata, non fotografata da lontano. Per questo il servizio è diretto: dove guardare, dove mettere la mano, quando camminare. Le immagini che vi piaceranno di più saranno quasi sempre quelle tra una posa e l’altra.',
         'Se portate un cambio d’abito — un sari, un vestito lungo, una sherwani — dividiamo il servizio in due parti: prima la vasca, poi le arcate laterali, dove la luce resta morbida più a lungo.',
@@ -686,7 +687,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-small',
       slug: 'tour-guidato-foto-taj-mahal-piccolo-gruppo',
-      title: 'Tour guidato + foto al Taj Mahal · 1 a 5 persone | da 89 USD',
+      title: 'Tour guidato + foto al Taj Mahal · 1 a 5 persone | da {usdc:guided-photo-tour-small}',
       description:
         'Guida autorizzata e fotografo insieme: Taj Mahal, Agra Fort e Mehtab Bagh per 1 a 5 persone, 40 foto naturali e 5 reel. Dentro il Taj Mahal la guida non può accompagnare il fotografo.',
       keywords: [
@@ -697,7 +698,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Tour guidato con fotografo · 1 a 5 persone',
       answer:
-        'Questo pacchetto unisce una guida autorizzata e un fotografo professionista per mezza giornata, da 89 USD per una a cinque persone, e copre Taj Mahal, Agra Fort e Mehtab Bagh o Itimad-ud-Daulah. Dentro il Taj Mahal il regolamento non consente a una guida di accompagnare un fotografo: là siete con il fotografo, mentre la guida vi raggiunge in tutti gli altri monumenti.',
+        'Questo pacchetto unisce una guida autorizzata e un fotografo professionista per mezza giornata, da {usdc:guided-photo-tour-small} per una a cinque persone, e copre Taj Mahal, Agra Fort e Mehtab Bagh o Itimad-ud-Daulah. Dentro il Taj Mahal il regolamento non consente a una guida di accompagnare un fotografo: là siete con il fotografo, mentre la guida vi raggiunge in tutti gli altri monumenti.',
       intro: [
         'La maggior parte dei visitatori lascia Agra con le spiegazioni oppure con le fotografie. Qui avete entrambe, a quanto costerebbero separatamente e senza coordinare due prenotazioni.',
         'Sono quaranta foto naturali — niente pose rigide — e cinque reel. La guida racconta la costruzione, le iscrizioni e i dettagli che da soli non si notano; nel frattempo il fotografo segue il gruppo.',
@@ -725,7 +726,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-large',
       slug: 'tour-guidato-foto-taj-mahal-gruppo',
-      title: 'Tour guidato + foto al Taj Mahal · 6 a 12 persone | da 119 USD',
+      title: 'Tour guidato + foto al Taj Mahal · 6 a 12 persone | da {usdc:guided-photo-tour-large}',
       description:
         'Guida autorizzata e fotografo per gruppi da 6 a 12 persone: 60 foto naturali, 7 reel, ritratti di gruppo e individuali. Taj Mahal, Agra Fort e Mehtab Bagh.',
       keywords: [
@@ -736,7 +737,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Tour guidato con fotografo · 6 a 12 persone',
       answer:
-        'Lo stesso pacchetto guida più fotografo, dimensionato per sei a dodici persone, da 119 USD per mezza giornata. Comprende 60 foto digitali naturali e 7 reel, con ritratti di gruppo e ritratti individuali di ciascuno, al Taj Mahal, Agra Fort e Mehtab Bagh o Itimad-ud-Daulah.',
+        'Lo stesso pacchetto guida più fotografo, dimensionato per sei a dodici persone, da {usdc:guided-photo-tour-large} per mezza giornata. Comprende 60 foto digitali naturali e 7 reel, con ritratti di gruppo e ritratti individuali di ciascuno, al Taj Mahal, Agra Fort e Mehtab Bagh o Itimad-ud-Daulah.',
       intro: [
         'Fotografare dodici persone davanti al Taj Mahal non è questione di scatto: ci sono due o tre punti in cui tutto il gruppo entra nell’inquadratura con il monumento intero dietro, e bisogna arrivarci prima della folla.',
         'Iniziamo dai ritratti di gruppo, mentre la luce è ancora bassa e i vialetti sono vuoti, poi passiamo ai ritratti individuali e di coppia mentre la guida racconta.',
@@ -764,9 +765,9 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'transport-guide',
       slug: 'auto-privata-guida-agra',
-      title: 'Auto privata e guida autorizzata ad Agra, senza fotografo | da 99 USD',
+      title: 'Auto privata e guida autorizzata ad Agra, senza fotografo | da {usdc:transport-guide}',
       description:
-        'Giornata ad Agra con auto privata climatizzata, autista e guida autorizzata dal Ministero del Turismo, da 99 USD. Taj Mahal, Agra Fort, Itimad-ud-Daulah e Mehtab Bagh. Le foto le fate voi.',
+        'Giornata ad Agra con auto privata climatizzata, autista e guida autorizzata dal Ministero del Turismo, da {usdc:transport-guide}. Taj Mahal, Agra Fort, Itimad-ud-Daulah e Mehtab Bagh. Le foto le fate voi.',
       keywords: [
         'auto privata agra',
         'guida italiana agra',
@@ -775,7 +776,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Auto privata e guida ad Agra, senza fotografo',
       answer:
-        'Una giornata intera ad Agra con auto privata climatizzata e autista più una guida autorizzata dal Ministero del Turismo, da 99 USD. Copre Taj Mahal, Agra Fort, Itimad-ud-Daulah e Mehtab Bagh, con prelievo in hotel, alla stazione o all’aeroporto di Agra. Nessun fotografo: le fotografie le fate voi.',
+        'Una giornata intera ad Agra con auto privata climatizzata e autista più una guida autorizzata dal Ministero del Turismo, da {usdc:transport-guide}. Copre Taj Mahal, Agra Fort, Itimad-ud-Daulah e Mehtab Bagh, con prelievo in hotel, alla stazione o all’aeroporto di Agra. Nessun fotografo: le fotografie le fate voi.',
       intro: [
         'Molti viaggiatori fotografano benissimo da sé e hanno bisogno di due cose soltanto: qualcuno che guidi e qualcuno che spieghi. Questo pacchetto è esattamente questo, senza la voce fotografia.',
         'La guida conosce gli orari, le file e le inquadrature che vorrete; l’autista aspetta a ogni monumento, così una giornata ad Agra non si consuma cercando un rickshaw sotto il sole.',
@@ -805,7 +806,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'sunrise',
       slug: 'fotografo-taj-mahal-amanhecer',
-      title: 'Fotógrafo no Taj Mahal ao amanhecer | Ensaio a partir de 120 USD',
+      title: 'Fotógrafo no Taj Mahal ao amanhecer | Ensaio a partir de {usdc:sunrise}',
       description:
         'Ensaio fotográfico ao amanhecer no Taj Mahal com fotógrafo licenciado: mais de 120 fotos, 3–5 reels e entrega em 48 horas. O fotógrafo encontra você no hotel.',
       keywords: [
@@ -844,7 +845,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'pre-wedding',
       slug: 'ensaio-casal-taj-mahal',
-      title: 'Ensaio de casal e pré-wedding no Taj Mahal | a partir de 199 USD',
+      title: 'Ensaio de casal e pré-wedding no Taj Mahal | a partir de {usdc:pre-wedding}',
       description:
         'Ensaio de casal ou pré-wedding no Taj Mahal: 200 fotos em alta resolução, 30 tratadas e um vídeo cinematográfico. Fotógrafo licenciado, direção de poses incluída.',
       keywords: [
@@ -855,7 +856,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Ensaio de casal e pré-wedding no Taj Mahal',
       answer:
-        'O ensaio de casal dura duas horas ou mais e entrega mais de 200 fotos em alta resolução, 30 tratadas à sua escolha e um vídeo cinematográfico curto. É feito ao amanhecer, com direção de poses do início ao fim, e começa em 199 USD conforme a duração e os locais escolhidos.',
+        'O ensaio de casal dura duas horas ou mais e entrega mais de 200 fotos em alta resolução, 30 tratadas à sua escolha e um vídeo cinematográfico curto. É feito ao amanhecer, com direção de poses do início ao fim, e começa em {usdc:pre-wedding} conforme a duração e os locais escolhidos.',
       intro: [
         'Um casal que nunca posou precisa de direção, não de alguém fotografando de longe. Por isso o ensaio é conduzido: para onde olhar, onde pôr a mão, quando caminhar. As fotos de que vocês vão gostar mais são quase sempre as de entre uma pose e outra.',
         'Se levarem uma segunda roupa — um sári, um vestido longo, uma sherwani — dividimos o ensaio: primeiro o espelho d’água, depois as arcadas laterais, onde a luz continua suave por mais tempo.',
@@ -883,7 +884,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-small',
       slug: 'tour-guiado-fotos-taj-mahal-grupo-pequeno',
-      title: 'Tour guiado + fotos no Taj Mahal · 1 a 5 pessoas | a partir de 89 USD',
+      title: 'Tour guiado + fotos no Taj Mahal · 1 a 5 pessoas | a partir de {usdc:guided-photo-tour-small}',
       description:
         'Guia licenciado e fotógrafo juntos: Taj Mahal, Agra Fort e Mehtab Bagh para 1 a 5 pessoas, 40 fotos naturais e 5 reels. Dentro do Taj Mahal o guia não pode acompanhar o fotógrafo.',
       keywords: [
@@ -894,7 +895,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Tour guiado com fotógrafo · 1 a 5 pessoas',
       answer:
-        'Este pacote reúne um guia licenciado e um fotógrafo profissional por meio período, a partir de 89 USD para uma a cinco pessoas, e cobre Taj Mahal, Agra Fort e Mehtab Bagh ou Itimad-ud-Daulah. Dentro do Taj Mahal o regulamento não permite que um guia acompanhe um fotógrafo: lá você fica com o fotógrafo, e o guia encontra vocês em todos os outros monumentos.',
+        'Este pacote reúne um guia licenciado e um fotógrafo profissional por meio período, a partir de {usdc:guided-photo-tour-small} para uma a cinco pessoas, e cobre Taj Mahal, Agra Fort e Mehtab Bagh ou Itimad-ud-Daulah. Dentro do Taj Mahal o regulamento não permite que um guia acompanhe um fotógrafo: lá você fica com o fotógrafo, e o guia encontra vocês em todos os outros monumentos.',
       intro: [
         'A maioria dos visitantes sai de Agra com as explicações ou com as fotos. Aqui você tem as duas coisas, pelo que custaria contratar separado e sem coordenar duas reservas.',
         'São quarenta fotos naturais — nada de pose engessada — e cinco reels. O guia conta a construção, as inscrições e os detalhes que passam batido; o fotógrafo acompanha o grupo nesse tempo.',
@@ -922,7 +923,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-large',
       slug: 'tour-guiado-fotos-taj-mahal-grupo-grande',
-      title: 'Tour guiado + fotos no Taj Mahal · 6 a 12 pessoas | a partir de 119 USD',
+      title: 'Tour guiado + fotos no Taj Mahal · 6 a 12 pessoas | a partir de {usdc:guided-photo-tour-large}',
       description:
         'Guia licenciado e fotógrafo para grupos de 6 a 12 pessoas: 60 fotos naturais, 7 reels, retratos de grupo e individuais. Taj Mahal, Agra Fort e Mehtab Bagh.',
       keywords: [
@@ -933,7 +934,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Tour guiado com fotógrafo · 6 a 12 pessoas',
       answer:
-        'O mesmo pacote de guia e fotógrafo, dimensionado para seis a doze pessoas, a partir de 119 USD por meio período. Inclui 60 fotos digitais naturais e 7 reels, com retratos de grupo e retratos individuais de cada pessoa, no Taj Mahal, Agra Fort e Mehtab Bagh ou Itimad-ud-Daulah.',
+        'O mesmo pacote de guia e fotógrafo, dimensionado para seis a doze pessoas, a partir de {usdc:guided-photo-tour-large} por meio período. Inclui 60 fotos digitais naturais e 7 reels, com retratos de grupo e retratos individuais de cada pessoa, no Taj Mahal, Agra Fort e Mehtab Bagh ou Itimad-ud-Daulah.',
       intro: [
         'Fotografar doze pessoas na frente do Taj Mahal não é questão de apertar o botão: há dois ou três pontos em que o grupo inteiro cabe no enquadramento com o monumento completo atrás, e é preciso chegar antes da multidão.',
         'Começamos pelos retratos de grupo, enquanto a luz está baixa e os caminhos vazios, e depois fazemos os individuais e de casal enquanto o guia conta a história.',
@@ -961,9 +962,9 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'transport-guide',
       slug: 'carro-privativo-guia-agra',
-      title: 'Carro privativo e guia licenciado em Agra, sem fotógrafo | a partir de 99 USD',
+      title: 'Carro privativo e guia licenciado em Agra, sem fotógrafo | a partir de {usdc:transport-guide}',
       description:
-        'Dia em Agra com carro privativo com ar, motorista e guia licenciado pelo Ministério do Turismo, a partir de 99 USD. Taj Mahal, Agra Fort, Itimad-ud-Daulah e Mehtab Bagh. As fotos são suas.',
+        'Dia em Agra com carro privativo com ar, motorista e guia licenciado pelo Ministério do Turismo, a partir de {usdc:transport-guide}. Taj Mahal, Agra Fort, Itimad-ud-Daulah e Mehtab Bagh. As fotos são suas.',
       keywords: [
         'carro privativo agra',
         'guia em português agra',
@@ -972,7 +973,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Carro privativo e guia em Agra, sem fotógrafo',
       answer:
-        'Um dia inteiro em Agra com carro privativo com ar-condicionado e motorista mais um guia licenciado pelo Ministério do Turismo, a partir de 99 USD. Cobre Taj Mahal, Agra Fort, Itimad-ud-Daulah e Mehtab Bagh, com embarque no hotel, na estação ou no aeroporto de Agra. Sem fotógrafo: as fotos são feitas por você.',
+        'Um dia inteiro em Agra com carro privativo com ar-condicionado e motorista mais um guia licenciado pelo Ministério do Turismo, a partir de {usdc:transport-guide}. Cobre Taj Mahal, Agra Fort, Itimad-ud-Daulah e Mehtab Bagh, com embarque no hotel, na estação ou no aeroporto de Agra. Sem fotógrafo: as fotos são feitas por você.',
       intro: [
         'Muita gente fotografa muito bem sozinha e precisa de duas coisas: alguém que dirija e alguém que explique. Este pacote é exatamente isso, sem a parte de fotografia.',
         'O guia conhece horários, filas e os ângulos que você vai querer registrar; o motorista espera em cada monumento, para que um dia em Agra não se perca procurando um rickshaw no sol.',
@@ -1002,7 +1003,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'sunrise',
       slug: 'fotograf-tadzh-mahal-rassvet',
-      title: 'Фотограф у Тадж-Махала на рассвете | Съёмка от 120 USD',
+      title: 'Фотограф у Тадж-Махала на рассвете | Съёмка от {usdc:sunrise}',
       description:
         'Фотосессия на рассвете у Тадж-Махала с лицензированным фотографом: более 120 кадров, 3–5 рилсов, готово за 48 часов. Фотограф встречает вас в отеле.',
       keywords: [
@@ -1041,7 +1042,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'pre-wedding',
       slug: 'fotosessiya-pary-tadzh-mahal',
-      title: 'Парная и предсвадебная фотосессия у Тадж-Махала | от 199 USD',
+      title: 'Парная и предсвадебная фотосессия у Тадж-Махала | от {usdc:pre-wedding}',
       description:
         'Парная или предсвадебная съёмка у Тадж-Махала: 200 кадров в высоком разрешении, 30 обработанных и кинематографичное видео. Лицензированный фотограф, помощь с позами.',
       keywords: [
@@ -1052,7 +1053,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Парная и предсвадебная съёмка у Тадж-Махала',
       answer:
-        'Парная съёмка длится два часа и более и даёт более 200 кадров в высоком разрешении, 30 обработанных по вашему выбору и короткое кинематографичное видео. Проходит на рассвете, с подсказками по позам от начала до конца, и начинается от 199 USD в зависимости от длительности и локаций.',
+        'Парная съёмка длится два часа и более и даёт более 200 кадров в высоком разрешении, 30 обработанных по вашему выбору и короткое кинематографичное видео. Проходит на рассвете, с подсказками по позам от начала до конца, и начинается от {usdc:pre-wedding} в зависимости от длительности и локаций.',
       intro: [
         'Паре, которая никогда не позировала, нужна не съёмка издалека, а режиссура: куда смотреть, куда положить руку, когда идти. Самыми любимыми почти всегда оказываются кадры между позами.',
         'Если берёте вторую смену одежды — сари, длинное платье, шервани — делим съёмку на две части: сначала бассейн, затем боковые аркады, где свет дольше остаётся мягким.',
@@ -1080,7 +1081,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-small',
       slug: 'ekskursiya-s-fotografom-tadzh-mahal-malaya-gruppa',
-      title: 'Экскурсия с гидом и фотографом · 1–5 человек | от 89 USD',
+      title: 'Экскурсия с гидом и фотографом · 1–5 человек | от {usdc:guided-photo-tour-small}',
       description:
         'Лицензированный гид и фотограф вместе: Тадж-Махал, Агра-Форт и Мехтаб Багх для 1–5 человек, 40 естественных кадров и 5 рилсов. Внутри Тадж-Махала гид не сопровождает фотографа.',
       keywords: [
@@ -1091,7 +1092,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Экскурсия с гидом и фотографом · 1–5 человек',
       answer:
-        'Пакет объединяет лицензированного гида и профессионального фотографа на полдня, от 89 USD на одного-пятерых человек, и включает Тадж-Махал, Агра-Форт и Мехтаб Багх или Итимад-уд-Даулу. Внутри Тадж-Махала правила не позволяют гиду сопровождать фотографа: там с вами фотограф, а гид присоединяется на всех остальных памятниках.',
+        'Пакет объединяет лицензированного гида и профессионального фотографа на полдня, от {usdc:guided-photo-tour-small} на одного-пятерых человек, и включает Тадж-Махал, Агра-Форт и Мехтаб Багх или Итимад-уд-Даулу. Внутри Тадж-Махала правила не позволяют гиду сопровождать фотографа: там с вами фотограф, а гид присоединяется на всех остальных памятниках.',
       intro: [
         'Большинство уезжает из Агры либо с рассказом, либо с фотографиями. Здесь есть и то и другое — примерно за те же деньги, что обе услуги по отдельности, и без двух отдельных броней.',
         'Это сорок естественных кадров — без скованных поз — и пять рилсов. Гид рассказывает о строительстве, надписях и деталях, которые самому не заметить; фотограф в это время работает с группой.',
@@ -1119,7 +1120,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-large',
       slug: 'ekskursiya-s-fotografom-tadzh-mahal-gruppa',
-      title: 'Экскурсия с гидом и фотографом · 6–12 человек | от 119 USD',
+      title: 'Экскурсия с гидом и фотографом · 6–12 человек | от {usdc:guided-photo-tour-large}',
       description:
         'Лицензированный гид и фотограф для групп 6–12 человек: 60 естественных кадров, 7 рилсов, групповые и индивидуальные портреты. Тадж-Махал, Агра-Форт и Мехтаб Багх.',
       keywords: [
@@ -1130,7 +1131,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Экскурсия с гидом и фотографом · 6–12 человек',
       answer:
-        'Тот же пакет из гида и фотографа, рассчитанный на шесть-двенадцать человек, от 119 USD за полдня. Включает 60 естественных цифровых кадров и 7 рилсов, групповые портреты и индивидуальные портреты каждого, на Тадж-Махале, в Агра-Форте и Мехтаб Багхе или Итимад-уд-Дауле.',
+        'Тот же пакет из гида и фотографа, рассчитанный на шесть-двенадцать человек, от {usdc:guided-photo-tour-large} за полдня. Включает 60 естественных цифровых кадров и 7 рилсов, групповые портреты и индивидуальные портреты каждого, на Тадж-Махале, в Агра-Форте и Мехтаб Багхе или Итимад-уд-Дауле.',
       intro: [
         'Снять двенадцать человек перед Тадж-Махалом — вопрос не кнопки: есть две-три точки, где вся группа попадает в кадр вместе с целым монументом, и к ним нужно успеть раньше толпы.',
         'Начинаем с групповых портретов, пока свет низкий и дорожки пустые, затем переходим к индивидуальным и парным, пока гид рассказывает.',
@@ -1158,9 +1159,9 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'transport-guide',
       slug: 'avtomobil-s-gidom-agra',
-      title: 'Частный автомобиль и гид в Агре, без фотографа | от 99 USD',
+      title: 'Частный автомобиль и гид в Агре, без фотографа | от {usdc:transport-guide}',
       description:
-        'День в Агре с частным автомобилем с кондиционером, водителем и лицензированным гидом Министерства туризма, от 99 USD. Тадж-Махал, Агра-Форт, Итимад-уд-Даула, Мехтаб Багх. Снимаете сами.',
+        'День в Агре с частным автомобилем с кондиционером, водителем и лицензированным гидом Министерства туризма, от {usdc:transport-guide}. Тадж-Махал, Агра-Форт, Итимад-уд-Даула, Мехтаб Багх. Снимаете сами.',
       keywords: [
         'частный автомобиль агра',
         'русскоговорящий гид агра',
@@ -1169,7 +1170,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'Частный автомобиль и гид в Агре, без фотографа',
       answer:
-        'Полный день в Агре с частным автомобилем с кондиционером и водителем плюс лицензированный гид Министерства туризма, от 99 USD. Включает Тадж-Махал, Агра-Форт, Итимад-уд-Даулу и Мехтаб Багх, с выездом от отеля, вокзала или аэропорта Агры. Фотографа нет: снимаете сами.',
+        'Полный день в Агре с частным автомобилем с кондиционером и водителем плюс лицензированный гид Министерства туризма, от {usdc:transport-guide}. Включает Тадж-Махал, Агра-Форт, Итимад-уд-Даулу и Мехтаб Багх, с выездом от отеля, вокзала или аэропорта Агры. Фотографа нет: снимаете сами.',
       intro: [
         'Многие прекрасно фотографируют сами, и им нужны только двое: тот, кто везёт, и тот, кто рассказывает. Этот пакет — ровно про это, без строки «фотосъёмка».',
         'Гид знает расписание, очереди и те ракурсы, которые вы захотите снять; водитель ждёт у каждого объекта, так что день в Агре не уходит на поиски рикши под солнцем.',
@@ -1754,7 +1755,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'sunrise',
       slug: 'tajmahal-sunrise-photoshoot',
-      title: 'ताजमहल सनराइज़ फोटो शूट | $120 से, लाइसेंसी फोटोग्राफर',
+      title: 'ताजमहल सनराइज़ फोटो शूट | {usd:sunrise} से, लाइसेंसी फोटोग्राफर',
       description:
         'लाइसेंसी फोटोग्राफर के साथ ताजमहल पर सूर्योदय का फोटो शूट: 120+ फोटो, 3–5 रील, 48 घंटे में डिलीवरी। फोटोग्राफर आपके होटल पर मिलेगा।',
       keywords: [
@@ -1793,7 +1794,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'pre-wedding',
       slug: 'tajmahal-couple-pre-wedding-shoot',
-      title: 'ताजमहल कपल और प्री-वेडिंग शूट | $199 से',
+      title: 'ताजमहल कपल और प्री-वेडिंग शूट | {usd:pre-wedding} से',
       description:
         'ताजमहल पर कपल या प्री-वेडिंग शूट: 200+ हाई-रेज़ोल्यूशन फोटो, 30 एडिटेड फोटो और एक सिनेमैटिक वीडियो। लाइसेंसी फोटोग्राफर, पोज़ की पूरी गाइडेंस।',
       keywords: [
@@ -1804,7 +1805,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'ताजमहल कपल और प्री-वेडिंग शूट',
       answer:
-        'कपल शूट दो घंटे या उससे ज़्यादा का होता है और इसमें 200 से ज़्यादा हाई-रेज़ोल्यूशन फोटो, आपकी पसंद के 30 एडिटेड फोटो और एक छोटा सिनेमैटिक वीडियो मिलता है। यह सूर्योदय के समय होता है, शुरू से आख़िर तक पोज़ बताते हुए, और समय व लोकेशन के हिसाब से $199 से शुरू होता है।',
+        'कपल शूट दो घंटे या उससे ज़्यादा का होता है और इसमें 200 से ज़्यादा हाई-रेज़ोल्यूशन फोटो, आपकी पसंद के 30 एडिटेड फोटो और एक छोटा सिनेमैटिक वीडियो मिलता है। यह सूर्योदय के समय होता है, शुरू से आख़िर तक पोज़ बताते हुए, और समय व लोकेशन के हिसाब से {usd:pre-wedding} से शुरू होता है।',
       intro: [
         'जिस जोड़े ने पहले कैमरे के सामने पोज़ नहीं दिया, उसे दूर से शूट किए जाने की नहीं, गाइडेंस की ज़रूरत होती है — कहाँ देखना है, हाथ कहाँ रखना है, कब चलना है। जो फोटो आपको सबसे ज़्यादा पसंद आएँगी, वो आम तौर पर दो पोज़ के बीच की होती हैं।',
         'अगर दूसरा आउटफिट लाते हैं — साड़ी, लहंगा, शेरवानी — तो शूट दो हिस्सों में करते हैं: पहले हौज़ की तरफ़, फिर साइड के आर्च में, जहाँ रोशनी देर तक नरम रहती है।',
@@ -1832,7 +1833,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-small',
       slug: 'guide-photo-tour-tajmahal-chhota-group',
-      title: 'गाइड + फोटो टूर · 1 से 5 लोग | $89 से',
+      title: 'गाइड + फोटो टूर · 1 से 5 लोग | {usd:guided-photo-tour-small} से',
       description:
         'लाइसेंसी गाइड और फोटोग्राफर साथ: ताजमहल, आगरा फोर्ट और मेहताब बाग़, 1 से 5 लोगों के लिए, 40 नैचुरल फोटो और 5 रील। ताजमहल के अंदर गाइड फोटोग्राफर के साथ नहीं जा सकता।',
       keywords: [
@@ -1843,7 +1844,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'गाइड + फोटोग्राफर टूर · 1 से 5 लोग',
       answer:
-        'इस पैकेज में लाइसेंसी गाइड और प्रोफेशनल फोटोग्राफर दोनों आधे दिन के लिए साथ रहते हैं — 1 से 5 लोगों के लिए $89 से — और इसमें ताजमहल, आगरा फोर्ट और मेहताब बाग़ या इत्मादुद्दौला शामिल हैं। ताजमहल के अंदर नियम के मुताबिक गाइड फोटोग्राफर के साथ नहीं जा सकता, इसलिए वहाँ फोटोग्राफर आपके साथ रहता है और गाइड बाकी हर स्मारक पर मिलता है।',
+        'इस पैकेज में लाइसेंसी गाइड और प्रोफेशनल फोटोग्राफर दोनों आधे दिन के लिए साथ रहते हैं — 1 से 5 लोगों के लिए {usd:guided-photo-tour-small} से — और इसमें ताजमहल, आगरा फोर्ट और मेहताब बाग़ या इत्मादुद्दौला शामिल हैं। ताजमहल के अंदर नियम के मुताबिक गाइड फोटोग्राफर के साथ नहीं जा सकता, इसलिए वहाँ फोटोग्राफर आपके साथ रहता है और गाइड बाकी हर स्मारक पर मिलता है।',
       intro: [
         'ज़्यादातर लोग आगरा से या तो जानकारी लेकर लौटते हैं या फोटो लेकर। यहाँ दोनों मिलते हैं, लगभग उतने में जितना दोनों अलग-अलग लेने पर लगता, और दो बुकिंग संभालने की झंझट के बिना।',
         'चालीस नैचुरल फोटो — जमी हुई पोज़ नहीं — और पाँच रील। गाइड निर्माण, कलमकारी और वो बारीकियाँ बताता है जो अकेले नज़र नहीं आतीं; उसी दौरान फोटोग्राफर आपके साथ चलता रहता है।',
@@ -1871,7 +1872,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'guided-photo-tour-large',
       slug: 'guide-photo-tour-tajmahal-bada-group',
-      title: 'गाइड + फोटो टूर · 6 से 12 लोग | $119 से',
+      title: 'गाइड + फोटो टूर · 6 से 12 लोग | {usd:guided-photo-tour-large} से',
       description:
         '6 से 12 लोगों के ग्रुप के लिए लाइसेंसी गाइड और फोटोग्राफर: 60 नैचुरल फोटो, 7 रील, ग्रुप फोटो और हर व्यक्ति की अलग फोटो। ताजमहल, आगरा फोर्ट, मेहताब बाग़।',
       keywords: [
@@ -1882,7 +1883,7 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
       ],
       h1: 'गाइड + फोटोग्राफर टूर · 6 से 12 लोग',
       answer:
-        'वही गाइड और फोटोग्राफर वाला पैकेज, 6 से 12 लोगों के लिए — आधे दिन का $119 से। इसमें 60 नैचुरल डिजिटल फोटो और 7 रील मिलती हैं, ग्रुप फोटो के साथ हर व्यक्ति की अलग फोटो भी, और ताजमहल, आगरा फोर्ट तथा मेहताब बाग़ या इत्मादुद्दौला शामिल हैं।',
+        'वही गाइड और फोटोग्राफर वाला पैकेज, 6 से 12 लोगों के लिए — आधे दिन का {usd:guided-photo-tour-large} से। इसमें 60 नैचुरल डिजिटल फोटो और 7 रील मिलती हैं, ग्रुप फोटो के साथ हर व्यक्ति की अलग फोटो भी, और ताजमहल, आगरा फोर्ट तथा मेहताब बाग़ या इत्मादुद्दौला शामिल हैं।',
       intro: [
         'ताजमहल के सामने बारह लोगों को शूट करना शटर दबाने का मामला नहीं है: दो-तीन जगहें ही हैं जहाँ पूरा ग्रुप और पीछे पूरा स्मारक एक ही फ्रेम में आता है, और वहाँ भीड़ से पहले पहुँचना पड़ता है।',
         'पहले ग्रुप फोटो करते हैं, जब रोशनी नीची और रास्ते खाली होते हैं; उसके बाद गाइड की बातचीत के दौरान अलग-अलग और कपल फोटो।',
@@ -1910,13 +1911,13 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     {
       planId: 'transport-guide',
       slug: 'private-car-guide-agra',
-      title: 'आगरा में प्राइवेट कार और लाइसेंसी गाइड (फोटोग्राफी नहीं) | $99 से',
+      title: 'आगरा में प्राइवेट कार और लाइसेंसी गाइड (फोटोग्राफी नहीं) | {usd:transport-guide} से',
       description:
-        'आगरा का एक दिन: प्राइवेट AC कार, ड्राइवर और पर्यटन मंत्रालय से लाइसेंस प्राप्त गाइड, $99 से। ताजमहल, आगरा फोर्ट, इत्मादुद्दौला और मेहताब बाग़। फोटो आप खुद खींचिए।',
+        'आगरा का एक दिन: प्राइवेट AC कार, ड्राइवर और पर्यटन मंत्रालय से लाइसेंस प्राप्त गाइड, {usd:transport-guide} से। ताजमहल, आगरा फोर्ट, इत्मादुद्दौला और मेहताब बाग़। फोटो आप खुद खींचिए।',
       keywords: ['आगरा प्राइवेट कार', 'आगरा गाइड', 'आगरा एक दिन का टूर', 'ताजमहल ड्राइवर'],
       h1: 'आगरा में प्राइवेट कार और गाइड (फोटोग्राफी नहीं)',
       answer:
-        'पूरे दिन के लिए प्राइवेट AC कार और ड्राइवर, साथ में पर्यटन मंत्रालय से लाइसेंस प्राप्त गाइड — $99 से। इसमें ताजमहल, आगरा फोर्ट, इत्मादुद्दौला और मेहताब बाग़ शामिल हैं, और होटल, रेलवे स्टेशन या आगरा एयरपोर्ट से पिकअप। फोटोग्राफर नहीं है: फोटो आप खुद खींचते हैं।',
+        'पूरे दिन के लिए प्राइवेट AC कार और ड्राइवर, साथ में पर्यटन मंत्रालय से लाइसेंस प्राप्त गाइड — {usd:transport-guide} से। इसमें ताजमहल, आगरा फोर्ट, इत्मादुद्दौला और मेहताब बाग़ शामिल हैं, और होटल, रेलवे स्टेशन या आगरा एयरपोर्ट से पिकअप। फोटोग्राफर नहीं है: फोटो आप खुद खींचते हैं।',
       intro: [
         'बहुत लोग खुद अच्छी फोटो खींच लेते हैं और उन्हें दो ही चीज़ें चाहिए — कोई चलाने वाला और कोई बताने वाला। यह पैकेज बस वही है, फोटोग्राफी का ख़र्च हटाकर।',
         'गाइड को खुलने के समय, लाइन और वो एंगल पता हैं जो आप खींचना चाहेंगे; ड्राइवर हर स्मारक पर इंतज़ार करता है, तो आगरा का दिन धूप में रिक्शा ढूँढ़ने में नहीं जाता।',
@@ -1943,6 +1944,8 @@ export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = {
     },
   ],
 };
+
+export const LOCALE_SERVICES: Partial<Record<LocaleCode, LocaleService[]>> = fillRatesDeep(RAW_LOCALE_SERVICES);
 
 /** Services for one locale, or an empty list if that language has none yet. */
 export function localeServices(code: LocaleCode): LocaleService[] {
