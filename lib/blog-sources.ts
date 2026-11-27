@@ -104,6 +104,11 @@ export const SOURCES: Record<string, Source[]> = {
       "label": "Incredible India - Agra",
       "url": "https://www.incredibleindia.gov.in/en/uttar-pradesh/agra",
       "note": "Agra attractions overview for a day itinerary"
+    },
+    {
+      "label": "Taj Mahal official site (ASI/ADA) - visitor notes and fees",
+      "url": "https://tajmahal.gov.in/",
+      "note": "States the Taj Mahal is closed only on Fridays; fee table shows Friday as closed"
     }
   ],
   "taj-mahal-photographer-cost": [

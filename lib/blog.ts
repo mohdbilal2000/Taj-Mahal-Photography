@@ -562,7 +562,7 @@ const CORE_POSTS: BlogPost[] = [
     answer:
       'A same-day Taj Mahal trip from Delhi means leaving around 2:30am, reaching Agra for sunrise, and returning to Delhi by early evening — roughly sixteen hours, of which four to five are driving each way on the Yamuna Expressway. It works if you want the monument at its best without moving hotels, and it is genuinely hard if you are jet-lagged.',
     published: '2026-07-09',
-    updated: '2026-10-21',
+    updated: '2026-11-27',
     readingMinutes: 6,
     image: '/photos/gallery/15.jpg',
     imageAlt: 'A couple standing together at the end of the reflecting pool',
@@ -630,6 +630,11 @@ const CORE_POSTS: BlogPost[] = [
         question: 'How much does a Delhi to Agra day tour cost?',
         answer:
           'Our same-day Sunrise Luxury Tour starts from {usd:sunrise-luxury-innova} USD in a private Innova for up to 6 guests, including vehicle, guide, photographer, monument tickets, golf cart and skip-the-line escort.',
+      },
+      {
+        question: 'Can I do a Delhi to Agra day trip on a Friday?',
+        answer:
+          'Not for the Taj Mahal itself: it is closed to visitors every Friday. Agra Fort and Mehtab Bagh, which looks at the monument from across the river, are open, but if the Taj Mahal is the reason for the trip, pick any other day of the week.',
       },
     ],
   },
