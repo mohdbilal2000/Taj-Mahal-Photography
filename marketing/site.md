@@ -28,6 +28,9 @@ generic: they read this sheet to learn which site they work on and how this repo
 - **Where these travellers ask questions:** r/travel, r/solotravel, r/IndiaTravel and r/india travel
   threads written by foreigners, TripAdvisor's India forums, Quora, and in Spanish r/mexico,
   r/viajes and Los Viajeros.
+- **What the bot cannot open (checked 27 Nov 2026):** reddit.com (search and fetch both fail),
+  Quora and TripAdvisor forum pages (403). Do not spend searches on them. Replies there are written
+  only when the owner pastes a link or the question text. Los Viajeros and ordinary blogs open fine.
 - **When choosing what to write, list on or pitch,** prefer the option an American, Canadian,
   European or Mexican traveller would see. Skip the one only an Indian audience would see.
 - Enquiries from India are still answered politely; we simply do not spend effort attracting them.

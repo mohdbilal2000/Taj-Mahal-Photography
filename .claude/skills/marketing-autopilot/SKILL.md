@@ -42,9 +42,10 @@ specialist agents. A daily run that costs as much as a weekly one is a bug.
    `robots.txt` must still allow the AI search crawlers. Something broken that lives in this repo:
    fix it, run the site sheet's checks, publish. Something you cannot fix: report it first in the
    note to the owner.
-2. **Opportunities.** Run `opportunity-scout`, restricted to the markets in the site sheet. It writes
-   today's file in `marketing/inbox/`.
-3. **One small improvement.** Take the highest play in `marketing/playbook.md` marked `next` or
+2. **Opportunities.** Run `opportunity-scout`, restricted to the markets in the site sheet and to
+   places the site sheet does not list as unreachable; at most 3 searches. If the reachable places
+   have nothing fresh, say so in one line and move on: do not write a long report of what failed.
+3. **One small improvement.** This is the main work of the daily run. Take the highest play in `marketing/playbook.md` marked `next` or
    `doing` that can be advanced inside the repo in a few minutes (an internal link, an answer-first
    opening, a missing source, a follow-up question added to an existing guide) and do one. Stay
    inside the weekly caps.
