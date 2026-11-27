@@ -33,6 +33,9 @@ The argument is the mode: `daily`, `weekly` or `monthly`.
 
 ## daily (aim: under 20 minutes of work; `scout` means the same)
 
+Budget for the whole daily run: at most 8 web searches and 12 page fetches, and at most two
+specialist agents. A daily run that costs as much as a weekly one is a bug.
+
 1. **Site health.** Fetch the live site's `robots.txt`, `sitemap.xml` and `llms.txt`, the home page
    and five URLs picked from the sitemap (different ones each day). Each must return 200, have one
    title, one description, a canonical that points to itself, and no redirect inside the sitemap;
@@ -45,7 +48,8 @@ The argument is the mode: `daily`, `weekly` or `monthly`.
    `doing` that can be advanced inside the repo in a few minutes (an internal link, an answer-first
    opening, a missing source, a follow-up question added to an existing guide) and do one. Stay
    inside the weekly caps.
-4. Commit and push.
+4. Commit and push. If the push is rejected because `main` moved, `git pull --rebase origin main`
+   and push again.
 
 ## weekly
 
