@@ -18,6 +18,9 @@ The owner pastes answers to the eight fixed questions from up to four tools. For
   business with a different site, phone or address is a competitor, not us. Say so.
 - **Not mentioned = 0.** An answer you were not given is "not run", never 0.
 - Score = mentions out of (answers actually provided). Report it as `11/32`, or `7/16 (2 tools run)`.
+- AI tools rarely give the same list twice. One answer proves little; say so, and treat the month-on-
+  month trend across the same eight questions as the signal. If the owner ran a question more than
+  once, count each run.
 - Bands: 0–15% invisible · 16–45% partially visible · 46–75% visible · above 75% the default pick.
 
 Then extract, from the answers themselves and not from guesswork:

@@ -23,8 +23,9 @@ existing guides in the language you are writing, so the new one matches in shape
 3. **Then the detail** a person about to act would need: steps, a table where there are options, the
    mistakes people make, a short FAQ of real follow-up questions. Each section should make sense if
    lifted out on its own, because that is how AI tools quote pages.
-4. **Add what only this business knows**: a number from its own work, a named person, a first-hand
-   detail. That is the part no other page has.
+4. **Add what only this business knows**: a number from its own work, a short quotation from the
+   named person who does it, a first-hand detail. Quotations, statistics and cited sources are the
+   three additions with measured effect on being quoted by AI tools; only real ones count.
 5. **Prices follow the site sheet.** Never type one of our prices where the sheet says they are filled
    in automatically.
 6. **Sell once, at the end.** The body stays useful to someone who never buys.

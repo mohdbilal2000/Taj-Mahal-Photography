@@ -22,7 +22,8 @@ Status: `todo` · `drafted` (text ready for the owner) · `submitted` · `live` 
 | Target | Why | Status | Link / note |
 |---|---|---|---|
 | Google Business Profile | Map results and AI answers quote it; 19 reviews on 23 Oct 2026 | live | link in `lib/seo.ts` |
-| TripAdvisor listing | Foreign travellers and AI answers trust it most | todo | |
+| TripAdvisor listing | Foreign travellers use it; cited in local AI answers | todo | |
+| Bing Places | ChatGPT leans on Bing's business data for local questions | todo | |
 
 ## 3. Wedding directories — for the pre-wedding question
 

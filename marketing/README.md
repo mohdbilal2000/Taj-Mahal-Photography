@@ -3,7 +3,7 @@
 Is repo mein ek poori marketing team hai jo kisi bhi business ke liye chal sakti hai: use sirf
 website ka URL chahiye. Team teen tareeke se kaam karti hai:
 
-1. **Autopilot** — scheduled runs jo bina bole chalte hain (roz, hafte, mahine).
+1. **Autopilot** — scheduled runs jo bina bole chalte hain (hafte mein 3 scout, 1 weekly, mahine mein 1).
 2. **Commands** — jab aap kuch specific chahte ho.
 3. **Seedha bolna** — "is review ka reply likh", "Airbnb listing taiyaar kar".
 
@@ -14,7 +14,7 @@ karna hai.
 
 | Run | Kab | Kya |
 |---|---|---|
-| Daily | Roz subah | Reddit, Quora aur forums par naye sawaal dhoondh kar jawab ka draft; jo cheez aapka intezaar kar rahi hai uska reminder |
+| Scout | Mangal, Guru, Shani subah | Reddit, Quora aur forums par naye sawaal dhoondh kar jawab ka draft; jo cheez aapka intezaar kar rahi hai uska reminder |
 | Weekly | Har Monday | Ek naya guide likh kar, fact-check karke **site par publish**; uske LinkedIn / Medium / Quora / Shorts versions; Google post; 5 Instagram items; ek listing ya pitch taiyaar |
 | Monthly | Har mahine ki 1 tareekh | Naye ideas, AI visibility ka web check, purane guides ke facts update, mahine ki report |
 
@@ -37,7 +37,7 @@ karna hai.
 | `/ai-visibility-check` | Mahine mein ek baar: 8 sawaal, 4 AI apps, score /32 |
 | `/gsc-review` | Search Console ki Excel upload karke |
 | `/new-guide <topic>` | Kisi topic par abhi guide chahiye |
-| `/marketing-autopilot daily` (ya `weekly`, `monthly`) | Autopilot ka run haath se chalana |
+| `/marketing-autopilot scout` (ya `weekly`, `monthly`) | Autopilot ka run haath se chalana |
 | `/marketing-onboard <url>` | Kisi **naye business** ke liye team lagana |
 
 ## Team (10 specialists)
