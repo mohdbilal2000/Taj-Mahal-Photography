@@ -41,7 +41,7 @@ export default function Testimonials({ rating }: { rating: { value: number; coun
           </p>
         </div>
 
-        <div className="reveal reveal-stagger collage-grid grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8">
+        <div className="reveal reveal-stagger collage-grid rail-mobile grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8">
           {testimonials.map((testimonial, index) => (
             // A quote is a card like any other here; motion on the card
             // itself would overwrite the collage tilt.

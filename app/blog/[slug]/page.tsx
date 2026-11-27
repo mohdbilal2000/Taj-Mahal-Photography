@@ -312,7 +312,7 @@ export default async function BlogPostPage({ params }: Params) {
         )}
       </main>
 
-      <Footer />
+      <Footer cta />
       <StickyWhatsApp />
       <MobileActionBar />
 

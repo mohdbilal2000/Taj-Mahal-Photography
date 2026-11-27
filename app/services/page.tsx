@@ -180,7 +180,7 @@ export default function ServicesPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer cta />
       <StickyWhatsApp />
       <MobileActionBar />
 

@@ -124,7 +124,7 @@ export default function PortfolioPage() {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer cta />
       <StickyWhatsApp />
       <MobileActionBar />
 

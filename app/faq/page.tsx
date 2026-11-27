@@ -52,7 +52,7 @@ export default function FAQPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer cta />
       <StickyWhatsApp />
       <MobileActionBar />
 

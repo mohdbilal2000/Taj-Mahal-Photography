@@ -1,282 +1,209 @@
 import Link from 'next/link';
-import { Instagram, Mail, Phone, MapPin, Camera, Linkedin, Facebook } from 'lucide-react';
+import { Instagram, Mail, Phone, MapPin, Linkedin, Facebook, ShieldCheck, ArrowRight } from 'lucide-react';
 import { SITE } from '@/lib/seo';
 import { LOCALES } from '@/lib/i18n';
-import { usdOf } from '@/lib/rates';
+import { whatsappUrl, WHATSAPP_MESSAGES } from '@/lib/contact';
+import WhatsAppIcon from './WhatsAppIcon';
 
-export default function Footer() {
+type FooterLink = { label: string; href: string; accent?: boolean };
+
+const GROUPS: { title: string; links: FooterLink[] }[] = [
+  {
+    title: 'Photoshoots',
+    links: [
+      { label: 'Sunrise Photoshoot', href: '/services/sunrise' },
+      { label: 'Couple Photography', href: '/services/couple' },
+      { label: 'Pre-Wedding Shoot', href: '/services/pre-wedding' },
+      { label: 'Romantic Couple Shoot', href: '/services/romantic-couple-shoot' },
+      { label: 'Solo Portrait Photoshoot', href: '/services/solo-photoshoot' },
+      { label: 'All plans & prices', href: '/plans', accent: true },
+    ],
+  },
+  {
+    title: 'Tours',
+    links: [
+      { label: 'Guide + Photo · Small Group', href: '/services/guided-photo-tour-small' },
+      { label: 'Guide + Photo · Large Group', href: '/services/guided-photo-tour-large' },
+      { label: 'Transport + Guide', href: '/services/transport-guide' },
+      { label: 'Sunrise Luxury Tour (Innova)', href: '/services/sunrise-luxury-innova' },
+      { label: 'Sunrise Luxury Urbania Tour', href: '/services/sunrise-luxury-urbania' },
+      { label: 'All services', href: '/services', accent: true },
+    ],
+  },
+  {
+    title: 'Plan your visit',
+    links: [
+      { label: 'Guides', href: '/blog' },
+      { label: 'Permit Guide', href: '/permit-guide' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Portfolio', href: '/portfolio' },
+      { label: 'Payment Methods', href: '/payment' },
+      { label: 'About', href: '/about' },
+    ],
+  },
+];
+
+const SOCIALS = [
+  { label: 'Follow on Instagram', href: 'https://www.instagram.com/taj.mahal.photography', Icon: Instagram },
+  { label: 'Connect on LinkedIn', href: 'https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/', Icon: Linkedin },
+  { label: 'Follow on Facebook', href: 'https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr', Icon: Facebook },
+];
+
+/**
+ * The footer is the last thing a visitor reads before deciding, so it leads
+ * with the one action that matters and then becomes a map of the site:
+ * three short link groups (two-up on a phone, so the page does not end in a
+ * forty-row list), how to reach the studio, and the languages.
+ *
+ * `cta` adds the booking band, for pages that do not already end in a
+ * booking form or their own closing call to action.
+ */
+export default function Footer({ cta = false }: { cta?: boolean } = {}) {
   return (
-    <footer className="bg-ink-900 text-white pt-20 pb-8 pb-action-bar 2xl:pb-0">
-      {/* Gold accent line */}
-      <div className="h-1 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500" />
+    <footer className="bg-ink-900 text-white pb-action-bar lg:pb-0">
+      <div className="h-px bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
 
-      <div className="shell mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-10 md:mb-16">
-          {/* Column 1 — Logo & Description */}
-          <div>
-            <Link href="/" className="flex flex-col items-start mb-6">
-              <span className="font-serif text-2xl font-bold tracking-tight text-white uppercase">
-                Taj Mahal
-              </span>
-              <span className="text-[10px] tracking-[0.2em] text-gold-400 uppercase">
-                Photography
-              </span>
-            </Link>
-            <p className="text-sm text-ink-400 leading-relaxed mb-6">
-              Official Government Licensed Taj Mahal Photographer in Agra.
-              Authorized for Photography Inside Taj Mahal. Trusted by
-              International Visitors.
-            </p>
-            <div className="flex items-center gap-4">
+      {cta && (
+        <div className="border-b border-white/10">
+          <div className="shell flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between md:py-14">
+            <div className="max-w-xl">
+              <p className="eyebrow text-gold-400">Two shoots a day</p>
+              <h2 className="h3-fluid mt-3 font-serif font-light text-white text-balance">
+                Tell us your date. We reply on WhatsApp within minutes.
+              </h2>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row md:shrink-0">
+              <Link href="/book" className="btn btn-gold btn-lg group">
+                Book your session
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
               <a
-                href="https://www.instagram.com/taj.mahal.photography"
+                href={whatsappUrl(WHATSAPP_MESSAGES.general)}
                 target="_blank"
-                rel="me noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-ink-400 hover:text-white transition-colors"
-                aria-label="Follow on Instagram"
+                rel="noopener noreferrer"
+                className="btn btn-outline-light btn-lg"
               >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/taj-mahal-photography-3a9ab0296/"
-                target="_blank"
-                rel="me noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-ink-400 hover:text-white transition-colors"
-                aria-label="Connect on LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.facebook.com/share/19m7nwKSSQ/?mibextid=wwXIfr"
-                target="_blank"
-                rel="me noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] text-ink-400 hover:text-white transition-colors"
-                aria-label="Follow on Facebook"
-              >
-                <Facebook className="h-5 w-5" />
+                <WhatsAppIcon className="h-4 w-4" />
+                Ask on WhatsApp
               </a>
             </div>
           </div>
+        </div>
+      )}
 
-          {/* Column 2 — Services */}
+      <div className="shell py-12 md:py-16">
+        <div className="grid gap-x-8 gap-y-12 lg:grid-cols-[1.1fr_2.7fr_1.3fr]">
+          {/* Brand */}
           <div>
-            <h3 className="font-serif text-lg font-semibold mb-6 text-gold-400">
-              Services
-            </h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <Link
-                  href="/services/sunrise"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
+            <Link href="/" className="inline-flex flex-col items-start">
+              <span className="font-serif text-2xl font-bold uppercase tracking-tight text-white">
+                Taj Mahal
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-gold-400">Photography</span>
+            </Link>
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-marble-300/80">
+              Official Government Licensed Taj Mahal Photographer in Agra. Authorized for
+              Photography Inside Taj Mahal. Trusted by International Visitors.
+            </p>
+            <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1.5 text-xs text-marble-300">
+              <ShieldCheck className="h-3.5 w-3.5 text-gold-400" />
+              Ministry of Tourism licensed
+            </p>
+            <div className="mt-5 flex items-center gap-2">
+              {SOCIALS.map(({ label, href, Icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                  aria-label={label}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-marble-300 transition-colors hover:border-gold-400/60 hover:text-white"
                 >
-                  Sunrise Photoshoot
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/couple"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Couple Photography
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/pre-wedding"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Pre-Wedding Shoot
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/guided-photo-tour-small"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Guide + Photo · Small Group (from ${usdOf('guided-photo-tour-small')})
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/guided-photo-tour-large"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Guide + Photo · Large Group (from ${usdOf('guided-photo-tour-large')})
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/plans"
-                  className="inline-flex items-center min-h-[40px] text-gold-400 hover:text-white transition-colors"
-                >
-                  All plans &amp; prices
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/romantic-couple-shoot"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Romantic Couple Shoot (${usdOf('romantic-couple-shoot')})
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/solo-photoshoot"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Solo Portrait Photoshoot (from ${usdOf('solo-photoshoot')})
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/transport-guide"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Transport + Guide (from ${usdOf('transport-guide')})
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/sunrise-luxury-innova"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Sunrise Luxury Tour (Innova)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/sunrise-luxury-urbania"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Sunrise Luxury Urbania Tour
-                </Link>
-              </li>
-            </ul>
+                  <Icon className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Column 3 — Information */}
-          <div>
-            <h3 className="font-serif text-lg font-semibold mb-6 text-gold-400">
-              Information
-            </h3>
-            <ul className="space-y-3 text-sm">
-              {/* The two pages people actually buy from were missing here. */}
-              <li>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Services &amp; prices
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/portfolio"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/permit-guide"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Permit Guide
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/payment" className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors">
-                  Payment Methods
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="inline-flex items-center min-h-[40px] text-ink-400 hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Link groups — two-up on a phone, three across from tablet. */}
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
+            {GROUPS.map((group) => (
+              <div key={group.title}>
+                <h3 className="eyebrow text-gold-400">{group.title}</h3>
+                <ul className="mt-2 text-sm">
+                  {group.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className={`block py-2.5 leading-snug transition-colors hover:text-white ${
+                          link.accent ? 'text-gold-400' : 'text-marble-300/80'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
 
-          {/* Column 4 — Contact */}
+          {/* Contact */}
           <div>
-            <h3 className="font-serif text-lg font-semibold mb-6 text-gold-400">
-              Contact
-            </h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start text-ink-400">
-                <MapPin className="h-4 w-4 mr-3 mt-0.5 flex-shrink-0 text-gold-400" />
+            <h3 className="eyebrow text-gold-400">Contact</h3>
+            <ul className="mt-4 space-y-4 text-sm text-marble-300/80">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-gold-400" />
                 <span>
                   {SITE.address.street},
                   <br />
                   {SITE.address.city}, {SITE.address.state} {SITE.address.zip}, India
-                  <br />
-                  <span className="mt-2 block text-xs text-ink-500">
+                  <span className="mt-2 block text-xs text-ink-400">
                     Guests meet us at {SITE.meetingPoint}
                   </span>
                   <a
                     href={SITE.googleBusiness}
                     target="_blank"
                     rel="me noopener noreferrer"
-                    className="mt-1 inline-flex min-h-[32px] items-center gap-1 text-gold-400 transition-colors hover:text-gold-300"
+                    className="mt-1 inline-flex min-h-[36px] items-center gap-1 text-gold-400 transition-colors hover:text-white"
                   >
                     Find us on Google Maps →
                   </a>
                 </span>
               </li>
-              <li className="flex items-center text-ink-400">
-                <Phone className="h-4 w-4 mr-3 flex-shrink-0 text-gold-400" />
-                <a href="tel:+918393010125" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">+91 83930 10125</a>
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 flex-shrink-0 text-gold-400" />
+                <a
+                  href={`tel:${SITE.phone}`}
+                  className="inline-flex min-h-[40px] items-center transition-colors hover:text-white"
+                >
+                  {SITE.phoneDisplay}
+                </a>
               </li>
-              <li className="flex items-center text-ink-400">
-                <Mail className="h-4 w-4 mr-3 flex-shrink-0 text-gold-400" />
-                <a href="mailto:booking@tajmahalphotography.com" className="inline-flex min-h-[36px] items-center break-all hover:text-white transition-colors">booking@tajmahalphotography.com</a>
+              <li className="flex items-center gap-3">
+                <Mail className="h-4 w-4 flex-shrink-0 text-gold-400" />
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="inline-flex min-h-[40px] items-center break-all transition-colors hover:text-white"
+                >
+                  {SITE.email}
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Languages — a visitor who searched in their own language can stay in it */}
-        <div className="border-t border-white/10 pt-8 mb-8 text-center">
-          <p className="text-xs text-ink-500 mb-3">Also available in</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center md:gap-6">
+          <p className="shrink-0 text-xs text-ink-400">Also available in</p>
+          <div className="-mx-2 flex flex-wrap items-center gap-x-1 gap-y-0 text-xs">
             {LOCALES.map((locale) => (
               <Link
                 key={locale.code}
                 href={`/${locale.code}`}
                 hrefLang={locale.hreflang}
                 lang={locale.hreflang}
-                className="inline-flex min-w-[2.75rem] items-center justify-center px-1 min-h-[36px] text-ink-400 hover:text-white transition-colors"
+                className="inline-flex min-h-[40px] items-center px-2 text-marble-300/80 transition-colors hover:text-white"
               >
                 {locale.endonym}
               </Link>
@@ -284,20 +211,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-ink-500">
-          <p>
-            &copy; {new Date().getFullYear()} Taj Mahal Photography. All rights
-            reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link
-              href="/privacy"
-              className="inline-flex items-center min-h-[36px] hover:text-white transition-colors"
-            >
+        <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-ink-400 md:flex-row md:items-center md:justify-between">
+          <p>&copy; {new Date().getFullYear()} Taj Mahal Photography. All rights reserved.</p>
+          <div className="-mx-2 flex">
+            <Link href="/privacy" className="inline-flex min-h-[40px] items-center px-2 transition-colors hover:text-white">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="inline-flex items-center min-h-[36px] hover:text-white transition-colors">
+            <Link href="/terms" className="inline-flex min-h-[40px] items-center px-2 transition-colors hover:text-white">
               Terms of Service
             </Link>
           </div>

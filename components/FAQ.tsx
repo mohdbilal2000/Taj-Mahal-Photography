@@ -2,11 +2,19 @@
 
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
+import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { faqs } from '@/lib/content';
 
-export default function FAQ() {
+/**
+ * `limit` shows the first few questions and folds the rest behind one button.
+ * The folded ones stay in the markup, so the page still contains every answer
+ * its FAQ schema lists.
+ */
+export default function FAQ({ limit }: { limit?: number } = {}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [showAll, setShowAll] = useState(false);
+  const folded = limit !== undefined && !showAll;
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -31,13 +39,13 @@ export default function FAQ() {
             return (
               <motion.div
                 key={index}
-                className="bg-white border border-marble-200 rounded-sm overflow-hidden mb-3"
+                className={`faq-item mb-3 ${folded && index >= (limit ?? 0) ? 'hidden' : ''} ${isOpen ? 'is-open' : ''}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: Math.min(index, 8) * 0.05 }}
               >
                 <button
-                  className="w-full px-6 py-5 flex justify-between items-center focus:outline-none"
+                  className="w-full px-5 sm:px-6 py-5 flex justify-between items-center text-left"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
                 >
@@ -59,7 +67,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-6 pb-5 text-ink-700">
+                      <div className="px-5 sm:px-6 pb-5 text-ink-700 leading-relaxed">
                         <p className="faq-answer">{faq.answer}</p>
                       </div>
                     </motion.div>
@@ -73,6 +81,19 @@ export default function FAQ() {
             );
           })}
         </div>
+
+        {limit !== undefined && faqs.length > limit && (
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            {!showAll && (
+              <button type="button" onClick={() => setShowAll(true)} className="btn btn-outline">
+                Show all {faqs.length} questions
+              </button>
+            )}
+            <Link href="/faq" className="btn btn-ink">
+              Open the full FAQ page
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

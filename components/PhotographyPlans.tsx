@@ -151,7 +151,7 @@ export default function PhotographyPlans() {
           <InrRateNote full className="mt-4" />
         </div>
 
-        <div className="reveal reveal-stagger collage-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-7">
+        <div className="reveal reveal-stagger collage-grid rail-mobile grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-7">
           {plans.map((plan, index) => (
             <div
               key={plan.id}

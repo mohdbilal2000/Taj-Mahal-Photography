@@ -100,7 +100,7 @@ export default function LuxuryTours() {
           </motion.p>
         </div>
 
-        <div className="reveal reveal-stagger collage-grid grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="reveal reveal-stagger collage-grid rail-mobile grid grid-cols-1 lg:grid-cols-2 gap-8">
           {tours.map((tour, index) => {
             const Icon = tour.icon;
             return (

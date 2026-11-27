@@ -92,7 +92,7 @@ export default function GuidedPhotoTours() {
           </motion.p>
         </div>
 
-        <div className="reveal reveal-stagger collage-grid grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="reveal reveal-stagger collage-grid rail-mobile grid grid-cols-1 lg:grid-cols-2 gap-8">
           {packages.map((pkg, index) => {
             const Icon = pkg.icon;
             return (

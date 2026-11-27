@@ -99,7 +99,7 @@ export default function FilmShowcase() {
           </p>
         </div>
 
-        <div className="grid items-start gap-6 lg:grid-cols-[1.55fr_1fr] lg:gap-8">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-12">
           {/* The cinematic edit. */}
           <motion.figure style={{ y: filmY }} className="relative">
             <div className="relative overflow-hidden rounded-sm border border-white/10 shadow-[var(--shadow-deep)]">

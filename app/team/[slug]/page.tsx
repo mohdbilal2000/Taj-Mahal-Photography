@@ -189,7 +189,7 @@ export default async function TeamMemberPage({ params }: Params) {
         )}
       </main>
 
-      <Footer />
+      <Footer cta />
       <StickyWhatsApp />
       <MobileActionBar />
 

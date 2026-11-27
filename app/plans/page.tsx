@@ -219,7 +219,7 @@ export default function PlansPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer cta />
       <StickyWhatsApp />
       <MobileActionBar />
 

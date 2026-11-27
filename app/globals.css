@@ -227,7 +227,9 @@ body {
 }
 
 /* Room for the mobile action bar so it never covers the last element. */
-@supports (padding: max(0px)) {
+/* Only below lg, where the bar exists. Written as a media query because an
+   unlayered class beats Tailwind's layered `lg:pb-0`. */
+@media (max-width: 1023.98px) {
   .pb-action-bar { padding-bottom: max(5.5rem, calc(4.5rem + env(safe-area-inset-bottom))); }
 }
 
@@ -358,7 +360,7 @@ html[data-reveal='on'] .reveal-stagger.is-in > *:nth-child(n + 6) { transition-d
 .collage-card {
   --tilt: 0deg;
   background: #FBF5EA;
-  border: 0;
+  border: 1px solid color-mix(in srgb, var(--color-ink-900) 7%, transparent);
   border-radius: 14px;
   padding: 10px 10px 0;
   box-shadow:
@@ -391,10 +393,10 @@ html[data-reveal='on'] .reveal-stagger.is-in > *:nth-child(n + 6) { transition-d
 /* A grid of prints dropped on a table — the tilt alternates so no two
    neighbours lean the same way, and stays under 1.4deg so nothing in a
    two-column phone layout can push past the viewport. */
-.collage-grid > *:nth-child(4n + 1) { --tilt: -1.6deg; }
-.collage-grid > *:nth-child(4n + 2) { --tilt: 1.2deg; }
-.collage-grid > *:nth-child(4n + 3) { --tilt: -0.9deg; }
-.collage-grid > *:nth-child(4n + 4) { --tilt: 1.5deg; }
+/* Cards in a grid sit square. The tilt belongs to loose prints (the hero
+   cluster, the guest-moments wall); on a grid of prices and paragraphs it
+   made text run off-level and read as a rendering fault, not a style. */
+.collage-grid > * { --tilt: 0deg; }
 
 /* A strip of washi tape over the top edge. Used sparingly — on the hero
    cluster and the moments wall, not on every card in a grid. */
@@ -429,8 +431,7 @@ html[data-reveal='on'] .reveal-stagger.is-in > *:nth-child(n + 6) { transition-d
   border: 1px solid color-mix(in srgb, var(--color-ink-900) 8%, transparent);
   box-shadow: 0 1px 2px rgba(20, 17, 15, 0.06);
   padding: 0.3rem 0.85rem 0.35rem;
-  border-radius: 3px;
-  transform: rotate(-1.2deg);
+  border-radius: 999px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -460,7 +461,7 @@ html[data-reveal='on'] .reveal-stagger.is-in > *:nth-child(n + 6) { transition-d
   gap: 0.5rem;
   min-height: 3rem;
   padding-inline: 1.5rem;
-  border-radius: 3px;
+  border-radius: 8px;
   border: 1px solid transparent;
   font-family: var(--font-sans);
   font-size: 0.875rem;
@@ -557,6 +558,45 @@ html[data-reveal='on'] .reveal-stagger.is-in > *:nth-child(n + 6) { transition-d
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     transform: none;
   }
+}
+
+/* ───── Phone rail ───── */
+/* On a phone a grid of tall cards becomes one swipeable row: the next card
+   peeks in from the right so it is obvious there is more, and the page is
+   several screens shorter. From tablet up the element is its normal grid. */
+@media (max-width: 767.98px) {
+  .rail-mobile {
+    --gutter: clamp(1.25rem, 0.9rem + 1.6vw, 2rem);
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0.5rem var(--gutter) 1.75rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rail-mobile::-webkit-scrollbar { display: none; }
+  .rail-mobile > * {
+    flex: 0 0 84%;
+    max-width: 22rem;
+    scroll-snap-align: start;
+  }
+}
+
+/* ───── FAQ rows ───── */
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--color-marble-200);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.faq-item:hover { border-color: var(--color-marble-300); }
+.faq-item.is-open {
+  border-color: color-mix(in srgb, var(--color-gold-500) 55%, transparent);
+  box-shadow: var(--shadow-soft);
 }
 
 /* ───── Section rhythm ───── */

@@ -4,12 +4,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import AuthoritySection from '@/components/AuthoritySection';
-import ServicesOverview from '@/components/ServicesOverview';
 import QuickBookRail from '@/components/QuickBookRail';
 import PhotographyPlans from '@/components/PhotographyPlans';
 import GuidedPhotoTours from '@/components/GuidedPhotoTours';
 import LuxuryTours from '@/components/LuxuryTours';
-import LicenseValidation from '@/components/LicenseValidation';
 import Testimonials from '@/components/Testimonials';
 import GuestMoments from '@/components/GuestMoments';
 import FilmShowcase from '@/components/FilmShowcase';
@@ -190,19 +188,21 @@ export default async function Home() {
           for 10-minute response.
         </p>
 
+        {/* Order follows the questions a visitor asks: what is it and what
+            does it cost, can I trust you, what exactly do I get, what does
+            it look like, then the small print and the form. The same five
+            offers used to appear three times over; each now appears once. */}
         <QuickBookRail />
+        <Testimonials rating={rating} />
         <AuthoritySection />
-        <ServicesOverview />
         <PhotographyPlans />
         <GuidedPhotoTours />
         <LuxuryTours />
-        <LicenseValidation />
         <FilmShowcase />
         <GuestMoments />
-        <Testimonials rating={rating} />
         <ReviewCta rating={rating} />
         <LatestGuides />
-        <FAQ />
+        <FAQ limit={8} />
         <ContactForm />
       </main>
 
