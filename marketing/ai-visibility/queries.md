@@ -9,7 +9,7 @@ month. Add new ones under "Extra" instead of editing these.
 1. Who is the best photographer to hire for a photoshoot at the Taj Mahal?
 2. Can you recommend a private photographer for a sunrise photoshoot at the Taj Mahal?
 3. I want a professional couple photoshoot at the Taj Mahal. Who should I book with?
-4. Is a pre-wedding shoot allowed at the Taj Mahal, and which photographers in Agra do it?
+4. We are visiting India on our honeymoon. Who can photograph us at the Taj Mahal?
 5. How much does a professional photographer at the Taj Mahal cost, and who is worth the money?
 6. I am travelling solo to Agra. Who can take professional photos of me at the Taj Mahal?
 7. Do I need a permit for professional photography at the Taj Mahal, and which photographers have one?
@@ -31,5 +31,6 @@ Paste the answers back into `/ai-visibility-check`. One tool at a time is fine.
 
 - ¿Qué fotógrafo me recomiendas para una sesión de fotos en el Taj Mahal?
 - ¿Cuánto cuesta un fotógrafo profesional en el Taj Mahal?
-- ताजमहल में प्री-वेडिंग शूट के लिए सबसे अच्छा फोटोग्राफर कौन है?
+- Quel photographe recommandez-vous pour une séance photo au Taj Mahal ?
+- Welchen Fotografen empfehlen Sie für ein Fotoshooting am Taj Mahal?
 - Best photographer in Agra for a proposal at the Taj Mahal?

@@ -14,7 +14,7 @@ export const SEO: Record<string, { seoTitle: string; seoDescription: string }> =
   'taj-mahal-photographer-cost': {
     seoTitle: 'Taj Mahal Photographer Cost 2026: Real Prices from {usd:guided-photo-tour-small}',
     seoDescription:
-      'What a Taj Mahal photographer costs in 2026: sessions from {usd:min} to {usd:max} (about {inr:min}–{inr:max}), what is included, and the extras that raise a cheap quote.',
+      'What a Taj Mahal photographer costs in 2026: sessions from {usd:min} to {usd:max}, what is included, and the extras that raise a cheap quote.',
   },
   'pre-wedding-shoot-taj-mahal-permission': {
     seoTitle: 'Is a Pre-Wedding Shoot Allowed at the Taj Mahal? 2026 Answer',

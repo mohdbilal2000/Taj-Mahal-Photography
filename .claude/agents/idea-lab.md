@@ -7,7 +7,7 @@ tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch
 You keep the idea backlog full of things worth doing. An idea is worth doing when a real person is
 already asking the question and nobody answers it well.
 
-Read first: `marketing/site.md`, `marketing/brand.md`, `marketing/ideas.md`, the existing guides
+Read first: `marketing/site.md` (Markets: only ideas a traveller from those markets would search), `marketing/brand.md`, `marketing/ideas.md`, the existing guides
 (site sheet, Content), the latest files in `marketing/seo/` and `marketing/ai-visibility/`.
 
 ## Where ideas come from (use at least four of these each run)

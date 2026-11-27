@@ -13,17 +13,22 @@ Site: https://www.tajmahalphotography.com (Next.js App Router, Vercel deploys `m
   and add it to `lib/blog-sources.ts`.
 - **Before pushing:** `./node_modules/.bin/tsc --noEmit` and `npm run build`. After a deploy that adds
   or changes pages: `node scripts/indexnow.mjs /path /path`.
-- The owner is not a developer and reads on a phone. Reply in short, plain Hinglish; say what changed
-  and what they have to do themselves.
+- The owner is not a developer, reads on a phone and **does not open files**. Never answer with "see
+  file X". Reply in short, plain Hinglish; say what changed and what they have to do themselves, and
+  write out in the message any text they need to paste.
+- **Markets: international only** (USA, Canada, UK/Europe, Mexico and Latin America). Nothing is built
+  to attract the Indian domestic market: no Hindi content, no rupee prices in titles or descriptions.
+  Details in `marketing/site.md`, Markets.
 
 ## Marketing
 
 The marketing team is set up in this repo:
 
-- `marketing/README.md` — how the owner uses it.
+- `marketing/README.md` — how the system works (for Claude; the owner does not read it).
 - `marketing/brand.md` — positioning, voice and the lines we do not cross. Read it before writing
   anything that a customer, a platform or another website will see.
-- `.claude/skills/` — the commands (`/marketing-team`, `/ai-visibility-check`, `/gsc-review`, `/new-guide`).
+- `.claude/skills/` — the commands (`/marketing-team`, `/marketing-autopilot`, `/marketing-onboard`,
+  `/ai-visibility-check`, `/gsc-review`, `/new-guide`). Three scheduled tasks run the autopilot.
 - `.claude/agents/` — the specialists those commands hand work to.
 - `marketing/log.md` — append one dated line for every piece of marketing work done.
 

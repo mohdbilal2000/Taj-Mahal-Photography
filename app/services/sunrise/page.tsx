@@ -16,7 +16,7 @@ import { serviceAlternates } from '@/lib/i18n-services';
 
 export const metadata: Metadata = {
   title: { absolute: fillRates('Taj Mahal Sunrise Photoshoot — {usd:sunrise}, Licensed') },
-  description: fillRates('Taj Mahal sunrise photoshoot, {usd:sunrise} (about {inr:sunrise}): 1.5–2 hours, 120+ photos, 3–5 reels, official permit included. Your photographer meets you at your hotel.'),
+  description: fillRates('Taj Mahal sunrise photoshoot, {usd:sunrise}: 1.5–2 hours, 120+ photos, 3–5 reels, official permit included. Your photographer meets you at your hotel.'),
   alternates: {
     canonical: `${SITE.url}/services/sunrise`,
     languages: {

@@ -28,7 +28,6 @@ Say these plainly; each one is checkable on the site.
 - Couples and honeymooners from the US, UK, Europe, Australia, Mexico and Latin America.
 - Solo travellers who want proper photos of themselves, not selfies.
 - Families visiting once in a lifetime.
-- Indian couples planning a pre-wedding or anniversary shoot (Hindi guides serve them).
 - Travel creators and photographers who need a local, legal collaborator.
 
 ## Voice
@@ -36,8 +35,10 @@ Say these plainly; each one is checkable on the site.
 - Calm, specific, a little warm. A local expert talking to a guest, never a hawker.
 - Give the useful fact first (time, gate, rule, price), then the offer.
 - Short sentences. No "world-class", "unforgettable memories", "best in Agra" claims we cannot prove.
-- English by default. Spanish for Mexico and Latin America, Hindi for India; write natively, do not
-  translate word for word.
+- English by default. Spanish for Mexico and Latin America; French, German, Italian and Portuguese
+  for Europe when a guide earns a translation. Write natively, do not translate word for word.
+- We market to international visitors only (see `site.md`, Markets). Nothing is written to attract
+  the Indian domestic market.
 
 ## Lines we do not cross
 

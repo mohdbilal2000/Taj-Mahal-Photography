@@ -97,7 +97,7 @@ export default function GuideArticle({ lang, slug }: { lang: GuideLang; slug: st
 
             <div className="space-y-14">
               {g.sections.map((section, i) => (
-                <SectionBlock key={section.heading} section={section} index={i} dropCap={lang !== 'hi'} />
+                <SectionBlock key={section.heading} section={section} index={i} />
               ))}
             </div>
 

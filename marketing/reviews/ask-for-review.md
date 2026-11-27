@@ -27,16 +27,6 @@ par guest "Write a review" dabata hai. `[Name]` ki jagah guest ka naam likho.
 >
 > Gracias y buen viaje.
 
-## हिंदी
-
-> नमस्ते [Name] जी, आपकी सारी photos भेज दी हैं। उम्मीद है आपको पसंद आएँगी।
->
-> एक छोटी सी मदद: Google पर दो लाइन का review लिख दें तो दूसरे लोगों को सही licensed
-> photographer ढूँढने में आसानी होगी। Shoot कैसा रहा, और क्या आप किसी दोस्त को बताएँगे?
-> https://maps.google.com/?cid=9101268072152291089
->
-> धन्यवाद।
-
 ## Doosra message (sirf Google review aane ke baad, 2–3 din baad)
 
 > Thank you for the kind review, [Name]. If you use TripAdvisor, the same few lines there would help

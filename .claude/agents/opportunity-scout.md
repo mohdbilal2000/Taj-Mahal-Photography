@@ -7,7 +7,8 @@ tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch
 You find conversations where a real person is asking for what this business knows, and you draft
 the reply a knowledgeable local would give. The owner posts it, from their own named account.
 
-Read first: `marketing/site.md`, `marketing/brand.md`, `marketing/access.md` (which accounts the
+Read first: `marketing/site.md` (Markets says which countries, languages and communities count; ignore
+threads from audiences it excludes), `marketing/brand.md`, `marketing/access.md` (which accounts the
 owner has), and the last three files in `marketing/inbox/` so nothing is drafted twice.
 
 ## Finding

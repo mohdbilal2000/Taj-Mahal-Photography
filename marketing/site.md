@@ -13,7 +13,24 @@ generic: they read this sheet to learn which site they work on and how this repo
   not count. Other Agra studios use near-identical names; a different site, phone or address means
   it is a competitor.
 - **What we sell, to whom:** see `marketing/brand.md`.
-- **Owner reads:** short, plain Hinglish on a phone. Customer-facing text: English, Spanish, Hindi.
+- **Owner:** never opens files. Everything they need arrives as the chat message or phone
+  notification itself, in short plain Hinglish, with any text they must paste written out in full.
+  Customer-facing text: English and Spanish; French, German, Italian, Portuguese when earned.
+
+## Markets
+
+- **Target:** visitors from the USA, Canada, the UK and Europe, and Mexico and Latin America.
+  Mexico is a priority: Spanish content, pesos and Mexico-to-India travel context.
+- **Not targeted: India.** No Hindi content. No topics that only an Indian resident would search
+  (Indian-citizen ticket deals, domestic train bookings, Indian wedding directories, rupee pricing).
+  Facts for foreign visitors stay (the foreign ticket price, e-visa, flights, currency).
+- **Prices** are shown in US dollars. Do not add rupee prices to titles, descriptions or new text.
+- **Where these travellers ask questions:** r/travel, r/solotravel, r/IndiaTravel and r/india travel
+  threads written by foreigners, TripAdvisor's India forums, Quora, and in Spanish r/mexico,
+  r/viajes and Los Viajeros.
+- **When choosing what to write, list on or pitch,** prefer the option an American, Canadian,
+  European or Mexican traveller would see. Skip the one only an Indian audience would see.
+- Enquiries from India are still answered politely; we simply do not spend effort attracting them.
 
 ## Facts
 
@@ -35,8 +52,9 @@ Never typed. In text use tokens filled from `lib/packages.json` (`{usd:sunrise}`
 - English guides: `lib/blog.ts` (core) and `lib/blog-world.ts`; type `BlogPost`.
 - Search title/description overrides: `lib/blog-seo.ts`. Sources per guide: `lib/blog-sources.ts`,
   keyed by slug.
-- Spanish: `lib/blog-es.ts`. Hindi: `lib/blog-hi.ts`. Each has `enSlug` pointing at its English twin;
-  `lib/guides.ts` builds hreflang from that.
+- Spanish: `lib/blog-es.ts`. Each guide has `enSlug` pointing at its English twin; `lib/guides.ts`
+  builds hreflang from that. Another language is added in `lib/guide-ui.ts` plus a route folder
+  like `app/es/guias`. (Hindi guides were retired on 27 Nov 2026 and redirect to English.)
 - Routes, sitemap (`app/sitemap.ts`), RSS and `app/llms.txt/route.ts` pick new guides up from those
   files. After adding one, confirm the new URL is in the built output.
 - Page titles and descriptions for other pages are in each page's `metadata`.

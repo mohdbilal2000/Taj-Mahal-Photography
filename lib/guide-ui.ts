@@ -1,9 +1,9 @@
 /**
- * Interface wording for the translated guide pages (Spanish, Hindi). One
+ * Interface wording for the translated guide pages (Spanish). One
  * entry per language; the shared components in components/guides read from
  * here, so adding a language is data, not another page.
  */
-export type GuideLang = 'es' | 'hi';
+export type GuideLang = 'es';
 
 export type GuideUi = {
   lang: GuideLang;
@@ -94,52 +94,5 @@ export const GUIDE_UI: Record<GuideLang, GuideUi> = {
       crumb: 'Guías',
     },
     strip: { aria: 'Guías en español', heading: 'Guías para tu viaje', intro: 'Precios reales, qué ponerse y cómo planear tu viaje a la India desde México.', all: 'Todas las guías' },
-  },
-  hi: {
-    lang: 'hi',
-    ogLocale: 'hi_IN',
-    dateLocale: 'hi-IN',
-    base: '/hi/guides',
-    home: '/hi',
-    plansHref: '/plans',
-    homeLabel: 'होम',
-    guidesLabel: 'गाइड',
-    navLabel: 'मुख्य मेनू',
-    crumbLabel: 'रास्ता',
-    english: 'English',
-    whatsappText: 'नमस्ते, मुझे ताजमहल पर फोटोशूट बुक करना है। मेरी तारीखें:',
-    footerLine: 'Taj Mahal Photography · आगरा, भारत · पर्यटन मंत्रालय से लाइसेंस प्राप्त फोटोग्राफर',
-    italicHeadings: false,
-    updated: (d) => `अपडेट: ${d}`,
-    readTime: (n) => `${n} मिनट में पढ़ें`,
-    captionMinutes: (n) => `${n} मिनट, शुरू से आख़िर तक`,
-    shortAnswer: 'सीधा जवाब',
-    tocTitle: 'इस गाइड में',
-    tocSections: 'हिस्से',
-    faqHeading: 'अक्सर पूछे जाने वाले सवाल',
-    beforeYouGo: 'जाने से पहले',
-    sourcesAria: 'स्रोत',
-    sourcesEyebrow: 'जानकारी कहाँ से है',
-    sourcesHeading: 'ये आधिकारिक पेज सेव कर लें',
-    sourcesIntro: 'नियम, शुल्क और समय बदलते रहते हैं। यात्रा से पहले ये आधिकारिक पेज (अंग्रेज़ी में) ज़रूर देख लें।',
-    studioAria: 'स्टूडियो के बारे में',
-    studioCaption: 'स्टूडियो की ओर से',
-    studioWhatsapp: 'WhatsApp पर लिखें',
-    studioPlans: 'सेशन और कीमतें देखें',
-    bookAria: 'बुकिंग',
-    bookHeading: 'एक मिनट में बुक करें',
-    moreAria: 'और पढ़ें',
-    moreHeading: 'आगे पढ़ें',
-    category: { 'India from abroad': 'भारत यात्रा', 'World locations': 'दुनिया की जगहें', Planning: 'प्लानिंग', 'Rules & permits': 'नियम और परमिट' },
-    index: {
-      eyebrow: 'हिंदी गाइड',
-      h1: 'ताजमहल जाने से पहले जो जानना ज़रूरी है',
-      lead: 'असली रेट, क्या पहनें, स्मारक के नियम, टिकट और रास्ते की पूरी जानकारी, सीधे और सरल हिंदी में।',
-      metaTitle: 'ताजमहल फोटोशूट गाइड: रेट, नियम, टिकट और प्लानिंग',
-      metaDescription: 'ताजमहल पर फोटोशूट का खर्च, प्री-वेडिंग के नियम, क्या पहनें, टिकट-समय और जयपुर से आगरा की दूरी, हिंदी में पूरी गाइड।',
-      ogTitle: 'ताजमहल फोटोशूट गाइड हिंदी में',
-      crumb: 'गाइड',
-    },
-    strip: { aria: 'हिंदी गाइड', heading: 'ताजमहल की हिंदी गाइड', intro: 'रेट, नियम, टिकट और प्लानिंग, सब एक जगह।', all: 'सारी गाइड' },
   },
 };

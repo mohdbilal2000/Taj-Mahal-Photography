@@ -72,10 +72,6 @@ ${POSTS.map((post) => `- [${post.title}](${SITE.url}/blog/${post.slug}): ${post.
 
 ${GUIDES.es.map((g) => `- [${g.title}](${SITE.url}${GUIDE_UI.es.base}/${g.slug}): ${g.answer}`).join('\n')}
 
-## हिंदी गाइड (Hindi guides)
-
-${GUIDES.hi.map((g) => `- [${g.title}](${SITE.url}${GUIDE_UI.hi.base}/${g.slug}): ${g.answer}`).join('\n')}
-
 ## Pages in other languages
 
 Each page carries the licence, the booking process, the same package prices and

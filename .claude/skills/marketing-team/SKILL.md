@@ -52,7 +52,8 @@ need to bring (pasted answers; the two exports).
 
 Reply in the owner's language (site sheet), short, written for a phone. In this order:
 
-- **Aapko kya karna hai**: numbered, at most five, each with where the ready text is.
+- **Aapko kya karna hai**: numbered, at most three, with the text to paste written out in the message
+  itself. The owner does not open files; never answer "see file X".
 - **Team ne kya kiya**: one line per specialist.
 - **Number**: the latest AI score and review count, if either changed.
 

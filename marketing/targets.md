@@ -15,7 +15,7 @@ Status: `todo` · `drafted` (text ready for the owner) · `submitted` · `live` 
 | Viator (owned by TripAdvisor) | A listing there is also sold on TripAdvisor | todo | |
 | LocalLens | Ranked first for "best Taj Mahal photographer in Agra" | todo | |
 | ToursByLocals / GoWithGuide | Photographer-guide profiles rank | todo | |
-| Thrillophilia | Ranks for "couple photoshoot in Agra" (Indian market) | todo | |
+| Thrillophilia | Ranks for "couple photoshoot in Agra" | skip: Indian domestic market, not targeted | |
 
 ## 2. Reviews
 
@@ -25,14 +25,17 @@ Status: `todo` · `drafted` (text ready for the owner) · `submitted` · `live` 
 | TripAdvisor listing | Foreign travellers use it; cited in local AI answers | todo | |
 | Bing Places | ChatGPT leans on Bing's business data for local questions | todo | |
 
-## 3. Wedding directories — for the pre-wedding question
+## 3. Wedding directories — skipped
+
+Indian wedding directories serve the domestic market, which we do not target (see `site.md`).
+All rows below are `skip` unless the owner changes the markets.
 
 | Target | Status | Link / note |
 |---|---|---|
-| WeddingWire India | todo | |
-| WedMeGood | todo | |
-| WeddingBazaar | todo | |
-| ThreeBestRated (photographers in Agra; they choose, we can apply) | todo | |
+| WeddingWire India | skip | |
+| WedMeGood | skip | |
+| WeddingBazaar | skip | |
+| ThreeBestRated (photographers in Agra; they choose, we can apply) | skip | |
 
 ## 4. Blogs worth one good pitch each
 
@@ -47,6 +50,6 @@ Only pitch with something useful to them (a corrected fact, a current rule, a cr
 
 ## 5. Already in place
 
-- Website guides in English, Spanish and Hindi; schema; `llms.txt`.
+- Website guides in English and Spanish; schema; `llms.txt`.
 - Instagram, Facebook, LinkedIn (links in `lib/seo.ts`).
 - Sister company card for Guide India Tours on the guides.

@@ -12,7 +12,13 @@ The first rows are seeds from the 27 November 2026 web baseline. Their scores ar
 | 16 | Guide who takes photos or a dedicated photographer at the Taj Mahal: what is the difference? | comparison | Marketplace listings mix the two; search summaries tell readers to check which they are booking | en | new |
 | 16 | How do I plan a surprise proposal at the Taj Mahal with a photographer? | guide | No existing guide on the site; proposal is a distinct, high-intent customer | en, es | new |
 | 15 | Booking a Taj Mahal photoshoot on a marketplace or directly: what is included in each? | comparison | Baseline: marketplace listings dominate every answer; what they include varies (20 to 25 photos, entry sometimes extra) | en | new |
-| 15 | Taj Mahal sunrise month by month: gate time, light and crowd | data page | Our own daily work; nobody else has it | en, hi | new |
+| 15 | Taj Mahal sunrise month by month: gate time, light and crowd | data page | Our own daily work; nobody else has it | en, es | new |
 | 14 | Is a Taj Mahal photoshoot safe and comfortable for a solo woman traveller? | guide | Fan-out of the solo question in `ai-visibility/queries.md` | en | new |
 | 14 | Honeymoon photoshoot at the Taj Mahal: what to book and when | guide | Fan-out of the couple question; honeymooners are a core audience in the brand sheet | en, es | new |
 | 13 | What happens to my shoot if it is foggy, raining or the Taj is closed? | refresh | Extends the existing fog and monsoon guide with a clear policy answer | en | new |
+| 17 | India e-visa and a Taj Mahal photoshoot: what US, Canadian, UK and EU travellers need to arrange | guide | Fan-out of every planning question; foreign visitors only | en | new |
+| 16 | Viaje al Taj Mahal desde México: visa, vuelos, cuánto cuesta y cómo reservar fotógrafo | guide | Mexico is a priority market; extends the existing Spanish trip guide with booking steps | es | new |
+| 15 | Taj Mahal from Delhi on a layover or one free day: is a photoshoot possible? | guide | Common question from short-stay international visitors | en | new |
+| 14 | Séance photo au Taj Mahal: prix, règles et comment réserver (first French guide) | guide | French-speaking visitors (demand to be checked by idea-lab); needs a French guide route | fr | new |
+| 14 | Fotoshooting am Taj Mahal: Preise, Regeln und Buchung (first German guide) | guide | German-speaking visitors (demand to be checked by idea-lab); needs a German guide route | de | new |
+

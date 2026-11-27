@@ -39,7 +39,7 @@ export const SITE = {
   title: fillRates('Taj Mahal Photographer & Photoshoot in Agra | From {usd:solo-photoshoot}'),
   description:
     fillRates(
-      'Government-licensed Taj Mahal photographer in Agra. Sunrise, couple and pre-wedding shoots from {usd:solo-photoshoot} (about {inr:solo-photoshoot}), permit included, photos in 48–72 hours.',
+      'Government-licensed Taj Mahal photographer in Agra. Sunrise, couple and pre-wedding shoots from {usd:solo-photoshoot}, permit included, photos in 48–72 hours.',
     ),
   phone: '+918393010125',
   phoneDisplay: '+91 83930 10125',
