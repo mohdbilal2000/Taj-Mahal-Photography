@@ -1,6 +1,6 @@
 ---
 name: ai-visibility-check
-description: Checks whether ChatGPT, Gemini, Perplexity and Claude recommend Taj Mahal Photography when a stranger asks for a Taj Mahal photographer - 8 questions, 4 AI tools, a score out of 32, who they pick instead, what they are reading, and 5 fixes for the next 30 days. Use when the owner asks "AI hume recommend karta hai?", "ChatGPT pe naam aata hai?", runs the monthly check, or pastes answers from an AI tool.
+description: Checks whether ChatGPT, Gemini, Perplexity and Claude recommend the business when a stranger asks for what it sells - 8 questions, 4 AI tools, a score out of 32, who they pick instead, what they are reading, and 5 fixes for the next 30 days. Use when the owner asks "AI hume recommend karta hai?", "ChatGPT pe naam aata hai?", runs the monthly check, or pastes answers from an AI tool.
 ---
 
 # AI visibility check
@@ -11,7 +11,7 @@ questions, because the tools must be asked as a stranger would ask them; your pa
 ## Step 1 — hand over the questions
 
 If the owner has not pasted any answers yet, show the eight questions from
-`marketing/ai-visibility/queries.md` in one copy-friendly block and these instructions, in Hinglish:
+`marketing/ai-visibility/queries.md` in one copy-friendly block and these instructions, in the owner's language (shown here in Hinglish):
 
 - Chaar apps: ChatGPT, Gemini, Perplexity, Claude.
 - Har sawaal ke liye **nayi chat**, aur memory **off** (ya temporary chat).
@@ -36,7 +36,7 @@ It writes `marketing/ai-visibility/YYYY-MM-DD.md` and updates `marketing/targets
 
 ## Step 4 — tell the owner
 
-Short Hinglish reply:
+Short reply in the owner's language:
 
 - **Score** (`11/32`, band) and the change since last time.
 - **AI kisko recommend kar raha hai** (top two or three names with counts).

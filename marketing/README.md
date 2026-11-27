@@ -1,59 +1,81 @@
 # Marketing team — kaise use karna hai
 
-Is repo mein ab ek marketing team hai. Aap Claude ko ek command dete ho, woh sahi specialist se kaam
-karwa ke aapko ready text deta hai. **Bhejna, post karna aur submit karna aap karte ho**; team sirf
-taiyaar karti hai.
+Is repo mein ek poori marketing team hai jo kisi bhi business ke liye chal sakti hai: use sirf
+website ka URL chahiye. Team teen tareeke se kaam karti hai:
 
-## Chaar commands
+1. **Autopilot** — scheduled runs jo bina bole chalte hain (roz, hafte, mahine).
+2. **Commands** — jab aap kuch specific chahte ho.
+3. **Seedha bolna** — "is review ka reply likh", "Airbnb listing taiyaar kar".
 
-| Command | Kab | Aapko kya dena hai |
+**Ek hi jagah dekhni hai: `marketing/inbox/README.md`.** Wahan sabse upar likha hota hai aapko kya
+karna hai.
+
+## Autopilot kya karta hai
+
+| Run | Kab | Kya |
 |---|---|---|
-| `/marketing-team weekly` | Har hafte ek baar | Kuch nahi. Naye reviews aaye hon to paste kar do |
-| `/ai-visibility-check` | Mahine mein ek baar | 8 sawaal 4 AI apps mein chala ke jawab paste karna |
-| `/gsc-review` | Mahine mein ek baar | Search Console ki Excel file upload karna |
-| `/new-guide <topic>` | Jab naya blog chahiye | Topic ya sawaal |
+| Daily | Roz subah | Reddit, Quora aur forums par naye sawaal dhoondh kar jawab ka draft; jo cheez aapka intezaar kar rahi hai uska reminder |
+| Weekly | Har Monday | Ek naya guide likh kar, fact-check karke **site par publish**; uske LinkedIn / Medium / Quora / Shorts versions; Google post; 5 Instagram items; ek listing ya pitch taiyaar |
+| Monthly | Har mahine ki 1 tareekh | Naye ideas, AI visibility ka web check, purane guides ke facts update, mahine ki report |
 
-Seedha kaam bhi bol sakte ho, command ke bina:
+**Band karna ho:** `marketing/site.md` mein `Autopilot: ON` ko `OFF` kar do (ya Claude ko bolo
+"autopilot band kar"). Har run sabse pehle yahi line padhta hai.
 
-- "Is review ka reply likh" + review paste
-- "In photos ke captions de"
-- "Airbnb Experiences ki listing taiyaar kar"
-- "Marketing status bata"
+**Autopilot kya khud karta hai aur kya nahi**
 
-## Team
+- Khud karta hai: site par guide publish karna (hafte mein 1, fact-checker pass kare tabhi), purane
+  guides ke facts theek karna, `marketing/` mein drafts likhna.
+- Kabhi khud nahi karta: Reddit / Quora / Instagram / Google par post karna, email bhejna, listing
+  submit karna, prices ya plans badalna. Yeh sab draft banta hai, bhejte aap ho.
+
+## Commands
+
+| Command | Kab |
+|---|---|
+| `/marketing-team weekly` | Hafte ka round abhi chahiye |
+| `/marketing-team status` | Kya hua, kya baaki hai |
+| `/ai-visibility-check` | Mahine mein ek baar: 8 sawaal, 4 AI apps, score /32 |
+| `/gsc-review` | Search Console ki Excel upload karke |
+| `/new-guide <topic>` | Kisi topic par abhi guide chahiye |
+| `/marketing-autopilot daily` (ya `weekly`, `monthly`) | Autopilot ka run haath se chalana |
+| `/marketing-onboard <url>` | Kisi **naye business** ke liye team lagana |
+
+## Team (10 specialists)
 
 | Kaun | Kya karta hai |
 |---|---|
-| AI visibility analyst | ChatGPT / Gemini / Perplexity / Claude hume recommend karte hain ya nahi, score /32 |
-| SEO analyst | Search Console report padh ke fixes |
-| Content writer | English, Spanish, Hindi guides |
+| Idea lab | Asli demand se ideas nikaal kar score karta hai (`ideas.md`) |
+| Content writer | Guides likhta hai, har language mein |
+| Fact-checker | Publish se pehle har fee, timing, rule ko official source se milata hai |
+| SEO analyst | Search Console report se fixes |
+| AI visibility analyst | ChatGPT / Gemini / Perplexity / Claude hume recommend karte hain ya nahi |
+| Opportunity scout | Reddit, Quora, forums par sawaal aur jawab ke drafts |
+| Distribution | Har guide ko LinkedIn, Medium, Quora, Shorts, Pinterest ke liye dobara likhta hai |
 | Local reputation | Google profile post, review replies, review maangne ka message |
-| Outreach & partnerships | Airbnb, GetYourGuide, Viator, directories, blogs ki listing aur pitch |
-| Social media | Instagram / Facebook: hafte ka plan, captions, reels |
-
-## Hafte ka routine (15–20 minute)
-
-1. `/marketing-team weekly` chalao.
-2. Google post copy karke profile par daalo.
-3. Hafte ke 5 Instagram items mein se jo ban sake, post karo.
-4. Ek listing ya pitch jo team ne taiyaar ki, submit karo. Ho jaye to bolo "X live ho gaya" + link.
-5. Har shoot ki photos bhejte waqt review wala WhatsApp message bhejo.
-
-## Mahine ka routine
-
-1. `/ai-visibility-check` — score dekho, pichhle mahine se compare.
-2. `/gsc-review` — Search Console report.
-3. Google reviews ginn lo. Number badla ho to Claude ko bolo "rating update kar".
+| Outreach & partnerships | Marketplaces, directories, lists, blogs |
+| Social media | Instagram / Facebook ka hafte ka plan |
 
 ## Files
 
+- `inbox/` — **aapke liye**: kya karna hai, roz ke reply drafts.
+- `access.md` — team ko kaunse accounts chahiye; jo ban jaye uska status badal do.
+- `playbook.md` — saari tactics ki list, evidence aur risk ke saath, kaunsi chal rahi hai.
+- `ideas.md` — kya likhna hai, score ke saath.
+- `targets.md` — kahan list hona hai.
 - `brand.md` — hum kaun hain, kaise bolte hain, kya kabhi nahi karte.
-- `targets.md` — kahan list hona hai, kya ho gaya.
-- `ai-visibility/` — sawaal aur har mahine ki report.
+- `site.md` — yeh site kaise bani hai, aur autopilot ka ON/OFF switch.
+- `ai-visibility/`, `seo/`, `distribution/`, `outreach/`, `social/`, `reports/`, `drafts/` — team ka kaam.
 - `log.md` — kya kab hua.
-- `outreach/`, `social/`, `seo/` — team ka taiyaar kiya hua kaam.
+
+## Doosre business ke liye
+
+`.claude/agents/`, `.claude/skills/` aur `marketing/playbook.md` us business ke repo mein copy karo
+(ya naya khaali repo banao), wahan session kholo aur `/marketing-onboard https://unki-site.com`
+chalao. Team khud site padh kar brand sheet, sawaal, targets aur access list banayegi.
 
 ## Jo hum nahi karte
 
-Fake ya paid reviews, competitor ko bura bolna, hidden ya khareede hue links, spam emails. Yeh
-shortcut Google profile aur site dono band karwa sakte hain, isliye team inhe likhegi hi nahi.
+Fake ya paid reviews, fake accounts se Reddit replies, competitor ko bura bolna, hidden ya khareede
+hue links, doosron ki site par paid content daal kar ranking lena, hazaaron auto-generated pages.
+Inse Google profile, Reddit account aur site teeno band ho sakte hain, isliye team inhe likhegi hi
+nahi. Wajah aur policy links `playbook.md` mein hain.
