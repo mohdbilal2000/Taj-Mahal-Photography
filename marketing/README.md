@@ -3,18 +3,19 @@
 Is repo mein ek poori marketing team hai jo kisi bhi business ke liye chal sakti hai: use sirf
 website ka URL chahiye. Team teen tareeke se kaam karti hai:
 
-1. **Autopilot** — scheduled runs jo bina bole chalte hain (hafte mein 3 scout, 1 weekly, mahine mein 1).
+1. **Autopilot** — scheduled runs jo bina bole chalte hain (roz, hafte mein 1 publish, mahine mein 1 review).
 2. **Commands** — jab aap kuch specific chahte ho.
 3. **Seedha bolna** — "is review ka reply likh", "Airbnb listing taiyaar kar".
 
-**Ek hi jagah dekhni hai: `marketing/inbox/README.md`.** Wahan sabse upar likha hota hai aapko kya
-karna hai.
+Owner files nahi kholta: har run ki report poori ki poori uske final message mein hoti hai. Teeno
+scheduled tasks ek hi session mein chalte hain ("Marketing autopilot — Taj Mahal Photography").
+Markets sirf international hain (`site.md`, Markets).
 
 ## Autopilot kya karta hai
 
 | Run | Kab | Kya |
 |---|---|---|
-| Scout | Mangal, Guru, Shani subah | Reddit, Quora aur forums par naye sawaal dhoondh kar jawab ka draft; jo cheez aapka intezaar kar rahi hai uska reminder |
+| Daily | Roz subah 6:45 | Live site ki health check aur fix; Reddit, Quora aur forums par international travellers ke sawaalon ke jawab ke drafts; ek chhota sudhaar |
 | Weekly | Har Monday | Ek naya guide likh kar, fact-check karke **site par publish**; uske LinkedIn / Medium / Quora / Shorts versions; Google post; 5 Instagram items; ek listing ya pitch taiyaar |
 | Monthly | Har mahine ki 1 tareekh | Naye ideas, AI visibility ka web check, purane guides ke facts update, mahine ki report |
 
@@ -37,7 +38,7 @@ karna hai.
 | `/ai-visibility-check` | Mahine mein ek baar: 8 sawaal, 4 AI apps, score /32 |
 | `/gsc-review` | Search Console ki Excel upload karke |
 | `/new-guide <topic>` | Kisi topic par abhi guide chahiye |
-| `/marketing-autopilot scout` (ya `weekly`, `monthly`) | Autopilot ka run haath se chalana |
+| `/marketing-autopilot daily` (ya `weekly`, `monthly`) | Autopilot ka run haath se chalana |
 | `/marketing-onboard <url>` | Kisi **naye business** ke liye team lagana |
 
 ## Team (10 specialists)
