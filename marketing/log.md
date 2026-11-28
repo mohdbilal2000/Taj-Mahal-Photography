@@ -3,6 +3,7 @@
 One line per piece of work: date, who (agent or owner), what, where the output is.
 Newest at the top.
 
+- 2026-11-28 · autopilot daily · Health check clean (home + 5 new URLs). Scout: nothing fresh on reachable forums (Los Viajeros Taj subforum last post Apr 2025). Refresh 2 of 2 this week (cap reached): ticket-included FAQ added to `taj-mahal-photographer-cost`, fees re-verified on tajmahal.gov.in (play 12). Site redesign waits on branch `redesign-preview` for the owner's go-ahead.
 - 2026-11-27 · autopilot daily · Health check clean (home + 5 URLs; note: 6 Hindi service pages still live in sitemap, left for owner). Scout found 0 usable threads (Reddit not searchable, TripAdvisor/Quora 403); `inbox/2026-11-27-daily.md`. Refresh 1 of 2 this week: Friday follow-up FAQ + tajmahal.gov.in source added to `delhi-to-agra-day-trip-taj-mahal` (play 12).
 - 2026-11-27 · owner decision · International markets only (USA, Canada, UK/Europe, Mexico/LatAm); India not targeted. Hindi guides retired with redirects; rupee prices removed from search descriptions. Autopilot now daily and reports in the notification itself.
 - 2026-11-27 · setup · Team made generic; autopilot, onboarding, playbook (researched, with sources), claims ledger, idea backlog, access list added.

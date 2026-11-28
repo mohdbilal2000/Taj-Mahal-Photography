@@ -646,7 +646,7 @@ const CORE_POSTS: BlogPost[] = [
     answer:
       'A professional photographer at the Taj Mahal costs between {usd:min} and {usd:max} USD depending on the package (about {inr:min} to {inr:max}). A two-hour sunrise session is {usd:sunrise} and includes 120+ edited photos; a couple or pre-wedding session starts at {usd:pre-wedding}; a guide and photographer together start at {usd:guided-photo-tour-small} for up to five guests; a full day covering the Taj Mahal, Agra Fort and the sunset view is {usd:full-day}. Monument entry tickets are always separate and are set by the Archaeological Survey of India, not by the photographer.',
     published: '2026-02-02',
-    updated: '2026-10-22',
+    updated: '2026-11-28',
     readingMinutes: 7,
     image: '/photos/gallery/03.jpg',
     imageAlt: 'A couple photographed on the marble plinth of the Taj Mahal in early morning light',
@@ -730,6 +730,11 @@ const CORE_POSTS: BlogPost[] = [
         question: 'Is the price per person or for the whole group?',
         answer:
           'For the whole booking, not per person. A sunrise session at {usd:sunrise} covers a solo traveller, a couple or a family at the same price. The guide-and-photographer packages change at six guests because group portraits need more time and more coverage.',
+      },
+      {
+        question: 'Is the Taj Mahal entry ticket included in the photographer’s price?',
+        answer:
+          'No. On the photoshoot and guide-and-photographer packages you buy your own entry ticket, because the official rate depends on nationality: ₹1,100 for most foreign visitors, plus an optional ₹200 to go up to the main mausoleum, and children under 15 enter free. The same-day Sunrise Luxury Tours from Delhi are the exception: Taj Mahal and Agra Fort tickets are part of that price.',
       },
       {
         question: 'Do you charge more for a pre-wedding shoot than a regular one?',

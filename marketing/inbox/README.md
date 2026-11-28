@@ -5,6 +5,30 @@ Roz ke Reddit/forum jawab is folder mein date wali file mein hote hain.
 
 ---
 
+## 28 November 2026 — autopilot daily
+
+**Aapko kya karna hai**
+
+1. Redesign (naya footer, chhota home page) taiyaar hai par live nahi: branch `redesign-preview` par
+   hai. Screenshots chat mein bheje gaye. Live karna ho to chat mein likho: "live kar do".
+2. Bing Webmaster Tools: bing.com/webmasters par Google account se sign in, "Import from Google
+   Search Console" (2 minute).
+3. Batao: Hindi ke 6 service pages (`/hi` ...) hatane hain ya rehne dein?
+
+**Bot ne kya kiya**
+
+- Site health: robots.txt, sitemap (123 URLs), llms.txt, home aur 5 naye pages theek.
+- Guide refresh (is hafte 2 of 2, cap poora): photographer cost guide mein naya sawaal "Is the Taj
+  Mahal entry ticket included in the photographer's price?" Fees aaj tajmahal.gov.in se confirm.
+  https://www.tajmahalphotography.com/blog/taj-mahal-photographer-cost
+- Scout: khule forums par kuch taaza nahi (Los Viajeros ka aakhri post April 2025).
+
+**Kuch toota?**
+
+- Kuch nahi.
+
+---
+
 ## 27 November 2026 — autopilot daily
 
 **Aapko kya karna hai**
