@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Send, CheckCircle, MessageCircle, Clock, Users, Sunrise, Sun, CloudSun, Sunset, MapPin, CalendarRange } from 'lucide-react';
-import { PLANS, TIMING_SLOTS, TRAVEL_CITIES, TRAVEL_DAYS, planById } from '@/lib/plans';
+import { PLANS, TIMING_SLOTS, TRAVEL_CITIES, TRAVEL_DAYS, planById, offersGuideAddOn, GUIDE_ADDON_USD } from '@/lib/plans';
 import { usdOf } from '@/lib/rates';
 
 const TIMING_ICONS: Record<string, typeof Sun> = {
@@ -27,6 +27,7 @@ export default function ContactForm() {
   const [selectedPlan, setSelectedPlan] = useState('sunrise');
   const [timing, setTiming] = useState('sunrise');
   const [cities, setCities] = useState<string[]>(['Agra']);
+  const [addGuide, setAddGuide] = useState(false);
 
   const toggleCity = (city: string) => {
     setCities((prev) =>
@@ -48,6 +49,9 @@ export default function ContactForm() {
     const plan = planById(candidate);
     if (plan) {
       setSelectedPlan(plan.id);
+      if (new URLSearchParams(window.location.search).get('guide') === '1' && offersGuideAddOn(plan.id)) {
+        setAddGuide(true);
+      }
     }
   }, []);
 
@@ -69,12 +73,15 @@ export default function ContactForm() {
     const plan = planById(selectedPlan);
     const timingSlot = TIMING_SLOTS.find((t) => t.id === timing);
     const needsRoute = Boolean(plan?.needsRoute);
+    const guideAdded = addGuide && offersGuideAddOn(selectedPlan);
+    const guideLine = `Licensed guide add-on (+$${GUIDE_ADDON_USD} USD per booking)`;
     const routeCities = cities.length ? cities.join(', ') : 'Not specified';
 
     const text = [
       `*New Booking Inquiry – Taj Mahal Photography*`,
       ``,
       `*Package:* ${plan ? `${plan.name} (${plan.fromPrice ? 'from ' : ''}$${plan.price} USD)` : selectedPlan}`,
+      ...(guideAdded ? [`*Add-on:* ${guideLine}`] : []),
       `*Preferred Date:* ${date}`,
       `*Preferred Timing:* ${timingSlot?.label ?? timing} (exact hour flexible)`,
       `*Guests:* ${guests}`,
@@ -105,6 +112,7 @@ export default function ContactForm() {
         _subject: `New Booking Inquiry — ${plan ? plan.name : selectedPlan} — ${name}`,
         _template: 'table',
         Package: plan ? `${plan.name} (${plan.fromPrice ? 'from ' : ''}$${plan.price} USD)` : selectedPlan,
+        ...(guideAdded ? { 'Add-on': guideLine } : {}),
         'Preferred Date': date,
         'Preferred Timing': `${timingSlot?.label ?? timing} (exact hour flexible)`,
         Guests: guests,
@@ -341,6 +349,27 @@ export default function ContactForm() {
                     </p>
                   )}
                 </div>
+
+                {offersGuideAddOn(selectedPlan) && (
+                  <div className="rounded-sm border border-gold-500/50 bg-[#fbf7ec] p-4">
+                    <label className="flex cursor-pointer items-start gap-3">
+                      <input
+                        type="checkbox"
+                        checked={addGuide}
+                        onChange={(e) => setAddGuide(e.target.checked)}
+                        className="mt-1 h-4 w-4 accent-[#C9A227]"
+                      />
+                      <span className="text-sm text-ink-800">
+                        <strong>Add a licensed guide, +${GUIDE_ADDON_USD} per booking</strong>
+                        <span className="mt-1 block text-xs text-ink-600">
+                          With you at Agra Fort, Mehtab Bagh and Itmad-ud-Daulah. Inside the Taj Mahal a
+                          guide is not permitted alongside a photographer. Your details and photos stay
+                          private and are never sold to third parties.
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                )}
 
                 {/* Date + Guests */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

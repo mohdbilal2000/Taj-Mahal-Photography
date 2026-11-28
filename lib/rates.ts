@@ -24,6 +24,7 @@ type Priced = { id: string; usd: number };
 const ALL: Priced[] = [
   ...(packagesData.packages as Priced[]),
   ...(((packagesData as { otherPackages?: Priced[] }).otherPackages ?? []) as Priced[]),
+  ...(((packagesData as { addOns?: Priced[] }).addOns ?? []) as Priced[]),
 ];
 
 const { usdToInr, inrRoundTo } = packagesData.meta;

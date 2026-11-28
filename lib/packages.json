@@ -289,5 +289,14 @@
       "summary": "Delhi ↔ Agra for up to 13 guests, tickets and golf cart included."
     }
   ],
+  "addOns": [
+    {
+      "id": "guide-addon",
+      "name": "Licensed guide add-on",
+      "usd": 22,
+      "perBooking": true,
+      "appliesTo": ["sunrise", "pre-wedding", "romantic-couple-shoot", "solo-photoshoot", "taj-agra-fort", "full-day"]
+    }
+  ],
   "ticketsShort": "Monument tickets not included — ₹50 (Indian) or ₹1,100 (foreign national), plus ₹200 for the mausoleum."
 }

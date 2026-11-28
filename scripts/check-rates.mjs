@@ -19,7 +19,7 @@ const data = JSON.parse(readFileSync(join(root, 'lib/packages.json'), 'utf8'));
 const { usdToInr, inrRoundTo } = data.meta;
 const toInr = (usd) => Math.round((usd * usdToInr) / inrRoundTo) * inrRoundTo;
 
-const packages = [...data.packages, ...(data.otherPackages ?? [])];
+const packages = [...data.packages, ...(data.otherPackages ?? []), ...(data.addOns ?? [])];
 const usdOk = new Set(packages.map((p) => p.usd));
 const inrOk = new Set(packages.map((p) => toInr(p.usd)));
 

@@ -6,6 +6,7 @@ import ContactForm from '@/components/ContactForm';
 import Price from '@/components/Price';
 import QuickBook from '@/components/QuickBook';
 import TajGuideNotice from '@/components/TajGuideNotice';
+import GuideAddOn from '@/components/GuideAddOn';
 import InrRateNote from '@/components/InrRateNote';
 import PackagePhotos from '@/components/PackagePhotos';
 import packagesData from '@/lib/packages.json';
@@ -487,7 +488,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
           <PackagePhotos planId={slug} />
 
-          {showsGuideNotice && <TajGuideNotice planId={slug} className="mb-12" />}
+          {showsGuideNotice && <TajGuideNotice planId={slug} className="mb-6" />}
+          <GuideAddOn planId={slug} className="mb-12" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">

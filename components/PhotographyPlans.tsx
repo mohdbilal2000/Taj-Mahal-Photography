@@ -1,5 +1,6 @@
 'use client';
 
+import GuideAddOn from './GuideAddOn';
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
@@ -213,6 +214,7 @@ export default function PhotographyPlans() {
                   <p className="text-xs text-ink-500 mb-4">
                     <strong>Best for:</strong> {plan.bestFor}
                   </p>
+                  <GuideAddOn planId={plan.id} compact className="mb-4" />
                   <Link
                     href={`/book?plan=${plan.id}`}
                     className={`block w-full text-center py-3 px-4 rounded-sm text-sm font-medium transition-colors ${

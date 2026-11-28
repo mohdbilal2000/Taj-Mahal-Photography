@@ -7,6 +7,7 @@ import MobileActionBar from '@/components/MobileActionBar';
 import Price from '@/components/Price';
 import { planImage } from '@/lib/images';
 import TajGuideNotice from '@/components/TajGuideNotice';
+import GuideAddOn from '@/components/GuideAddOn';
 import InrRateNote from '@/components/InrRateNote';
 import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
@@ -78,6 +79,7 @@ export default function SunriseServicePage() {
                 </p>
 
                 <TajGuideNotice planId="sunrise" className="mt-10" />
+                <GuideAddOn planId="sunrise" className="mt-6" />
 
                 <h3 className="font-serif text-2xl text-ink-900 mt-10 mb-4">What&apos;s Included</h3>
                 <ul className="space-y-2">

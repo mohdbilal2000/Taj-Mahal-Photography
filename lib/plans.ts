@@ -1,5 +1,6 @@
 import { planImage } from './images';
 import { usdOf } from './rates';
+import packagesData from './packages.json';
 
 // Single source of truth for bookable plans — consumed by the QuickBookRail,
 // the booking form (plan preselection via /book?plan=<id>) and anywhere else
@@ -118,6 +119,18 @@ export const PLANS: Plan[] = [
     duration: 'Same Day · 14–16 Hours',
   },
 ];
+
+/**
+ * The optional licensed-guide add-on: one flat fee per booking, offered only
+ * on plans that do not already include a guide. Price lives in packages.json.
+ */
+export const GUIDE_ADDON_USD = usdOf('guide-addon');
+const GUIDE_ADDON_IDS: string[] =
+  (packagesData as { addOns: { id: string; appliesTo: string[] }[] }).addOns.find(
+    (a) => a.id === 'guide-addon',
+  )?.appliesTo ?? [];
+export const offersGuideAddOn = (planId: string | null | undefined): boolean =>
+  Boolean(planId) && GUIDE_ADDON_IDS.includes(planById(planId)?.id ?? '');
 
 /** The 5 plans surfaced in the homepage quick-book rail. */
 export const QUICK_BOOK_IDS = [
